@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "804508867294",
+    "project_id": "sousjboss1",
+    "storage_bucket": "sousjboss1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:804508867294:android:9e4b11a9e1b6058982004f",
+        "android_client_info": {
+          "package_name": "com.dsy.dsu"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAIo9u8MiLQ15tj7uf3pNHNzl94NHqzl1U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

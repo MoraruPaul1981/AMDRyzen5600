@@ -1,0 +1,75 @@
+plugins {
+    id 'com.android.library'
+}
+
+android {
+    namespace 'com.sous.backasync'
+    compileSdk 34
+
+    defaultConfig {
+        minSdk 29
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            shrinkResources false
+
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled false
+            shrinkResources false
+
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    buildFeatures {
+        compose true
+    }
+
+
+
+
+}
+
+dependencies {
+
+    implementation 'androidx.appcompat:appcompat:1.7.0'
+    implementation 'com.google.android.material:material:1.12.0'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.2.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.1'
+
+    //TODO HINT Dagger2
+    implementation 'com.google.dagger:hilt-android:2.44'
+    annotationProcessor 'com.google.dagger:hilt-compiler:2.44'
+    androidTestImplementation  'com.google.dagger:hilt-android-testing:2.44'
+    androidTestAnnotationProcessor 'com.google.dagger:hilt-compiler:2.44'
+    testImplementation 'com.google.dagger:hilt-android-testing:2.44'
+    testAnnotationProcessor 'com.google.dagger:hilt-compiler:2.44'
+    api project(path: ':module-back')
+    implementation implementation(project(path: ':module-back'))
+
+//TODO new MOdules
+/*    implementation project(':back')
+    implementation project(':backasync')*/
+
+/*    implementation project(path: ':back')
+    implementation project(path: ':backasync')*/
+    //TODO new MOdules
+/*    implementation project(':app') // 'app' depends on 'app' !!!*/
+    // ...
+//    api project(path: ':back')
+//    implementation project(':back')
+
+}
+

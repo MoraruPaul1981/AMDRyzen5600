@@ -1,0 +1,310 @@
+
+
+
+
+plugins {
+
+    id "com.android.application"
+    id 'com.google.gms.google-services'
+    id 'com.google.dagger.hilt.android'
+
+
+}
+
+
+
+android {
+
+
+
+    signingConfigs {
+        debug {
+            storeFile file(getValueCertificate)
+            storePassword 'dsu1dsu1up'
+            keyAlias 'tabels_releases'
+            keyPassword 'dsu1dsu1down'
+        }
+        release {
+            storeFile file(getValueCertificate)
+            storePassword 'dsu1dsu1up'
+            keyAlias 'tabels_releases'
+            keyPassword 'dsu1dsu1down'
+        }
+    }
+
+    compileSdk 34
+
+    namespace 'com.dsy.dsu'
+
+    defaultConfig {
+        applicationId "com.dsy.dsu"
+        minSdk 29
+        targetSdk 34
+        versionCode 1050
+        versionName 'SousAvtodor Track 2025'
+
+        //TODO настройки уведомлений
+
+        manifestPlaceholders = [onesignal_app_id: "2a1819db-60c8-4ca3-a752-1b6cd9cadfa1",
+                                // Project number pulled from dashboard, local value is ignored.
+                                onesignal_google_project_number: "REMOTE"]
+        vectorDrawables {
+            useSupportLibrary true
+        }
+
+
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility  = JavaVersion.VERSION_17
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            shrinkResources false
+
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled false
+            shrinkResources false
+
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+
+
+    buildFeatures {
+        compose true
+    }
+
+
+
+
+
+
+
+    dynamicFeatures = []
+    sourceSets {
+        main {
+            res {
+                srcDirs 'src\\main\\res', 'src\\main\\java\\com\\dsy\\dsu\\BusinessLogicForApps\\new4Java'
+            }
+        }
+    }
+
+
+    buildFeatures {
+        compose true
+
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
+    buildToolsVersion '34.0.0'
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+dependencies {
+    //TODO ALL
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.preference:preference:1.1.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
+    implementation 'androidx.slice:slice-builders:1.0.0'
+    implementation 'org.chromium.net:cronet-embedded:106.5249.126'
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
+    implementation 'androidx.legacy:legacy-support-v13:1.0.0'
+    implementation 'androidx.activity:activity-compose:1.3.1'
+    ///todo matetialDisain
+    implementation 'com.google.android.material:material:1.1.0'
+    implementation 'com.google.android.material:material:1.1.0-alpha06'
+    implementation "androidx.drawerlayout:drawerlayout:1.1.1"
+    implementation 'androidx.fragment:fragment:1.5.4'
+    implementation 'com.android.support:design:23.4.0'
+
+    implementation 'com.android.support.constraint:constraint-layout:2.0.0-alpha2'
+    implementation 'com.android.support:multidex:1.0.3'
+
+    /////ДЛЯ СФАЙПЕВ
+    implementation 'com.r0adkll:slidableactivity:2.0.6'
+    ////загрузка
+
+    //TODO Annotation
+    implementation 'androidx.annotation:annotation:1.8.2'
+    //TODO Клавиатцура
+    ////для подяитие или оопускания клавиатуры
+    implementation 'net.yslibrary.keyboardvisibilityevent:keyboardvisibilityevent:2.1.0'
+    implementation 'androidx.localbroadcastmanager:localbroadcastmanager:1.1.0'
+
+    /////TODO Workmanager
+    implementation 'androidx.work:work-runtime:2.9.1'
+    implementation 'androidx.work:work-runtime-ktx:2.9.1'
+    implementation project(':app:module-tabels')
+    implementation 'androidx.cardview:cardview:1.0.0'
+    testImplementation 'androidx.work:work-testing:2.9.1'
+    implementation "androidx.work:work-multiprocess:2.9.1"
+
+    //TODO lifecycle
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.5.1'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.3.1'
+
+    //TODO compose
+    def compose_version = "1.6.8"
+    implementation "androidx.compose.ui:ui:$compose_version"
+    implementation "androidx.compose.ui:ui-tooling-preview:$compose_version"
+    implementation 'androidx.compose.material3:material3:1.0.0-alpha11'
+    implementation 'com.android.car.ui:car-ui-lib:2.0.0'
+    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
+    debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
+    debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_version"
+
+    // TODO navigation
+    implementation "androidx.navigation:navigation-ui:2.8.1"
+    // Testing Navigation
+    androidTestImplementation "androidx.navigation:navigation-testing:2.8.1"
+    // Jetpack Compose Integration
+    implementation "androidx.navigation:navigation-compose:2.8.1"
+    // Feature module Support
+    implementation "androidx.navigation:navigation-fragment:2.8.1"
+    implementation "androidx.navigation:navigation-dynamic-features-fragment:2.8.1"
+
+
+    //TODO TEST UNIT
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    //TODO GOOGLE
+    implementation 'com.google.firebase:firebase-crashlytics-buildtools:3.0.2'
+    implementation   'com.google.gms:google-services:4.4.2'
+    implementation   'com.google.firebase:firebase-bom:33.2.0'
+    implementation 'com.google.firebase:firebase-messaging-directboot:24.0.1'
+    implementation   'com.google.firebase:firebase-messaging:24.0.1'
+    //TODO new Firebase
+    implementation platform('com.google.firebase:firebase-bom:33.2.0')
+    implementation 'com.google.firebase:firebase-analytics'
+
+    //TODO работа с сетью
+    implementation 'com.squareup.okhttp3:okhttp:4.12.0'
+
+    //TODO jackson
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.14.2'
+    implementation 'com.fasterxml.jackson.core:jackson-core:2.14.2'
+    implementation 'com.fasterxml.jackson.core:jackson-annotations:2.14.2'
+    implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-cbor:2.14.2'
+
+// https://mvnrepository.com/artifact/androidx.gridlayout/gridlayout
+    implementation 'androidx.gridlayout:gridlayout:1.0.0-rc01'
+
+
+//TODO GSON
+    // https://mvnrepository.com/artifact/com.google.code.gson/gson
+    implementation 'com.google.code.gson:gson:2.11.0'
+
+
+//TODO CameraX
+    def camera_version = "1.2.3"
+    implementation "androidx.camera:camera-core:$camera_version"
+    implementation "androidx.camera:camera-camera2:$camera_version"
+    implementation "androidx.camera:camera-view:$camera_version"
+    implementation "androidx.camera:camera-lifecycle:$camera_version"
+    implementation "androidx.camera:camera-extensions:$camera_version"
+    implementation 'com.otaliastudios:cameraview:2.7.2'
+    //TODO RXJAVA
+    def rxjava_version = "3.0.2"
+    implementation "io.reactivex.rxjava3:rxandroid:$rxjava_version"
+    implementation "io.reactivex.rxjava3:rxjava:$rxjava_version"
+    ///TODO RXJAVA BLE
+    implementation "com.polidea.rxandroidble3:rxandroidble:1.17.2"
+    //TODO binding
+    implementation 'com.jakewharton.rxbinding4:rxbinding:4.0.0'
+    //TODO matrrisl disain
+    implementation 'com.google.android.material:material:1.1.0-alpha09'
+
+
+    // TODO ROOM
+    def room_version = "2.5.0"
+    implementation "androidx.room:room-runtime:$room_version"
+    annotationProcessor "androidx.room:room-compiler:$room_version"
+    implementation "androidx.room:room-rxjava3:$room_version"
+    implementation "androidx.room:room-rxjava3:$room_version"
+
+//TODO HINT Dagger2
+    implementation 'com.google.dagger:hilt-android:2.44'
+    annotationProcessor 'com.google.dagger:hilt-compiler:2.44'
+    androidTestImplementation  'com.google.dagger:hilt-android-testing:2.44'
+    androidTestAnnotationProcessor 'com.google.dagger:hilt-compiler:2.44'
+    testImplementation 'com.google.dagger:hilt-android-testing:2.44'
+    testAnnotationProcessor 'com.google.dagger:hilt-compiler:2.44'
+    //TODO annotations
+    implementation 'com.android.support:support-annotations:28.0.0'
+    //TODO annotations NestedScrollView
+    implementation 'androidx.core:core:1.9.0'
+    //TODO viewmodel mvmw
+    implementation group: 'androidx.lifecycle', name: 'lifecycle-viewmodel', version: '2.5.0'
+    implementation group: 'androidx.lifecycle', name: 'lifecycle-viewmodel-savedstate', version: '2.5.0'
+    implementation group: 'androidx.lifecycle', name: 'lifecycle-livedata', version: '2.5.0'
+    implementation group: 'androidx.lifecycle', name: 'lifecycle-extensions', version: '2.2.0'
+    annotationProcessor "android.arch.lifecycle:compiler:1.1.1"
+
+/*    TODO EventBus*/
+    implementation 'org.greenrobot:eventbus:3.1.1'
+
+
+    /*    TODO Unit*/
+    testImplementation 'junit:junit:4.13.2'
+    //TODO OneSignal
+    implementation 'com.onesignal:OneSignal:4.8.3'
+    //TODO STARTING
+    implementation 'androidx.startup:startup-runtime:1.2.0'
+// https://mvnrepository.com/artifact/io.github.sgpublic/MultiWaveHeader
+    implementation 'io.github.sgpublic:MultiWaveHeader:1.0.2'
+
+    implementation "androidx.cardview:cardview:1.0.0"
+    api project(path: ':module-database-op')
+    implementation implementation(project(path: ':module-database-op'))
+    api project(path: ':module-back')
+    implementation implementation(project(path: ':module-back'))
+    api project(path: ':app:module-tabels')
+    implementation implementation(project(path: ':app:module-tabels'))
+
+//TODO new MOdules
+/*    implementation project(':back')
+    implementation project(':backasync')*/
+
+/*    implementation project(path: ':back')
+    implementation project(path: ':backasync')*/
+    //TODO new MOdules
+/*    implementation project(':app') // 'app' depends on 'app' !!!*/
+    // ...
+
+
+}
+
+
