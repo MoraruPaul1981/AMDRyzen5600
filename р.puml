@@ -1,0 +1,1348 @@
+@startuml
+class com.dsy.dsu.data.LoginRepository {
+- {static} LoginRepository instance
+- LoginDataSource dataSource
+- LoggedInUser user
++ {static} LoginRepository getInstance(LoginDataSource)
++ boolean isLoggedIn()
++ void logout()
+- void setLoggedInUser(LoggedInUser)
++ Result<LoggedInUser> login(String,String)
+}
+class com.dsy.dsu.Fragment_СообщенияЧата {
+~ View viewДляСообщений
+~ ListView ЛистВьюДляСообщенийЧата
+~ Cursor КурсорДанныеДляСообщенийЧата
+~ Cursor Курсор_ИщемСтатусХотьестьОДинНольНЕПрочттаноеСообщениевЧате
+~ TextView ТекстВиюВьюДляСообщенийЧатаКогдаНетДанных
+~ FloatingActionButton floatingActionButtonФрагментСообщение
+- int ПолученыйIDДляЧата
+- TextView textViewФрагментСообщенияНазваниеЧАты
+- View viewФрагментСообщенияНазваниеЧАты
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
++ void onStart()
+}
+class com.dsy.dsu.Fragment_СообщенияЧата.VIEW {
+- void МетодЗаполенияПервогоФрагментаДаннымиСообщения()
+}
+class com.dsy.dsu.Fragment_СообщенияЧата.CONTROLLER {
+- String ПолученыйФИОIDДляЧата
++ void onItemClick(AdapterView<?>,View,int,long)
+- void МетодКруглаяКнопкаНаФрагментеЧитатьПисать()
+}
+class com.dsy.dsu.Fragment_СообщенияЧата.MODEL {
+- Cursor МетодПолучениеДанныхДляФрагментаСообщенияЧата(String)
+~ String МетодПолучениеФИОНАОснованииIDВыбранногоСотрудника(int)
+}
+class com.dsy.dsu.ClassActityty {
+~ void modd()
+}
+class com.dsy.dsu.MainActivity_VIEWERRORS {
+~ TextView КонтейнерКудаЗагружаеютьсяОшибкиПрилоджения
+~ StringBuffer БуерДляОшибок
+~ Cursor[] Курсор_СамиДанные_Error
+# void onCreate(Bundle)
+# void onStop()
+# void onDestroy()
++ void onResume()
+# void МетодПросмотраОшибокПриложения()
+# void МетодЗапускаAsynTaskОшибки(int,Cursor)
++ void МетодСозданиеДиалогаКлассЛогин(String,String)
+}
+class com.dsy.dsu.Fragment_КонтактыЧата {
+~ View viewДляКонтактов
+~ ListView ЛистВьюДляКонтактыЧата
+~ Cursor КурсорДанныеДляКонтактовЧата
+- int ПолученыйIDДляЧата
++ void onDestroyView()
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
+}
+class com.dsy.dsu.Fragment_КонтактыЧата.VIEW {
+}
+class com.dsy.dsu.Fragment_КонтактыЧата.CONTROLLER {
+- String ПолученыйФИОIDДляЧата
++ void onItemClick(AdapterView<?>,View,int,long)
+}
+class com.dsy.dsu.Fragment_КонтактыЧата.MODEL {
+- void МетодЗагрузкиДанныхДляФрагентаКонтакты()
+- Cursor МетодПолучениеДанныхДляФрагментаСообщенияЧата(String)
+}
+class com.dsy.dsu.Fragment_КонтактыЧата.MainAdapter {
+~ ArrayList<String> stringArrayList
+~ List<Fragment> fragmentList
++ void addFragment(Fragment,String)
++ Fragment getItem(int)
++ int getCount()
++ CharSequence getPageTitle(int)
+}
+class com.dsy.dsu.data.Result {
++ String toString()
+}
+class com.dsy.dsu.data.Result.Success {
+- T data
++ T getData()
+}
+class com.dsy.dsu.data.Result.Error {
+- Exception error
++ Exception getError()
+}
+class com.dsy.dsu.ClassSendErros {
+~ Activity contextПосылаепмВставку
+~ void МетодПослываемОшибкиАдминистаторуПо(StringBuffer)
+}
+class com.dsy.dsu.MainActivity_Status_Value_Tabels {
+~ Configuration config
+# ScrollView ГлавныйКонтейнерДляПосикаТабелей
+# View КонтентТабеляКоторыйМыИБудемЗаполнятьВнутриЦиклаДляПоиска
+~ List<String> АрайЛИстФИОВсеДляМетокТабеля
+~ Map<Long,String> ХэшФИОДляПосикаМетокТабеля
+~ ArrayAdapter<String> АдаптерДляСпинераДата
+~ Integer ИндексСтрокКомпонентовТабеля
+# EditText ЗначениеУстановкиМеткиТАбеляИзменяетПользоатель
+~ String ДепартаментТабеляФинал
+~ String UUIDТабеляФинал
+~ String МесяцТабеляФинал
+~ String ГодВырезалиИзБуфераТабель
+~ String ПолноеНазваниеЗагруженногТАбеля
+~ String МЕсяцДляКурсораТабелей
+~ String ГодДляКурсораТабелей
+~ int МЕсяцПриВставкеНовогоСотрудника
+~ int ГодПриВставкеНовогоСотрудника
+# ListView ЛистСДаннымиМеткиТаебля
+~ long РезультатВставкиНовогоТабеляЧерезКонтрейнерТаблицыТабельОбновление
+~ long РезультатВставкиНовогоТабеляЧерезКонтрейнерТаблицыТабель
+# Button КнопкаНазадМеткаТабеля
+~ Cursor Курсор_ПолучаемВсюТаюлицуМетоккТабелю
+~ Context КонтекстДляАктивтиМетокТабеля
+~ ScrollView ГлавныйКойтейнерПоискаФИОСотрудника
+~ HashMap<String,Long> ХэшЛовимUUIDIDНазваниеСтолбикаЛокальный
+~ int IDЧьиДанныеДляСотрудников
+~ int ЦифровоеИмяНовгоТабеля
+~ String ПолноеИмяТабеляПослеСозданиеНовогоСотрудника
+~ Long UUIDТабеляПослеУспешногоСозданиеСотрудникаВсехСотридников
+- TextWatcher СлушательПолученияДанных
+# View КонтентТабеляКоторыйМыИБудемЗаполнятьВнутриЦикла
+# void onCreate(Bundle)
+# void onPause()
+# void onStop()
+# void onResume()
+# void onDestroy()
+- void МетодПриНАжатииНаКнопкуBACK()
+- void МетодПолучениеДАнныхЧерезИнтрентДляУстановкиСловаВЯчейкутабеля()
+- void МетодПолучениеДанныхИзБазыДляДляЗаполениеСотрудниковТабеляЧкерезПоиск(String)
+- void МетодЗаполненияАктивтиДаннымиИзБазыДляЗаполенияМетокТабеля()
+- void МетодОбработкиКликаПоЯчейкамСотрудникаВыбранным()
+- void МетодРаботуКнопкиКотораяОтправляетПодобранныхСотрудников()
+- void МетодЗапускаетьсяПослеУспешнойВставкиМеткивТабель()
+- void МетодЗапускаВставкиВыбраннойМеткиТабеляВГотовыйТабель()
+- void МетодОпределенияВставкиВыбранойМеткиТабеляЧерезПоиск(long,String)
+~ Long МетодПолучениеОрганизацииНепосрдственодляДанногоСОтрудника()
+- void МетодЗаполенияАрайЛистаИХэшМэпаДляПосикаПоМетокТабеля(String,String,Long)
++ String МетодГенерацииUUID()
+- int МетодПолучениниеМесяцПриСозданииНовогоСОтрудника(String)
+- int МетодПолучениниеГОдПриСозданииНовогоСОтрудника(String)
++ String ГлавнаяДатаИВремяОперацийСБазойДанных()
+- void МетодФинальныйКоторыйОтправлетДванныеДругомуАктивти()
+}
+class com.dsy.dsu.MainActivity_Status_Value_Tabels.СоздаемСвойАдаптерДляГридМюу {
++ int getCount()
++ Object getItem(int)
++ long getItemId(int)
++ View getView(int,View,ViewGroup)
+}
+class com.dsy.dsu.Service_Синхронизация {
++ int onStartCommand(Intent,int,int)
++ void onCreate()
++ void onDestroy()
+- void МетодЗапускаЛокальнойСинхронизацииЛокальная(String,Context)
+- void МетодЗапускаЛокальнойСинхронизацииВнутриТабеля(String)
+- void МетодЗапускаОбщаяФоноваяСинхронизации(String)
++ IBinder onBind(Intent)
+}
+class com.dsy.dsu.Service_Уведомления {
+~ NotificationManager mNotificationManager
+~ NotificationCompat.Builder builder
+~ SimpleDateFormat ФоорматДат
+~ StringBuffer БуферСамиУведомленияЛинкСамиУведомления
+~ int ID_ТаблицаУвендомлений
+~ Intent ИнтентДляЗапускаСлужбыПолсеАнализа
+~ Boolean РезультатНужноЗапускатьУведомленияИлиНет
+- String PROCESS_ID
+- {static} AlarmManager alarmManager
++ void onCreate()
++ int onStartCommand(Intent,int,int)
++ void onDestroy()
+- void МетодПовторногоЗапускаШироковещательногоПриемника()
++ IBinder onBind(Intent)
+- void МетодЗапускаСлужбыУведомления(Intent)
+- void МетодЗарускаСозданиеУведомлений(Intent,String)
+- void МетодКоторыйЗапускаетУвеломленияПослеАнализа(Intent,boolean,String)
+- void МетодНотификайшен(String)
+- boolean МетодВычисляемСтоитСоздаватьИЗапускатьСлужбуНапоминаний(String)
+- void МетодПолучениеДатыПослеПолучениеПравСотрудникаДляУведомления(int)
+- boolean МетодЗаписиВБазуАндройдаНовуюДатуДЛяСлужбыУведомления(int,String,int)
+~ Cursor КурсорУниверсальныйДляБазыДанныхДляСлужбы(String,String,String,String[],String,String,String,String)
+}
+class com.dsy.dsu.Business_logic_Only_Class.PUBLIC_CONTENT {
++ {static} boolean Отладка
++ {static} String ПубличноеИмяПользовательДлСервлета
++ {static} String ПубличноеПарольДлСервлета
++ {static} int DEFAULT_COMPRESSION
++ {static} String ПубличноеIDПолученныйИзСервлетаДляUUID
+~ {static} ArrayList<String> ИменаТаблицыОтАндройда
+~ {static} ArrayList<String> ИменаПроектовОтСервера
+~ {static} LinkedHashMap<String,String> ДатыТаблицыВерсииДанныхОтСервера
++ {static} String ФильтрДляДанныхЯвляетьсяЛиНулевойЗапускКлиента
++ {static} String МакАдресТелефона
+~ {static} int КоличествоУспешныхОбновлений
+~ {static} int КоличествоУспешныхВставки
+~ {static} int НейтральноеСостояниеБазДанныхСервераИлиКлиента
+~ {static} String ПУбличныйИмяТаблицыОтАндройда
+~ {static} int ОбщееКоличествоТаблиц
+~ {static} boolean ФлагЗапущеноЛиАктивитиFaceapp
+~ {static} SecretKey ГлавныйКлючДляШифрованиеИРасшифровки
+~ {static} Cipher ПолитикаШифрование
+~ {static} Cipher ПолитикаРасшифровки
+~ {static} String ПубличныйАдресGlassFish
+~ {static} int СколькоСтрочекJSON
+~ {static} int СколькоСтрочекJSONПоКонкретнойТаблице
+~ {static} String ПУбличныйДанныеПришёлЛиIDДЛяГенерацииUUID
+~ {static} String ЦифровоеИмяНовгоТабеля
+~ {static} String МетодГенерацииUUIDУжеСуществующегоСотрудника
+~ {static} boolean ФлагЧтоВставкаВТАлицуTemplesУжеБылаОдинРазИБольшеНеНадо
+~ {static} Context КонтекстСотрудникиДляТабеляДлясинхронизации
+~ {static} List<String> АрайЛИстФИОВсеДляПосикаПослеПосика
+~ {static} List<String> АрайЛИсТОлькоСписокСотрудниковВТабелеОдном
+~ {static} DownloadManager downloadmanager
+~ {static} DownloadManager downloadmanagerAPK
+~ {static} long downloadId
+~ {static} boolean ФлагЧтоЗаблокированТекущийПользователь
+~ {static} String ЛокальнаяВерсияПО
+~ {static} StringBuffer ЗаписьОшибковВстврочку
+~ {static} boolean СтатусМенеджераПотоковФонового
++ {static} String BROADCAST
+}
+class com.dsy.dsu.КлассВставкиОшибок {
++ {static} КлассВставкиОшибок Ссылка_КлассВставкиОшибок
+~ Context contextДляОшибок
++ void MessageBoxErrorFile(String,String,String,Integer)
++ {static} String ГлавнаяДатаИВремяОперацийСБазой()
++ {static} String ГлавнаяДатаИВремяОперацийСБазойДляЖурналаОшибок()
++ {static} String ПриФатальнойОшибки()
+}
+class com.dsy.dsu.For_Code_Settings_DSU1.MainActivity_Settings {
+~ LinkedHashMap<String,String> ХэшДанныеИзБазыДляЗАполенияСпинеровыОрганизация
+# Spinner СпинерВыборОрганизации
+~ Cursor Курсор_СамиДанные_Logins
+- int ЕстьСтроки
+~ Button imageViewСтрелкаВнутриНастроек
+~ Spinner СпинерДляСозданииОрганизации
+~ Switch СвичДляWIFI
+~ Context КонтекстWIFI
+~ {static} Context КонтекстWIFIВнешний
+~ TextView textViewИмяПрограммы
+~ TextView textViewВерсияПрограммы
+~ TextView textViewТекущийПользователь
+~ TextView textViewВремяПоследнееСинхронизации
+~ int ПубличныйIDДляорганизацции
+~ String ДатаДляОбновлениеОргназации
+# void onCreate(Bundle)
+- void методВычисляетПоследнуюДатуСинхронищацииССервром()
+# void onDestroy()
+# void onRestart()
+- void МетодОбработкиСвичаДляWIFI()
+- void МетодОбработкиСвичаАвтоматическогоДобавлениямМеткуВыходныхДней()
+- int МетодЗаписиПолученойОрганизацииВТАблицу(String)
+- ContentValues МетодЗаполенияДаннымиПриВставкеОрганизации(int)
+- void МетодСозданиеКодBACK()
+- void МетодСозданиеСпинераОрганизации()
+~ ArrayList<String> МетодЗаполненияНазваниеОрганизации(String,String)
+- void МетодЗаполенияАктивтиНастройки(Cursor[],ArrayList<String>)
+- void МетодКоторыйСортируетАрайЛистПоУсловияКакаяОрганизацияУжеВыбрана(ArrayList<String>)
++ String ГлавнаяДатаИВремяОперацийСБазойДанных()
+}
+class com.dsy.dsu.MyWork_Синхронизация_Локального {
+~ Context Контекст
++ void onStopped()
++ Result doWork()
+}
+class com.dsy.dsu.Code_ForTABEL.MainActivity_Find_Customers {
+~ Configuration config
+# ScrollView ГлавныйКонтейнерДляПосикаТабелей
+# View КонтентТабеляКоторыйМыИБудемЗаполнятьВнутриЦиклаДляПоиска
+~ List<String> АрайЛИстФИОВсеДляПосика
+~ Map<Long,String> ХэшФИОВсеДляПосика
+~ String МетодГенерацииUUIDУжеСуществующегоСотрудника
+~ ArrayAdapter<String> АдаптерДляСпинераДата
+# ProgressDialog progressDialog
+~ String finalПоискФИОЧерезLIKE
+~ Integer ИндексСтрокКомпонентовТабеля
+# Button КнопкаОтправкиСотрудникаДляТабеля
+# EditText ЗначениеПоискаФИОИзменяетПользоатель
+~ String ДепартаментТабеляФинал
+~ String UUIDТабеляФинал
+~ String МесяцТабеляФинал
+~ String ГодВырезалиИзБуфераТабель
+~ String ПолноеНазваниеЗагруженногТАбеля
+~ String МЕсяцДляКурсораТабелей
+~ String ГодДляКурсораТабелей
+~ String ЦифровоеИмяНовгоТабеля
+~ int МЕсяцПриВставкеНовогоСотрудника
+~ int ГодПриВставкеНовогоСотрудника
+~ ListView ЛистСДаннымиФИО
+~ long РезультатВставкиНовогоТабеляЧерезКонтрейнерТаблицыТабельОбновление
+~ long РезультатВставкиНовогоТабеляЧерезКонтрейнерТаблицыТабель
+# Button КнопкаНазад
+~ Cursor Курсор_ПолучаемВсюТаюлицуФИОДляПосикаТабеля
+~ {static} Context КонтекстДляАктивтиПосикаСотрудников
+~ ScrollView ГлавныйКойтейнерПоискаФИОСотрудника
+~ String ПоученыйУжеСущетсвующийЭлектронноеИмяТабеля
+- TextWatcher СлушательПолученияДанных
+# View КонтентТабеляКоторыйМыИБудемЗаполнятьВнутриЦикла
+# void onCreate(Bundle)
+# void onDestroy()
+# void onStop()
+# void onStart()
+- void МетодПриНАжатииНаКнопкуBACK()
+- void МетодПолучениеДАнныхЧерезИнтрентДляПосикаСотрудника()
+- void МетодПолучениеДанныхИзБазыДляДляЗаполениеСотрудниковТабеляЧкерезПоиск(String)
+- void МетодЗаполненияАктивтиДаннымиИзБазыДляПосикаПоФИО()
+- void МетодФинальнойВставкиДАнныхДляПосикаСотрудников()
+- void МетодОбработкиКликаПоЯчейкамСотрудникаВыбранным()
+- void МетодРаботуКнопкиКотораяОтправляетПодобранныхСотрудников()
+# void СообщениеКотороеСпрашиваетТочноЛиНужноСоздатьНовогоСотрудника(String,String,boolean)
+- void МетодЗапускаВставкиВыбраногоСотрудникаВГотовыйТабель()
+- Long МетодОпределенияВставкиУжеСущетсвующегоСотрудникаЧерезПоиск(long,String)
+- void МетодЗаполенияАрайЛистаИХэшМэпаДляПосикаПоФИО(String,String,long,String,String)
++ String МетодГенерацииUUID()
+- int МетодПолучениниеМесяцПриСозданииНовогоСОтрудника(String)
+- int МетодПолучениниеГОдПриСозданииНовогоСОтрудника(String)
++ String ГлавнаяДатаИВремяОперацийСБазойДанных()
+# void СообщениеСообщаетОСоздаенииНовогоСотрудника(String,String,boolean)
+- void МетодФинальныйКоторыйОтправлетДванныеДругомуАктивти()
+- void МетодТретийАвтоматическаяВставкаВыходныхДней(Long,int,int)
+}
+class com.dsy.dsu.Code_ForTABEL.MainActivity_Find_Customers.СоздаемСвойАдаптерДляГридМюу {
++ int getCount()
++ Object getItem(int)
++ long getItemId(int)
++ View getView(int,View,ViewGroup)
+}
+class com.dsy.dsu.Code_ForTABEL.MainActivity_New_Tabely {
+# EditText ПолеПочты
+# Button КнопкаСохранениеНовогоТабеляЗаписиВИторию
+# EditText ПолеФИО
+# Spinner СпинерВыборЦФО
+~ String ПолученноеЗначениеИзСпинераЦФО
+~ String ПолученнаяДатаОтДруговаИнтрентаДляСозданиеТабеля
+- String СтатусВставкиЛогина
+# Button КнопкаСозданиеТабеля
+~ String ПолученноеТекущееЗначениеСпинераЦФО
+~ String ПолученноеТекущееЗначениеСпинераПодразделения
+~ {static} String ПубличноеИмяНовогоТабеля
+~ Button КнопкаНазадПриСозданииНовогоТабеля
+~ String ПолученноеТекущееЗначениеСпинераДата
+~ LinkedHashMap<String,String> ХэшДанныеИзБазыДляЗАполенияСпинеровыСФО
+~ LinkedHashMap<String,String> ХэшДанныеИзБазыДляЗАполенияСпинеровыДепартамент
+~ String МесяцВырезалиИзБуфераТабель
+~ String ГодВырезалиИзБуфераТабель
+~ String ПолученныйГодДляНовогоТабеля
+~ String ФинальнаяМЕсяцДляНовогоТабеля
+~ String ПолноеИмяТабеляПослеСозданиеНовогоСотрудника
+~ String IDДляЗаполенияСпинера
+~ {static} String СгенерированныйUUIDДляНовогоТабеля
+~ String ПолученноеТекущееЗначениеСпинераЦФОфинал
+~ Context Контекст
+# long ЦифровоеИмяНовгоТабеля
+# int ПУБЛИЧНЫЙIDИЗТАБЛИЦЫСпинераЦФО
+~ HashMap<Integer,Integer> ХэшДляПубличногоIDДляСозданиеТабеля
+# void onCreate(Bundle)
+# void onDestroy()
+~ void МетодПолученогоИОтправленогоКонтента()
+- void МетодСозданиеКодBACK()
+- void МетодСозданиеТабеля()
+- void МетодПереходаНаСозданныйТабельсНовымМесяцем()
+# void МетодЗаполениеБазыДанныхПолученнымиНовымиСведениямиНовогоТабеля(String,String)
+- boolean МетодПроверяемЕслиТакойНазваниеТабеляВБазеУжеЕсть(String,String,int)
+- void МетодИзОбщиеДатыОтТабеляДелимНаМесяциГодОтдельно()
+- void МетодСозданиеСпинеровДляВыбораЦФОИТД()
+~ ArrayList<String> МетодЗаполненияДляТабеляСпинераДаннымиИзБазы(String,String)
++ String ГлавнаяДатаИВремяОперацийСБазойДанных()
+# void СообщениеФинальноеКотороеСообщаетПользователюВстакиНовгоТАбеля(String,String,boolean)
+~ void МетодПослеСозданеиУспешногоТабеля()
++ String ГлавнаяДатаИВремяДляТабеля()
+- int МетодПолучениниеМесяцДляОпределенияЕслиТАкойТАбельВБазеКлиента(String)
+- int МетодПолучениниеГодЕслиТАкойТАбельВБазеКлиент(String)
++ String МетодГенерацииUUID()
+~ int МетодПолучениеОрганизацииНепосрдственодляДанногоID()
+}
+class com.dsy.dsu.Service_ОбновлениеПО {
+~ String ТипПодключенияИнтернтаДляСлужбы
+~ Integer СервернаяВерсияПОВнутри
+~ Integer ЛокальнаяВерсияПО
++ void onCreate()
++ int onStartCommand(Intent,int,int)
+~ void МетодНачалаЗапускаОбновленияПО()
+- void МетодДополнительногоУдалениеФайлов()
+- void МетодКоторыйЗапускаетОбновлениеПООтложенныйЗапускна10Секунд()
+- void МетодОпределнияВерсийПОСервераКлиентаИПринятиеРешенияНаСкачиваниеОбновлениеПО()
+- void МетодОценкииСетиПередЗагрузкойAPKсСервера()
+- void МетодАнализаВерсииПОJSON()
+# void МетодЗагрузкиФайлаAPK()
+- void МетодНепостредственннойЗагрузкиAPKФайлов(File,PackageInfo)
+~ boolean УниверсальнайМетодПроверкиПодключениекWIFIДляСлужбы(Context)
+- String МетодОпределяемКакойТипПодключениеWIFIилиMobileДляСлужбы(Context)
++ void onDestroy()
++ IBinder onBind(Intent)
+# void СообщениеКотороеСообщаетПользователюЧТоНАлдоУстановитьНовуюВерисюПО()
+- void МетодВизуалиацииПОлученогоОбновлениеПО(Activity)
+}
+class com.dsy.dsu.MainActivity_history_chat {
+~ FragmentManager fragmentManager
+~ FragmentTransaction fragmentTransaction
+~ String РежимЗапускаАктивтиЧата
+~ int ПолученыйIDДляЧата
+~ String ПолученыйФИОIDДляЧата
+~ HashMap<String,Object> ХэщЗапусАктивтиИзФрагмента
+# void onCreate(Bundle)
+# void onStart()
+}
+class com.dsy.dsu.MainActivity_history_chat.CONTROLLER {
+}
+class com.dsy.dsu.MainActivity_history_chat.MainAdapter {
+~ ArrayList<String> stringArrayList
+~ List<Fragment> fragmentList
++ void addFragment(Fragment,String)
++ Fragment getItem(int)
++ int getCount()
++ CharSequence getPageTitle(int)
+}
+class com.dsy.dsu.MainActivity_history_chat.MODEL {
+}
+class com.dsy.dsu.MainActivity_history_chat.VIEW {
+- void МетодОтображаетьсяДваФрагмента(FragmentManager)
+- void МетодОдинОтображаетьсяФрагмента(FragmentManager)
+- void МетодОдинОтображаетьсяФрагментаПовторноеЗапускКонтактом(FragmentManager)
+}
+class com.dsy.dsu.MyWorkОбновлениеПО {
+~ Context Контекст
++ void onStopped()
++ Result doWork()
+}
+class com.dsy.dsu.MainActivity_FACE_APP {
+# Button КнопкаТабельныйУчёт
+~ ImageView imageView_ЗначекApp
+# Button ТекстПриложения
+# ScrollView ScrollFaceAppСкорол
+- {static} AlarmManager alarmManager
+# LinearLayout LinearLayoutFaceApp
+~ boolean РежимыПросмотраДанныхЭкрана
+~ {static} Context КонтекстFaceAppВнешний
+~ Context КонтекстFaceApp
+# void onCreate(Bundle)
+- void МетодЗапускаСлужбВШировоВещятелеУведомления()
+# void onDestroy()
+# void onRestart()
+# void onStop()
+- void МетодНажатиеЗначекAPP()
+~ void МетодЗапускаАктивити()
++ boolean onCreateOptionsMenu(Menu)
++ boolean onOptionsItemSelected(MenuItem)
+- void МетодДополнительногоУдалениеФайлов()
+# void МетодДиалогаДляМеню(String,String)
+- void МетодОчисткиТаблиц()
+- void МетодТестовыйЗапускВизуальноФайлаApK()
+- void МетодЗапускДляАнализаОбновленияПО()
+}
+class com.dsy.dsu.Business_logic_Only_Class.DataBases.CREATE_DATABASE {
+- {static} int VERSION
+~ Context contextСозданиеБАзы
++ {static} SQLiteDatabase ССылкаНаСозданнуюБазу
+~ ReentrantLock reentrantLock
+~ CountDownLatch countDownLatchСозданиеБАзы
++ void onOpen(SQLiteDatabase)
++ void onCreate(SQLiteDatabase)
+- void методСозданиеТаблицыМодификацияДанныхКлиента(SQLiteDatabase)
+- void МетодСозданияПольЗовательДЛяЧата(SQLiteDatabase)
+- void МетодСозданияТаблицыData_Chat(SQLiteDatabase)
+- void МетодСозданияТаблицаChats(SQLiteDatabase)
+- void МетодСозданияВидаЧатаViewChat(SQLiteDatabase)
+- void МетодСозданияViewТабеля(SQLiteDatabase)
+- void МетодСозданияТаблицыТабель(SQLiteDatabase)
+- void МетодСозданиеТаблицыФИО(SQLiteDatabase)
+- void МетодСозданиеМетокТабеля(SQLiteDatabase)
+- void МетодСозданиеТаблицыЛогинов(SQLiteDatabase)
+- void МетодСозданиеOLD_ТаблицыОшибок(SQLiteDatabase)
+- void МетодСозданиеТаблицыОшибок(SQLiteDatabase)
++ void onUpgrade(SQLiteDatabase,int,int)
++ void onDowngrade(SQLiteDatabase,int,int)
++ String ГлавнаяДатаИВремяОперацийСБазойДанных()
++ void ОчисткаТаблицысЗаписьюВMODIFITATION_Client(String,boolean)
++ void ОчисткаВнутреннейТаблицы(String)
++ void ОчисткаТаблицДляПользователя()
+}
+class com.dsy.dsu.MyWork_Синхронизация_ВнутриТабеля {
+~ Context Контекст
++ void onStopped()
++ Result doWork()
+}
+class com.dsy.dsu.data.model.LoggedInUser {
+- String userId
+- String displayName
++ String getUserId()
++ String getDisplayName()
+}
+class com.dsy.dsu.MainActivity_Sinfrozisaziy_Prograssbar {
+~ ProgressBar progressBarСинх
+~ {static} ProgressBar progressBar3ГоризонтальныйСинхронизации
+~ {static} TextView ТекстВидBarСинх
+~ Activity КонтекстДляСинхронизацииОбмена
+# Date ДатаДляИзмененияВерсииДанныхНаАндройде
+~ TextView textViewТекущийПользовательПРиВизуальнойСинхронизации
+~ boolean АктивитиПослеСинхронизацииЗапускалиИлиНет
+# void onCreate(Bundle)
+# void onStop()
+# void onDestroy()
+# void onRestart()
++ void onBackPressed()
+- String МетодКоторыйПреобразуетЦифрыТекущейТаблицыВПроценты(int)
+}
+class com.dsy.dsu.MainActivity_Sinfrozisaziy_Prograssbar.Visual_synchronization_Executor {
+~    cachedThreadPoolВизуальнаяСинхронизация
+~ void МетодНачалоВизуальнойСинхронизацииИзАктивтиExecutor()
+~ void МетодДоНачалаСинхрониазцииExecutor()
+~ void МетодВнутриПотокаСинхронизации()
+- Integer MethodSystemTableFillingForSynchronization()
+- long МетодЗАписываетНовуюДатуКогдаКлиентУспешноЗАходилВПрорамму()
+- boolean МетодВЫчисляемВсеТаблицыВнутриКлинета(String)
+- void МетодВнутриГлавногоAsyncTaskLoderВозвратОбратновUI()
++ void МетодПослеПотокаСинхронизации()
+}
+class com.dsy.dsu.MainActivity_history_chat_test {
+~ Button firstFragmentButton
+~ FragmentManager fragmentManager
+~ FragmentTransaction fragmentTransaction
+# void onCreate(Bundle)
+}
+class com.dsy.dsu.MainActivity_history_chat_test.VIEW_CHAT {
+}
+class com.dsy.dsu.MainActivity_history_chat_test.CONTROLLER_CHAT {
+}
+class com.dsy.dsu.MainActivity_history_chat_test.MODEL_CHAT {
+}
+class com.dsy.dsu.MainActivity_Single_Tabely {
+# Spinner СпинерТАбельМЕсяцФинал
+# Spinner СпинерТАбельДепартаментФинал
+# ScrollView ScrollСамогоТабеля
+~ boolean РежимыПросмотраДанныхЭкрана
+# LinearLayout ГлавныйКонтейнерТабель
+# ConstraintLayout ГлавныйВерхнийКонтейнер
+# ProgressDialog progressDialogДляУдаления
+# String ФИОДляТабеляНаАктивти
+- int ОбщееКоличествоСОтрудниковДляСкролаПотабелю
+- ImageButton imageButtonДвижениеПоСотрудникамВТАбеле
+- String МесяцТабеляФинал
+~ Configuration config
+~ ArrayList<String> МассивДляВыбораСпинераДаты
+~ ArrayList<String> МассивДляВыбораВСпинерДепартамент
+~ String КонтентСпинераНаАктивтиТабель
+- {static} String ИмяТабеляФинал
+- {static} String ДепартаментТабеляФинал
+- {static} String UUIDCтарыйУжеСозданногоТабеляВКоторыйИНужноДобавитьНовгоПользователя
+~ TextView НазваниеДанныхВТабелеДниНедели
+~ TextView НазваниеДанныхВТабелеСНИЛС
+~ TextView НазваниеДанныхВТабелеФИО
+~ String РежимРаботыСинхронизации
+~ EditText СамиДанныеТабеля
+~ int ПосикДня
+~ String НазваниеСтолбикаДляЛобкальногоОбноления
+~ String НазваниеТабеля
+~ String НазваниеЗагруженногТАбеля
+~ int СтаттусТабеля
+~ String ДробимДляТабеляГод
+# View КонтентТабеляКоторыйМыИБудемЗаполнятьВнутриЦикла
+~ LinkedHashMap<Integer,String> ХЭШНазваниеДнейНедели
+~ String СамиДанныеКурсораДляДней
+~ int ТекущееПоложенияВТабелеДляСкрола
+~ String МесяцДляЗагрузкиТабелей
+~ String ГодДляЗагрузкиТабелей
+~ String ПубличноеIDЗагрузкиТабелей
+~ int МЕсяцДляКурсораТабелей
+~ int ГодДляКурсораТабелей
+# Button КнопкаНазад
+# Button КнопкаЛеваяПередвиженияПоДанным
+# Button КнопкаПраваяПередвиженияПоДанным
+~ TextView ОбщееКоличествоВТабелеСотудников
+~ int КоличествоДнейвЗагружаемойМесяце
+~ boolean МыУжеВКодеУденияСотрудника
+~ String ЛимитСоСмещениемДанных
+~ int ИндексДвижениеТабеляСкролл
+~ int ИндексДвижениеТабеляКнопки
+~ String ОбщееКоличествоЛюдейВТабелеТекущем
+~ HashMap<String,Long> ХэшЛовимUUIDIDНазваниеСтолбика
+~ String ПолучениеЗначениеДоИзменения
+~ String СамоЗначениеЯчейкиТабеля
+~ Cursor[] Курсор_ЗагружаемТабеляСозданный
+~ GridLayout GridLayoutВнутриСамТабель
+~ Context КонтекстОдногоСотрудикаВТабеле
+~ {static} Context КонтекстОдногоСотрудикаВТабелеВнешний
+~ {static} Context КонтекстОдногоСотрудикаВТабелеДляСинхронизации
+- {static} int IDЧьиДанныеДляСотрудников
+- {static} String ГодТабеляПослеПодбораУниверсальный
+- int ЦифровоеИмяНовгоТабеля
+- int МЕсяцДляКурсораТабелейДЛяПермещения
+~ TextView СловоТабель
+# HorizontalScrollView HorizontalScrollViewВТабелеОдинСотрудник
+- {static} String НазваниеТабеляПослеУспешногоСозданиеСотрудника
+- {static} String UUIDТабеляПослеУспешногоСозданиеСотрудника
+- Long UUIDТабеляПослеУспешногоСозданиеСотрудникаВсехСотридников
+- {static} String НазваниеТабеляПришелПослеСоздангоНового
+- {static} String ДепартаментПришелПослеСоздангоНового
+# String ПолноеИмяТабеляПослеСозданиеНовогоСотрудника
+- {static} String ПолноеИмяТабеляПослеСозданиеНовогоСотрудникаПослеУспешнойВставки
+- {static} String UUIDТабеляКнопкаBACKУниверсальный
+~ View.OnLongClickListener СлушательДляДобавленияСловВТабельначениеСтолбикаДляЛокальногоОбновления
+~ View.OnClickListener СлушательТачПолученияНазваниеСтолбикаДляЛокальногоОбновления
+~ View.OnFocusChangeListener СлушательLONGПолученияНазваниеСтолбикаДляЛокальногоОбновления
+- TextWatcher СлушательПолученияДанных
+~ View.OnLongClickListener СлушательУдаланиеСотрудникаИзТабеля
+~ View.OnClickListener СлушательИнформацияОСотрудника
+# void onCreate(Bundle)
+# void onStop()
+# void onPause()
+# void onStart()
+- void МетодОтработкиПоднятияКлавиатуры()
+- void МетодОбработкиСвайповНаЭкране()
+- void МетодПришлиПараметрыОтДругихАктивитиДляРаботыТабеля()
+- void МетодПриНАжатииНаКнопкуBACK()
+- void МетолСозданиеТабеляФинал(String)
+- void МетодЗаполненияАлайЛИстаНовымМЕсцевНовогоТабеля(String,int)
+- void МетодЗаполенияТабелемСотрудникаДнемиИДаннымиКним(int,Cursor[],int)
+~ void МетодПослеУспешнойГенерацииТабеля()
+- void МетодКогдаНетЗаписейВКурсоре()
++ HashMap МетодЛовимЗначениеВТАбелеUUIDиIDиНазваниеСтоблиув(View)
++ HashMap МетодЛовимЗначениеВТАбелеДляДобавленияСловВТабель(View)
+- void МетодУдалениеСотрудникаИзТабеля(String,String)
+- Long МетодЛокальногоОбновлениеЧерезКликвТабеле(ContentValues,String)
+- boolean МетодОпределяемуЗаписиКакойСтатусУдаленныйИлиНет(String,String)
+- int МетодПолучениниеМесяцДляЗАписивОднуКолонку(String)
+~ String МетодСопоставлениеДнейТАбеляСКалендарем(String)
+- void МетодСозданиеМесяцыСокращенно()
+- int МетодПолучениеСколькоДнейВКонкретномМесяце(int,int)
+- int МетодПоказатьМесяцДляЗАписивОднуКолонку(String)
+- int МетодПоказатьГодДляЗАписивОднуКолонку(String)
++ String ГлавнаяДатаИВремяОперацийСБазойДанных()
++ void СообщениеДляВыбораСозданиеНовогоСотрудникаИлиЕгоПодобратьДляТабеля(String,boolean,String,String,String)
+- int МетодПолучениниеМесяцДляКурсора(String)
+- int МетодПолучениниеГодДляКурсора(String)
++ String ГлавнаяДатаИВремяДляТабеля()
+# int МетодПолучениеКоличествоДнейвЗагружаемомМесяце(int,int)
+# void СообщениеПредпреждаетОВыбореУдалениеСотрудникаИзТабеля(String,String,String,String,String)
+- void МетодСообщенииУдалениеСотрудника(String,String,String)
+# void СообщениеИнформацияОФИО(String,String)
+- void МетодПереходаНаМеткиТабеля(HashMap<String,Long>)
+# void СообщениеПослеУдаленияСотрудникаИзТабеля(String,String,boolean)
+~ void МетодЗапускаетСотрудниковПослеУспешногоУдалениеСотрудника()
+# void СообщениеВыборУдлаляниИлиНЕтСотрудникаИзБазы(String,String,String,String,boolean)
+- void МетодСвайпВпередПоДАнным()
+- void МетодСвайпНазаПоДанным()
+}
+class com.dsy.dsu.Business_logic_Only_Class.Class_MODEL_synchronized {
+~ {static} Context КонтекстСинхроДляМодели
+~ MODEL_synchronized ссылка_MODELsynchronized
+~ StringBuffer УниверсальныйБуферПолучениеДанныхсСервера(String,String,String,String,String,String,String,int,String,Long)
+~ StringBuffer УниверсальныйБуферОтправкиДанныхНаСервера(JSONObject,String,String,String,int)
+~ Cursor КурсорУниверсальныйДляБазыДанных(String,String[],String,String[],String,String,String,String)
+~ Cursor КурсорУниверсальныйБазыДанных(String)
+~ Long ВставкаДанныхЧерезКонтейнерУниверсальная(String,ContentValues,String,String,boolean,int,boolean,Context,Activity)
+~ Long ОбновлениеДанныхЧерезКонтейнерУниверсальная(String,ContentValues,String,int,boolean,Context,String,Activity)
+# int МетодЗаписьЧтоОрацияПрошлаЗаписываемВТбалицуВерсийДанных(String,Date)
+# int МетодЗаписьЧтоОрацияПрошлаЗаписываемВТбалицуВерсийДанныхБезУсловияНаличияJSON(String,Date)
+# int МетодЗаписьЧтоОрацияПрошлаЗаписываемВТбалицуВерсийДанныхТолькоДляЛокальногоОбновленияДанных(String,Date)
+# int МетодЗаписьЧтоОрацияПрошлаЗаписьВБазуСПрименениемВерсииДанных(String,Date,String,String,Integer)
+# int МетодЗаписьЧтоОрацияПрошлаЗаписываемВТбалицуВерсийДанныхТолькоДляЧАТА(String,Date)
+~ Long ЛокальногоОбновлениеДанныхЧерезКонтейнерУниверсальная(String,ContentValues,String,String)
+~ Long ВставкаДанныхЧерезКонтейнерТолькоПриСозданииНовогоСотрудникаУниверсальная(String,ContentValues,String,String,boolean)
+# Long ВставкаДанныхЧерезКонтейнерТолькоПриСозданииНСообщенияДЛЯЧата(String,ContentValues,String,String,boolean)
+~ Long ВставкаДанныхЧерезКонтейнерОрганизацияДляТекущегоСотрудникаУниверсальная(String,ContentValues,String,String,boolean,int,String)
+~ Long ВставкаДанныхЧерезКонтейнерПервыйолученныйПубличныйIDотСервера(String,ContentValues)
+~ Long ОбновлениеДанныхЧерезКонтейнерТолькоПриСозданииНовогоСотрудникаУниверсальная(String,ContentValues,String)
+~ Long ВставкаДанныхЧерезКонтейнерУниверсальнаяТолькоДляЗаписиОшибки(String,ContentValues)
+~ Long ОбновлениеДанныхЧерезКонтейнерВозвращениеРезультатаОтСервераУниверсальная(String,Long,String)
+~ Long УдалениеДанныхЧерезКонтейнерУниверсальная(String,String,String)
+- StringBuffer МетодПолучениеДатыДляТекущейОперации()
+~ Long УдалениеТолькоПустогоТабеляЧерезКонтейнерУниверсальная(String,String,Long)
+~ Long УдалениеТолькоШАблонЧерезКонтейнерУниверсальная(String,String,String)
+~ Long УдалениеСтатусаУдаленныйТолькоПослеУспешнойСинхронизацииЧерезКонтейнерУниверсальная()
+~ long МетодКоторыйЗаписываемВыбраннуюОргназациювБазуЧтобыПотомЕеНеБывырать(TextView,Context)
++ String ДатаДляОрганизации()
+~ String МетодПолучениеЗначенияРежимаРаботыИнтернетаWifiИлиInternet(Context,String,String)
+~ Integer МетодКоторыйЗаписываемВыбранныйРежимИнтрернетаWifiИлиMobile(String,Context,String,String)
+~ String МетодПолучениеИмяСистемыДляСменыПользователя(Context)
+~ Cursor МетодЗагружаетСотрудниковListViewТабеля(int,Long,String,Context,int,int,String)
+~ Cursor МетодЗагружаетСотрудниковListViewТабеляПриВозвратеИЗШаблона(Context,String,int,int)
+~ Cursor МетодЗагружаетЗначенияНовгоСотрудника(Context)
+~ Cursor МетодЗагружаетЗначенияШаблонов(int,Context)
+~ Cursor МетодЗагружетУжеготовыеТабеля(Context,Long,int,int)
+~ Cursor МетодЗагружетУжеготовыеТабеляДляСкролаПОТабелю(Context,int,int,int)
+~ Cursor МетодЗагружетУжеготовыеТабеляДляСкролаПОТабелюТолькоКоличествоСТорочек(Context,int,int,int)
++ String ГлавнаяДатаИВремяОперацийСБазойДанных()
+~ Long МетодЗАписиПолученогоОтСервреаIDПубличного(Integer)
+~ File УниверсальныйБуферAPKФайлаПОсСервера(String,String,Context)
+~ int УниверсальныйБуферJSONВерсииПОсСервера(String)
+~ ContentValues МетодВычисляемВыходныеДниПриСозданииНовогоТабеляАвтоРЕжим(Context,Integer,Integer)
+~ String МетодПолучениеНазваниеТабеляНаОснованииСФО(Context,Integer)
+~ boolean МетодКоторыйВычисляетЕслиДНИвПотоке(String,JSONObject)
+~ Integer МетодЗапускаФоновойСинхронизацииДополнительноНаSingleТабеле(Context)
++ String МетодГенерацииUUID(Context)
++ String ГлавнаяДатаИВремяДляТабеля(Context)
+~ Integer МетодЗапускаФоновойСинхронизацииПоПериоду(Context)
+~ Integer МетодЗапускаСинхоронизацииИзШироковещательногоПриёмника(Activity)
+~ boolean УниверсальнайМетодПроверкиПодключениекWIFIДляСлужбыТолькоДляЧата(Context)
+~ boolean УниверсальнайМетодПолучаемОбщееКоличествоСТрокДанныхССерераAllROWS(Context)
+~ StringBuffer УниверсальныйБуферПолучениеРезультатаРаботаетЛиСерверНаСамомДелеВместесБазойДанных(String,int)
+~ Integer МетодПолучаетОтСервераСтрочкиJSON(String,int,String,String)
+~ StringBuffer УниверсальныйБуферПолучениеРезультатаРаботаетФактическоеКоличествоСтрокНаСервере(String,int)
+~ Long МетодПолученияУвеличинойВесрииДанныхДляЧата(String,String,Context)
+~ StringBuffer УниверсальныйБуферПолучениеПоследуюВерсиюДанныхТОлькоДляЧатаОтМетодаHEAD(String,int,String,Long)
+~ Long МетодПолученияЛокальнойВерсииДаныхЧатаДляОтправкиЕгоНАСервер(String,String,Context,String)
+}
+class com.dsy.dsu.MainActivity_Employees_Tabely {
+# Spinner СпинерТАбельМЕсяцФинал
+# Spinner СпинерТАбельДепартаментФинал
+# ScrollView ScrollViewДляВсехСотрудниковТабеля
+~ boolean РежимыПросмотраДанныхЭкрана
+~ String МесяцТабеляФинал
+~ String ГодТабеляФинал
+~ Configuration config
+~ ArrayList<String> МассивДляВыбораСпинераДаты
+~ ArrayList<String> МассивДляВыбораВСпинерДепартамент
+~ String КонтентСпинераНаАктивтиТабель
+- String ИмяТабеляФинал
+- String ДепартаментТабеляФинал
+~ int ЦифровоеИмяНовгоТабеля
+~ Long ПолученнаяUUIDНазванияОрганизации
+~ String UUIDCтарыйУжеСозданногоТабеляВКоторыйИНужноДобавитьНовгоПользователя
+~ TextView НазваниеДанныхВТабелеДниНедели
+~ TextView НазваниеДанныхВТабелеСНИЛС
+~ TextView НазваниеДанныхВТабелеФИО
+~ EditText СамиДанныеТабеля
+~ ArrayAdapter<String> АдаптерДляListViewВсеСотрудникиВТабеле
+~ int ПосикДня
+~ String НазваниеСтолбикаДляЛобкальногоОбноления
+~ String НазваниеТабеля
+~ String НазваниеЗагруженногТАбеля
+~ String ДробимДляТабеляГод
+# View КонтентТабеляКоторыйМыИБудемЗаполнятьВнутриЦикла
+~ LinkedHashMap<Integer,String> ХЭШНазваниеДнейНедели
+~ int ПолученыеКоличествоСторочек
+~ String НазваниеТабеляПослеУспешногоСозданиеСотрудника
+~ String UUIDТабеляПослеУспешногоСозданиеСотрудника
+~ String НазваниеТабеляПришелПослеСоздангоНового
+~ String ДепартаментПришелПослеСоздангоНового
+~ String ПолноеИмяТабеляПослеСозданиеНовогоСотрудника
+~ String ПолноеИмяТабеляПослеСозданиеНовогоСотрудникаПослеУспешнойВставки
+~ String UUIDТабеляКнопкаBACKУниверсальный
+~ String МесяцДляЗагрузкиТабелей
+~ String ГодДляЗагрузкиТабелей
+~ String ПубличноеIDЗагрузкиТабелей
+~ int МЕсяцДляКурсораТабелей
+~ int ГодДляКурсораТабелей
+# Button КнопкаНазад
+# Button КнопкаЛеваяПередвиженияПоДанным
+# Button КнопкаПраваяПередвиженияПоДанным
+~ TextView ОбщееКоличествоВТабелеСотудников
+~ int КоличествоДнейвЗагружаемойМесяце
+~ boolean МыУжеВКодеУденияСотрудника
+~ FloatingActionButton КруглаяКнопкаСамТабель
+~ String ЛимитСоСмещениемДанных
+~ int ИндексДвижениеТабеляСкролл
+~ int ИндексДвижениеТабеляКнопки
+~ int ОбщееКоличествоЛюдейВТабелеТекущем
+~ Map<Object,Object> ХэшЛовимUUIDIDНазваниеСтолбика
+~ String ПолучениеЗначениеДоИзменения
+~ String СамоЗначениеЯчейкиТабеля
+~ ListView ЛистДляВсеСотурдникаТекущегоТабеля
+~ Map<Integer,Long> ХэшФИОВсеСотурдникаТекущегоТабеля
+~ TextView textView3СловоТабель
+~ Cursor[] Курсор_ВсеСотрудникиТабеля
+~ {static} Context КонтекстСотрудникиДляТабеляВнешний
+~ Context КонтекстСотрудникиДляТабеля
+~ int IDЧьиДанныеДляСотрудников
+# boolean ФлагУжеСообщалиЧтоСообщениеЧТоТАбельПроведетБыло
+# void onCreate(Bundle)
+# void onStop()
+# void onPause()
+# void onResume()
+- void МетодПриLongКликеПоОтдельномуСотрудникуВнутриТабеляУдаления()
+- void МетодПришлиПараметрыОтДругихАктивитиДляРаботыВсехТабеля()
+- void МетодСКодоКруглойКнопкойСКотройМожноЛибоСоздатьЛибоВыбратьСотрудника(FloatingActionButton)
+- void МетодПриНАжатииНаКнопкуBACK()
+- void МетодПолучениеДанныхИзБазыДляДляЗаполенияВсехСотрудников()
+- String МетодПредварительногоПолучениеДанных()
+- void МетодКогдаДАнныхНетИЛИОшибкаИлиНетПрав()
+- void МетодЗаполненияАктивтиДаннымиИзБазыДляПосикаПоФИО(Cursor)
+~ void МетодПриКликеПоОтдельномуСотрудникуВнутриТабеля()
+- void МетодЗаполенияАрайЛистаИХэшМэпаДляПосикаПоФИО(String,long,String,String,String)
+- void МетолСозданиеТабеляФинал()
++ void СообщениеДляВыбораСозданиеНовогоСотрудникаИлиЕгоПодобратьДляТабеля(String,boolean,String,String,String)
+- int МетодПолучениниеКурсораМЕсяцДата(String)
+- int МетодПолучениниеКурсораГОДДата(String)
+~ Long МетодПолучениеОрганизацииНепосрдственодляДанногоСОтрудника()
+- String МетодДосчётаЧасовПоВсемТабелямДляНовыхиВыбранныхСотрудников(long,Context)
+# int МетодПосчётаЧасовПоСотрудникуДляЗагрузкиСотрудников(Cursor)
+- void МетодЗапускаЛокальнойСинхронизации()
+~ void МетодСообщенииУдалениеСотрудника(String,String,String)
+# void СообщениеВыборУдлаляниИлиНЕтСотрудникаИзБазы(String,String,String,String,boolean)
+- void МетодУдалениеСотрудникаИзТабеля(String,String)
+# void СообщениеПослеУдаленияСотрудникаИзТабеля(String,String,boolean)
+}
+class com.dsy.dsu.For_Code_Settings_DSU1.MainActivity_Tabels_Users_And_Passwords {
+~ int ПодсчетОтрицательныйРезультатовАунтификации
+# Button КнопкаВходавСистему
+# ProgressBar ПрогрессБарДляВходаСистему
+# EditText ИмяДляВходаСистему
+# EditText ПарольДляВходаСистему
+~ Configuration config
+# Context КонтекстСинхроДляАунтификации
+# void onCreate(Bundle)
+# void onDestroy()
+# void onResume()
+- void МетодПодготовкиДляАунтификации()
+- void МетодАунтификацииПользователяПриВходевПрограммуДСУ1(View)
+~ boolean МетодГлавныйСинхронизацииДанныхКлиентСервер(Context)
+- String МетодОпределяемКакойТипПодключениеWIFIилиMobile()
+# boolean УниверсальнайМетодЕслиСвязьсСерверомСоюзАвтодора()
+}
+class com.dsy.dsu.For_Code_Settings_DSU1.MainActivity_Face_Start {
+# ProgressBar ПрогрессБарНаFace
+~ Context КонтекстДляFAceapp
+~ {static} int ПубличныйI
+~ long[] ФиналПолучаемРазницуМеждуДатами
+# void onCreate(Bundle)
+# void onStart()
+# void onStop()
+- void МетодСозданиеПрограссБара()
+- void МетодОпределениеКогдаПоследнийРазЗаходилПользователь()
+- void МетодВытаскиемДанныеИзКурсораДляАунтификацииМенне7Дней(long)
+- void МетодВизуальногоПодтвержденияКогдаКтоВходит(long)
+~ String МетодЗаполенениеПубличногоIDПриРаботеОфлайн()
+}
+class com.dsy.dsu.MyWorkУведомления {
+~ Context Контекст
+~ Boolean ФлагЛюбогоЗапущеногоАктивтиВнутри
++ void onStopped()
++ Result doWork()
+}
+class com.dsy.dsu.Code_ForTABEL.MainActivity_Find_Templates {
+~ Configuration config
+# ScrollView ГлавныйКонтейнерДляПосикаТабелей
+# View КонтентТабеляКоторыйМыИБудемЗаполнятьВнутриЦиклаДляПоиска
+~ List<String> АрайЛИстФИОВсеДляПосика
+~ Map<Long,String> ХэшФИОВсеДляПосика
+~ ArrayAdapter<String> АдаптерДляСпинераДата
+# ProgressDialog progressDialog
+~ String finalПоискФИОЧерезLIKE
+~ Integer ИндексСтрокКомпонентовТабеля
+# Button КнопкаОтправкиСотрудникаДляТабеля
+# EditText ЗначениеПоискаФИОИзменяетПользоатель
+~ String ДепартаментТабеляФинал
+~ String UUIDТабеляФинал
+~ String МесяцТабеляФинал
+~ Long ПолученнаяUUIDНазванияОрганизации
+~ String ПередаемСозданнуюНазваниеТабеля
+~ Long ПередаваемыйИзКнопкиПолучаемUUIDТабеля
+~ boolean ЗапускШаблоновFaceAppБлокировкаКнопкиДа
+~ String ГодВырезалиИзБуфераТабель
+~ String ПолноеНазваниеЗагруженногТАбеля
+~ String МЕсяцДляКурсораТабелей
+~ String ГодДляКурсораТабелей
+~ int ЦифровоеИмяНовгоТабеля
+~ int МЕсяцПриВставкеНовогоСотрудника
+~ int ГодПриВставкеНовогоСотрудника
+~ ListView ЛистСДаннымиФИО
+~ long РезультатВставкиНовогоТабеляЧерезКонтрейнерТаблицыТабельОбновление
+~ long РезультатВставкиНовогоТабеляЧерезКонтрейнерТаблицыТабель
+# Button КнопкаНазад
+~ Cursor Курсор_ПолучаемВсюТаюлицуФИОДляПосикаШаблон
+~ {static} Context КонтекстДляАктивтиПосикаШаблонов
+~ ScrollView ГлавныйКойтейнерПоискаФИОСотрудника
+~ String ПоученыйУжеСущетсвующийЭлектронноеИмяТабеля
+~ String НаписаниеИмяНовгоШаблона
+- TextWatcher СлушательПолученияДанных
+# View КонтентТабеляКоторыйМыИБудемЗаполнятьВнутриЦикла
+# void onCreate(Bundle)
+# void onDestroy()
+# void onStop()
+# void onStart()
+- void МетодПриНАжатииНаКнопкуBACK()
+- void МетодПолучениеДАнныхЧерезИнтрентДляПосикаСотрудника()
+- void МетодПолучениеДанныхИзБазыДляДляЗаполениеСотрудниковДЛяШаблонаЧкерезПоиск(String)
+- void МетодЗаполненияАктивтиДаннымиИзБазыДляПосикаПоФИО()
+- void МетодФинальнойВставкиДАнныхДляПосикаСотрудников()
+- void МетодОбработкиКликаПоЯчейкамСотрудникаВыбранным()
+- void МетодРаботуКнопкиКотораяОтправляетПодобранныхСотрудников()
+# void СообщениеКотороеСпрашиваетТочноЛиНужноСоздатьНовогоСотрудника(String,String,boolean)
+- void МетодЗапускаВставкиВыбраногоСотрудникаВГотовыйТабель()
+- Long МетодОпределенияВставкиУжеСущетсвующегоСотрудникаЧерезПоиск(long,String)
+- void МетодЗаполенияАрайЛистаИХэшМэпаДляПосикаПоФИО(String,String,long,String,String)
++ String МетодГенерацииUUID()
+- int МетодПолучениниеМесяцПриСозданииНовогоСОтрудника(String)
+- int МетодПолучениниеГОдПриСозданииНовогоСОтрудника(String)
++ String ГлавнаяДатаИВремяОперацийСБазойДанных()
+# void СообщениеСообщаетОСоздаенииНовогоСотрудника(String,String,boolean)
+- void МетодФинальныйКоторыйОтправлетДванныеДругомуАктивти()
+}
+class com.dsy.dsu.Code_ForTABEL.MainActivity_Find_Templates.СоздаемСвойАдаптерДляГридМюу {
++ int getCount()
++ Object getItem(int)
++ long getItemId(int)
++ View getView(int,View,ViewGroup)
+}
+class com.dsy.dsu.JobMyService {
++ boolean onStartJob(JobParameters)
++ boolean onStopJob(JobParameters)
+}
+class com.dsy.dsu.Exchange_Loal_Base {
++ Cursor Get_Table(String)
++ Cursor Get_FIO_by_UUID(long)
+}
+class com.dsy.dsu.Code_ForTABEL.MainActivity_New_Cusomers {
+# Button КнопкаСозданиеНовогоСотрудника
+# EditText ЗначениеФИОСозданиеСотрудника
+~ String НазваниеТабеляВКоторомИНадоСоздатьНовогоСотрудника
+~ String UUIDТабеляВКоторомИНадоСоздатьНовогоСотрудника
+~ String НазваниеМесяцаТабеляВКоторомИНадоСоздатьНовогоСотрудника
+~ String ДепартаментТабеляВКоторомИНадоСоздатьНовогоСотрудника
+~ Configuration config
+~ String ПубличноеИМяТабеля
+~ String УниверсальныйUUIDДляСОзданиеНовогоСотрудникаНаКонкретныйТабель
+~ String ПолноеИмяТабеляПослеСозданиеНовогоСотрудника
+~ String UUIDСтарыйСамогоСозданогоТабелявКоторыйИнужноВставлятьНовгоСотрудника
+~ String НовоеЗначениеUUIDДляОбновлениеТабеляКоторыйУжеСозданБЫл
+~ String МесяцТабеляФинал
+~ String UUIDCтарыйУжеСозданногоТабеляВКоторыйИНужноДобавитьНовгоПользователя
+~ String ДепартаментТабеляФинал
+~ Long UUIDДанныйПришелПослеВЫбораУжеСуществующегоСотрудника
+# Button КнопкаНазад
+~ int ЦифровоеИмяНовгоТабеля
+~ long Результат_ПриписиИзменнийВерсииДанныхВФонеПослеОбработкиТекущийТаблицыФИОФИНАЛ
+~ {static} Context КонтекстДляАктивтиСозданиеНовогоСотрудника
+# Spinner СпинерВыборОрганизацииПриСозданииНовогоСотрудника
+~ String ПолученноеТекущееЗначениеСпинераОрганизация
+~ long РезультатВставкиНовогоТабеляЧерезКонтрейнерТаблицыФИО
+~ int Результат_ПриписиИзменнийВерсииДанныхВФонеПослеОбработкиТекущийТаблицыФИО
+~ int ГодПриВставкеНовогоСотрудника
+~ ContentValues АдаптерДляСозданиеНовогоСотрудаТАблицаТабель
+~ ContentValues АдаптерДляСозданиеНовогоСотрудаТАблицаФИО
+~ int МЕсяцПриВставкеНовогоСотрудника
+# void onCreate(Bundle)
+- void МетодСозданиеСпинеровОрганизации()
+# void onDestroy()
+# void onPause()
+# void МетодПриемКонтентаОтДругихАктивти()
+# void onStart()
+- void МетодВозврещениеНаПредыдущуюАктивтиBACK()
+- void МетодПолучениеДатыРожденияЧерезКалендарь()
+- void МетодВытаскиваемИзКалендаряДиалогаКалендаряДаты()
++ void onDateSet(DatePicker,int,int,int)
+- void МетодСозданиеНовогоСотрудникаДляТабелясКнопки()
+# void СообщениеКотороеСпрашиваетТочноЛиНужноСоздатьНовогоСотрудника(String,String,boolean)
+- void МетодСозданиеНовогоСотрудникаДЛяСуществуещегоТабеля()
+# void МетодПослеЗаполненияКотейнеровНепосредвственнаСамаывставкаНовогоСотрудникавТабель()
+- String МетодКоторыйОпределетЧТоБУдемДелатьОбновлятьИлиВставлятьНовгСОтрудника()
+- Cursor МетодПроверяетПустойЛиТабельПервыйЗапускТабеляЧтоДелатьОбновлятьИлиВставлять()
+- void МетодПослеУспешнгоСозданиеНовгоСотрудникаПереходимВТабеля()
+# void СообщениеСообщаетОСоздаенииНовогоСотрудника(String,String,boolean)
+# boolean УниверсальнайМетодПроверкиПодключениекWIFI()
++ String МетодГенерацииUUID()
+- int МетодПолучениниеМесяцПриСозданииНовогоСОтрудника(String)
+- int МетодПолучениниеГОдПриСозданииНовогоСОтрудника(String)
++ String ГлавнаяДатаИВремяОперацийСБазойДанных()
++ String ГлавнаяДатаИВремяДляТабеля()
+}
+class com.dsy.dsu.Fragment_ЧитатьПисатьЧата {
+~ View viewДляСообщений
+~ ListView ЛистВьюДляСообщенийЧата
+~ Cursor КурсорДанныеДлязаписиичтнияЧата
+~ int ПолученыйIDДляЧата
+~ String ПолученыйФИОIDДляЧата
+~ FloatingActionButton floatingActionButtonВФагментеReadandWrite
+~ int ПубличныйIDДляФрагмента
+~ TextView textViewФрагментЧитатьПисатьДляЧата
+~ EditText editTextТелоНаписаногоСообщенияДругимСотрудникам
+~ SimpleAdapter АдаптерДляЗаписиЧтенияКогдаНетДанных
+~ SimpleCursorAdapter АдаптерДляЗаписиЧтенияЧата
+~ Scheduled   scheduled  ЗапускаемСинхронизациюТОлькоДЛяЧата
+~ Long СгенерированныйUUIDДляНовогоТабеля
+~ boolean РезультатСтатусаФоновогоМенеждераПотоков
+~ boolean РезультатСтатусаСозданияНовгоСотрудника
++ void onDestroy()
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
+- Long МетодЗапускаСинхронизацииТОлькоДляЧатаПоРАсписанию(String)
+- Long МетодЗапускаСинхронизацииАсинхронныйЗапскПослеСозданиесообщения(View,String)
+- void МетодПерегрузкиВнешнегоВидаЧата(Long)
++ void onPause()
++ void onStart()
+}
+class com.dsy.dsu.Fragment_ЧитатьПисатьЧата.VIEW {
+- void МетодЗагрузкиданныхНаФрагментКогдаЕстьДанные()
+- void МетодЗагрузкиданныхНаФрагментКогдаНетДанных()
+}
+class com.dsy.dsu.Fragment_ЧитатьПисатьЧата.CONTROLLER {
+- void МетодЗапускаетьсяКогдаНаЛИстВиюПроищходитСкролл()
+- void МетодКликаПоЛистуЧитатьПисать()
++ void onItemClick(AdapterView<?>,View,int,long)
+~ void МетодКруглаяКнопкаНаФрагментеЧитатьПисать()
+# void МетодПослеВставкиНовгоСообщенияИлиПослеХолостогоХода(View,Long,String)
+# Long МетодЗапускаСинхронизацииПослеСозданеимНовгоСообщенияДляЧата()
+- boolean isMyServiceRunning(Class<?>)
+# Long МетодЗапускСинхронизацииДляЧатаПоРАсписанию(View,String)
+# Long МетодЗапускаХолостогоХодаСинхронизацииПередСозданеимНовгоСообщенияДляЧата()
+# Long МетодСозданииНовогоСообщениявЧате(View)
+~ void МетодЗаписиСтатусаНеЖиныйПослеПросмотраЗаписиВЧате(String,String)
+}
+class com.dsy.dsu.Fragment_ЧитатьПисатьЧата.MODEL {
+~ void МетодПолучениеДанныхдляФрагментаЧитатьиПисатьЧат()
+- Cursor МетодПолучениеДанныхДляФрагментаСообщенияЧата(String)
+}
+class com.dsy.dsu.Fragment_ЧитатьПисатьЧата.тестдляОбмена {
+}
+class com.dsy.dsu.MainActivity_History_Tabels {
+# Spinner СпинерВыборДату
+~ String ПолученноеЗначениеИзСпинераДата
+~ String КакойКонтекст
+# ScrollView ScrollНаАктивтиСозданныхТабелей
+# LinearLayout LinearLayoutСозданныхТабелей
+# LinearLayout LinearLayoutДляЛинии
+# ProgressDialog progressDialogДляУдаления
+~ boolean РежимыПросмотраДанныхЭкрана
+# EditText ПрослойкаМеждуТабелей
+~ {static} Configuration config
+~ String ПослеСозданиеовгоТабеляГОд
+~ String ПослеСозданиеовгоТабеляМЕсяц
+~ String ПослеСозданиеовгоТабеляВместеГодИМесяц
+~ String ПолученноеЗначениеИзТолькоСпинераДата
+~ {static} String ПослеСозданияНовогоТабеляЕгоUUID
+~ {static} String ПослеСозданияНовогоТабеляЕгоПолноеНазвание
+~ {static} String ПубличноеИмяКнопкиТабеля
+~ {static} String ПолученныйПоследнийМесяцДляСортировкиЕгоВСпиноре
+~ View.OnLongClickListener СлушательУдаланиеСамогоТабеля
+~ Button ТабелявВидеКнопок
+~ String ПолученныйГодДляНовогоТабеля
+~ String ФинальнаяМЕсяцДляНовогоТабеля
+~ String ПравильныйВозвратИзДруговоАктивтиBACK
+~ LinkedList<String> МассивДляВыбораВСпинерДата
+~ int МЕсяцВвидеЦифрыДляКурсора
+~ int ГОДВвидеЦифрыДляКурсора
+~ int ЦифровоеИмяНовгоТабеля
+~ Context КонтекстИсторииВсехТабелейВыбранных
+~ {static} Context КонтекстИсторииВсехТабелейВыбранныхВнешний
+~ String МесяцТабеляФиналИзВсехСотрудниковВТАбеле
+~ String ГодТабеляФиналИзВсехСотрудниковВТАбел
+~ Button КнопкаНазадВсеТабеля
+~ List СодержимоеКурсораUUIDТабеляПриУдалениеиТАбеляилиВместеССотрудником
+~ Long ПолученнаяUUIDНазванияОрганизации
+~ TextView textViewКоличествоТабелей
+~ int ПолучеаемЦифруСФО
+# void onCreate(Bundle)
+~ void МетодПолучениеДанныхДляДаногоАктивтиИсторияТАбеля()
+# void onStop()
+# void onStart()
+- void МетодДляУдалениеТабеляЕслиВнемНетСотрудников()
+~ void СообщениеПредпреждаетОВыбореУдалениеСамогоТабеля(String,String,String,String,int,int)
+~ void МетодУдалениеТАбеляСообщениеПередЭтим(String,String,int,int,String)
+# void СообщениеВыборУдлалянияТабеляИзБазы(String,String,String,Long,int,int)
+- void МетодУдалениеСамогоТабеля(String,Long,int,String,int)
+- void МетодУдалениеТабеляПриУсловииЧтоНетСотрудниковВнем(String,Long,int,StringBuffer,Cursor[],int)
+# void СообщениеПослеУдаленияСотрудникаИзТабеля(String,String,boolean,Long,String,int)
+- void МетодУдалениеВсехСотрудниковВТАбеле(Long,String,int)
+# void СообщениеПослеУдаленияСамогоТАбеля(String,String,boolean,int)
+- void МетодСозданиеСпинераДляДатыНаАктивитиСозданиеИВыборТабеля()
+- String МетодДляПреоразванияЦифрыВНазванияМесяца(Cursor)
+- void МетодаСозданиеТабеляИзБазы()
+- int МетодВЫчиляемСтатусТабеляПроведенИлиНет(int,int,int)
+~ Cursor МетодКоторыйПоказываетМаксимальнуюДатуИзменения(Long)
+~ Cursor МетодКоторыйПоказываетМаксимальнуюДатуИзмененияДляСпинера()
+- void МетодКогдаДанныхСамихТабелйНет()
+- void МетодСозданиеДиалогаКалендаряДаты()
++ void onDateSet(DatePicker,int,int,int)
+- void МетодВставкиНовогоМесяцавТабельКоторогоНет(StringBuffer)
+- int МетодПолучениниеМесяцДляЗАписивОднуКолонку(String)
+- int МетодПолучениниеГОдДляЗАписивОднуКолонку(String)
+- int МетодПолучениниеНовогоМесяцДляЗАписивОднуКолонку(String)
+- int МетодПолучениниеНовыйГодДляЗАписивОднуКолонку(String)
+- String МетодПолучениниеГодаДляЗАписивОднуКолонку(String)
+- void МетодЗаполненияАлайЛИстаНовымМЕсцевНовогоТабеля()
+- void МетодЗаполенияТабелямиАктивти(Cursor)
+- void МетодВозвратаПравильногоДатыВСпиноре()
++ String МетодПереводаНазваниеМесяцаСАнглискогоНаРУсский(Date)
+- int МетодПолучениниеКурсораМЕсяцДата(String)
+- int МетодПолучениниеКурсораГОДДата(String)
+- void МетодПолучениеMAcАдреса()
++ String ГлавнаяДатаИВремяДляТабеля()
+# void СообщениеСпрашиваемПользователяЧтоОнТОчноХочетьСоздатьНовыйТабель(String,String,boolean)
+}
+class com.dsy.dsu.dummy.DummyContent {
++ {static} List<DummyItem> ITEMS
++ {static} Map<String,DummyItem> ITEM_MAP
+- {static} int COUNT
+- {static} void addItem(DummyItem)
+- {static} DummyItem createDummyItem(int)
+- {static} String makeDetails(int)
+}
+class com.dsy.dsu.dummy.DummyContent.DummyItem {
++ String id
++ String content
++ String details
++ String toString()
+}
+class com.dsy.dsu.GetClassNumberAllRowsJSON {
+~ Context contextGetClassNumberAllRowsJSON
+~ Integer      МетодКоторыйПолучаетКоличествоСтрочекJSON(ArrayList<String>)
+}
+class com.dsy.dsu.CONTROLLER_synchronized_LAUNCH_IN_BACKGROUND {
+~ {static} Context КонтекстСинхроДляКонтроллераВФоне
+~ {static} Activity ActivityДляСинхронизацииОбмена
++ int УспешноеКоличествоВставокДанныхсСервера
++ int УспешноеКоличествоОбновлениеДанныхсСервера
+~ String ДатаВерсииДанныхНаАндройдеЛокальногоОбновленияДляМетодаGET
+~
+~ ContentValues АдаптерПриОбновленияДанныхсСервера
+~ ContentValues АдаптерДляВставкиДанныхсСервер
+~ ContentValues АдаптерДляВставкиДанныхсСерверБуфер
+~ Cursor Курсор_УзнатьЕслиНаАндройдеТакойUUID
+~ Cursor Курсор_УзнатьЕслиНаАндройдеТакойID
+~ boolean ФлагУказываетЧтоТОлькоОбработкаТаблицДляЧАТА
+~ String ФлагКакуюЧастьСинхронизацииЗапускаем
+~ Long РезультатВерсииДанныхЧатаНаСервере
+# Integer МетодЗАпускаСинхронизациивФонеЛокальная(Context,String)
+# Long МетодЗАпускаСинхронизациивФоне(Context,String,boolean,Activity,String)
+# Long МетодЗАпускаСинхронизациивФонеДляЧатаАсинхронноПослеСозданиеСообщения(Context,String,boolean,Activity,String)
+# Long МетодЗАпускаСинхронизациивВизуальная(Context,String,boolean,Activity)
+# Long МетодЗАпускаСинхронизациивФонеТолькоСинхронно(Context,String,boolean)
+# Integer МетодЗАпускаСинхронизациивФонеВнутриТабеля(Context,String)
+~ Long МетодПослеФононовойСинхроигзации()
+~ void МетодСамогоФоновойСинхронизации()
+~ void МетодНачалоСихронизациивФоне(Context)
+~ void МетодПолучениеIDотСервераДляГеренированиеUUID()
+~ void МетодПолучениеСпискаТаблицДляОбменаДанными(String)
+~ void МетодЗапускаемЦиклПоТаблицамДляДанногоПользователя(String)
+~ Integer МетодЗапускаСинхрониазцииПоАТблицам(String,String)
+~ void МетодКоторыйПослеУспешнойВставкиИлиОбновленияПовышваетВерсиюДанныхИДат(Integer,String,Long)
+- boolean МетодВЫчисляемВсеТаблицыВнутриКлинета(String)
+~ Integer МетодДляАнализаВерсийДанныхПолучаемДатыСервера(String,String)
+~ Integer МетодДляВырвниванияНазванийТаблицВВерсияДанныхНаКлиентеСсервером(JSONObject,Date,String,String,String)
+~ Integer МетодАнализаВресииДАнныхКлиента(String,Date,String,String)
+~ Integer МетодПринятияРешенияПолучитьДанныесСервераИлиОтправитьДанныесКлиента(Date,Date,Date,String,String,String,String)
+~ Integer МетодПолучаемДаннныесСервера(String,String,String,Date,Long)
+~ Integer МетодПарсингJSONФайлаОтСервреравФоне(StringBuffer,String)
+~ void МетодЗаполнениеПолученымJSONсСервераВКонтейнервФоне(String,String,String,String,String)
+~ Integer МетодаЗаписиВБазуКонтейнераобновлениеИлиВставкиJSONвФоне(String,String,String)
+~ Integer МетодПосылаемДанныеНаСервервФоне(String,Long)
+~ Integer МетодГенеррируемJSONИзНашыхДанныхвФоне(Cursor,int,int,String)
+~ Integer МетодПосылаетНаСерверСозданныйJSONФайлвФоне(JSONObject,String)
+~ void МетодАнализаОтветаОтСервераУспешныеВставкиИлиОбновлениевФоне(String,String)
+~ boolean МетодОпределениеВселиЦифрыВстроке(String)
+# int МетодПосчётаЧасовПоСотруднику(Cursor)
+~ String МетодПосчётаЧасовСотрудниковВТабеле(Context,long,int,int)
+~ Long МетодЛокальноеОбновлениеВТабеле(ContentValues,String,long[],long[],Context)
+~ String МетодДосчётаЧасовПоВсемТабелям(long,Context,int,int)
+~ void МетодАнализаUUIDСинхрониазциявФоне(String,String,String,String,String)
+~ void МетодАнализаIDСинхрониазциивФоне(String,String,String,String,String)
++ void МетодОчищаемИзБазыNULLЗначенияя()
++ String ГлавнаяДатаИВремяОперацийСБазойДанных()
+# Long МетодЗапускаСинхронизацииПередСозданеимНовгоСообщенияДляЧата(Context)
+}
+class com.dsy.dsu.CONTROLLER_synchronized_LAUNCH_IN_BACKGROUND.ClassCalculateInFieldIDNULLMeanDataValueNotyetsent {
+- String ТекущаяТаблицаГдеЕстьвIdПолеNULL
++ String getТекущаяТаблицаГдеЕстьвIdПолеNULL()
++ void setТекущаяТаблицаГдеЕстьвIdПолеNULL(String)
+- Long МетодВычисляемЕщенеОтправленныеСообщенияНаСервер()
+}
+class com.dsy.dsu.CONTROLLER_synchronized_LAUNCH_IN_BACKGROUND.ClassGettingPublicUserID {
+~ Context contextClassGettingPublicUserID
+~ Integer MethodGettingPublicUserID()
+}
+class ClassSendErros {
+}
+class com.dsy.dsu.Code_ForTABEL.MainActivity_New_Templates {
+# Spinner СпинерВыборДату
+~ String ПолученноеЗначениеИзСпинераДата
+~ String КакойКонтекст
+# ScrollView ScrollНаАктивтиСозданныхТабелей
+# LinearLayout LinearLayoutСозданныхТабелей
+# LinearLayout LinearLayoutДляЛинии
+~ boolean РежимыПросмотраДанныхЭкрана
+# EditText ПрослойкаМеждуТабелей
+~ {static} Configuration config
+~ String ПослеСозданиеовгоТабеляГОд
+~ String ПослеСозданиеовгоТабеляМЕсяц
+~ String ПослеСозданиеовгоТабеляВместеГодИМесяц
+~ String ПолученноеЗначениеИзТолькоСпинераДата
+~ String ПослеСозданияНовогоТабеляЕгоUUID
+~ String ПослеСозданияНовогоТабеляЕгоПолноеНазвание
+~ String ПубличноеИмяКнопкиТабеля
+~ String МетодГенерацииUUIDУжеСуществующегоСотрудника
+~ View.OnLongClickListener СлушательУдаланиеСамогоТабеля
+~ Button ШАблонвВидеКнопок
+~ String ПолученныйГодДляНовогоТабеля
+~ String ФинальнаяМЕсяцДляНовогоТабеля
+~ String ПравильныйВозвратИзДруговоАктивтиBACK
+~ int ЦифровоеИмяНовгоТабеля
+~ String МесяцТабеляФинал
+~ Long ПолученнаяUUIDНазванияОрганизации
+~ boolean ЗапускШаблоновFaceAppБлокировкаКнопкиДа
+~ String ПолноеИмяТабеляПослеСозданиеНовогоСотрудника
+# ProgressDialog progressDialog
+~ LinkedList<String> МассивДляВыбораВСпинерДата
+~ Context КонтекстШаблоны
+~ String МесяцТабеляФиналИзВсехСотрудниковВТАбеле
+~ String ГодТабеляФиналИзВсехСотрудниковВТАбел
+~ Button КнопкаНазадВсеТабеля
+~ LinkedList СодержимоеКурсораUUIDТабеляПриУдалениеиТАбеляилиВместеССотрудником
+~ Cursor Курсор_ЗагружаетАрайдистЗначенийНовогоШАБЛОНА
+# void onCreate(Bundle)
+# void onStop()
+~ void МетодПолучениеДанныхДляДаногоАктивтиИсторияТАбеля()
+# void onDestroy()
+# void onStart()
+- void МетодДляУдалениеТабеляЕслиВнемНетСотрудников()
+~ void СообщениеПредпреждаетОВыбореУдалениеСамогоТабеля(String,String,String,String,String,long)
+# void СообщениеВыборУдлалянияТабеляИзБазы(String,String,String,Long,String,Long)
+- void МетодУдалениеСамогоТабеля(String,Long,String,String,Long)
+- void МетодУдалениеТабеляПриУсловииЧтоНетСотрудниковВнем(String,Long,String,StringBuffer,Cursor[],Long)
+# void СообщениеПослеУдаленияСотрудникаИзТабеля(String,String,boolean,Long,String,Long)
+- void МетодУдалениеВсехСотрудниковВТАбеле(Long,String,Long)
+# void СообщениеПослеУдаленияСамогоТАбеля(String,String,boolean,Long)
+- void МетодСозданиеСпинераДляДатыНаАктивитиСозданиеИВыборТабеля()
+- String МетодДляПреоразванияЦифрыВНазванияМесяца(Cursor)
+- void МетодаСозданиеТабеляИзБазы()
+- Cursor МетодЗаполненияТабеляИзЗаранееСозданогоШабона()
+~ Cursor МетодКоторыйПоказываетМаксимальнуюДатуИзменения(int)
+~ Cursor МетодКоторыйПоказываетМаксимальнуюДатуИзмененияДляСпинера()
+- void МетодКогдаДанныхСамихТабелйНет()
+- void МетодСозданиеДиалогаКалендаряДаты()
++ void onDateSet(DatePicker,int,int,int)
+- void МетодВставкиНовогоМесяцавТабельКоторогоНет(StringBuffer)
+- int МетодПолучениниеМесяцДляЗАписивОднуКолонку(String)
+- int МетодПолучениниеГОдДляЗАписивОднуКолонку(String)
+- int МетодПолучениниеНовогоМесяцДляЗАписивОднуКолонку(String)
+- int МетодПолучениниеНовыйГодДляЗАписивОднуКолонку(String)
+- String МетодПолучениниеГодаДляЗАписивОднуКолонку(String)
+- void МетодЗаполненияАлайЛИстаНовымМЕсцевНовогоТабеля()
+- void МетодВозвратаПравильногоДатыВСпиноре()
++ String МетодПереводаНазваниеМесяцаСАнглискогоНаРУсский(Date)
+- int МетодПолучениниеКурсораМЕсяцДата(String)
+- int МетодПолучениниеКурсораГОДДата(String)
+- void МетодПолучениеMAcАдреса()
++ String ГлавнаяДатаИВремяДляТабеля()
+# void СообщениеСпрашиваемПользователяЧтоОнТОчноХочетьСоздатьНовыйШаблон(String,String,boolean)
+- void МетодСозданияНовогоШАблона()
+~ int МетодПолучениеОрганизацииНепосрдственодляДанногоСОтрудника()
++ String МетодГенерацииUUID()
++ String ГлавнаяДатаИВремяОперацийСБазойДанных()
+# void СообщениеКотороеСпрашиваетНужноЛиВставлятьСотрудниковИзРанееСозданогоШаблона(String,String,boolean,Cursor,Cursor,String,Object)
+~ void МетодСамойЗаписиСотрудниковИзРанееСозданногШаблона(Cursor,Cursor)
+~ void СообщениеСооьщаетПользовательЧТоСоздалитьНовыеСотрудниккиУспешноИлиНет(String,String,boolean)
+- void МетодПереходаПослеУспешногоДобавленияСотрудниклвИзШаблонаВТабель()
+- void МетодТретийАвтоматическаяВставкаВыходныхДней(Long,int,int)
+}
+class com.dsy.dsu.MyContentProviderDatabase {
++ int delete(Uri,String,String[])
++ String getType(Uri)
++ Uri insert(Uri,ContentValues)
++ boolean onCreate()
++ Cursor query(Uri,String[],String,String[],String)
++ int update(Uri,ContentValues,String,String[])
+}
+class com.dsy.dsu.Broadcasts_Широковещательный_приемник {
++ void onReceive(Context,Intent)
+- void МетодЗапускаСинхоронизацииИзШироковещательногоПриёмника(Context)
+- void МетодЗапускаСлужбВШировоВещятелеУведомления(Context)
+}
+class com.dsy.dsu.data.LoginDataSource {
++ Result<LoggedInUser> login(String,String)
++ void logout()
+}
+
+
+androidx.fragment.app.Fragment <|-- com.dsy.dsu.Fragment_СообщенияЧата
+com.dsy.dsu.Fragment_СообщенияЧата +.. com.dsy.dsu.Fragment_СообщенияЧата.VIEW
+com.dsy.dsu.Fragment_СообщенияЧата +.. com.dsy.dsu.Fragment_СообщенияЧата.CONTROLLER
+com.dsy.dsu.OnItemClickListener <|.. com.dsy.dsu.Fragment_СообщенияЧата.CONTROLLER
+com.dsy.dsu.Fragment_СообщенияЧата +.. com.dsy.dsu.Fragment_СообщенияЧата.MODEL
+androidx.appcompat.app.AppCompatActivity <|-- com.dsy.dsu.MainActivity_VIEWERRORS
+androidx.fragment.app.Fragment <|-- com.dsy.dsu.Fragment_КонтактыЧата
+com.dsy.dsu.Fragment_КонтактыЧата +.. com.dsy.dsu.Fragment_КонтактыЧата.VIEW
+com.dsy.dsu.Fragment_КонтактыЧата +.. com.dsy.dsu.Fragment_КонтактыЧата.CONTROLLER
+com.dsy.dsu.OnItemClickListener <|.. com.dsy.dsu.Fragment_КонтактыЧата.CONTROLLER
+com.dsy.dsu.Fragment_КонтактыЧата +.. com.dsy.dsu.Fragment_КонтактыЧата.MODEL
+com.dsy.dsu.Fragment_КонтактыЧата +.. com.dsy.dsu.Fragment_КонтактыЧата.MainAdapter
+com.dsy.dsu.FragmentPagerAdapter <|-- com.dsy.dsu.Fragment_КонтактыЧата.MainAdapter
+com.dsy.dsu.data.Result +.. com.dsy.dsu.data.Result.Success
+com.dsy.dsu.data.Result <|-- com.dsy.dsu.data.Result.Success
+com.dsy.dsu.data.Result +.. com.dsy.dsu.data.Result.Error
+com.dsy.dsu.data.Result <|-- com.dsy.dsu.data.Result.Error
+androidx.appcompat.app.AppCompatActivity <|-- com.dsy.dsu.MainActivity_Status_Value_Tabels
+com.dsy.dsu.MainActivity_Status_Value_Tabels +.. com.dsy.dsu.MainActivity_Status_Value_Tabels.СоздаемСвойАдаптерДляГридМюу
+com.dsy.dsu.BaseAdapter <|-- com.dsy.dsu.MainActivity_Status_Value_Tabels.СоздаемСвойАдаптерДляГридМюу
+android.app.Service <|-- com.dsy.dsu.Service_Синхронизация
+android.app.Service <|-- com.dsy.dsu.Service_Уведомления
+com.dsy.dsu.Business_logic_Only_Class.DataBases.CREATE_DATABASE <|-- com.dsy.dsu.Business_logic_Only_Class.PUBLIC_CONTENT
+com.dsy.dsu.Business_logic_Only_Class.Class_MODEL_synchronized <|-- com.dsy.dsu.КлассВставкиОшибок
+androidx.appcompat.app.AppCompatActivity <|-- com.dsy.dsu.For_Code_Settings_DSU1.MainActivity_Settings
+androidx.work.Worker <|-- com.dsy.dsu.MyWork_Синхронизация_Локального
+androidx.appcompat.app.AppCompatActivity <|-- com.dsy.dsu.Code_ForTABEL.MainActivity_Find_Customers
+com.dsy.dsu.Code_ForTABEL.MainActivity_Find_Customers +.. com.dsy.dsu.Code_ForTABEL.MainActivity_Find_Customers.СоздаемСвойАдаптерДляГридМюу
+com.dsy.dsu.BaseAdapter <|-- com.dsy.dsu.Code_ForTABEL.MainActivity_Find_Customers.СоздаемСвойАдаптерДляГридМюу
+androidx.appcompat.app.AppCompatActivity <|-- com.dsy.dsu.Code_ForTABEL.MainActivity_New_Tabely
+android.app.Service <|-- com.dsy.dsu.Service_ОбновлениеПО
+androidx.appcompat.app.AppCompatActivity <|-- com.dsy.dsu.MainActivity_history_chat
+com.dsy.dsu.MainActivity_history_chat +.. com.dsy.dsu.MainActivity_history_chat.CONTROLLER
+com.dsy.dsu.MainActivity_history_chat +.. com.dsy.dsu.MainActivity_history_chat.MainAdapter
+com.dsy.dsu.FragmentPagerAdapter <|-- com.dsy.dsu.MainActivity_history_chat.MainAdapter
+com.dsy.dsu.MainActivity_history_chat +.. com.dsy.dsu.MainActivity_history_chat.MODEL
+com.dsy.dsu.MainActivity_history_chat +.. com.dsy.dsu.MainActivity_history_chat.VIEW
+androidx.work.Worker <|-- com.dsy.dsu.MyWorkОбновлениеПО
+androidx.appcompat.app.AppCompatActivity <|-- com.dsy.dsu.MainActivity_FACE_APP
+android.database.sqlite.SQLiteOpenHelper <|-- com.dsy.dsu.Business_logic_Only_Class.DataBases.CREATE_DATABASE
+androidx.work.Worker <|-- com.dsy.dsu.MyWork_Синхронизация_ВнутриТабеля
+androidx.appcompat.app.AppCompatActivity <|-- com.dsy.dsu.MainActivity_Sinfrozisaziy_Prograssbar
+com.dsy.dsu.MainActivity_Sinfrozisaziy_Prograssbar +.. com.dsy.dsu.MainActivity_Sinfrozisaziy_Prograssbar.Visual_synchronization_Executor
+androidx.appcompat.app.AppCompatActivity <|-- com.dsy.dsu.MainActivity_history_chat_test
+com.dsy.dsu.MainActivity_history_chat_test +.. com.dsy.dsu.MainActivity_history_chat_test.VIEW_CHAT
+com.dsy.dsu.MainActivity_history_chat_test +.. com.dsy.dsu.MainActivity_history_chat_test.CONTROLLER_CHAT
+com.dsy.dsu.MainActivity_history_chat_test +.. com.dsy.dsu.MainActivity_history_chat_test.MODEL_CHAT
+androidx.appcompat.app.AppCompatActivity <|-- com.dsy.dsu.MainActivity_Single_Tabely
+com.dsy.dsu.Business_logic_Only_Class.DataBases.CREATE_DATABASE <|-- com.dsy.dsu.Business_logic_Only_Class.Class_MODEL_synchronized
+androidx.appcompat.app.AppCompatActivity <|-- com.dsy.dsu.MainActivity_Employees_Tabely
+androidx.appcompat.app.AppCompatActivity <|-- com.dsy.dsu.For_Code_Settings_DSU1.MainActivity_Tabels_Users_And_Passwords
+androidx.appcompat.app.AppCompatActivity <|-- com.dsy.dsu.For_Code_Settings_DSU1.MainActivity_Face_Start
+androidx.work.Worker <|-- com.dsy.dsu.MyWorkУведомления
+androidx.appcompat.app.AppCompatActivity <|-- com.dsy.dsu.Code_ForTABEL.MainActivity_Find_Templates
+com.dsy.dsu.Code_ForTABEL.MainActivity_Find_Templates +.. com.dsy.dsu.Code_ForTABEL.MainActivity_Find_Templates.СоздаемСвойАдаптерДляГридМюу
+com.dsy.dsu.BaseAdapter <|-- com.dsy.dsu.Code_ForTABEL.MainActivity_Find_Templates.СоздаемСвойАдаптерДляГридМюу
+android.app.job.JobService <|-- com.dsy.dsu.JobMyService
+com.dsy.dsu.Business_logic_Only_Class.DataBases.CREATE_DATABASE <|-- com.dsy.dsu.Exchange_Loal_Base
+com.dsy.dsu.OnDateSetListener <|.. com.dsy.dsu.Code_ForTABEL.MainActivity_New_Cusomers
+androidx.appcompat.app.AppCompatActivity <|-- com.dsy.dsu.Code_ForTABEL.MainActivity_New_Cusomers
+androidx.fragment.app.Fragment <|-- com.dsy.dsu.Fragment_ЧитатьПисатьЧата
+com.dsy.dsu.Fragment_ЧитатьПисатьЧата +.. com.dsy.dsu.Fragment_ЧитатьПисатьЧата.VIEW
+com.dsy.dsu.Fragment_ЧитатьПисатьЧата +.. com.dsy.dsu.Fragment_ЧитатьПисатьЧата.CONTROLLER
+com.dsy.dsu.OnItemClickListener <|.. com.dsy.dsu.Fragment_ЧитатьПисатьЧата.CONTROLLER
+com.dsy.dsu.Fragment_ЧитатьПисатьЧата +.. com.dsy.dsu.Fragment_ЧитатьПисатьЧата.MODEL
+com.dsy.dsu.Fragment_ЧитатьПисатьЧата +.. com.dsy.dsu.Fragment_ЧитатьПисатьЧата.тестдляОбмена
+com.dsy.dsu.OnDateSetListener <|.. com.dsy.dsu.MainActivity_History_Tabels
+androidx.appcompat.app.AppCompatActivity <|-- com.dsy.dsu.MainActivity_History_Tabels
+com.dsy.dsu.dummy.DummyContent +.. com.dsy.dsu.dummy.DummyContent.DummyItem
+com.dsy.dsu.Business_logic_Only_Class.Class_MODEL_synchronized <|-- com.dsy.dsu.GetClassNumberAllRowsJSON
+com.dsy.dsu.Business_logic_Only_Class.Class_MODEL_synchronized <|-- com.dsy.dsu.CONTROLLER_synchronized_LAUNCH_IN_BACKGROUND
+com.dsy.dsu.CONTROLLER_synchronized_LAUNCH_IN_BACKGROUND +.. com.dsy.dsu.CONTROLLER_synchronized_LAUNCH_IN_BACKGROUND.ClassCalculateInFieldIDNULLMeanDataValueNotyetsent
+com.dsy.dsu.CONTROLLER_synchronized_LAUNCH_IN_BACKGROUND +.. com.dsy.dsu.CONTROLLER_synchronized_LAUNCH_IN_BACKGROUND.ClassGettingPublicUserID
+com.dsy.dsu.CONTROLLER_synchronized_LAUNCH_IN_BACKGROUND <|-- com.dsy.dsu.CONTROLLER_synchronized_LAUNCH_IN_BACKGROUND.ClassGettingPublicUserID
+com.dsy.dsu.OnDateSetListener <|.. com.dsy.dsu.Code_ForTABEL.MainActivity_New_Templates
+androidx.appcompat.app.AppCompatActivity <|-- com.dsy.dsu.Code_ForTABEL.MainActivity_New_Templates
+android.content.ContentProvider <|-- com.dsy.dsu.MyContentProviderDatabase
+android.content.BroadcastReceiver <|-- com.dsy.dsu.Broadcasts_Широковещательный_приемник
+@enduml

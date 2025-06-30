@@ -1,0 +1,76 @@
+"main@19551" prio=5 tid=0x2 nid=NA runnable
+  java.lang.Thread.State: RUNNABLE
+	  at com.dsy.dsu.Business_logic_Only_Class.DataBases.CREATE_DATABASE.��������������������Data_Chat(CREATE_DATABASE.java:736)
+	  at com.dsy.dsu.Business_logic_Only_Class.DataBases.CREATE_DATABASE.onCreate(CREATE_DATABASE.java:483)
+	  at android.database.sqlite.SQLiteOpenHelper.getDatabaseLocked(SQLiteOpenHelper.java:411)
+	  at android.database.sqlite.SQLiteOpenHelper.getWritableDatabase(SQLiteOpenHelper.java:316)
+	  - locked <0x4d94> (a com.dsy.dsu.Business_logic_Only_Class.DataBases.CREATE_DATABASE)
+	  at com.dsy.dsu.Business_logic_Only_Class.DataBases.CREATE_DATABASE.<init>(CREATE_DATABASE.java:95)
+	  at com.dsy.dsu.Code_For_Firebase_And_Provader.ContentProviderSynsInsert.onCreate(ContentProviderForDataBase.java:376)
+	  at android.content.ContentProvider.attachInfo(ContentProvider.java:2404)
+	  at android.content.ContentProvider.attachInfo(ContentProvider.java:2374)
+	  at android.app.ActivityThread.installProvider(ActivityThread.java:7422)
+	  at android.app.ActivityThread.installContentProviders(ActivityThread.java:6939)
+	  at android.app.ActivityThread.handleBindApplication(ActivityThread.java:6710)
+	  at android.app.ActivityThread.access$1500(ActivityThread.java:247)
+	  at android.app.ActivityThread$H.handleMessage(ActivityThread.java:2053)
+	  at android.os.Handler.dispatchMessage(Handler.java:106)
+	  at android.os.Looper.loopOnce(Looper.java:201)
+	  at android.os.Looper.loop(Looper.java:288)
+	  at android.app.ActivityThread.main(ActivityThread.java:7839)
+	  at java.lang.reflect.Method.invoke(Method.java:-1)
+	  at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:548)
+	  at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:1003)
+
+"Signal Catcher@19867" daemon prio=10 tid=0x1d nid=NA waiting
+  java.lang.Thread.State: WAITING
+	 Incompatible thread state: thread not suspended
+
+"ADB-JDWP Connection Control Thread@19868" daemon prio=0 tid=0x1e nid=NA waiting
+  java.lang.Thread.State: WAITING
+	 Incompatible thread state: thread not suspended
+
+"Binder:3033_1@19869" prio=5 tid=0x23 nid=NA runnable
+  java.lang.Thread.State: RUNNABLE
+	 Incompatible thread state: thread not suspended
+
+"ReferenceQueueDaemon@19870" daemon prio=5 tid=0x20 nid=NA waiting
+  java.lang.Thread.State: WAITING
+	 Incompatible thread state: thread not suspended
+
+"FinalizerDaemon@19871" daemon prio=5 tid=0x21 nid=NA waiting
+  java.lang.Thread.State: WAITING
+	 Incompatible thread state: thread not suspended
+
+"FinalizerWatchdogDaemon@19872" daemon prio=5 tid=0x22 nid=NA waiting
+  java.lang.Thread.State: WAITING
+	 Incompatible thread state: thread not suspended
+
+"Binder:3033_2@19873" prio=5 tid=0x24 nid=NA runnable
+  java.lang.Thread.State: RUNNABLE
+	 Incompatible thread state: thread not suspended
+
+"HeapTaskDaemon@19874" daemon prio=5 tid=0x1f nid=NA waiting
+  java.lang.Thread.State: WAITING
+	 Incompatible thread state: thread not suspended
+
+"Jit thread pool worker thread 0@19875" daemon prio=5 tid=0x25 nid=NA runnable
+  java.lang.Thread.State: RUNNABLE
+	 Incompatible thread state: thread not suspended
+
+"Binder:3033_3@19876" prio=5 tid=0x26 nid=NA runnable
+  java.lang.Thread.State: RUNNABLE
+	 Incompatible thread state: thread not suspended
+
+"Profile Saver@19554" daemon prio=5 tid=0x2a nid=NA runnable
+  java.lang.Thread.State: RUNNABLE
+	 Incompatible thread state: thread not suspended
+
+"WM.entityMaterialBinary-1@19812" prio=5 tid=0x2b nid=NA waiting
+  java.lang.Thread.State: WAITING
+	 Incompatible thread state: thread not suspended
+
+"WM.entityMaterialBinary-2@19859" prio=5 tid=0x2c nid=NA waiting
+  java.lang.Thread.State: WAITING
+	 Incompatible thread state: thread not suspended
+

@@ -1,0 +1,45 @@
+
+buildscript {
+
+    repositories {
+        google()
+        jcenter()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:8.4.2'
+        classpath 'androidx.navigation:navigation-safe-args-gradle-plugin:2.5.0'
+// other plugins...
+        classpath 'com.google.dagger:hilt-android-gradle-plugin:2.44'
+
+        classpath 'com.google.gms:google-services:4.4.2'
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+ext {
+    def getJbossGradle =true
+    //TODO AMD Rezyn 5600
+     getValueCertificate = 'C:\\Users\\Public\\Public Doc Dev\\AndroidStudioProjectsTabel\\DSU\\certificates\\dsu1_keys.jks' //AMD Rezyn 5600
+    //TODO CHUWI
+  //   getValueCertificate = 'C:\\Users\\Public\\Documents\\AndroidStudioProjects\\DSU\\certificates\\dsu1_keys.jks' // CHUWI
+    //TODO Core i-3
+    //  getValueCertificate = 'C:\\Users\\Public\\Documents\\Dev Android\\AndroidStudioProjects\\DSU\\certificates\\dsu1_keys.jks' //Core i-3
+
+
+///TRue Релиз
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        mavenCentral()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir////////
+}

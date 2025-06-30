@@ -1,0 +1,1287 @@
+
+
+
+
+
+keytool -genkeypair -alias jboss -keyalg RSA  -sigalg SHA256withRSA  -keysize 2048 -validity 36500 -keystore  keystore31.pfx   -storetype PKCS12  -dname "CN=192.168.24.40:8443/jboss-1.0-SNAPSHOT/ , OU=dev64, O=dev64wordpress, L=ivanovo, ST=sousabtodor, C=RU" -keypass secret    -storepass secret
+
+
+
+
+
+
+
+
+keytool -genkey -alias <desired certificate alias> 
+    -keystore <path to keystore.pfx>
+    -storetype PKCS12 
+    -keyalg RSA 
+    -storepass <password> 
+    -validity 730 
+    -keysize 2048 
+
+
+
+
+
+
+https://localhost:8443/jboss-1.0-SNAPSHOT/
+
+https://192.168.254.40:8443/jboss-1.0-SNAPSHOT/
+
+
+
+keytool -genkeypair -alias jboss -keyalg RSA  -sigalg SHA256withRSA  -keysize 2048 -validity 36500 -keystore  keystore31.jks -dname "CN=192.168.24.40:8443/jboss-1.0-SNAPSHOT/ , OU=dev64, O=dev64wordpress, L=ivanovo, ST=sousabtodor, C=RU" -keypass secret    -storepass secret
+
+
+
+
+
+cd  C:\Program Files\RedHat\java-11-openjdk-11.0.18-1\bin
+
+
+*************************************  19.32  
+
+
+
+
+
+
+
+
+
+
+
+
+
+10
+
+Вам не нужно преобразовывать CRT в PFX. Вы можете преобразовать CRT в CER, а оттуда загрузить его в хранилище сертификатов.
+
+https://support.comodo.com/index.php?/Knowledgebase/Article/View/361/17/how-do-i-convert-crt-file-into-the-microsoft-cer-format
+
+Щелкните файл CRT правой кнопкой мыши и выберите "Открыть".
+Перейдите на вкладку "Подробности".
+Нажмите "Скопировать в файл ..."
+Нажмите "Далее".
+Выберите опцию "X.509 в кодировке Base-64 (.CER)" и нажмите "Далее".
+Присвойте файлу экспорта имя (например, "www.mysite.com-2019.cer") и нажмите "Сохранить".
+Нажмите "Далее".
+Подтвердите информацию и нажмите "Готово".
+Откройте IIS и перейдите на страницу "Сертификаты сервера".
+Нажмите "Завершить запрос сертификата" (справа -навигация).
+Выберите новый файл CER, укажите удобное имя по вашему выбору (например, "www.mysite.com-2019") и нажмите "ОК".
+Вы должны увидеть новый сертификат, указанный на странице "Сертификаты сервера" под выбранным вами "Удобным названием".
+
+
+
+
+keytool -export -alias selfsigned  -file mselfsigned.crt -keystore keystore.jks -storepass password
+
+keytool -export -alias mydomain -file mydomain.crt -keystore keystore.jks -storepass password
+
+
+ 
+
+
+
+***import 
+
+
+
+
+
+
+
+keytool -genkey -keyalg RSA -alias selfsigned -keystore keystore.jks -storepass password -validity 36000
+
+
+
+keytool -certreq -alias mydomain -keystore keystore.jks -storepass password -file mydomain.csr
+
+
+
+
+cd  C:\Program Files\RedHat\java-11-openjdk-11.0.18-1\bin
+
+
+
+keytool -genkey -alias mydomain -keyalg RSA -keystore keystore.jks -storepass password
+
+
+
+
+*****************************************  03.01.2023
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+30820122300D06092A864886F70D01010105000382010F003082010A02820101008E3CB0F8E854C7F05145B70850354E1F67F07FEC6C1D5162826107557AC1E3545DBCB9E47FA15AFF1C77C6D4BEE8A38654E534FA32505D30C3642EA31C598937C4CB8D4E3D6FBD456272EC38BD9B7B2801EC6924EF6B7E3B0F53B6F20B7E2B0634D7201E1341D32567F1C315170F8D7BC32144805D56060EB34CC1CB945D0B7D9162B2E6426DAC270712C72E33F9D3138B6351FDCDA42FB1851C126FE560622E2298CE9136B666DE6630724F55307DFB7A076B26202EF514DAD019B400B6A4DA6B1977B54511EB77CEF4F297FBA403CFF38AFA0D1C31D82C737D0E96A123AF7D201D0BB278010332E50FB4FAABF711131C0D8C8EC940E828BC91D5F03F62AC7D0203010001
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+****************02.01.2023
+jsmith
+
+
+https://access.redhat.com/documentation/ru-ru/jboss_enterprise_application_platform/6.1/html/security_guide/generate_a_ssl_encryption_key_and_certificate
+
+
+
+
+keytool -import -alias jboss -keystore server.keystore -file server.crt  (ВТОРОЙ ШАГ)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+keytool -import -keystore server.keystore -alias intermediateCA -file intermediate.ca           (ПЕРВЫЙ ЩШАГ)
+
+
+
+
+cd  C:\Program Files\RedHat\java-11-openjdk-11.0.18-1\bin
+
+16.17    IMPORE CERTT
+
+
+
+
+
+
+
+keytool -export -alias jboss -keystore server.keystore -file server.crt
+
+
+
+keytool -certreq -keyalg RSA -alias jboss -keystore server.keystore -file certreq.csr
+
+
+
+
+
+
+keytool -genkeypair -alias jboss -keyalg RSA -keystore server.keystore -storepass mykeystorepass --dname "CN=jsmith,OU=Engineering,O=mycompany.com,L=Raleigh,S=NC,C=US"
+
+
+
+
+
+
+******************16.15  CREATE CERT
+
+
+
+
+.crt
+
+
+$ 
+
+
+
+
+  keytool -exportcert  -keystore   exampleclient.keystore.pkcs12
+
+ -alias exampleClientKeyStore -keypass secret -storepass secret -file C:\Users\moraru_pi\Desktop\certifi\client.cer
+
+-exportcert
+
+
+
+keytool -exportcert  -keystore  C:/Program Files/RedHat/java-11-openjdk-11.0.18-1/bin/exampleclient.keystore.pkcs12
+ -alias exampleClientKeyStore -keypass secret -storepass secret -file     C:/Program Files/RedHat/java-11-openjdk-11.0.18-1/bin/client.cer
+
+
+
+
+Certificate stored in file <EAP_HOME/standalone/configuration/client.cer>
+
+
+
+
+$ keytool -genkeypair -alias exampleClientKeyStore -keyalg RSA -keysize 2048 -validity 365 -keystore exampleclient.keystore.pkcs12 -dname "CN=client" -keypass secret -storepass secret
+
+
+
+cd  C:\Program Files\RedHat\java-11-openjdk-11.0.18-1\bin
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*************************************************15,52
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://habr.com/ru/articles/559722/
+
+
+
+https://girirajsharma.wordpress.com/2015/10/04/authentication-via-wildfly-mutual-ssl-two-way-configuration/
+
+https://habr.com/ru/companies/alfa/articles/340028/
+
+
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Secure Content</web-resource-name>
+            <url-pattern>/*</url-pattern>
+        </web-resource-collection>
+        <user-data-constraint>
+            <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+        </user-data-constraint>
+    </security-constraint>
+    <!-- ... -->
+    <security-role>
+        <description>The role required to access restricted content </description>
+        <role-name>AuthorizedUser</role-name>
+    </security-role>
+
+
+
+
+
+
+
+
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Secure Content</web-resource-name>
+            <url-pattern>/restricted/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>AuthorizedUser</role-name>
+        </auth-constraint>
+        <user-data-constraint>
+            <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+        </user-data-constraint>
+    </security-constraint>
+    <!-- ... -->
+    <security-role>
+        <description>The role required to access restricted content </description>
+        <role-name>AuthorizedUser</role-name>
+    </security-role>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Secure URLs</web-resource-name>
+            <url-pattern>fdfdfd/*</url-pattern>
+        </web-resource-collection>
+        <user-data-constraint>
+            <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+        </user-data-constraint>
+    </security-constraint>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  // TODO: 15.12.2023 sstart test
+            java.security.KeyStore    getkeyStore=new SSL1(context).getKeyCert();
+            SSLContext sslContext = SSLContext.getInstance("SSL");
+            TrustManagerFactory trustManagerFactory=TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
+            trustManagerFactory.init(getkeyStore);
+            KeyManagerFactory keyManagerFactory=KeyManagerFactory.getInstance(KeyManagerFactory.getDefaultAlgorithm());
+
+            keyManagerFactory.init(getkeyStore,"secret".toCharArray());
+
+
+            sslContext.init(keyManagerFactory.getKeyManagers(),null,null);
+
+            builderokhtttp.sslSocketFactory(sslContext.getSocketFactory());
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*********15.17
+
+
+
+
+
+
+
+
+https://stackoverflow.com/questions/14163889/keytool-keeps-giving-sha256-sigalg-instead-of-requested-alg
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://192.168.24.40:8443/jboss-1.0-SNAPSHOT/
+
+
+
+
+
+
+
+
+
+cerkeystore1.cer
+
+
+pspjboss
+
+
+
+
+
+HTTPSRealm
+
+
+
+
+ keytool -exportcert  -keystore   C:\Users\moraru_pi\Desktop\certifi\keystore41.jks -alias localhost -keypass secret -storepass -storetype PKCS12  secret -file C:\Users\moraru_pi\Desktop\certifi\client43.cer
+
+
+
+
+
+
+
+  keytool -exportcert  -keystore   C:\Users\moraru_pi\Desktop\certifi\keystore41.jks -alias exampleClientKeyStore -keypass secret -storepass secret -file C:\Users\moraru_pi\Desktop\certifi\client.cer
+
+Certificate stored in file <EAP_HOME/standalone/configuration/client.cer>
+
+
+
+
+PKCS #1 SHA-512 с шифрованием RSA
+
+
+
+
+
+
+
+
+
+
+certifi
+
+
+keytool -importkeystore -srckeystore "keystore.jks" -destkeystore "keystore.bks" -srcstoretype JKS -deststoretype BKS -srcstorepass "YOUR_PASSWORD" -deststorepass "YOUR_PASSWORD" -provider "org.bouncycastle.jce.provider.BouncyCastleProvider" -providerPath "bcprov-jdk18on-176.jar"
+
+
+
+
+
+keytool -genkeypair -alias localhost -keyalg RSA  -sigalg SHA256withRSA  -keysize 1024 -validity 36500 -keystore  keystore31.jks -dname "CN=localhost , OU=dev64, O=dev64-wordpress, L=ivanovo, ST=sousabtodor, C=RU" -keypass secret    -storepass secret
+
+
+keytool -genkeypair -alias localhost -keyalg RSA -keysize 8192 -validity 36500 -keystore  keystore30.jks -dname "CN=localhost , OU=dev64, O=dev64-wordpress, L=ivanovo, ST=sousabtodor, C=RU" -keypass secret    -storepass secret
+
+
+keytool -exportcert  -keystore   keystore30.jks  -alias localhost  -keypass secret      -storepass secret     -storetype PKCS12     -file cerkeystore31.cer
+
+
+
+
+
+keytool -genkeypair -alias localhost -keyalg RSA -keysize 8192 -validity 36500 -keystore  keystore1.jks -dname "CN=localhost" -keypass secret    -storepass secret
+
+
+keytool -exportcert  -keystore   keystore1.jks  -alias localhost  -keypass secret      -storepass secret       -file cerkeystore1.cer
+
+
+***********************************   7.58  
+
+
+
+
+
+
+cd C:\Program Files\RedHat\java-11-openjdk-11.0.18-1\bin  
+
+
+keytool -genkeypair -alias localhost -keyalg RSA -keysize 8192 -validity 36500 -keystore server2.keystore.jks -dname "CN=localhost" -keypass secret -storepass secret
+
+ 
+
+keytool -exportcert  -keystore server2.keystore.jks -alias localhost  -keypass secret   -storepass secret -file server2.keystore.cer
+
+
+
+
+
+/*********************************************** 18 .12 2023     7.57    
+
+
+
+
+
+
+
+
+
+
+http://192.168.254.40:8443/jboss-1.0-SNAPSHOT/sous.jboss.runtimejboss/
+
+
+ttpsURLConnection connection = (HttpsURLConnection) new URL( url ).openConnection()
+
+SSLContext sc = SSLContext.getInstance("TLSv1.2")
+sc.init(null, null, new SecureRandom())
+connection.setSSLSocketFactory(sc.getSocketFactory())
+connection.setRequestProperty("charset", "utf-8")
+
+InputStream input = connection.getInputStream()
+InputStreamReader reader = new InputStreamReader(input, "utf-8")
+BufferedReader buffer = new BufferedReader(reader)
+
+buffer.lines().collect(Collectors.joining("\n"))
+
+
+
+
+
+
+
+ам не нужно вносить какие-либо изменения в сертификат. Вы уверены, что используете правильную команду импорта?
+
+Для меня работает следующее:
+
+keytool -import -alias joe -file mycert.cer -keystore mycerts -storepass changeit
+где mycert.cer содержит:
+
+-----BEGIN CERTIFICATE-----
+MIIFUTCCBDmgAwIBAgIHK4FgDiVqczANBgkqhkiG9w0BAQUFADCByjELMAkGA1UE
+BhMCVVMxEDAOBgNVBAgTB0FyaXpvbmExEzARBgNVBAcTClNjb3R0c2RhbGUxGjAY
+...
+RLJKd+SjxhLMD2pznKxC/Ztkkcoxaw9u0zVPOPrUtsE/X68Vmv6AEHJ+lWnUaWlf
+zLpfMEvelFPYH4NT9mV5wuQ1Pgurf/ydBhPizc0uOCvd6UddJS5rPfVWnuFkgQOk
+WmD+yvuojwsL38LPbtrC8SZgPKT3grnLwKu18nm3UN2isuciKPF2spNEFnmCUWDc
+MMicbud3twMSO6Zbm3lx6CToNFzP
+-----END CERTIFICATE-----
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*****************************************15.06
+
+
+
+
+   <security-realm name="HTTPSRealm">
+                <server-identities>
+                    <ssl>
+                        <keystore path="C:\JBOSS\EAP-7.4.0\certific\server2.keystore.jks" keystore-password="secret" alias="localhost"/>
+                    </ssl>
+                </server-identities>
+            </security-realm>
+        </security-realms>
+
+
+
+
+
+
+keytool -genkey -keyalg RSA  -keystore   server3.keystore.jks -dname "CN=selfsigned"  -alias selfsigned   -storepass mypassword9 -validity 36000 -keysize  8192 
+
+
+keytool -exportcert  -keystore server3.keystore.jks -alias selfsigned -keypass mypassword9 -storepass mypassword9 -file serverselfsigned.cer
+
+
+
+
+cd C:\Program Files\RedHat\java-11-openjdk-11.0.18-1\bin  >
+
+
+keytool -genkeypair -alias localhost -keyalg RSA -keysize 8192 -validity 36500 -keystore server2.keystore.jks -dname "CN=localhost" -keypass secret -storepass secret
+
+ 
+
+keytool -exportcert  -keystore server2.keystore.jks -alias localhost  -keypass secret   -storepass secret -file server2.keystore.cer
+
+ ********************* 14.50  
+
+
+
+
+
+
+
+
+
+
+Импортируйте сертификаты сервера и клиента в противоположные хранилища доверия:
+
+?
+$ keytool -importcert -keystore server.truststore.jks -storepass secret -alias client -trustcacerts -file client.cer
+ 
+$ keytool -importcert -keystore client.truststore.jks -storepass secret -alias localhost -trustcacerts -file server.cer
+
+
+
+
+
+
+
+
+Экспортируйте сертификаты сервера и клиента:
+
+?
+$ keytool -exportcert  -keystore server.keystore.jks -alias localhost -keypass secret -storepass secret -file server.cer
+ 
+$ keytool -exportcert  -keystore client.keystore.jks -alias client -keypass secret -storepass secret -file client.cer
+
+
+
+
+
+
+
+
+
+
+
+
+
+Получите или сгенерируйте свое хранилище ключей:
+Перед включением HTTPS в WildFly вы должны получить или сгенерировать хранилища ключей, хранилища доверия и сертификаты, которые планируете использовать.
+
+Создание хранилищ ключей сервера и клиента:
+
+
+
+$ keytool -genkeypair -alias localhost -keyalg RSA -keysize 1024 -validity 365 -keystore server.keystore.jks -dname "CN=localhost" -keypass secret -storepass secret
+ 
+$ keytool -genkeypair -alias client -keyalg RSA -keysize 1024 -validity 365 -keystore client.keystore.jks -dname "CN=client" -keypass secret -storepass secret
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+**************************************************14.14
+
+
+https://docs.jboss.org/author/display/WFLY/WildFly%20Elytron%20Security.html#110231562_WildFlyElytronSecurity-EnableTwowaySSL%2FTLSinWildFlyforApplications
+
+HTTPSRealm
+
+
+
+
+C:\WINDOWS\system32>cd C:\Program Files\RedHat\java-11-openjdk-11.0.18-1\bin
+
+C:\Program Files\RedHat\java-11-openjdk-11.0.18-1\bin>
+C:\Program Files\RedHat\java-11-openjdk-11.0.18-1\bin>keytool -exportcert  -keystore C:\JBOSS\EAP-7.4.0\certific\jbosskeystoresaas2.jks  -alias servercert -keypass secret -storepass mypassword8 -file jbosskeystoresaas2export.cer
+Warning:  Different store and key passwords not supported for PKCS12 KeyStores. Ignoring user-specified -keypass value.
+Certificate stored in file <jbosskeystoresaas2export.cer>
+
+C:\Program Files\RedHat\java-11-openjdk-11.0.18-1\bin>keytool -genkeypair -alias localhost -keyalg RSA -keysize 1024 -validity 36500 -keystore server.keystore.jks -dname "CN=localhost" -keypass secret -storepass secret
+
+Warning:
+The generated certificate uses a 1024-bit RSA key which is considered a security risk. This key size will be disabled in a future update.
+
+C:\Program Files\RedHat\java-11-openjdk-11.0.18-1\bin>
+C:\Program Files\RedHat\java-11-openjdk-11.0.18-1\bin>keytool -genkeypair -alias localhost -keyalg RSA -keysize 8192 -validity 36500 -keystore server2.keystore.jks -dname "CN=localhost" -keypass secret -storepass secret
+
+C:\Program Files\RedHat\java-11-openjdk-11.0.18-1\bin>keytool -exportcert  -keystore server2.keystore.jks -alias localhost -keypass secret -storepass secret -file server.cer
+Certificate stored in file <server.cer>
+
+C:\Program Files\RedHat\java-11-openjdk-11.0.18-1\bin>
+
+
+
+
+
+
+
+
+
+
+***************************************   14,06  
+
+
+keytool -exportcert  -keystore server2.keystore.jks -alias localhost -keypass secret -storepass secret -file server.cer
+
+
+keytool -exportcert  -keystore server2.keystore.jks -alias localhost -keypass secret -storepass secret -file server.cer
+
+
+
+
+keytool -genkeypair -alias localhost -keyalg RSA -keysize 8192 -validity 36500 -keystore server2.keystore.jks -dname "CN=localhost" -keypass secret -storepass secret
+
+
+keytool -genkeypair -alias localhost -keyalg RSA -keysize 8192 -validity 36500 -keystore server2.keystore.jks -dname "CN=localhost" -keypass secret -storepass secret
+
+
+
+
+keytool -exportcert  -keystore C:\JBOSS\EAP-7.4.0\certific\jbosskeystoresaas2.jks  -alias servercert -keypass secret -storepass mypassword8 -file jbosskeystoresaas2export.cer
+
+
+
+keytool -keystore C:\JBOSS\EAP-7.4.0\certific\jbosskeystoresaas2.jks -alias servercert -validity 36500   -keysize 8192  -genkey
+
+mypassword8
+
+
+
+
+   *******************       13.42  
+
+
+
+
+Создание хранилищ ключей сервера и клиента:
+
+?
+$ keytool -genkeypair -alias localhost -keyalg RSA -keysize 1024 -validity 365 -keystore server.keystore.jks -dname "CN=localhost" -keypass secret -storepass secret
+ 
+$ keytool -genkeypair -alias client -keyalg RSA -keysize 1024 -validity 365 -keystore client.keystore.jks -dname "CN=client" -keypass secret -storepass secret
+Экспортируйте сертификаты сервера и клиента:
+
+?
+$ keytool -exportcert  -keystore server.keystore.jks -alias localhost -keypass secret -storepass secret -file server.cer
+ 
+$ keytool -exportcert  -keystore client.keystore.jks -alias client -keypass secret -storepass secret -file client.cer
+Импортируйте сертификаты сервера и клиента в противоположные хранилища доверия:
+
+?
+$ keytool -importcert -keystore server.truststore.jks -storepass secret -alias client -trustcacerts -file client.cer
+ 
+$ keytool -importcert -keystore client.truststore.jks -storepass secret -alias localhost -trustcacerts -file server.cer
+
+
+
+
+
+
+
+https://docs.jboss.org/author/display/WFLY/WildFly%20Elytron%20Security.html#110231562_WildFlyElytronSecurity-EnableTwowaySSL%2FTLSinWildFlyforApplications
+
+
+
+
+
+
+
+https://localhost:8443/jboss-1.0-SNAPSHOT/
+
+
+
+
+
+
+
+
+
+
+https://stackoverflow.com/questions/65596484/configure-jboss-eap-7-with-https-tls-1-2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+****************************************************12.07
+
+ КЛЮЧ  TABEL jks
+
+
+
+C:\Users\moraru_pi\AndroidStudioProjects\DSU\dsu1\dsu1_keys.jks
+
+      Key store password    верхний пароль dsu1dsu1up
+
+       Key alias  tabels_releases
+
+      Key password      нижний пароль dsu1dsu1down
+
+
+SCANNER
+
+C:\Users\moraru_pi\AndroidStudioProjects\DSU\dsu1\dsu1_keys.jks
+
+      Key store password    верхний пароль  dsu1dsu1up
+
+       Key alias  scan
+
+      Key password      нижний пароль dsu1dsu1down
+
+
+server SCANNER
+
+C:\Users\moraru_pi\AndroidStudioProjects\DSU\dsu1\dsu1_keys.jks
+
+      Key store password    верхний пароль  dsu1dsu1up
+
+       Key alias  serverscanner
+
+      Key password      нижний пароль dsu1dsu1down
+
+
+
+
+
+
+keytool -keystore C:\JBOSS\EAP-7.4.0\certific\jbosskeystoresaas2.jks -alias servercert -validity 36500   -keysize 8192  -genkey
+
+mypassword8
+
+
+
+
+
+
+keytool -keystore C:\JBOSS\EAP-7.4.0\certific\jbosskeystoresaas.jks -alias servercert -validity 36500   -keysize 8192  -genkey
+
+mypassword7
+
+
+
+
+ keytool -keystore C:\JBOSS\EAP-7.4.0\certific\jbosskeystoresaas.jks -alias servercert -validity 3650000   -keysize 8192  -genkey
+
+
+
+
+
+
+
+
+
+mypassword4
+
+
+keytool -keystore C:\JBOSS\EAP-7.4.0\certific\jbosskeystore2.jks -alias servercert -validity 36500 -genkey
+
+
+
+
+
+cd C:\Program Files\RedHat\java-11-openjdk-11.0.18-1\bin
+
+
+
+
+
+keytool -genkey -keystore scanners.jks -dname "CN=localhost, OU=dev64, O=dev64-wordpress, L=Unknown, ST=Unknown, C=RU" -storepass storepass -alias scanners_android -keypass ferrari1981
+
+
+
+keytool -genkey -keystore C:\local.keystore -storepass SuperSuper -alias mykey1 -keypass kpassword1 -dname “CN=Dmitry Vinogradov O=StartAndroid C=RU” -validity 10000
+
+
+
+
+
+
+keytool -importcert -file certificate.cer -keystore keystore.jks -alias "Alias" 
+
+keytool -importcert -file certificate.cer -keystore keystore.jks -alias "Alias" 
+
+
+
+
+
+
+  keytool -importkeystore -tabels_releases  dsu1_keys.jks -srcstoretype JKS -deststoretype PKCS12 -destkeystore browser_key.p12
+
+
+ keytool -importkeystore -tabels_releases  jboss3.keystore -srcstoretype JKS -deststoretype PKCS12 -destkeystore browser_key.p12
+
+
+
+
+  <connector name="https" protocol="HTTP/1.1" scheme="https" socket-binding="https">
+        <ssl name="ssl" key-alias="jboss" password="password" ca-certificate-password="password"
+             certificate-key-file="${jboss.server.config.dir}/keystore.jks"
+             ca-certificate-file="${jboss.server.config.dir}/truststore.jks"
+             verify-client="true"/>
+    </connector>
+
+
+
+
+
+
+ <Connector protocol="HTTP/1.1" SSLEnabled="true" 
+           port="8443" address="${jboss.bind.address}"
+           scheme="https" secure="true" clientAuth="true" 
+           keystoreFile="${jboss.server.home.dir}/conf/keystore.jks"
+           keystorePass="password" 
+           truststoreFile="${jboss.server.home.dir}/conf/truststore.jks"
+           truststorePass="password" />
+
+
+
+
+
+
+*******************************11.06
+
+
+keytool -genkey -v -keystore my-release-key.keystore -alias alias_name -keyalg RSA -keysize 2048 -validity 10000
+
+
+
+
+keytool -genkey -keystore jboss3.keystore -storepass mypassword3 -keypass mypassword3 -keyalg RSA -validity 18000 -alias jbossbook3 -dname "cn=Francesco Marchioni,o=PackPub,c=GB"
+
+
+keytool -genkey -keystore jboss2.keystore -storepass mypassword2 -keypass mypassword2 -keyalg RSA -validity 18000 -alias jbossbook2 -dname "cn=Francesco Marchioni,o=PackPub,c=GB"
+
+
+keytool -genkey -keystore jboss.keystore -storepass mypassword -keypass mypassword -keyalg RSA -validity 18000 -alias jbossbook -dname "cn=Francesco Marchioni,o=PackPub,c=GB"
+
+cd C:\Program Files\RedHat\java-11-openjdk-11.0.18-1\bin
+
+C:\Program Files\RedHat\java-11-openjdk-11.0.18-1\bin
+
+
+*************************************8,42
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://www.tabnine.com/code/java/methods/com.squareup.okhttp.OkHttpClient/setSslSocketFactory
+
+
+
+
+OkHttpClient client = new OkHttpClient();
+KeyStore keyStore = readKeyStore(); //your method to obtain KeyStore
+SSLContext sslContext = SSLContext.getInstance("SSL");
+TrustManagerFactory trustManagerFactory = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
+trustManagerFactory.init(keyStore);
+KeyManagerFactory keyManagerFactory = KeyManagerFactory.getInstance(KeyManagerFactory.getDefaultAlgorithm());
+keyManagerFactory.init(keyStore, "keystore_pass".toCharArray());
+sslContext.init(keyManagerFactory.getKeyManagers(),trustManagerFactory.getTrustManagers(), new SecureRandom());
+client.setSslSocketFactory(sslContext.getSocketFactory());
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+****************************************17.53
+
+
+public static OkHttpClient getUnsafeOkHttpClient() {
+    try {/*from   w w w.  j a  v a  2  s. c o m*/
+        // Create a trust manager that does not validate certificate chains
+        final TrustManager[] trustAllCerts = new TrustManager[] { new X509TrustManager() {
+            @Override
+            public void checkClientTrusted(java.security.cert.X509Certificate[] chain, String authType)
+                    throws CertificateException {
+            }
+
+            @Override
+            public void checkServerTrusted(java.security.cert.X509Certificate[] chain, String authType)
+                    throws CertificateException {
+            }
+
+            @Override
+            public java.security.cert.X509Certificate[] getAcceptedIssuers() {
+                return null;
+            }
+        } };
+
+        // Install the all-trusting trust manager
+        final SSLContext sslContext = SSLContext.getInstance("SSL");
+        sslContext.init(null, trustAllCerts, new java.security.SecureRandom());
+        // Create an ssl socket factory with our all-trusting manager
+        final SSLSocketFactory sslSocketFactory = sslContext.getSocketFactory();
+
+        OkHttpClient okHttpClient = new OkHttpClient();
+        okHttpClient.setSslSocketFactory(sslSocketFactory);
+        okHttpClient.setHostnameVerifier(new HostnameVerifier() {
+            @Override
+            public boolean verify(String hostname, SSLSession session) {
+                return true;
+            }
+        });
+
+        return okHttpClient;
+    } catch (Exception e) {
+        throw new RuntimeException(e);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+****************************17.25
+
+mScreenOnIntent = new Intent(Intent.ACTION_SCREEN_ON);
+mScreenOnIntent.addFlags(Intent.FLAG_RECEIVER_REGISTERED_ONLY);
+mScreenOffIntent = new Intent(Intent.ACTION_SCREEN_OFF);
+mScreenOffIntent.addFlags(Intent.FLAG_RECEIVER_REGISTERED_ONLY); 
+
+
+
+https://stackoverflow.com/questions/23103174/does-okhttp-support-accepting-self-signed-ssl-certs
+
+
+
+
+
+
+
+
+Два метода из нашего приложения для получения экземпляра OkHttpClient 3.0 , который распознает ваши самозаверяющие сертификаты из вашего хранилища ключей (использует подготовленный файл сертификата pkcs12 в папке «необработанных» ресурсов вашего проекта Android):
+
+private static OkHttpClient getSSLClient(Context context) throws
+                              NoSuchAlgorithmException,
+                              KeyStoreException,
+                              KeyManagementException,
+                              CertificateException,
+                              IOException {
+
+  OkHttpClient client;
+  SSLContext sslContext;
+  SSLSocketFactory sslSocketFactory;
+  TrustManager[] trustManagers;
+  TrustManagerFactory trustManagerFactory;
+  X509TrustManager trustManager;
+
+  trustManagerFactory = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
+  trustManagerFactory.init(readKeyStore(context));
+  trustManagers = trustManagerFactory.getTrustManagers();
+
+  if (trustManagers.length != 1 || !(trustManagers[0] instanceof X509TrustManager)) {
+    throw new IllegalStateException("Unexpected default trust managers:" + Arrays.toString(trustManagers));
+  }
+
+  trustManager = (X509TrustManager) trustManagers[0];
+
+  sslContext = SSLContext.getInstance("TLS");
+
+  sslContext.init(null, new TrustManager[]{trustManager}, null);
+
+  sslSocketFactory = sslContext.getSocketFactory();
+
+  client = new OkHttpClient.Builder()
+      .sslSocketFactory(sslSocketFactory, trustManager)
+      .build();
+  return client;
+}
+
+/**
+ * Get keys store. Key file should be encrypted with pkcs12 standard. It    can be done with standalone encrypting java applications like "keytool". File password is also required.
+ *
+ * @param context Activity or some other context.
+ * @return Keys store.
+ * @throws KeyStoreException
+ * @throws CertificateException
+ * @throws NoSuchAlgorithmException
+ * @throws IOException
+*/
+private static KeyStore readKeyStore(Context context) throws
+                          KeyStoreException,
+                          CertificateException,
+                          NoSuchAlgorithmException,
+                          IOException {
+  KeyStore keyStore;
+  char[] PASSWORD = "12345678".toCharArray();
+  ArrayList<InputStream> certificates;
+  int certificateIndex;
+  InputStream certificate;
+
+  certificates = new ArrayList<>();
+  certificates.add(context.getResources().openRawResource(R.raw.ssl_pkcs12));
+
+keyStore = KeyStore.getInstance("pkcs12");
+
+for (Certificate certificate : certificates) {
+    try {
+      keyStore.load(certificate, PASSWORD);
+    } finally {
+      if (certificate != null) {
+        certificate.close();
+      }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+keytool -genkey -keystore jboss.keystore -storepass mypassword -
+keypass mypassword -keyalg RSA -validity 180 -alias jbossbook -dname 
+"cn=Francesco Marchioni,o=PackPub,c=GB"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+***********************************************10.28
+I find answer from :
+
+https://github.com/square/okhttp/blob/master/samples/guide/src/main/java/okhttp3/recipes/CustomTrust.java
+
+It uses HandshakeCertificates to add certificates.
+
+ HandshakeCertificates certificates = new HandshakeCertificates.Builder()
+        .addTrustedCertificate(letsEncryptCertificateAuthority)
+        .addTrustedCertificate(entrustRootCertificateAuthority)
+        .addTrustedCertificate(comodoRsaCertificationAuthority)
+        // Uncomment if standard certificates are also required.
+        //.addPlatformTrustedCertificates()
+        .build();
+
+    client = new OkHttpClient.Builder()
+            .sslSocketFactory(certificates.sslSocketFactory(), certificates.trustManager())
+            .build();
+If you have trust certificates in store, you can use it as below:
+
+.......
+List<X509Certificate> certificates = getCertificatesFromTrustStore();
+        
+Builder certificateBuilder =  new HandshakeCertificates.Builder();        
+for (X509Certificate x509Certificate : certificates) {
+    certificateBuilder.addTrustedCertificate(x509Certificate);
+}
+HandshakeCertificates handshakeCertificates =  certificateBuilder.build();
+.......
+//To get certificates from a keystore
+private List<X509Certificate> getCertificatesFromTrustStore() throws Exception {
+        KeyStore truststore = KeyStore.getInstance("JKS");
+        truststore.load(new FileInputStream("d:\certs.jsk"), "mypassword".toCharArray());
+        
+        PKIXParameters params = new PKIXParameters(truststore);
+        Set<TrustAnchor> trustAnchors = params.getTrustAnchors();
+        LOG.debug("{} certificates found in {} which will be used", trustAnchors.size(), trustStorePath);
+        
+        List<X509Certificate> certificates = trustAnchors.stream()
+                  .map(TrustAnchor::getTrustedCert)
+                  .collect(Collectors.toList());
+        return certificates;
+    }
+
+---------
+
+
+
+ OkHttpClient client = new OkHttpClient();
+KeyStore keyStore = readKeyStore(); //your method to obtain KeyStore
+SSLContext sslContext = SSLContext.getInstance("SSL");
+TrustManagerFactory trustManagerFactory = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
+trustManagerFactory.init(keyStore);
+KeyManagerFactory keyManagerFactory = KeyManagerFactory.getInstance(KeyManagerFactory.getDefaultAlgorithm());
+keyManagerFactory.init(keyStore, "keystore_pass".toCharArray());
+sslContext.init(keyManagerFactory.getKeyManagers(),trustManagerFactory.getTrustManagers(), new SecureRandom());
+client.setSslSocketFactory(sslContext.getSocketFactory());

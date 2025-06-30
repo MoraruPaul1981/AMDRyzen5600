@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "221786466135",
+    "project_id": "sousavto-59272",
+    "storage_bucket": "sousavto-59272.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:221786466135:android:e89efe8482be69c7e98012",
+        "android_client_info": {
+          "package_name": "com.dsy.dsu"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "221786466135-898h2402k4t3hk9fqpi7sgc9drgu66i2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBVS8eS-r49e5zpvwoQbgulXrqImbFCSwc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "221786466135-898h2402k4t3hk9fqpi7sgc9drgu66i2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
