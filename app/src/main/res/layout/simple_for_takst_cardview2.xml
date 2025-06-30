@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/simple_task_for_Tasks"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#FFFFFF"
+    android:orientation="vertical"
+    tools:context=".TasksApp.MainActivity_Tasks">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardviewmatirealtask"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:minHeight="100dp"
+        android:layout_margin="5dp"
+        android:layout_weight="2"
+        android:checkable="true"
+        android:clickable="false"
+        android:focusable="true"
+        android:singleLine="false"
+        android:textSize="10sp"
+        app:cardBackgroundColor="#DCDCDC"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="10dp"
+        app:strokeColor="#F5FFFA"
+        app:cardMaxElevation="100dp"
+        app:strokeWidth="0dp"
+        android:translationZ="150dp"
+        android:animateLayoutChanges="true">
+
+        <RelativeLayout
+            android:id="@+id/relativelayoutcardviewmatirealtask"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="2dp"
+            android:paddingTop="2dp"
+            android:paddingRight="2dp"
+            android:paddingBottom="2dp">
+
+
+        <!--    //TODO первый блок-->
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text2_fragment1_samocretingtasks"
+                android:layout_width="75dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="5dp"
+                android:checkMark="?android:attr/textCheckMark"
+                android:enabled="true"
+                android:gravity="center_vertical|center_horizontal"
+                android:hint="Заголовок"
+                android:inputType="textMultiLine"
+                android:minHeight="50dp"
+                android:textAlignment="gravity"
+                android:textColor="#000000"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:visibility="visible" />
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text1_innercardview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="5dp"
+                android:layout_toRightOf="@+id/text2_fragment1_samocretingtasks"
+                android:checkMark="?android:attr/textCheckMark"
+                android:drawableStart="@drawable/icon_dsu1_for_task_creating_black"
+                android:enabled="true"
+                android:foregroundGravity="center"
+                android:gravity="center_horizontal|center_vertical"
+                android:hint="мной созданные  сообщение !!! "
+                android:inputType="textMultiLine|textCapSentences|textNoSuggestions"
+                android:minHeight="50dp"
+                android:singleLine="false"
+                android:textAlignment="gravity"
+                android:textAppearance="?android:attr/textAppearanceListItemSmall"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:visibility="visible" />
+
+
+            <!--    //TODO   конец  первый блок-->
+
+
+            <!--    //TODO   второй  блок-->
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text2_fragment1_typetasks"
+                android:layout_width="75dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/text1_innercardview"
+                android:layout_alignParentLeft="true"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:checkMark="?android:attr/textCheckMark"
+                android:enabled="true"
+                android:gravity="center_vertical|center_horizontal"
+                android:hint="Описание"
+                android:inputType="textMultiLine"
+                android:minHeight="40dp"
+                android:textAlignment="gravity"
+                android:textColor="#000000"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:visibility="gone" />
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text0_innercardview_headmessage_create_task"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/text1_innercardview"
+                android:layout_alignParentRight="true"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_toRightOf="@+id/text2_fragment1_typetasks"
+                android:checkMark="?android:attr/textCheckMark"
+                android:drawableStart="@drawable/icon_dsu1_for_task_creating_black"
+                android:enabled="true"
+                android:foregroundGravity="center"
+                android:gravity="center_horizontal|center_vertical"
+                android:hint="примечание создано сообщение !!! "
+                android:inputType="textMultiLine|textCapSentences|textNoSuggestions"
+                android:minHeight="40dp"
+                android:singleLine="false"
+                android:textAlignment="gravity"
+                android:textAppearance="?android:attr/textAppearanceListItemSmall"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:visibility="gone" />
+
+
+
+            <!--    //TODO   конец  второго блок-->
+
+
+
+
+
+            <!--    //TODO   третий  блок-->
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text2_fragment1_forcretingtask"
+                android:layout_width="75dp"
+                android:layout_height="35dp"
+                android:layout_below="@+id/text0_innercardview_headmessage_create_task"
+                android:layout_alignParentLeft="true"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:checkMark="?android:attr/textCheckMark"
+                android:enabled="true"
+                android:gravity="center_vertical|center_horizontal"
+                android:hint="Для кого"
+                android:inputType="textMultiLine"
+                android:textAlignment="gravity"
+                android:textColor="#000000"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:visibility="visible" />
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text3_innercardviewtree"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_below="@+id/text0_innercardview_headmessage_create_task"
+                android:layout_alignParentRight="true"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_toRightOf="@+id/text2_fragment1_forcretingtask"
+                android:checkMark="?android:attr/textCheckMark"
+                android:drawableStart="@drawable/icon_dsu1_for_task_creating_black"
+                android:enabled="true"
+                android:foregroundGravity="center"
+                android:gravity="center_horizontal|center_vertical"
+                android:hint="для кого задача !!!"
+                android:inputType="textMultiLine|textCapSentences|textNoSuggestions"
+                android:singleLine="false"
+                android:textAlignment="gravity"
+                android:textAppearance="?android:attr/textAppearanceListItemSmall"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:visibility="visible" />
+
+
+
+            <!--    //TODO   конец  третий блок-->
+
+
+
+            <!--    //TODO   четвертый  блок-->
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text2_fragment1_data_cretingtask"
+                android:layout_width="75dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/text3_innercardviewtree"
+                android:layout_alignParentLeft="true"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:checkMark="?android:attr/textCheckMark"
+                android:enabled="true"
+                android:gravity="center_vertical|center_horizontal"
+                android:hint="Дата"
+                android:inputType="textMultiLine"
+                android:minHeight="40dp"
+                android:textAlignment="gravity"
+                android:textColor="#000000"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:visibility="gone" />
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text4_innercardviewfour"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/text3_innercardviewtree"
+                android:layout_alignParentRight="true"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_toRightOf="@+id/text2_fragment1_data_cretingtask"
+                android:checkMark="?android:attr/textCheckMark"
+                android:drawableStart="@drawable/icon_dsu1_for_task_creating_black"
+                android:enabled="true"
+                android:foregroundGravity="center"
+                android:gravity="center_horizontal|center_vertical"
+                android:hint="сама дата !!!"
+                android:inputType="textMultiLine|textCapSentences|textNoSuggestions"
+                android:minHeight="40dp"
+                android:singleLine="false"
+                android:textAlignment="gravity"
+                android:textAppearance="?android:attr/textAppearanceListItemSmall"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:visibility="gone" />
+
+
+
+            <!--    //TODO   конец  четвертый блок-->
+
+
+
+
+
+            <!--    //TODO   пятая  блок-->
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text2_fragment1_type_creting_task"
+                android:layout_width="75dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/text4_innercardviewfour"
+                android:layout_alignParentLeft="true"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:checkMark="?android:attr/textCheckMark"
+                android:enabled="true"
+                android:gravity="center_vertical|center_horizontal"
+                android:hint="Тип"
+                android:inputType="textMultiLine"
+                android:minHeight="40dp"
+                android:textAlignment="gravity"
+                android:textColor="#000000"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:visibility="gone" />
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text5_innercardviewtype_tasks"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/text4_innercardviewfour"
+                android:layout_alignParentRight="true"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_toRightOf="@+id/text2_fragment1_type_creting_task"
+                android:checkMark="?android:attr/textCheckMark"
+                android:drawableStart="@drawable/icon_dsu1_for_task_creating_black"
+                android:enabled="true"
+                android:foregroundGravity="center"
+                android:gravity="center_horizontal|center_vertical"
+                android:hint="тип: "
+                android:inputType="textMultiLine|textCapSentences|textNoSuggestions"
+                android:minHeight="40dp"
+                android:singleLine="false"
+                android:textAlignment="gravity"
+                android:textAppearance="?android:attr/textAppearanceListItemSmall"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:visibility="gone" />
+
+
+
+            <!--    //TODO   конец  пятая блок-->
+
+
+
+
+
+            <!--    //TODO   шестая  блок-->
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text2_fragment1_primechanie_ktask"
+                android:layout_width="75dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/text5_innercardviewtype_tasks"
+                android:layout_alignParentLeft="true"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:checkMark="?android:attr/textCheckMark"
+                android:enabled="true"
+                android:gravity="center_vertical|center_horizontal"
+                android:hint="Примечание"
+                android:inputType="textMultiLine"
+                android:minHeight="40dp"
+                android:textAlignment="gravity"
+                android:textColor="#000000"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:visibility="gone" />
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text9_innercardview_callsbaks"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/text5_innercardviewtype_tasks"
+                android:layout_alignParentRight="true"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_toRightOf="@+id/text2_fragment1_primechanie_ktask"
+                android:checkMark="?android:attr/textCheckMark"
+                android:drawableStart="@drawable/icon_dsu1_for_task_creating_black"
+                android:enabled="true"
+                android:foregroundGravity="center"
+                android:gravity="center_horizontal|center_vertical"
+                android:hint="само примечание !!!"
+                android:inputType="textMultiLine|textCapSentences|textNoSuggestions"
+                android:minHeight="40dp"
+                android:singleLine="false"
+                android:textAlignment="gravity"
+                android:textAppearance="?android:attr/textAppearanceListItemSmall"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:visibility="gone" />
+
+
+
+            <!--    //TODO   конец  шестая блок-->
+
+
+
+
+
+
+
+
+            <!--    //TODO   седьмая  блок-->
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text2_fragment1_status_cretingtask"
+                android:layout_width="75dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/text9_innercardview_callsbaks"
+                android:layout_alignParentLeft="true"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:checkMark="?android:attr/textCheckMark"
+                android:enabled="true"
+                android:gravity="center_vertical|center_horizontal"
+                android:hint="Cтатус"
+                android:inputType="textMultiLine"
+                android:minHeight="40dp"
+                android:textAlignment="gravity"
+                android:textColor="#000000"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:visibility="gone" />
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text2_innercardviewtwo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/text9_innercardview_callsbaks"
+                android:layout_alignParentRight="true"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="15dp"
+                android:layout_toRightOf="@+id/text2_fragment1_status_cretingtask"
+                android:checkMark="?android:attr/textCheckMark"
+                android:drawableStart="@drawable/icon_dsu1_for_task_creating_black"
+                android:enabled="true"
+                android:foregroundGravity="center"
+                android:gravity="center_horizontal|center_vertical"
+                android:hint="сам статус !!!"
+                android:inputType="textMultiLine|textCapSentences|textNoSuggestions"
+                android:minHeight="40dp"
+                android:singleLine="false"
+                android:textAlignment="gravity"
+                android:textAppearance="?android:attr/textAppearanceListItemSmall"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:visibility="gone" />
+
+
+
+            <!--    //TODO   конец  седьмая блок-->
+
+
+
+        </RelativeLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</LinearLayout>

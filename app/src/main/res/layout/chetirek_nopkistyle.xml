@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+
+    <CheckedTextView
+        android:id="@+id/textViewFromISCHABLONA"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:checkMark="?android:attr/textCheckMark"
+        android:gravity="center_vertical|right"
+        android:paddingStart="?android:attr/listPreferredItemPaddingStart"
+        android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
+        android:text="ИЗ ШАБЛОНА   "
+        android:textColor="#171515"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:textAlignment="gravity"
+        android:textAppearance="?android:attr/textAppearanceListItemSmall"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+
+    <CheckedTextView
+        android:id="@+id/textView3SapolnitFrrombackmezaz"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:checkMark="?android:attr/textCheckMark"
+        android:gravity="center_vertical|right"
+        android:paddingStart="?android:attr/listPreferredItemPaddingStart"
+        android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
+        android:text="СКОПИРОВАТЬ ТАБЕЛЬ"
+        android:textAlignment="gravity"
+        android:textAppearance="?android:attr/textAppearanceListItemSmall"
+        android:textColor="#171515"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewFromISCHABLONA"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="MissingConstraints" />
+
+
+    <CheckedTextView
+        android:id="@+id/textView1NewCustomers"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:checkMark="?android:attr/textCheckMark"
+        android:gravity="center_vertical|right"
+        android:paddingStart="?android:attr/listPreferredItemPaddingStart"
+        android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
+        android:text="НОВЫЙ СОТРУДНИК  "
+        android:textAlignment="gravity"
+        android:textAppearance="?android:attr/textAppearanceListItemSmall"
+        android:textColor="#171515"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3SapolnitFrrombackmezaz"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="MissingConstraints" />
+
+
+
+
+
+
+
+
+    <CheckedTextView
+        android:id="@+id/textView6YcheGotobCustomers"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ВЫБРАТЬ СОТРУДНИКА  "
+        android:textColor="#171515"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView1NewCustomers"
+        app:layout_constraintVertical_bias="0.0"
+        android:checkMark="?android:attr/textCheckMark"
+        android:gravity="center_vertical|right"
+        android:paddingStart="?android:attr/listPreferredItemPaddingStart"
+        android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
+        android:textAppearance="?android:attr/textAppearanceListItemSmall"
+        android:textAlignment="gravity"
+        android:visibility="visible"
+        tools:ignore="MissingConstraints" />
+
+
+    <CheckedTextView
+        android:id="@+id/textView7Exit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="ВЫХОД  "
+        android:textColor="#0A524B"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6YcheGotobCustomers"
+        app:layout_constraintVertical_bias="0.0"
+        android:checkMark="?android:attr/textCheckMark"
+        android:gravity="center_vertical|right"
+        android:paddingStart="?android:attr/listPreferredItemPaddingStart"
+        android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
+        android:textAppearance="?android:attr/textAppearanceListItemSmall"
+        android:textAlignment="gravity"
+        android:visibility="visible"
+        tools:ignore="MissingConstraints" />
+</androidx.constraintlayout.widget.ConstraintLayout>

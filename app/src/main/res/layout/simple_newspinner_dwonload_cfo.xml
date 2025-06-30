@@ -1,0 +1,41 @@
+<RelativeLayout android:id="@+id/RelativeLayoutinnner"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="5dp"
+    android:background="#FFFFFF"
+    tools:context=".TabelsApp.Tabel.New.MainActivityNewTabels"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <CheckedTextView
+        android:id="@android:id/text1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@drawable/style_for_new_spiner_downloads"
+        android:checkMark="?android:attr/listChoiceIndicatorSingle"
+        android:gravity="center_vertical|center_horizontal"
+        android:minWidth="50dp"
+        android:minHeight="50dp"
+        android:padding="5dp"
+        android:paddingStart="?android:attr/listPreferredItemPaddingStart"
+        android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
+        android:textAppearance="?android:attr/textAppearanceListItemSmall"
+        android:textSize="15dp"
+        android:translationZ="10dp"
+        app:cardCornerRadius="1dp"
+        app:cardElevation="1dp"
+        app:cardMaxElevation="10dp"
+        app:cornerRadius="15dp"
+        android:icon="@drawable/brograssbarnews4"
+        app:strokeWidth="0dp" />
+
+
+
+
+</RelativeLayout>
+
+
+

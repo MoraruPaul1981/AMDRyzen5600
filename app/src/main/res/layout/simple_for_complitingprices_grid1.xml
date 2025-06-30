@@ -1,0 +1,513 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardview_commingprices_neasted"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:padding="2dp"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="5dp"
+    app:strokeColor="#ABB1B1"
+    app:cardBackgroundColor="#F1F4F4"
+    app:cardMaxElevation="30dp"
+    app:strokeWidth="1dp"
+    android:translationZ="100dp"
+    android:animateLayoutChanges="true"
+    android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+    tools:context=".CommitPricesApp.View.Window.MainActivityCommitingPrices">
+
+
+
+
+    <TableLayout
+        android:shrinkColumns="*"
+        android:stretchColumns="*"
+        android:gravity="center_horizontal|center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="1dp"
+            android:padding="1dp"
+            android:background="@drawable/disayn_line_tablerow10"
+            android:gravity="center_vertical|center_horizontal">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/mTV_commitingprices_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_column="1"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginStart="3dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="3dp"
+                    android:background="@drawable/style_forpolymaterialb_cycle_createspinner15"
+                    android:gravity="center"
+                    android:hint="сумма сог.#"
+                    android:minWidth="100dp"
+                    android:textAlignment="gravity"
+                    android:textColor="#000000"
+                    android:textColorHint="#454542"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:visibility="visible"
+                    app:fontFamily="@font/average_sans" />
+
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/arrow_nested_receriview"
+                    android:layout_width="36dp"
+                    android:layout_height="wrap_content"
+                    android:layout_column="2"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginEnd="5dp"
+                    android:backgroundTint="#F1F4F4"
+                    android:fontFamily="@font/alegreya_sans_sc_thin"
+                    android:gravity="center"
+                    android:padding="2dp"
+                    android:stateListAnimator="@drawable/icon_for_commintprices_successs"
+                    android:textAlignment="center"
+                    app:cornerRadius="20dp"
+                    app:icon="@drawable/icon_for_commintprices_successs"
+                    app:iconGravity="textEnd"
+                    app:iconPadding="1dp"
+                    app:iconSize="20dp"
+                    app:iconTint="#909393"
+                    app:rippleColor="#F50057"
+                    app:strokeColor="#ABB1B1"
+                    app:strokeWidth="1dp"
+                    tools:ignore="SpeakableTextPresentCheck" />
+            </RelativeLayout>
+        </TableRow>
+
+
+
+
+       <!-- todo ДАННЫЕ первые строчки  #1-->
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical|center_horizontal">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+
+                <!--TODO второая страка -->
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/mTV_Nomenklatura"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_column="0"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:background="@drawable/style_forpolymaterialb_cycle_createspinner2"
+                    android:gravity="center"
+                    android:minHeight="25dp"
+                    android:padding="1dp"
+                    android:text="не заполнено"
+                    android:textAlignment="gravity"
+                    android:textColor="#000000"
+                    android:textColorHint="#80807C"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:visibility="visible"
+                    app:fontFamily="@font/average_sans" />
+            </RelativeLayout>
+        </TableRow>
+        <!-- todo КОНЕЦ ДАННЫЕ первые строчки  #1-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- todo ДАННЫЕ первые строчки  #6-->
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical|center_horizontal">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/mTV_Kolichestvo_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="0"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginEnd="2dp"
+                    android:background="@drawable/style_forpolymaterialb_cycle_createspinner15"
+                    android:gravity="center"
+                    android:hint="Количество"
+                    android:minWidth="120dp"
+                    android:minHeight="20dp"
+                    android:textAlignment="gravity"
+                    android:textColor="#000000"
+                    android:textColorHint="#454542"
+                    android:textSize="11sp"
+                    android:textStyle="normal"
+                    android:visibility="visible"
+                    app:fontFamily="@font/average_sans" />
+
+                <!--TODO второая страка -->
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_column="0"
+                    android:id="@+id/mTV_Kolichestvo_value"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/mTV_Kolichestvo_name"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:background="@drawable/style_forpolymaterialb_cycle_createspinner2"
+                    android:gravity="center"
+                    android:minHeight="25dp"
+                    android:text="не заполнено"
+                    android:textAlignment="gravity"
+                    android:textColor="#000000"
+                    android:textColorHint="#80807C"
+                    android:textSize="15sp"
+                    android:textStyle="normal"
+                    android:visibility="visible"
+                    app:fontFamily="@font/average_sans" />
+            </RelativeLayout>
+        </TableRow>
+        <!-- todo КОНЕЦ ДАННЫЕ первые строчки  #6-->
+
+
+
+
+
+
+
+
+
+
+        <!-- todo ДАННЫЕ первые строчки  #3-->
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical|center_horizontal">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/mTV_EdIzm_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="0"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginEnd="2dp"
+                    android:background="@drawable/style_forpolymaterialb_cycle_createspinner15"
+                    android:gravity="center"
+                    android:hint="Единица измерения"
+                    android:minWidth="120dp"
+                    android:minHeight="20dp"
+                    android:textAlignment="gravity"
+                    android:textColor="#000000"
+                    android:textColorHint="#454542"
+                    android:textSize="11sp"
+                    android:textStyle="normal"
+                    android:visibility="visible"
+                    app:fontFamily="@font/average_sans" />
+
+                <!--TODO второая страка -->
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_column="0"
+                    android:id="@+id/mTV_EdIzm_value"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/mTV_EdIzm_name"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:background="@drawable/style_forpolymaterialb_cycle_createspinner2"
+                    android:gravity="center"
+                    android:minHeight="25dp"
+                    android:text="не заполнено"
+                    android:textAlignment="gravity"
+                    android:textColor="#000000"
+                    android:textColorHint="#80807C"
+                    android:textSize="15sp"
+                    android:textStyle="normal"
+                    android:visibility="visible"
+                    app:fontFamily="@font/average_sans" />
+            </RelativeLayout>
+        </TableRow>
+        <!-- todo КОНЕЦ ДАННЫЕ первые строчки  #3-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- todo ДАННЫЕ первые строчки  #2-->
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical|center_horizontal">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/mTV_StatyaDDS_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="0"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginEnd="2dp"
+                    android:background="@drawable/style_forpolymaterialb_cycle_createspinner15"
+                    android:gravity="center"
+                    android:hint="Статья"
+                    android:minWidth="120dp"
+                    android:minHeight="20dp"
+                    android:textAlignment="gravity"
+                    android:textColor="#000000"
+                    android:textColorHint="#454542"
+                    android:textSize="11sp"
+                    android:textStyle="normal"
+                    android:visibility="visible"
+                    app:fontFamily="@font/average_sans" />
+
+                <!--TODO второая страка -->
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_column="0"
+                    android:id="@+id/mTV_StatyaDDS_value"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/mTV_StatyaDDS_name"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:background="@drawable/style_forpolymaterialb_cycle_createspinner2"
+                    android:gravity="center"
+                    android:minHeight="25dp"
+                    android:text="не заполнено"
+                    android:textAlignment="gravity"
+                    android:textColor="#000000"
+                    android:textColorHint="#80807C"
+                    android:textSize="15sp"
+                    android:textStyle="normal"
+                    android:visibility="visible"
+                    app:fontFamily="@font/average_sans" />
+            </RelativeLayout>
+        </TableRow>
+        <!-- todo КОНЕЦ ДАННЫЕ первые строчки  #2-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- todo КОНЕЦ ДАННЫЕ первые строчки  #4-->
+
+
+
+
+
+
+
+        <!-- todo ДАННЫЕ первые строчки  #5-->
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical|center_horizontal">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/mTV_Data_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="0"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginEnd="2dp"
+                    android:background="@drawable/style_forpolymaterialb_cycle_createspinner15"
+                    android:gravity="center"
+                    android:hint="Дата"
+                    android:minWidth="120dp"
+                    android:minHeight="20dp"
+                    android:textAlignment="gravity"
+                    android:textColor="#000000"
+                    android:textColorHint="#454542"
+                    android:textSize="11sp"
+                    android:textStyle="normal"
+                    android:visibility="visible"
+                    app:fontFamily="@font/average_sans" />
+
+                <!--TODO второая страка -->
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_column="0"
+                    android:id="@+id/mTV_Data_value"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/mTV_Data_name"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:background="@drawable/style_forpolymaterialb_cycle_createspinner2"
+                    android:gravity="center"
+                    android:minHeight="25dp"
+                    android:padding="1dp"
+                    android:text="не заполнено"
+                    android:textAlignment="gravity"
+                    android:textColor="#000000"
+                    android:textColorHint="#80807C"
+                    android:textSize="15sp"
+                    android:textStyle="normal"
+                    android:visibility="visible"
+                    app:fontFamily="@font/average_sans" />
+            </RelativeLayout>
+        </TableRow>
+        <!-- todo КОНЕЦ ДАННЫЕ первые строчки  #5-->
+
+
+
+
+
+
+
+
+
+
+        <!-- todo ДАННЫЕ первые строчки  #7-->
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical|center_horizontal">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/mTV_CFORaskhoda_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="0"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginEnd="2dp"
+                    android:background="@drawable/style_forpolymaterialb_cycle_createspinner15"
+                    android:gravity="center"
+                    android:hint="Цфо расхода"
+                    android:minWidth="120dp"
+                    android:minHeight="20dp"
+                    android:textAlignment="gravity"
+                    android:textColor="#000000"
+                    android:textColorHint="#454542"
+                    android:textSize="11sp"
+                    android:textStyle="normal"
+                    android:visibility="visible"
+                    app:fontFamily="@font/average_sans" />
+
+                <!--TODO второая страка -->
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_column="0"
+                    android:id="@+id/mTV_CFORaskhoda_value"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/mTV_CFORaskhoda_name"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/style_forpolymaterialb_cycle_createspinner2"
+                    android:gravity="center"
+                    android:minHeight="25dp"
+                    android:text="не заполнено"
+                    android:textAlignment="gravity"
+                    android:textColor="#000000"
+                    android:textColorHint="#80807C"
+                    android:textSize="15sp"
+                    android:textStyle="normal"
+                    android:visibility="visible"
+                    app:fontFamily="@font/average_sans" />
+            </RelativeLayout>
+        </TableRow>
+        <!-- todo КОНЕЦ ДАННЫЕ первые строчки  #7-->
+
+
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="1dp"
+            android:gravity="center_vertical|center_horizontal">
+
+
+        </TableRow>
+
+
+
+
+
+
+
+        <!-- //todo КОНЕЦ  сторочек с самими данными-->
+
+    </TableLayout>
+
+
+</com.google.android.material.card.MaterialCardView>

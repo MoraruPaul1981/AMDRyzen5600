@@ -1,0 +1,1573 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5FFFA"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".MainActivity_CreateTableTHREE">
+    <!-- СТРОЧКА НОМЕР ДВА ЛИНИЯ ПОДЧЕРЧИКАТ фио -->
+    <!-- СТРОЧКА НОМЕР ДВА ЛИНИЯ ПОДЧЕРЧИКАТ фио -->
+    <GridLayout
+        android:id="@+id/КонтейнерДляТабеляГрид"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#F5FFFA"
+        android:columnCount="1"
+        android:orientation="horizontal"
+        android:scrollbarAlwaysDrawHorizontalTrack="true">
+        <!-- СТРОЧКА НОМЕР ОДИН  ФИО-->
+
+        <TextView
+            android:id="@+id/КонтейнерКудаЗагружаетьсяФИО"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:layout_columnWeight="50"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="start|left"
+            android:padding="5dp"
+            android:textColor="#0E0E0E"
+            android:textSize="14sp"
+            android:textStyle="normal|bold"
+            android:visibility="visible" />
+
+    </GridLayout>
+    <!-- линия сверху над названиями ТРЕТЬЯ СТРОЧКА  ДНИ  НЕДЕЛИ-->
+
+
+    <!-- //TODO НАЧИНАЕМ ГОРИЗОТАЛЬНЫЙ СКРОЛЛ ДАННЫХ-->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_horizontal"
+            android:columnCount="1000"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+
+            <!--    //TODO  НАЧАЛО ПЕРВОЙ СТРОЧКИ-->
+            <!--TODO Название Данных Табеля (Пн,01,Вт,02)-->
+            <TextView
+                android:id="@+id/ПерваяСтрочкаНазваниеДень1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_row="0"
+                android:layout_column="0"
+                android:layout_columnWeight="1"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:padding="15dp"
+                android:textAlignment="center"
+                android:textColor="#0E0E0E"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/ПерваяСтрочкаНазваниеДень2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_row="0"
+                android:layout_column="1"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill_horizontal"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:padding="15dp"
+                android:textAlignment="center"
+                android:textColor="#0E0E0E"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/ПерваяСтрочкаНазваниеДень3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_row="0"
+                android:layout_column="2"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill_horizontal"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:padding="15dp"
+                android:textAlignment="center"
+                android:textColor="#0E0E0E"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/ПерваяСтрочкаНазваниеДень4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_row="0"
+                android:layout_column="3"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill_horizontal"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:padding="15dp"
+                android:textAlignment="center"
+                android:textColor="#0E0E0E"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/ПерваяСтрочкаНазваниеДень5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_row="0"
+                android:layout_column="4"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill_horizontal"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:padding="15dp"
+                android:textAlignment="center"
+                android:textColor="#0E0E0E"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/ПерваяСтрочкаНазваниеДень6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_row="0"
+                android:layout_column="5"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill_horizontal"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:padding="15dp"
+                android:textAlignment="center"
+                android:textColor="#0E0E0E"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/ПерваяСтрочкаНазваниеДень7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_row="0"
+                android:layout_column="6"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill_horizontal"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:padding="15dp"
+                android:textAlignment="center"
+                android:textColor="#0E0E0E"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/ПерваяСтрочкаНазваниеДень8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_row="0"
+                android:layout_column="7"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill_horizontal"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:padding="15dp"
+                android:textAlignment="center"
+                android:textColor="#0E0E0E"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/ПерваяСтрочкаНазваниеДень9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_row="0"
+                android:layout_column="8"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill_horizontal"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:padding="15dp"
+                android:textAlignment="center"
+                android:textColor="#0E0E0E"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/ПерваяСтрочкаНазваниеДень10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_row="0"
+                android:layout_column="9"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill_horizontal"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:padding="15dp"
+                android:textAlignment="center"
+                android:textColor="#0E0E0E"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/ПерваяСтрочкаНазваниеДень11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_row="0"
+                android:layout_column="10"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill_horizontal"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:padding="15dp"
+                android:textAlignment="center"
+                android:textColor="#0E0E0E"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/ПерваяСтрочкаНазваниеДень12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_row="0"
+                android:layout_column="11"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill_horizontal"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:padding="15dp"
+                android:textAlignment="center"
+                android:textColor="#0E0E0E"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/ПерваяСтрочкаНазваниеДень13"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_row="0"
+                android:layout_column="12"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill_horizontal"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:padding="15dp"
+                android:textAlignment="center"
+                android:textColor="#0E0E0E"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/ПерваяСтрочкаНазваниеДень14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_row="0"
+                android:layout_column="13"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill_horizontal"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:padding="15dp"
+                android:textAlignment="center"
+                android:textColor="#0E0E0E"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/ПерваяСтрочкаНазваниеДень15"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_row="0"
+                android:layout_column="14"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill_horizontal"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:padding="15dp"
+                android:textAlignment="center"
+                android:textColor="#0E0E0E"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/ПерваяСтрочкаНазваниеДень16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_row="0"
+                android:layout_column="15"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill_horizontal"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:padding="15dp"
+                android:textAlignment="center"
+                android:textColor="#0E0E0E"
+                android:textStyle="bold" />
+
+
+            <!--TODO Конец  Название Данных Табеля (Пн,01,Вт,02)-->
+
+
+            <!--TODO Сами Данных Табеля (1,2,3,4,5,6)-->
+
+            <EditText
+                android:id="@+id/ПерваяСтрочкаДанныеДень1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="1"
+                android:layout_column="0"
+                android:layout_columnWeight="1"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:hint="0"
+                android:inputType="number"
+                android:padding="15dp"
+                android:textAlignment="center"
+                android:textColorHint="#00ACC1"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/ПерваяСтрочкаДанныеДень2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="1"
+                android:layout_column="1"
+                android:layout_columnWeight="1"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:hint="0"
+                android:inputType="number"
+                android:padding="15dp"
+                android:textAlignment="center"
+                android:textColorHint="#00ACC1"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/ПерваяСтрочкаДанныеДень3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="1"
+                android:layout_column="2"
+                android:layout_columnWeight="1"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:hint="0"
+                android:inputType="number"
+                android:padding="15dp"
+                android:textAlignment="center"
+                android:textColorHint="#00ACC1"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/ПерваяСтрочкаДанныеДень4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="1"
+                android:layout_column="3"
+                android:layout_columnWeight="1"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:hint="0"
+                android:inputType="number"
+                android:padding="15dp"
+                android:textAlignment="center"
+                android:textColorHint="#00ACC1"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/ПерваяСтрочкаДанныеДень5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="1"
+                android:layout_column="4"
+                android:layout_columnWeight="1"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:hint="0"
+                android:inputType="number"
+                android:padding="15dp"
+                android:textAlignment="center"
+                android:textColorHint="#00ACC1"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/ПерваяСтрочкаДанныеДень6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="1"
+                android:layout_column="5"
+                android:layout_columnWeight="1"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:hint="0"
+                android:inputType="number"
+                android:padding="15dp"
+                android:textAlignment="center"
+                android:textColorHint="#00ACC1"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/ПерваяСтрочкаДанныеДень7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="1"
+                android:layout_column="6"
+                android:layout_columnWeight="1"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:hint="0"
+                android:inputType="number"
+                android:padding="15dp"
+                android:textAlignment="center"
+                android:textColorHint="#00ACC1"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+
+            <EditText
+                android:id="@+id/ПерваяСтрочкаДанныеДень8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="1"
+                android:layout_column="7"
+                android:layout_columnWeight="1"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:hint="0"
+                android:inputType="number"
+                android:padding="15dp"
+                android:textAlignment="center"
+                android:textColorHint="#00ACC1"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/ПерваяСтрочкаДанныеДень9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="1"
+                android:layout_column="8"
+                android:layout_columnWeight="1"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:hint="0"
+                android:inputType="number"
+                android:padding="15dp"
+                android:textAlignment="center"
+                android:textColorHint="#00ACC1"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/ПерваяСтрочкаДанныеДень10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="1"
+                android:layout_column="9"
+                android:layout_columnWeight="1"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:hint="0"
+                android:inputType="number"
+                android:padding="15dp"
+                android:textAlignment="center"
+                android:textColorHint="#00ACC1"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/ПерваяСтрочкаДанныеДень11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="1"
+                android:layout_column="10"
+                android:layout_columnWeight="1"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:hint="0"
+                android:inputType="number"
+                android:padding="15dp"
+                android:textAlignment="center"
+                android:textColorHint="#00ACC1"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/ПерваяСтрочкаДанныеДень12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="1"
+                android:layout_column="11"
+                android:layout_columnWeight="1"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:hint="0"
+                android:inputType="number"
+                android:padding="15dp"
+                android:textAlignment="center"
+                android:textColorHint="#00ACC1"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/ПерваяСтрочкаДанныеДень13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="1"
+                android:layout_column="12"
+                android:layout_columnWeight="1"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:hint="0"
+                android:inputType="number"
+                android:padding="15dp"
+                android:textAlignment="center"
+                android:textColorHint="#00ACC1"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/ПерваяСтрочкаДанныеДень14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="1"
+                android:layout_column="13"
+                android:layout_columnWeight="1"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:hint="0"
+                android:inputType="number"
+                android:padding="15dp"
+                android:textAlignment="center"
+                android:textColorHint="#00ACC1"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/ПерваяСтрочкаДанныеДень15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="1"
+                android:layout_column="14"
+                android:layout_columnWeight="1"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:hint="0"
+                android:inputType="number"
+                android:padding="15dp"
+                android:textAlignment="center"
+                android:textColorHint="#00ACC1"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/ПерваяСтрочкаДанныеДень16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="1"
+                android:layout_column="15"
+                android:layout_columnWeight="1"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:hint="0"
+                android:inputType="number"
+                android:padding="15dp"
+                android:textAlignment="center"
+                android:textColorHint="#00ACC1"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <!--TODO  КОНЕЦ Сами Данных Табеля (1,2,3,4,5,6)-->
+
+            <!--    //TODO ТЕХНИЧЕСКИЙ  БЛОК ВЕРХНЕМ СТРОЧКИ ID И UUID-->
+
+            <EditText
+                android:id="@+id/ПерваяСтрочкаНевидимаяUUID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="1"
+                android:layout_column="16"
+                android:layout_columnWeight="1"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:inputType="number"
+                android:padding="15dp"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:visibility="invisible" />
+
+            <EditText
+                android:id="@+id/ПерваяСтрочкаНевидимаяID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="1"
+                android:layout_column="17"
+                android:layout_columnWeight="1"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:inputType="number"
+                android:padding="15dp"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:visibility="invisible" />
+
+            <!--    //TODO  КОНЕЦ ТЕХНИЧЕСКИЙ  БЛОК ВЕРХНЕМ СТРОЧКИ ID И UUID-->
+
+
+            <!--    //TODO  КОНЕЦ ПЕРВОЙ СТРОЧКИ-->
+            <!--   TODO ИМИТИРУЕМ ПУТОЕ ПОЛЯ БЕЗ ДАННЫХ-->
+
+            <!--   TODO ИМИТИРУЕМ ПУТОЕ ЛИНИЮ БЕЗ ДАННЫХ-->
+
+            <!--   TODO  КОНЕЦ ДЕЛАЕМ ЛИНИЮ МЕЖУД ДАНЫМИ ПОЛЯ БЕЗ ДАННЫХ-->
+
+            <!--   TODO ИМИТИРУЕМ ПУТОЕ ПОЛЯ БЕЗ ДАННЫХ-->
+
+
+            <!--    //TODO  НАЧАЛО ВТОРОЙ  СТРОЧКИ-->
+
+            <!--TODO Название Данных Табеля (Пн,05,Вт,06)-->
+
+            <TextView
+                android:id="@+id/ВтораяСтрочкаНазваниеДень17"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_row="5"
+                android:layout_column="0"
+                android:layout_columnWeight="1"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:padding="15dp"
+                android:textAlignment="center"
+                android:textColor="#0E0E0E"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/ВтораяСтрочкаНазваниеДень18"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_row="5"
+                android:layout_column="1"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill_horizontal"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:padding="15dp"
+                android:textAlignment="center"
+                android:textColor="#0E0E0E"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/ВтораяСтрочкаНазваниеДень19"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_row="5"
+                android:layout_column="2"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill_horizontal"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:padding="15dp"
+                android:textAlignment="center"
+                android:textColor="#0E0E0E"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/ВтораяСтрочкаНазваниеДень20"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_row="5"
+                android:layout_column="3"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill_horizontal"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:padding="15dp"
+                android:textAlignment="center"
+                android:textColor="#0E0E0E"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/ВтораяСтрочкаНазваниеДень21"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_row="5"
+                android:layout_column="4"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill_horizontal"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:padding="15dp"
+                android:textAlignment="center"
+                android:textColor="#0E0E0E"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/ВтораяСтрочкаНазваниеДень22"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_row="5"
+                android:layout_column="5"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill_horizontal"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:padding="15dp"
+                android:textAlignment="center"
+                android:textColor="#0E0E0E"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/ВтораяСтрочкаНазваниеДень23"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_row="5"
+                android:layout_column="6"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill_horizontal"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:padding="15dp"
+                android:textAlignment="center"
+                android:textColor="#0E0E0E"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/ВтораяСтрочкаНазваниеДень24"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_row="5"
+                android:layout_column="7"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill_horizontal"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:padding="15dp"
+                android:textAlignment="center"
+                android:textColor="#0E0E0E"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/ВтораяСтрочкаНазваниеДень25"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_row="5"
+                android:layout_column="8"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill_horizontal"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:padding="15dp"
+                android:textAlignment="center"
+                android:textColor="#0E0E0E"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/ВтораяСтрочкаНазваниеДень26"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_row="5"
+                android:layout_column="9"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill_horizontal"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:padding="15dp"
+                android:textAlignment="center"
+                android:textColor="#0E0E0E"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/ВтораяСтрочкаНазваниеДень27"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_row="5"
+                android:layout_column="10"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill_horizontal"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:padding="15dp"
+                android:textAlignment="center"
+                android:textColor="#0E0E0E"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/ВтораяСтрочкаНазваниеДень28"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_row="5"
+                android:layout_column="11"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill_horizontal"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:padding="15dp"
+                android:textAlignment="center"
+                android:textColor="#0E0E0E"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/ВтораяСтрочкаНазваниеДень29"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_row="5"
+                android:layout_column="12"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill_horizontal"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:padding="15dp"
+                android:textAlignment="center"
+                android:textColor="#0E0E0E"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/ВтораяСтрочкаНазваниеДень30"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_row="5"
+                android:layout_column="13"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill_horizontal"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:padding="15dp"
+                android:textAlignment="center"
+                android:textColor="#0E0E0E"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/ВтораяСтрочкаНазваниеДень31"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_row="5"
+                android:layout_column="14"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill_horizontal"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:padding="15dp"
+                android:textAlignment="center"
+                android:textColor="#0E0E0E"
+                android:textStyle="bold" />
+
+            <!--TODO Конец  Название Данных Табеля (Пн,01,Вт,02)-->
+
+
+            <!--TODO Сами Данных Табеля (7,8,9,10,11,12,13)-->
+
+            <EditText
+                android:id="@+id/ВтораяСтрочкаДанныеДень17"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="6"
+                android:layout_column="0"
+                android:layout_columnWeight="1"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:hint="0"
+                android:inputType="number"
+                android:padding="15dp"
+                android:textAlignment="center"
+                android:textColorHint="#00ACC1"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/ВтораяСтрочкаДанныеДень18"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="6"
+                android:layout_column="1"
+                android:layout_columnWeight="1"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:hint="0"
+                android:inputType="number"
+                android:padding="15dp"
+                android:textAlignment="center"
+                android:textColorHint="#00ACC1"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/ВтораяСтрочкаДанныеДень19"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="6"
+                android:layout_column="2"
+                android:layout_columnWeight="1"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:hint="0"
+                android:inputType="number"
+                android:padding="15dp"
+                android:textAlignment="center"
+                android:textColorHint="#00ACC1"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/ВтораяСтрочкаДанныеДень20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="6"
+                android:layout_column="3"
+                android:layout_columnWeight="1"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:hint="0"
+                android:inputType="number"
+                android:padding="15dp"
+                android:textAlignment="center"
+                android:textColorHint="#00ACC1"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/ВтораяСтрочкаДанныеДень21"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="6"
+                android:layout_column="4"
+                android:layout_columnWeight="1"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:hint="0"
+                android:inputType="number"
+                android:padding="15dp"
+                android:textAlignment="center"
+                android:textColorHint="#00ACC1"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/ВтораяСтрочкаДанныеДень22"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="6"
+                android:layout_column="5"
+                android:layout_columnWeight="1"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:hint="0"
+                android:inputType="number"
+                android:padding="15dp"
+                android:textAlignment="center"
+                android:textColorHint="#00ACC1"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/ВтораяСтрочкаДанныеДень23"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="6"
+                android:layout_column="6"
+                android:layout_columnWeight="1"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:hint="0"
+                android:inputType="number"
+                android:padding="15dp"
+                android:textAlignment="center"
+                android:textColorHint="#00ACC1"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+
+            <EditText
+                android:id="@+id/ВтораяСтрочкаДанныеДень24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="6"
+                android:layout_column="7"
+                android:layout_columnWeight="1"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:hint="0"
+                android:inputType="number"
+                android:padding="15dp"
+                android:textAlignment="center"
+                android:textColorHint="#00ACC1"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/ВтораяСтрочкаДанныеДень25"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="6"
+                android:layout_column="8"
+                android:layout_columnWeight="1"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:hint="0"
+                android:inputType="number"
+                android:padding="15dp"
+                android:textAlignment="center"
+                android:textColorHint="#00ACC1"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/ВтораяСтрочкаДанныеДень26"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="6"
+                android:layout_column="9"
+                android:layout_columnWeight="1"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:hint="0"
+                android:inputType="number"
+                android:padding="15dp"
+                android:textAlignment="center"
+                android:textColorHint="#00ACC1"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/ВтораяСтрочкаДанныеДень27"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="6"
+                android:layout_column="10"
+                android:layout_columnWeight="1"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:hint="0"
+                android:inputType="number"
+                android:padding="15dp"
+                android:textAlignment="center"
+                android:textColorHint="#00ACC1"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/ВтораяСтрочкаДанныеДень28"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="6"
+                android:layout_column="11"
+                android:layout_columnWeight="1"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:hint="0"
+                android:inputType="number"
+                android:padding="15dp"
+                android:textAlignment="center"
+                android:textColorHint="#00ACC1"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/ВтораяСтрочкаДанныеДень29"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="6"
+                android:layout_column="12"
+                android:layout_columnWeight="1"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:hint="0"
+                android:inputType="number"
+                android:padding="15dp"
+                android:textAlignment="center"
+                android:textColorHint="#00ACC1"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/ВтораяСтрочкаДанныеДень30"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="6"
+                android:layout_column="13"
+                android:layout_columnWeight="1"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:hint="0"
+                android:inputType="number"
+                android:padding="15dp"
+                android:textAlignment="center"
+                android:textColorHint="#00ACC1"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/ВтораяСтрочкаДанныеДень31"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="6"
+                android:layout_column="14"
+                android:layout_columnWeight="1"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:hint="0"
+                android:inputType="number"
+                android:padding="15dp"
+                android:textAlignment="center"
+                android:textColorHint="#00ACC1"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+
+            <!--TODO  КОНЕЦ Сами Данных Табеля (1,2,3,4,5,6)-->
+
+            <!--    //TODO ТЕХНИЧЕСКИЙ  БЛОК ВЕРХНЕМ СТРОЧКИ ID И UUID-->
+
+            <EditText
+                android:id="@+id/ВтораяСтрочкаНевидимаяUUID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="6"
+                android:layout_column="16"
+                android:layout_columnWeight="1"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:hint="0"
+                android:inputType="number"
+                android:padding="15dp"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:visibility="invisible" />
+
+            <EditText
+                android:id="@+id/ВтораяСтрочкаНевидимаяID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="6"
+                android:layout_column="17"
+                android:layout_columnWeight="1"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:hint="0"
+                android:inputType="number"
+                android:padding="15dp"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:visibility="invisible" />
+
+            <!--    //TODO  КОНЕЦ ТЕХНИЧЕСКИЙ  БЛОК ВЕРХНЕМ СТРОЧКИ ID И UUID-->
+
+
+            <!--    //TODO  КОНЕЦ ПЕРВОЙ СТРОЧКИ-->
+            <!--   TODO ИМИТИРУЕМ ПУТОЕ ПОЛЯ БЕЗ ДАННЫХ-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="15dp"
+                android:layout_row="7"
+                android:layout_column="0"
+                android:layout_columnWeight="1"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="0dp"
+                android:background="#DCE5EA"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:visibility="invisible" />
+
+            <!--   TODO ИМИТИРУЕМ ПУТОЕ ЛИНИЮ БЕЗ ДАННЫХ-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_row="8"
+                android:layout_column="0"
+                android:layout_columnWeight="1"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="0dp"
+                android:background="#00ACC1"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:visibility="visible" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_row="8"
+                android:layout_column="1"
+                android:layout_columnWeight="1"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="0dp"
+                android:background="#00ACC1"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:visibility="visible" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_row="8"
+                android:layout_column="2"
+                android:layout_columnWeight="1"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="0dp"
+                android:background="#00ACC1"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:visibility="visible" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_row="8"
+                android:layout_column="3"
+                android:layout_columnWeight="1"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="0dp"
+                android:background="#00ACC1"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:visibility="visible" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_row="8"
+                android:layout_column="4"
+                android:layout_columnWeight="1"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="0dp"
+                android:background="#00ACC1"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:visibility="visible" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_row="8"
+                android:layout_column="5"
+                android:layout_columnWeight="1"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="0dp"
+                android:background="#00ACC1"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:visibility="visible" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_row="8"
+                android:layout_column="6"
+                android:layout_columnWeight="1"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="0dp"
+                android:background="#00ACC1"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:visibility="visible" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_row="8"
+                android:layout_column="7"
+                android:layout_columnWeight="1"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="0dp"
+                android:background="#00ACC1"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:visibility="visible" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_row="8"
+                android:layout_column="8"
+                android:layout_columnWeight="1"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="0dp"
+                android:background="#00ACC1"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:visibility="visible" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_row="8"
+                android:layout_column="9"
+                android:layout_columnWeight="1"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="0dp"
+                android:background="#00ACC1"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:visibility="visible" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_row="8"
+                android:layout_column="10"
+                android:layout_columnWeight="1"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="0dp"
+                android:background="#00ACC1"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:visibility="visible" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_row="8"
+                android:layout_column="11"
+                android:layout_columnWeight="1"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="0dp"
+                android:background="#00ACC1"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:visibility="visible" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_row="8"
+                android:layout_column="12"
+                android:layout_columnWeight="1"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="0dp"
+                android:background="#00ACC1"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:visibility="visible" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_row="8"
+                android:layout_column="13"
+                android:layout_columnWeight="1"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="0dp"
+                android:background="#00ACC1"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:visibility="visible" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_row="8"
+                android:layout_column="14"
+                android:layout_columnWeight="1"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="0dp"
+                android:background="#00ACC1"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:visibility="visible" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_row="8"
+                android:layout_column="15"
+                android:layout_columnWeight="1"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="0dp"
+                android:background="#00ACC1"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:visibility="visible" />
+
+            <!--   TODO  КОНЕЦ ДЕЛАЕМ ЛИНИЮ МЕЖУД ДАНЫМИ ПОЛЯ БЕЗ ДАННЫХ-->
+
+            <!--   TODO ИМИТИРУЕМ ПУТОЕ ПОЛЯ БЕЗ ДАННЫХ-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:layout_row="9"
+                android:layout_column="0"
+                android:layout_columnWeight="1"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="0dp"
+                android:background="#F5FFFA"
+                android:gravity="center"
+                android:padding="0dp"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:visibility="invisible" />
+            <!-- //TODO КОНЕЦ ВТОРОЙ СТРОЧКИ С ДАННЫМИ-->
+        </GridLayout>
+    </HorizontalScrollView>
+</LinearLayout>

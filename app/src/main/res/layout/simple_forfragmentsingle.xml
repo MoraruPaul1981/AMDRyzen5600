@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/linearLayout_tabel_single"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F4F4F4"
+    android:gravity="center"
+    android:layout_margin="2dp"
+    android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+    tools:context=".TabelsApp.Tabel.Single.view.MainActivity_Tabel_Single_PeopleOneSwipe">
+
+
+
+        <!--//TODO   НАЧАЛО ПЕРВАЯ СТРОЧКА ROW #1-->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/materialcarviewrow1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="5dp"
+                android:layout_margin="2dp"
+                android:padding="2dp"
+                android:layout_alignParentTop="true"
+               android:layout_centerHorizontal="true"
+                android:animateLayoutChanges="true"
+                app:cardBackgroundColor="@color/actionbar_text_color"
+                app:strokeColor="@color/icon_dashdornd_tabel2_background"
+                app:cardElevation="2dp"
+                app:cardMaxElevation="1dp"
+                android:translationZ="4dp"
+                app:strokeWidth="0dp">
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/materialTextViewnametabel"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginEnd="20dp"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:layout_centerHorizontal="true"
+                android:textStyle="bold"
+                android:text="ТАБЕЛЬ"
+                android:textColor="#0A0A09"
+                android:background="#FFFFFF"
+                android:visibility="visible"
+                android:textSize="13sp" />
+                </RelativeLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+
+
+
+
+
+
+
+
+
+
+        <!--//TODO   НАЧАЛО ПЕРВАЯ СТРОЧКА ROW #2-->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/materialcarviewrow2"
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        app:cardCornerRadius="5dp"
+        android:layout_margin="3dp"
+        android:layout_centerHorizontal="true"
+        android:animateLayoutChanges="true"
+        android:layout_below="@+id/materialcarviewrow1"
+        app:cardBackgroundColor="@color/actionbar_text_color"
+        app:strokeColor="@color/icon_dashdornd_tabel2_background"
+        app:cardElevation="10dp"
+        app:cardMaxElevation="10dp"
+        android:translationZ="5dp"
+        app:strokeWidth="0dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/imageButtonbackotsingletabel"
+                        android:layout_width="48dp"
+                        android:layout_height="60dp"
+                        android:backgroundTint="#F1F4F4"
+                        android:gravity="center"
+                        android:layout_marginStart="10dp"
+                        android:fontFamily="@font/alegreya_sans_sc_thin"
+                        android:stateListAnimator="@drawable/icon_dsu1_exit3_foreground"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:textAlignment="center"
+                        app:cornerRadius="150dp"
+                        app:icon="@drawable/icon_back_tabelcustomer_arrow"
+                        app:iconGravity="textEnd"
+                        app:iconPadding="1dp"
+                        app:iconSize="25dp"
+                        app:cardCornerRadius="5dp"
+                        app:cardElevation="20dp"
+                        app:strokeColor="#F4F4F4"
+                        app:cardMaxElevation="2dp"
+                        app:strokeWidth="3dp"
+                        android:translationZ="5dp"
+                        app:iconTint="#171617"
+                        app:rippleColor="#E1DCDC"
+                        tools:ignore="SpeakableTextPresentCheck" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/materialTextViewfio"
+                        style="@style/Widget.MaterialComponents.MaterialCalendar.DayTextView"
+                        android:layout_width="285dp"
+                        android:layout_height="30dp"
+                        android:layout_margin="2dp"
+                        android:padding="1dp"
+                        android:textAlignment="center"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+                        android:bufferType="normal"
+                        android:fontFamily="sans-serif-light"
+                        android:foregroundGravity="center"
+                        android:gravity="center"
+                        android:hint="ФИО"
+                        android:textAllCaps="false"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                        android:textColor="#0E0E0E"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:theme="@style/Theme.AppCompat.DayNight"
+                        android:typeface="serif" />
+
+
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/materialTextViewprofession"
+                        style="@style/Widget.MaterialComponents.MaterialCalendar.DayTextView"
+                        android:layout_width="285dp"
+                        android:layout_height="25dp"
+                        android:layout_margin="1dp"
+                        android:padding="1dp"
+                        android:textAlignment="center"
+                        android:layout_centerHorizontal="true"
+                        android:layout_alignParentBottom="true"
+                        android:bufferType="normal"
+                        android:fontFamily="sans-serif-light"
+                        android:foregroundGravity="center"
+                        android:layout_below="@id/materialTextViewfio"
+                        android:gravity="center"
+                        android:hint="Профессия"
+                        android:textAllCaps="false"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                        android:textColor="#0E0E0E"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:theme="@style/Theme.AppCompat.DayNight"
+                        android:typeface="serif" />
+                </RelativeLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+
+
+
+    <!--//TODO   НАЧАЛО ПЕРВАЯ СТРОЧКА ROW #3-->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/materialcarviewrow3"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        app:cardCornerRadius="5dp"
+        android:layout_margin="2dp"
+        android:layout_centerHorizontal="true"
+        android:animateLayoutChanges="true"
+        android:layout_below="@+id/materialcarviewrow2"
+        app:cardBackgroundColor="@color/actionbar_text_color"
+        app:strokeColor="@color/icon_dashdornd_tabel2_background"
+        app:cardElevation="2dp"
+        app:cardMaxElevation="1dp"
+        android:translationZ="4dp"
+        app:strokeWidth="0dp">
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/spinnermesazyear_single"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:bufferType="normal"
+                android:textAlignment="center"
+                android:layout_margin="2dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:fontFamily="sans-serif-light"
+                android:foregroundGravity="center"
+                android:gravity="center|fill_horizontal"
+                android:hint="месяц"
+                android:textAllCaps="false"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textColor="#0E0E0E"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:theme="@style/Theme.AppCompat.DayNight"
+                android:typeface="serif" />
+
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/spinnerchasy_single"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:bufferType="normal"
+                android:textAlignment="center"
+                android:layout_margin="2dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:fontFamily="sans-serif-light"
+                android:foregroundGravity="center"
+                android:gravity="center|fill_horizontal"
+                android:hint="часы"
+                android:textSize="12sp"
+                android:textAllCaps="false"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textColor="#0E0E0E"
+                android:textStyle="bold"
+                android:theme="@style/Theme.AppCompat.DayNight"
+                android:typeface="serif" />
+
+
+        </RelativeLayout>
+
+
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--//TODO   НАЧАЛО ПЕРВАЯ СТРОЧКА ROW #5-->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/materialcarviewrow4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="5dp"
+        android:layout_margin="2dp"
+        android:padding="2dp"
+        android:layout_centerHorizontal="true"
+        android:animateLayoutChanges="true"
+        android:layout_below="@+id/materialcarviewrow3"
+        android:layout_above="@+id/materialcarviewrow5"
+        app:cardBackgroundColor="@color/actionbar_text_color"
+        app:strokeColor="@color/icon_dashdornd_tabel2_background"
+        app:cardElevation="2dp"
+        app:cardMaxElevation="5dp"
+        android:translationZ="4dp"
+        app:strokeWidth="0dp">
+
+
+
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentTop="true"
+                android:fillViewport="true"
+                android:scrollbars="horizontal|vertical"
+                android:stackFromBottom="true"
+                android:transcriptMode="alwaysScroll"
+                android:layout_gravity="center"
+                android:foregroundGravity="center"
+                android:scrollbarThumbVertical="@color/divider"
+                android:outlineAmbientShadowColor="@color/actionbar_text_color">
+
+
+
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycleviewsingletabel"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:keyboardNavigationCluster="true"
+                    android:nestedScrollingEnabled="true"
+                    android:background="#FFFFFF"
+                    tools:itemCount="10"
+                    android:scrollbars="vertical"
+                    android:windowSoftInputMode="stateVisible|adjustPan"
+                    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                    app:layout_optimizationLevel="standard|barrier|chains" />
+            </ScrollView>
+            </com.google.android.material.card.MaterialCardView>
+
+
+
+
+
+    <!--//TODO   НАЧАЛО ПЕРВАЯ СТРОЧКА ROW #2-->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/materialcarviewrow5"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        app:cardCornerRadius="5dp"
+        android:layout_margin="2dp"
+        android:padding="2dp"
+        android:layout_centerHorizontal="true"
+        android:animateLayoutChanges="true"
+        android:layout_alignParentBottom="true"
+        app:cardBackgroundColor="@color/actionbar_text_color"
+        app:strokeColor="@color/icon_dashdornd_tabel2_background"
+        app:cardElevation="2dp"
+        app:cardMaxElevation="1dp"
+        android:translationZ="4dp"
+        app:strokeWidth="0dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/spinnerdepartament_single"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:layout_margin="2dp"
+                android:padding="2dp"
+                android:tooltipText="Название цфо" />
+        </RelativeLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+
+
+
+</RelativeLayout>

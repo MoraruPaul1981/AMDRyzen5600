@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:popupTheme="@style/fortasknavigator">
+
+
+    <item
+        android:id="@+id/bottomNavigationBack"
+        android:icon="@drawable/icon_dsu1_commit_exit556"
+        app:itemIconTint="@animator/select_forcommitmenu"
+        android:title="Выйти">
+
+    </item>
+    <item
+        android:id="@+id/bottomNavigationAsync"
+        android:contentDescription="Обмен"
+        android:icon="@drawable/icon_dsu1_commit_async"
+        app:itemIconTint="@animator/select_forcommitmenu"
+        android:title="Обмен"
+        android:tooltipText="Получение данных от сервера">
+</item>
+
+    <item
+        android:id="@+id/bottomNavigationSearch"
+        android:contentDescription="Поиск"
+        android:icon="@drawable/icon_for_commitpay_serach1"
+        app:itemIconTint="@animator/select_forcommitmenu"
+        android:title="Поиск"
+        android:tooltipText="Получение данных от сервера">
+    </item>
+
+
+
+
+
+
+        />
+</menu>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/simple_task_for_Tasks"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#FFFFFF"
+    android:orientation="vertical"
+    tools:context=".TasksApp.MainActivity_Tasks">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardviewmatirealtask"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:minHeight="650dp"
+        android:layout_margin="5dp"
+        android:checkable="true"
+        android:clickable="false"
+        android:singleLine="false"
+        android:focusable="false"
+        android:textSize="10sp"
+        app:cardBackgroundColor="#AAB7B8"
+
+
+        app:cardCornerRadius="5dp"
+        app:cardElevation="10dp"
+        app:strokeColor="#F5FFFA"
+        app:cardMaxElevation="100dp"
+        app:strokeWidth="0dp"
+        android:translationZ="150dp"
+        android:animateLayoutChanges="true">
+
+        <RelativeLayout
+            android:id="@+id/relativelayoutcardviewmatirealtask"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="2dp"
+            android:paddingTop="2dp"
+            android:paddingLeft="2dp"
+            android:paddingRight="2dp">
+
+
+            <!--  //TODO первый блок -->
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text1_innercardview"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="550dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerInParent="true"
+                android:layout_centerVertical="true"
+                android:enabled="true"
+                android:gravity="center_horizontal|center_vertical"
+                android:hint="  Созданный задач нет "
+                android:inputType="textMultiLine|textCapSentences|textNoSuggestions"
+                android:minHeight="50dp"
+                android:singleLine="false"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:visibility="visible" />
+
+            <!--  //TODO  конец  первый блок -->
+        </RelativeLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+
+</LinearLayout>

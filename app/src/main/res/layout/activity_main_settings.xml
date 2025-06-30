@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:gravity="bottom"
+    android:foregroundGravity="top"
+    android:layout_gravity="center"
+    android:layout_alignParentBottom="true"
+    android:layout_alignParentTop="true"
+    android:baselineAligned="true"
+    android:divider="@color/accent"
+    android:measureWithLargestChild="true"
+    tools:context=".CoreApp.Apps.SettingsCoreApp.View.MainActivity_Settings"
+    android:orientation="vertical">
+
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/materialcardviewrow0"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:padding="2dp"
+        android:animateLayoutChanges="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:translationZ="4dp"
+        app:cardBackgroundColor="@color/actionbar_text_color"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="2dp"
+        app:cardMaxElevation="1dp"
+        app:strokeColor="@color/icon_dashdornd_tabel2_background"
+        app:strokeWidth="1dp">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:padding="2dp">
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/imageViewСтрелкаВнутриНастроек"
+                android:layout_width="43dp"
+                android:layout_height="55dp"
+                android:layout_column="0"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:backgroundTint="#F1F4F4"
+                android:fontFamily="@font/alegreya_sans_sc_thin"
+                android:gravity="center"
+                android:padding="1dp"
+                android:stateListAnimator="@drawable/icon_back_tabelcustomer_arrow"
+                android:textAlignment="center"
+                android:translationZ="5dp"
+                app:cardCornerRadius="5dp"
+                app:cardElevation="2dp"
+                app:cardMaxElevation="20dp"
+                app:cornerRadius="20dp"
+                app:icon="@drawable/icon_back_tabelcustomer_arrow"
+                app:iconGravity="textEnd"
+                app:iconPadding="1dp"
+                app:iconSize="20dp"
+                app:iconTint="#909393"
+                app:rippleColor="#F50057"
+                app:strokeColor="#E0E0E3"
+                app:strokeWidth="1dp"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <TextView
+                android:id="@+id/textView3СловоТабель"
+                style="@style/Widget.MaterialComponents.MaterialCalendar.DayTextView"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_margin="1dp"
+                android:bufferType="normal"
+                android:fontFamily="sans-serif-light"
+                android:foregroundGravity="center"
+                android:gravity="center"
+                android:padding="1dp"
+                android:text="Настройки"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textColor="#0E0E0E"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:theme="@style/Theme.AppCompat.DayNight"
+                android:typeface="serif" />
+        </RelativeLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+
+
+
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_weight="1"
+    android:foregroundGravity="center"
+    android:fillViewport="true"
+    android:scrollbars="horizontal|vertical"
+    android:stackFromBottom="true"
+    android:transcriptMode="alwaysScroll"
+    android:scrollbarThumbVertical="@color/divider"
+    android:outlineAmbientShadowColor="@color/actionbar_text_color">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/materialcardviewrow1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:padding="2dp"
+        android:animateLayoutChanges="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:translationZ="4dp"
+        app:cardBackgroundColor="@color/actionbar_text_color"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="2dp"
+        app:cardMaxElevation="1dp"
+        app:strokeColor="@color/icon_dashdornd_tabel2_background"
+        app:strokeWidth="1dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="500dp"
+            android:layout_gravity="top"
+            android:baselineAligned="true"
+            android:dividerPadding="@dimen/car_ui_padding_5"
+            android:divider="@color/accent"
+            android:measureWithLargestChild="true"
+            android:orientation="vertical">
+
+
+
+    <Switch
+        android:id="@+id/switchWIFI"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginTop="50dp"
+        android:checked="true"
+        android:hint="режим передача данных "
+        android:showText="false"
+        android:splitTrack="true"
+        android:switchMinWidth="70dp"
+        android:text="Только WIFI (Сеть)"
+        android:textColorHighlight="#651FFF"
+        android:textOff="выкл."
+        android:textOn="вкл."
+        android:textSize="14sp"
+        android:textStyle="normal|bold"
+        android:trackTint="#FFD5D9DA"
+        tools:checked="true" />
+
+    <Switch
+        android:id="@+id/switchАвтоЗаполенияВТАбелеВыходных"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="40dp"
+        android:checked="true"
+        android:hint="режим авто заполения Больничных в табеле"
+        android:showText="false"
+        android:splitTrack="true"
+        android:switchMinWidth="70dp"
+        android:text="Выкл (Выходные)"
+        android:textColorHighlight="#651FFF"
+        android:textOff="выкл."
+        android:textOn="вкл."
+        android:textSize="14sp"
+        android:textStyle="normal|bold"
+        android:trackTint="#FFD5D9DA"
+        tools:checked="true" />
+
+    <Switch
+        android:id="@+id/switchСкрытыеПоляПолучениеМатериалов"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="40dp"
+        android:checked="true"
+        android:hint="режим авто заполения Больничных в табеле"
+        android:showText="false"
+        android:splitTrack="true"
+        android:switchMinWidth="70dp"
+        android:text="Материалы (Скрытые)"
+        android:textColorHighlight="#651FFF"
+        android:textOff="выкл."
+        android:textOn="вкл."
+        android:textSize="14sp"
+        android:textStyle="normal|bold"
+        android:trackTint="#FFD5D9DA"
+        tools:checked="true" />
+
+
+
+
+    <Switch
+        android:id="@+id/switchsslcomunications"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="40dp"
+        android:checked="false"
+        android:hint="режим подключение защищеное или нет !!!"
+        android:showText="false"
+        android:splitTrack="true"
+        android:switchMinWidth="70dp"
+        android:text="Обычный (Сервер)"
+        android:textColorHighlight="#651FFF"
+        android:textOff="выкл."
+        android:textOn="вкл."
+        android:textSize="14sp"
+        android:textStyle="normal|bold"
+        android:trackTint="#FFD5D9DA"
+        tools:checked="true" />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+</ScrollView>
+
+
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/materialcardviewrow3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:padding="2dp"
+        android:animateLayoutChanges="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:translationZ="4dp"
+        app:cardBackgroundColor="@color/actionbar_text_color"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="2dp"
+        app:cardMaxElevation="1dp"
+        app:strokeColor="@color/icon_dashdornd_tabel2_background"
+        app:strokeWidth="1dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:visibility="visible"
+            android:foregroundGravity="top"
+            android:layout_gravity="bottom"
+            android:gravity="top"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentTop="true"
+            android:baselineAligned="true"
+            android:divider="@color/accent"
+            android:measureWithLargestChild="true"
+            android:orientation="vertical">
+
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/textViewВерсияПрограммы"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_margin="5dp"
+                android:padding="2dp"
+                android:gravity="center_horizontal"
+                android:background="@drawable/style_settings22"
+                android:textStyle="bold"
+                android:textAlignment="gravity"
+                android:textColor="#000000"
+                android:textColorHint="#454542"
+                android:textSize="14sp"
+                app:fontFamily="@font/average_sans" />
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/textViewТекущийПользователь"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_margin="5dp"
+                android:padding="2dp"
+                android:gravity="center_horizontal"
+                android:background="@drawable/style_settings22"
+                android:textStyle="bold"
+                android:textAlignment="gravity"
+                android:textColor="#000000"
+                android:textColorHint="#454542"
+                android:textSize="14sp"
+                app:fontFamily="@font/average_sans" />
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/textViewВремяПоследнееСинхронизации"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_margin="5dp"
+                android:padding="2dp"
+                android:gravity="center_horizontal"
+                android:background="@drawable/style_settings22"
+                android:textStyle="bold"
+                android:textAlignment="gravity"
+                android:textColor="#000000"
+                android:textColorHint="#454542"
+                android:textSize="14sp"
+                app:fontFamily="@font/average_sans" />
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/textViewРазрабочикПрогрммы"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_margin="5dp"
+                android:padding="2dp"
+                android:text="Собственость: ООО Союз-Автодор, 2025г."
+                android:background="@drawable/style_settings22"
+                android:gravity="center_horizontal"
+                android:textStyle="bold"
+                android:textAlignment="gravity"
+                android:textColor="#000000"
+                android:textColorHint="#454542"
+                android:textSize="14sp"
+                app:fontFamily="@font/average_sans" />
+
+
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+
+
+
+</LinearLayout>

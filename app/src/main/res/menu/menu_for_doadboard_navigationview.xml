@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:showIn="navigator_faceapp_main">
+
+    <group
+        android:checkableBehavior="single"
+        android:menuCategory="system">
+
+
+        <item
+            android:id="@+id/one"
+            android:icon="@drawable/icon_sodergimoe"
+            android:title="" />
+
+
+        <item
+            android:id="@+id/two"
+            android:icon="@drawable/icon_dsu1_for_menufacepp"
+            android:title="" />
+
+        <item
+            android:id="@+id/tree"
+            android:icon="@drawable/icon_account_2"
+            android:title="" />
+
+
+        <item
+            android:id="@+id/four"
+            android:icon="@drawable/icon_dsu1_sucesss_fro_menus"
+            android:title="" />
+
+
+        <item
+            android:id="@+id/shestoy"
+            android:icon="@drawable/icon_dsu1_insertdata"
+            android:title="" />
+
+        <item
+            android:id="@+id/sedmoy"
+            android:icon="@drawable/icon_dsu1_download_formenu"
+            android:title="" />
+    </group>
+
+
+
+</menu>

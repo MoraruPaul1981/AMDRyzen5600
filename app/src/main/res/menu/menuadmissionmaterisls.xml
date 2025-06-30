@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:id="@+id/id_lback"
+        android:checkable="true"
+        android:contentDescription="Выйти"
+        android:enabled="true"
+        android:icon="@drawable/icon_dsu1_assinmaterial_exit5"
+        android:iconTint="#03A9F4"
+        android:title="Выйти"
+        android:tooltipText="назад в приложение" />
+
+
+    <item
+        android:id="@+id/id_create"
+        android:contentDescription="Создать"
+        android:icon="@drawable/icon_dsu1_adminsionmaretioslcreate"
+        android:iconTint="#E91E63"
+        android:title="Создать"
+        android:tooltipText="Получение данных от сервера" />
+
+
+
+    <item
+        android:id="@+id/id_async"
+        android:contentDescription="Обновить"
+        android:icon="@drawable/icon_dsu1_administilaterial_async"
+        android:iconTint="#E91E63"
+        android:title="Обновить"
+        android:tooltipText="Получение данных от сервера" />
+    />
+</menu>

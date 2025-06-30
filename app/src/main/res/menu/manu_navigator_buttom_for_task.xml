@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    app:popupTheme="@style/fortasknavigator">
+
+
+    <item
+        android:id="@+id/id_taskAsyns"
+        android:title="Обмен"
+        android:icon="@drawable/icon_dsu1_commit_async"/>
+    <item
+        android:id="@+id/id_taskCreateNewTasks"
+        android:title="Новая"
+        android:icon="@drawable/icon_dsu1_createnow_task_tree_buttom"/>
+
+    <item
+        android:id="@+id/id_taskHome"
+        android:title="Контроль"
+        android:icon="@drawable/icon_dsu1_new_create_tabel4"/>/>
+
+
+
+
+
+    />
+
+
+</menu>

@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    android:id="@+id/materialCardViewmain_commitpay"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="0dp"
+    app:cardCornerRadius="2dp"
+    app:cardElevation="10dp"
+    app:strokeColor="#F2F6F6"
+    app:cardMaxElevation="10dp"
+    app:strokeWidth="1dp"
+    android:translationZ="50dp"
+    android:animateLayoutChanges="true"
+    android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+    tools:context=".PaysCommitApp.View.Window.MainActivity_CommitPay">
+
+
+    <TableLayout
+        android:shrinkColumns="*"
+        android:stretchColumns="*"
+        android:gravity="center_horizontal|center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical|center_horizontal">
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/mTVhandlercommingpay"
+
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_column="0"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginBottom="2dp"
+                android:layout_toLeftOf="@+id/arrow_nested_receriview"
+                android:background="@drawable/style_for_newstypespinners_ietm22"
+                android:gravity="center"
+                android:minHeight="30dp"
+
+                android:text="СОГЛАСОВАНИЯ"
+                android:textAlignment="gravity"
+                android:textColor="#000000"
+
+                android:textColorHint="#80807C"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:visibility="visible"
+
+                app:cardMaxElevation="10dp"
+                app:fontFamily="@font/average_sans"
+                app:strokeColor="#F2F6F6"
+
+                app:strokeWidth="10dp" />
+        </TableRow>
+
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical|center_horizontal">
+
+            <androidx.appcompat.widget.SearchView
+                android:id="@+id/searchview_commitpay"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_alignParentLeft="true"
+
+                android:layout_alignParentRight="true"
+                android:layout_centerHorizontal="true"
+
+
+
+
+
+                android:layout_marginStart="40dp"
+                android:layout_marginEnd="40dp"
+                android:layout_marginBottom="2dp"
+                android:layout_marginTop="2dp"
+
+                android:background="@drawable/style_for_newstypespinners_ietm7"
+                android:checkMark="?android:attr/listChoiceIndicatorSingle"
+                android:gravity="center_vertical|center_horizontal"
+                android:paddingStart="?android:attr/listPreferredItemPaddingStart"
+                android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
+                android:queryHint="Поиск..."
+                android:textAppearance="?android:attr/textAppearanceListItemSmall"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:visibility="gone" />
+
+
+        </TableRow>
+
+
+
+
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical|center_horizontal">
+
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout_recyreview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:orientation="vertical"
+                android:background="#FFFFFF">
+
+
+
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycleviewcommitpays"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+
+                    android:layout_above="@+id/prograessbarcommitpaydown"
+
+                    android:layout_margin="1dp"
+                    android:padding="1dp"
+
+                    android:layout_alignParentTop="true"
+
+                    android:layout_centerInParent="true"
+
+                    android:layout_marginStart="1dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginEnd="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:background="#FFFFFF"
+                    android:nestedScrollingEnabled="true"
+
+                    android:visibility="visible"
+                    tools:ignore="MissingConstraints"
+                    tools:itemCount="5000" />
+
+
+
+
+
+
+
+
+
+                <ProgressBar
+                    android:id="@+id/prograessbarcommitpaydown"
+                    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                    android:layout_above="@+id/bottomnavigationActivicommit_search"
+                    android:layout_width="match_parent"
+                    android:indeterminateTint="#858888"
+                    android:layout_height="6dp"
+                    android:scaleY="3"
+                    android:scaleX="1"
+
+                    android:layout_margin="1dp"
+                    android:padding="1dp"
+
+                    android:layout_centerHorizontal="true"
+                    android:indeterminate="true"
+                    android:visibility="visible" />
+
+
+                <com.google.android.material.bottomnavigation.BottomNavigationView
+                    android:id="@+id/bottomnavigationActivicommit_search"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="#FFD5D9DA"
+                    android:paddingTop="2dp"
+                    android:scrollbarFadeDuration="@integer/config_navAnimTime"
+                    android:translationZ="5dp"
+                    app:itemIconTint="#0E0E0E"
+                    app:menu="@menu/manu_navigator_buttom_for_commitpay_search"
+                    app:popupTheme="@style/fortasknavigator"
+                    tools:ignore="MissingConstraints" />
+            </RelativeLayout>
+
+
+
+
+
+        </TableRow>
+
+       </TableLayout>
+
+
+
+
+
+
+</com.google.android.material.card.MaterialCardView>
+

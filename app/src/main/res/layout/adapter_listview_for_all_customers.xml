@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5FFFA"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".MainActivity_CreateTableTHREE">
+
+
+    <!-- СТРОЧКА НОМЕР ДВА ЛИНИЯ ПОДЧЕРЧИКАТ фио -->
+
+
+    <!-- todo gridlauy для адаптера СТРОЧКА НОМЕР ТРИ ЦИФРА ДЛЯ  -->
+    <GridLayout
+        android:id="@+id/КонтейнерДляАдаптераВсеСотрудники"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="#F5FFFA"
+        android:columnCount="1000"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_weight="60"
+        android:scrollbarAlwaysDrawHorizontalTrack="true">
+        <!-- холостой ход ТРЕТЬЯ СТРОЧКА  ДНИ  НЕДЕЛИ-->
+
+
+        <!--ТРЕТЬЯ СТРОЧКА  ДНИ  НЕДЕЛИ-->
+        <TextView
+            android:id="@+id/text1"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:layout_columnWeight="1"
+            android:layout_marginEnd="5dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:padding="30dp"
+            android:textAlignment="center"
+            android:layout_rowWeight="@integer/config_navAnimTime"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/ЧасыДляАдаптераВсеСотрудники"
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"
+            android:layout_row="1"
+            android:layout_column="1"
+            android:layout_columnWeight="1"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
+            android:gravity="center"
+            android:padding="30dp"
+            android:textAlignment="center"
+            android:layout_rowWeight="@integer/config_navAnimTime"
+            android:textStyle="bold" />
+    </GridLayout>
+
+
+    <!-- todo gridlauy для адаптера СТРОЧКА НОМЕР ТРИ ЦИФРА ДЛЯ  -->
+    <GridLayout
+        android:id="@+id/КонтейнерДляАдаптераВсеСотрудники2"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="#F5FFFA"
+        android:columnCount="1000"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_weight="40"
+        android:scrollbarAlwaysDrawHorizontalTrack="true">
+        <!-- холостой ход ТРЕТЬЯ СТРОЧКА  ДНИ  НЕДЕЛИ-->
+
+
+        <!--ТРЕТЬЯ СТРОЧКА  ДНИ  НЕДЕЛИ-->
+        <TextView
+            android:id="@+id/text2"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:layout_columnWeight="1"
+            android:layout_marginEnd="5dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:padding="30dp"
+            android:textAlignment="center"
+            android:layout_rowWeight="@integer/config_navAnimTime"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/ЧасыДляАдаптераВсеСотрудники2"
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"
+            android:layout_row="1"
+            android:layout_column="1"
+            android:layout_columnWeight="1"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
+            android:gravity="center"
+            android:padding="30dp"
+            android:textAlignment="center"
+            android:layout_rowWeight="@integer/config_navAnimTime"
+            android:textStyle="bold" />
+    </GridLayout>
+
+
+    <!-- СТРОЧКА НОМЕР ДВА ЛИНИЯ ПОДЧЕРЧИКАТ фио -->
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_row="0"
+        android:layout_marginRight="0dp"
+        android:background="#00ACC1"
+        android:dashWidth="20px"
+        android:dashGap="50px"
+        android:gravity="center" />
+
+    <!--        android:layout_marginLeft="150dp"-->
+
+</LinearLayout>

@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F2F8F8"
+    android:orientation="vertical"
+    android:shrinkColumns="*"
+    android:stretchColumns="*"
+    android:gravity="top"
+    android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+    tools:context=".TabelsApp.Tabel.Single.view.MainActivity_Tabel_Single_PeopleOneSwipe"
+    tools:visibility="visible">
+
+
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:padding="2dp"
+            android:background="#F2F8F8"
+
+            android:gravity="top">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#FFFFFF"
+                    tools:ignore="MissingConstraints">
+
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/imageButtonbackotsingletabel"
+                            android:layout_width="50dp"
+                            android:layout_height="wrap_content"
+                            android:minHeight="25dp"
+                            android:layout_column="0"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginEnd="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:background="#FFFFFF"
+                            android:stateListAnimator="@drawable/icon_dsu1_exit3_foreground"
+                            android:textAlignment="center"
+                            android:visibility="visible"
+                            app:backgroundTint="#FFFFFF"
+                            app:icon="@drawable/icon_dsu1_exit3_foreground"
+                            app:iconGravity="textEnd"
+                            app:iconSize="40dp"
+                            app:iconTint="#FFD5D9DA"
+                            app:rippleColor="#F50057" />
+
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:layout_column="1"
+                            android:id="@+id/materialTextViewfio"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:minHeight="25dp"
+                            android:layout_alignParentTop="true"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="1dp"
+                            android:foregroundGravity="center"
+                            android:gravity="center"
+                            android:hint="ФИО"
+                            android:textAlignment="gravity"
+                            android:textColor="#000000"
+                            android:textSize="13sp"
+                            android:textStyle="bold"
+                            android:translationZ="10dp"
+                            app:cardCornerRadius="15dp"
+                            app:cardElevation="15dp"
+                            app:cornerRadius='15dp'
+                            app:strokeColor="#F5FFFA"
+                            android:tooltipText="ФИО"
+                            tools:visibility="visible" />
+
+
+
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:layout_column="1"
+                            android:id="@+id/materialTextViewprofession"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:minHeight="25dp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginBottom="1dp"
+                            android:layout_marginTop="1dp"
+                            android:foregroundGravity="center"
+                            android:gravity="center"
+                            android:hint="Профессия"
+                            android:textAlignment="gravity"
+                            android:textColor="#000000"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            android:translationZ="10dp"
+                            app:cardCornerRadius="15dp"
+                            app:cardElevation="15dp"
+                            app:cornerRadius='15dp'
+                            app:strokeColor="#F5FFFA"
+                            android:tooltipText="профессия"
+                            android:layout_below="@+id/materialTextViewfio"
+                            tools:visibility="visible" />
+
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/spinnermesazyear"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:minHeight="25dp"
+                            android:layout_column="2"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginStart="1dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginEnd="5dp"
+                            android:layout_toRightOf="@+id/materialTextViewfio"
+                            android:gravity="center"
+                            android:hint="месяц"
+                            android:textColor="@android:color/white"
+                            android:textSize="10sp"
+                            android:tooltipText="Дата табеля" />
+
+
+
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:layout_column="2"
+                            android:id="@+id/spinnerchasy"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:minHeight="25dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginTop="1dp"
+                            android:layout_marginStart="1dp"
+                            android:layout_marginBottom="1dp"
+                            android:layout_marginEnd="5dp"
+                            android:layout_toRightOf="@+id/materialTextViewprofession"
+                            android:layout_below="@+id/spinnermesazyear"
+                            android:gravity="center"
+                            android:hint="часы"
+                            android:textColor="@android:color/white"
+                            android:tooltipText="Часы"
+                            android:textSize="10sp" />
+
+                </RelativeLayout>
+              <!--  TODO end 1 one  NAME-->
+
+        </TableRow>
+        <!--  TODO end 1 one row NAME-->
+
+
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#F2F8F8"
+            android:gravity="center">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#FFFFFF"
+                    tools:ignore="MissingConstraints">
+
+
+                        <ScrollView
+                            android:id="@+id/scrollview_recycler_view_single_tabel"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_column="0"
+                            android:layout_above="@+id/spinnerdepartament"
+                            android:layout_alignParentTop="true"
+                            android:layout_centerInParent="true"
+
+                            android:fillViewport="true"
+
+                            android:paddingTop="1dp"
+                            android:paddingBottom="1dp"
+                            android:layout_marginTop="1dp"
+                            android:layout_marginBottom="1dp"
+
+                            android:background="@drawable/disayn_line_tablerow5"
+
+                            android:scrollbars="horizontal|vertical"
+                            android:stackFromBottom="true"
+                            android:transcriptMode="alwaysScroll"
+                            android:visibility="visible">
+
+
+                                <androidx.recyclerview.widget.RecyclerView
+                                    android:id="@+id/recycleviewSingle"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+
+                                    android:layout_above="@+id/spinnerdepartament"
+
+
+                                    android:layout_alignParentTop="true"
+                                    android:layout_centerHorizontal="true"
+
+                                    android:keyboardNavigationCluster="true"
+
+                                    android:paddingTop="1dp"
+                                    android:paddingBottom="1dp"
+                                    android:layout_marginTop="1dp"
+                                    android:layout_marginBottom="1dp"
+
+                                    android:scrollbars="vertical|horizontal"
+                                    android:visibility="visible"
+                                    android:windowSoftInputMode="stateVisible|adjustPan"
+                                    app:layout_optimizationLevel="standard|barrier|chains" />
+
+
+                        </ScrollView>
+
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/spinnerdepartament"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginStart="2dp"
+                            android:layout_marginTop="2dp"
+                            android:layout_marginEnd="2dp"
+                            android:layout_marginBottom="5dp"
+                            android:gravity="clip_vertical|fill_horizontal"
+                            android:maxHeight="50dp"
+                            android:minHeight="35dp"
+                            android:padding="2dp"
+                            android:textColor="@android:color/white"
+                            android:tooltipText="Название цфо" />
+
+                </RelativeLayout>
+
+
+        </TableRow>
+        <!--  TODO end 2 one row Scroll-->
+
+
+
+
+
+  <!--    TODO end 3 one botton button>-->
+
+</TableLayout>

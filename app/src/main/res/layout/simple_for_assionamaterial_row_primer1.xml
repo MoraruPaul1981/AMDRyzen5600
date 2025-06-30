@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/TableLayoutAdmissionLayoutInflater"
+    android:stretchColumns="*"
+    android:shrinkColumns="*"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+    android:background="#F5FFFA"
+    tools:context=".AdmissionMaterialsApp.Window.MainActivity_AdmissionMaterials">
+
+                   <TableRow android:id="@+id/TableRow01"
+                       android:layout_width="match_parent"
+                    android:layout_height="40dp" android:layout_margin="10dp">
+                   <com.google.android.material.button.MaterialButton
+                    android:id="@+id/linebottom2"
+                       android:layout_span="4"
+                    style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton.Icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="3dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_margin="5dp"
+                    android:backgroundTint="#15958A"
+                    android:clickable="true"
+                    android:focusable="auto"
+                    android:fontFamily="sans-serif-medium"
+                    android:gravity="center|center_vertical"
+                    android:textColor="#0E0E0E"
+                    android:textSize="5sp"
+                    android:textStyle="bold"
+                    android:typeface="normal"
+                    android:visibility="visible"
+                    app:cornerRadius='100dp'
+                    tools:visibility="visible" />
+                </TableRow>
+                <TableRow
+                    android:id="@+id/TableRow02"
+                    android:layout_width="match_parent"
+                    android:layout_margin="10dp"
+                    android:layout_height="wrap_content">
+                    <TextView android:id="@+id/textview1"  android:layout_column="0" android:text="1" />
+                    <TextView  android:id="@+id/textview2" android:layout_column="1" android:text="2" />
+                    <TextView android:id="@+id/textview3"  android:layout_column="2" android:text="3" />
+                    <TextView android:id="@+id/textview4" android:layout_column="3" android:text="4"  />
+                </TableRow>
+
+    <TableRow
+        android:id="@+id/TableRow03"
+        android:layout_width="match_parent"
+        android:layout_margin="10dp"
+        android:layout_height="wrap_content">
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/linebottom3"
+            android:layout_span="4"
+            style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton.Icon"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:layout_below="@+id/tablelayout"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_margin="5dp"
+            android:backgroundTint="#15958A"
+            android:clickable="true"
+            android:focusable="auto"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center|center_vertical"
+            android:textColor="#0E0E0E"
+            android:textSize="5sp"
+            android:textStyle="bold"
+            android:typeface="normal"
+            android:visibility="visible"
+            app:cornerRadius='100dp'
+            tools:visibility="visible" />
+    </TableRow>
+
+
+
+
+
+
+
+
+
+</TableLayout>

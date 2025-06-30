@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:showIn="navigator_faceapp_main">
+
+    <group
+        android:checkableBehavior="single"
+        android:menuCategory="system">
+
+        <item android:title="">
+            <menu>
+                <item
+                    android:checked="true"
+                    app:showAsAction="always"
+                    android:id="@+id/faur_abount"
+                    android:icon="@drawable/icon_dsu1_for_navigator_view_11"
+                    android:title="Трак 2025" />
+            </menu>
+
+        </item>
+
+        <item
+            android:id="@+id/one"
+            android:icon="@drawable/icon_sodergimoe"
+            app:itemTextAppearance="@style/TextAppearance.AppCompat.Display1"
+            app:itemIconSize="100dp"
+            android:title="Ошибки" />
+
+
+        <item
+            android:id="@+id/item_async_updatepo"
+            android:icon="@drawable/icon_dsu1_download_formenu"
+            app:itemTextAppearance="@style/TextAppearance.AppCompat.Display1"
+            app:itemIconSize="100dp"
+            android:title="Обновление ПО" />
+
+        <item
+            android:id="@+id/item_settings"
+            android:icon="@drawable/icon_navigatorsettings"
+            app:itemTextAppearance="@style/TextAppearance.AppCompat.Display1"
+            app:itemIconSize="100dp"
+            android:title="Настройки" />
+
+
+    </group>
+
+
+</menu>

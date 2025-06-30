@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableRow xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/row0"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:minHeight="50dp"
+    android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+    android:background="#F5FFFA"
+    tools:context=".MaterialsShipmentApp.MainActivity_shipment_of_materials">
+
+    <!--TODO ПЕРВЫЙ КЛЮЧ -->
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/key1"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_column="0"
+        android:animateLayoutChanges="true"
+        android:gravity="center"
+        android:hint="Тип \n материала"
+        android:minWidth="50dp"
+        android:textAlignment="center"
+        android:textColor="#0E0E0E"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:translationZ="50dp"
+        app:cardBackgroundColor="#F0F8FF"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="10dp"
+        app:cardMaxElevation="10dp"
+        app:strokeColor="#F5FFFA"
+        app:strokeWidth="0dp" />
+
+
+    <!--TODO ВЕРТИКАЛЬЯ ЛИНИКАЯ ВТОРОГО КЛЮЧА  КЛЮЧ -->
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/linekey2"
+        android:layout_width="2dp"
+        android:layout_height="50dp"
+        android:layout_column="1"
+        android:background="@color/colorPrimaryDark"
+        android:gravity="center"
+        android:minHeight="40dp"
+        android:textStyle="bold" />
+    <!--TODO ВТОРОЙ КЛЮЧ КЛЮЧ -->
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/key2"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_column="2"
+        android:animateLayoutChanges="true"
+        android:gravity="center"
+        android:hint="Лимит"
+        android:minWidth="50dp"
+        android:textAlignment="center"
+        android:textColor="#0E0E0E"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:translationZ="50dp"
+        app:cardBackgroundColor="#F0F8FF"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="10dp"
+        app:cardMaxElevation="10dp"
+        app:strokeColor="#F5FFFA"
+        app:strokeWidth="0dp" />
+
+
+    <!--TODO ВЕРТИКАЛЬЯ ЛИНИКАЯ ТРЕТЬЕГО КЛЮЧА  КЛЮЧ -->
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/linekey3"
+        android:layout_width="2dp"
+        android:layout_height="50dp"
+        android:layout_column="3"
+        android:background="@color/colorPrimaryDark"
+        android:gravity="center"
+        android:textStyle="bold" />
+    <!--TODO ТРЕТИЙ КЛЮЧ КЛЮЧ -->
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/key3"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_column="4"
+        android:animateLayoutChanges="true"
+        android:gravity="center"
+        android:hint="Номенклатура"
+        android:minWidth="50dp"
+        android:textAlignment="center"
+        android:textColor="#0E0E0E"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:translationZ="50dp"
+        app:cardBackgroundColor="#F0F8FF"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="10dp"
+        app:cardMaxElevation="10dp"
+        app:strokeColor="#F5FFFA"
+        app:strokeWidth="0dp" />
+    <!--TODO ВЕРТИКАЛЬЯ ЛИНИКАЯ ЧЕТВЕРТАЯ КЛЮЧА  КЛЮЧ -->
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/linekey4"
+        android:layout_column="5"
+        android:layout_width="2dp"
+        android:layout_height="50dp"
+        android:background="@color/colorPrimaryDark"
+        android:gravity="center"
+        android:textStyle="bold" />
+    <!--TODO ЧЕТВЕРТАЯ КЛЮЧ КЛЮЧ -->
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/key4"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_column="6"
+        android:animateLayoutChanges="true"
+        android:gravity="center"
+        android:hint="Закуплено \n разрешения"
+        android:minWidth="50dp"
+        android:textAlignment="center"
+        android:textColor="#0E0E0E"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:translationZ="50dp"
+        app:cardBackgroundColor="#F0F8FF"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="10dp"
+        app:cardMaxElevation="10dp"
+        app:strokeColor="#F5FFFA"
+        app:strokeWidth="0dp" />
+
+
+    <!--TODO ВЕРТИКАЛЬЯ ЛИНИКАЯ пятая КЛЮЧА  КЛЮЧ -->
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/linekey5"
+        android:layout_column="7"
+        android:layout_width="2dp"
+        android:layout_height="50dp"
+        android:background="@color/colorPrimaryDark"
+        android:gravity="center"
+        android:textStyle="bold" />
+    <!--TODO пятая КЛЮЧ КЛЮЧ -->
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/key5"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_column="8"
+        android:animateLayoutChanges="true"
+        android:gravity="center"
+        android:hint="Привезено \n разрешения"
+        android:minWidth="50dp"
+        android:textAlignment="center"
+        android:textColor="#0E0E0E"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:translationZ="50dp"
+        app:cardBackgroundColor="#F0F8FF"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="10dp"
+        app:cardMaxElevation="10dp"
+        app:strokeColor="#F5FFFA"
+        app:strokeWidth="0dp" />
+
+
+    <!--TODO ВЕРТИКАЛЬЯ ЛИНИКАЯ шестая КЛЮЧА  КЛЮЧ -->
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/linekey6"
+        android:layout_column="8"
+        android:layout_width="2dp"
+        android:layout_height="50dp"
+        android:background="@color/colorPrimaryDark"
+        android:gravity="center"
+        android:textStyle="bold" />
+
+    <!--TODO пятая КЛЮЧ КЛЮЧ -->
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/key6"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_column="9"
+        android:animateLayoutChanges="true"
+        android:gravity="center"
+        android:hint="Весовые"
+        android:minWidth="50dp"
+        android:textAlignment="center"
+        android:textColor="#0E0E0E"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:translationZ="50dp"
+        app:cardBackgroundColor="#F0F8FF"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="10dp"
+        app:cardMaxElevation="10dp"
+        app:strokeColor="#F5FFFA"
+        app:strokeWidth="0dp" />
+
+
+    <!--TODO ВЕРТИКАЛЬЯ ЛИНИКАЯ седьмая КЛЮЧА  КЛЮЧ -->
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/linekey7"
+        android:layout_column="9"
+        android:layout_width="2dp"
+        android:layout_height="50dp"
+        android:background="@color/colorPrimaryDark"
+        android:gravity="center"
+        android:textStyle="bold" />
+
+    <!--TODO пятая КЛЮЧ КЛЮЧ -->
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/key7"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_column="10"
+        android:animateLayoutChanges="true"
+        android:gravity="center"
+        android:hint="Остаток"
+        android:minWidth="50dp"
+        android:textAlignment="center"
+        android:textColor="#0E0E0E"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:translationZ="50dp"
+        app:cardBackgroundColor="#F0F8FF"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="10dp"
+        app:cardMaxElevation="10dp"
+        app:strokeColor="#F5FFFA"
+        app:strokeWidth="0dp" />
+
+
+</TableRow>
+
+
+
+
+
+
+
+
+

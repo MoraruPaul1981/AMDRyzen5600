@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/materialCardViewnewRowpaycommit"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="5dp"
+    app:strokeColor="#E1E6E6"
+    android:background="@drawable/style_forpolymaterialb_cycle_createspinner2"
+    app:cardMaxElevation="30dp"
+    app:strokeWidth="1dp"
+    android:translationZ="100dp"
+    android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+    tools:context=".PaysCommitApp.View.Window.MainActivity_CommitPay">
+
+
+
+    <TableLayout
+        android:id="@+id/tablelayoutnewrowcommingpay"
+        android:shrinkColumns="*"
+        android:stretchColumns="1"
+        android:gravity="center_horizontal|center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <!-- todo ДАННЫЕ первые строчки  #7-->
+        <TableRow
+            android:id="@+id/tableRowpaycommitingpay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:gravity="center_vertical|center_horizontal">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/textnameRowpaycommit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_column="0"
+                    android:layout_alignParentTop="true"
+
+
+                    android:layout_centerInParent="true"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginEnd="2dp"
+                    android:background="@drawable/style_forpolymaterialb_cycle_createspinner2"
+                    android:gravity="center"
+                    android:hint="Файл"
+                    android:minWidth="120dp"
+                    android:minHeight="20dp"
+                    android:textAlignment="gravity"
+                    android:textColor="#000000"
+                    android:textColorHint="#454542"
+                    android:textSize="11sp"
+                    android:textStyle="normal"
+                    android:visibility="visible"
+                    app:fontFamily="@font/average_sans" />
+
+                <!--TODO второая страка -->
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/textvalueRowpaycommit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_column="0"
+                    android:layout_below="@+id/textnameRowpaycommit"
+
+                    android:layout_centerInParent="true"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/style_forpolymaterialb_cycle_createspinner14"
+                    android:gravity="center"
+                    android:minWidth="400dp"
+                    android:minHeight="25dp"
+                    android:text=""
+                    android:textAlignment="gravity"
+                    android:textColor="#000000"
+                    android:textColorHint="#80807C"
+                    android:textSize="13sp"
+                    android:textStyle="normal"
+                    android:visibility="visible"
+                    app:fontFamily="@font/average_sans" />
+            </RelativeLayout>
+        </TableRow>
+
+        <!-- //todo КОНЕЦ  сторочек с самими данными-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </TableLayout>
+
+
+
+
+
+</com.google.android.material.card.MaterialCardView>
+
+
+
+
+
+

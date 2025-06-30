@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+android:id="@+id/activity_maincommitgpreces"
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+
+    app:layout_gravity="center"
+    app:cardCornerRadius="0dp"
+    app:cardElevation="2dp"
+    app:cardMaxElevation="1dp"
+    app:strokeWidth="1dp"
+    android:translationZ="10dp"
+    android:animateLayoutChanges="true"
+    app:cardBackgroundColor="#FFFFFF"
+    app:strokeColor="#C9D3D3"
+    android:checkable="true"
+    android:clickable="true"
+    android:focusable="true"
+
+tools:context=".CommitPricesApp.View.Window.MainActivityCommitingPrices">
+</com.google.android.material.card.MaterialCardView>

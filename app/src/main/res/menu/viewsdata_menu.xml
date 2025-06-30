@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!--начало поиск  меню-->
+
+
+
+    <!--начало выпадающего меню-->
+
+    <item
+        android:hint="Меню ДСУ-1"
+        android:icon="@drawable/icon_menu_main_tru_tochki_while"
+        android:title="main menu"
+        android:id="@+id/tabelmenu"
+        app:showAsAction="always">
+        <menu>
+            <item
+                android:id="@+id/ПунктМенюПервый"
+                android:icon="@drawable/icon_sodergimoe"
+                android:title="Отчёт Ошибок" />
+            <item
+                android:id="@+id/ПунктМенюВторой"
+                android:checkableBehavior="single"
+                android:icon="@drawable/icon_dsu1_for_menufacepp"
+                android:title="Настройка" />
+            <item
+                android:id="@+id/ПунктМенюТретий"
+                android:checkableBehavior="single"
+                android:icon="@drawable/icon_account_2"
+                android:title="Пользователи" />
+
+            <item
+                android:id="@+id/ПунктМенюЧетвертый"
+                android:checkableBehavior="single"
+                android:icon="@drawable/icon_dsu1_sucesss_fro_menus"
+                android:title="Обмен данными">
+
+            </item>
+
+
+            <item
+                android:id="@+id/ПунктМенюШестрой"
+                android:checkableBehavior="single"
+                android:icon="@drawable/icon_dsu1_insertdata"
+                android:title="Шаблоны" />
+
+
+            <item
+                android:id="@+id/ПунктМенюСедьмой"
+                android:checkableBehavior="single"
+                android:icon="@drawable/icon_dsu1_download_po"
+                android:title="Обновление ПО" />
+
+
+        </menu>
+
+
+    </item>
+    <!--<item
+        android:icon="@color/actionbar_background"
+        android:tooltipText="Включен WI-FI"
+        android:id="@+id/app_bar_switchWIFI"
+        android:title="Включен WI-FI"
+        android:layout_centerVertical="true"
+        app:actionLayout="@layout/switch_item"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:text="Включен WI-FI"
+        app:showAsAction="always" />-->
+    <!--конец контерйнера главного меню-->
+</menu>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/linearLayout_new_create_order_transport"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".OrdersTransportsApp.Window.MainActivityOrdersTransports"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/RelativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:background="#FFFFFF">
+
+        <TextView
+            android:id="@+id/TextViewHadler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:text="НОВЫЙ ЗАКАЗ"
+            android:hint="НОВЫЙ ЗАКАЗ"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:textColor="#00574B"
+            android:minWidth="100dp"
+            android:layout_centerHorizontal="true"
+            android:minHeight="35dp"
+            android:textSize="14sp"
+            android:visibility="visible"
+            tools:ignore="MissingConstraints,RtlCompat" />
+
+
+        <View
+            android:id="@+id/view2Линия"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="3dp"
+            android:background="#0A524B"
+            android:foregroundGravity="center"
+            android:visibility="visible"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/TextViewHadler"
+            />
+
+
+
+
+        <ScrollView
+            android:id="@+id/scrollview_pool_new_order_trasport"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:layout_above="@+id/ProgressBar"
+            android:layout_below= "@+id/view2Линия"
+            android:layout_centerHorizontal="true"
+            android:layout_centerInParent="true"
+            android:fillViewport="true"
+            android:background="#FFFFFF"
+            android:scrollbars="horizontal|vertical"
+            android:stackFromBottom="true"
+            android:transcriptMode="alwaysScroll">
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout_pool_inseder"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/ProgressBar"
+            android:layout_below= "@+id/view2Линия"
+            android:layout_centerHorizontal="true"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:orientation="vertical"
+            android:background="#FFFFFF">
+        </RelativeLayout>
+
+        </ScrollView>
+
+
+        <ProgressBar
+            android:id="@+id/ProgressBar"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_above="@+id/BottomNavigationOrderTransport"
+            android:layout_centerHorizontal="true"
+            android:layout_width="match_parent"
+            android:background="#FFFFFF"
+            android:layout_height="10dp"
+            android:scaleY="3"
+            android:scaleX="1"
+            android:indeterminate="true"
+            android:visibility="visible" />
+
+
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/BottomNavigationOrderTransport"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:scrollbarFadeDuration="@integer/config_navAnimTime"
+            android:background="#0A524B"
+            android:translationZ="5dp"
+            app:itemIconTint="#F2F5F5"
+            app:menu="@menu/menu_for_new_order_transport"
+            tools:ignore="MissingConstraints" />
+
+    </RelativeLayout>
+</LinearLayout>

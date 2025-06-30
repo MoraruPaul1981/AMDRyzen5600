@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:id="@+id/id_scannerback"
+        android:checkable="true"
+
+        android:contentDescription="Выход"
+        android:enabled="true"
+        android:icon="@drawable/icon_dsu1_commit_back"
+        android:iconTint="#03A9F4"
+        android:title="Выйти"
+        android:tooltipText="назад в приложение" />
+    <item
+        android:id="@+id/id_scannerooff"
+
+        android:contentDescription="Обмен"
+        android:icon="@drawable/icon_for_bluetooot_search"
+        android:iconTint="#E91E63"
+        android:title="Пинг (вкл./выкл)"
+        android:tooltipText="Получение данных от сервера" />
+
+
+    />
+</menu>

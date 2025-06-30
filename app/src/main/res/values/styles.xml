@@ -1,0 +1,50 @@
+<resources>
+
+    Base application theme.
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <!--мой стиль-->
+
+    <style name="Style.DSU1.1" parent="Theme.MaterialComponents.DayNight">
+        <!-- ... -->
+    </style>
+
+    <style name="Style.DSU1.2" parent="Theme.MaterialComponents.Light.Bridge">
+        <!-- ... -->
+    </style>
+    <style name="fortasknavigator" parent="Theme.AppCompat.DayNight.DarkActionBar">
+        <!-- Back color -->
+
+        <item name="android:colorBackground">#FFFFE0</item>
+        <!-- Text color  -->
+        <item name="android:textColor">#FF0000</item>
+
+    </style>
+    <style name="Drawer">
+        <item name="android:listPreferredItemPaddingLeft">10dp</item>
+        <item name="android:paddingTop">50dp</item>
+    </style>
+    <style name="NavigationDrawerStyle" parent="Widget.MaterialComponents.NavigationView">
+        <item name="android:layout_marginTop">100dp</item>
+    </style>
+    <style name="CustomNavigationView" parent="Widget.MaterialComponents.NavigationView">
+        <item name="itemIconPadding">50dp</item>
+        <item name="itemHorizontalPadding">50dp</item>
+        <item name="itemShapeInsetStart">50dp</item>
+    </style>
+
+</resources>

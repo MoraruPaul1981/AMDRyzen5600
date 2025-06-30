@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainerViewerrors"
+        android:name="com.dsy.dsu.CoreApp.Apps.ErrorsCoreApp.view.FragmentError"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:background="@color/actionbar_text_color"
+       tools:context=".CoreApp.Apps.SettingsCoreApp.View.MainActivity_Settings">
+</androidx.fragment.app.FragmentContainerView>
+
+
+
+
+
+

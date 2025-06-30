@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="#FFFFFF"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@android:id/text1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#D3D3D3"
+        android:gravity="center_horizontal|center_vertical"
+        android:layout_gravity="center"
+        android:minHeight="20dp"
+        android:padding="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginBottom="5dp"
+        android:inputType="textMultiLine|textCapSentences|textNoSuggestions"
+        android:singleLine="false"
+        android:textSize="14sp"
+        android:textStyle="normal"
+        android:foregroundGravity="center"
+        android:visibility="visible"
+        app:cornerRadius="15dp"
+        app:cardCornerRadius="1dp"
+        app:cardElevation="1dp"
+        app:cardMaxElevation="10dp"
+        app:strokeWidth="0dp"
+        android:translationZ="10dp"
+        app:layout_constraintStart_toEndOf="parent"
+        android:animateLayoutChanges="true"
+
+        />
+    <!--Switch with default state as enabled-->
+<!--    <Switch
+        android:id="@+id/buttonSwitch"
+        android:layout_width="160dp"
+        android:layout_height="80dp"
+        android:checked="true"
+        android:text="Enabled"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:textStyle="bold" />-->
+
+</LinearLayout>

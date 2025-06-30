@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativelayout_dashboard"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+
+    android:translationZ="0dp"
+    app:cardElevation="0dp"
+    app:cardMaxElevation="0dp"
+    tools:context=".DashboardCoreApp.View.MainActivity_Dashboard">
+
+
+    <!--       ///TODO TOOLBAR  toolbarcamera_dashbord -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarcamera_dashbord"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_above="@+id/КнопкаЗаявкаНаТранспорт"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="5dp"
+        android:background="#FFFFFF"
+        android:elevation="0dp"
+        app:showAsAction="always"
+
+        app:theme="@style/AppTheme">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <!--   //TODO   #5 -->
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/imageview_to_settings"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignLeft="@+id/TextViewLogo"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="0dp"
+                android:layout_marginTop="10dp"
+                android:alpha="0.5"
+                android:backgroundTint="#FFFFFF"
+                android:visibility="visible"
+                app:rippleColor="@color/colorPrimaryDark"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:foreground="?attr/selectableItemBackground"
+                app:srcCompat="@drawable/icon_new_dashaborad_settings" />
+
+
+            <TextView
+                android:id="@+id/TextViewLogo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/alegreya_sans_sc_thin"
+                android:gravity="center"
+                android:hint="КАМЕРА"
+                android:text="Союз-Автодор"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="36sp"
+                android:textStyle="bold"
+                android:visibility="visible" />
+
+
+        </RelativeLayout>
+
+
+    </androidx.appcompat.widget.Toolbar>
+
+
+    <!--   //TODO   #1 -->
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/КнопкаЗаявкаНаТранспорт"
+        style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/КнопкаСогласование"
+
+
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:backgroundTint="#FFFFFF"
+        android:drawableLeft="@drawable/icon_task_transport_dashbord"
+        android:fontFamily="@font/alfa_slab_one"
+        android:gravity="center"
+        android:minHeight="70dp"
+        android:paddingLeft="15dp"
+        android:text="Заявки на транспорт"
+        android:textColor="#000000"
+        android:textSize="14sp"
+        android:textStyle="normal"
+        android:translationZ="2dp"
+        android:visibility="visible"
+        app:cardElevation="2dp"
+        app:cardMaxElevation="1dp"
+        app:cornerRadius="15dp"
+        app:iconGravity="textStart"
+        app:rippleColor="@color/design_default_color_on_secondary"
+        app:strokeColor="#EEEDEF"
+        app:strokeWidth="1dp" />
+
+
+    <!--   //TODO   #2 -->
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/КнопкаСогласование"
+        style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/КнопкаПоступлениеМатериалов"
+
+
+        android:layout_centerInParent="true"
+
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:backgroundTint="#FFFFFF"
+        android:drawableLeft="@drawable/icon_compelte_dashbord"
+        android:fontFamily="@font/alfa_slab_one"
+        android:gravity="center"
+        android:minHeight="70dp"
+        android:paddingLeft="15dp"
+        android:text="Согласование"
+        android:textColor="#000000"
+        android:textSize="14sp"
+        android:textStyle="normal"
+        android:translationZ="2dp"
+        android:visibility="visible"
+        app:cardElevation="2dp"
+        app:cardMaxElevation="1dp"
+        app:cornerRadius="15dp"
+        app:iconGravity="textStart"
+        app:rippleColor="@color/design_default_color_on_secondary"
+        app:strokeColor="#EEEDEF"
+        app:strokeWidth="1dp" />
+
+
+    <!--   //TODO   #3 -->
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/КнопкаПоступлениеМатериалов"
+        style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/КнопкаТабель"
+
+
+        android:layout_centerInParent="true"
+
+
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+
+        android:backgroundTint="#FFFFFF"
+        android:drawableLeft="@drawable/icon_get_material_dashboard"
+        android:fontFamily="@font/alfa_slab_one"
+        android:gravity="center"
+        android:minHeight="70dp"
+        android:paddingLeft="15dp"
+        android:text="Поступление  материалов"
+        android:textColor="#000000"
+        android:textSize="14sp"
+        android:textStyle="normal"
+        android:translationZ="2dp"
+        android:visibility="visible"
+        app:cardElevation="2dp"
+        app:cardMaxElevation="1dp"
+        app:cornerRadius="15dp"
+        app:iconGravity="textStart"
+        app:rippleColor="@color/design_default_color_on_secondary"
+        app:strokeColor="#EEEDEF"
+        app:strokeWidth="1dp" />
+
+
+    <!--   //TODO   #4 -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/КнопкаТабель"
+        style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+
+
+        android:layout_centerInParent="true"
+
+
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="30dp"
+        android:backgroundTint="#FFFFFF"
+        android:drawableLeft="@drawable/icon_tabel_dashbord"
+        android:fontFamily="@font/alfa_slab_one"
+
+
+        android:gravity="center"
+        android:minHeight="70dp"
+        android:paddingLeft="15dp"
+        android:text="Табель"
+        android:textColor="#000000"
+        android:textSize="14sp"
+        android:textStyle="normal"
+        android:translationZ="2dp"
+        android:visibility="visible"
+        app:cardElevation="2dp"
+        app:cardMaxElevation="1dp"
+        app:cornerRadius="15dp"
+        app:iconGravity="textStart"
+        app:rippleColor="@color/design_default_color_on_secondary"
+        app:strokeColor="#EEEDEF"
+        app:strokeWidth="1dp" />
+
+    <!--      //TODO конец всех данных-->
+
+</RelativeLayout>
+
+
+
+
+
+
+
+
+
+

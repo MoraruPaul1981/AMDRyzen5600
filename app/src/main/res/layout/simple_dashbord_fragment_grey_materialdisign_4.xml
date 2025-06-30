@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/materialcardview_settings"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:cardBackgroundColor="@color/actionbar_text_color"
+    android:background="#FFFFFF"
+    app:layout_gravity="center"
+    app:cardCornerRadius="0dp"
+    app:cardElevation="10dp"
+    app:cardMaxElevation="2dp"
+    android:translationZ="5dp"
+    android:animateLayoutChanges="true"
+    app:strokeColor="@color/actionbar_text_color"
+    app:strokeWidth="1dp"
+    tools:context=".BusinessLogicForApps.BootAndAsync.View.MainActivityBootAndAsync">
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="2dp"
+        android:padding="2dp"
+        android:orientation="vertical">
+
+    <!--       ///TODO TOOLBAR  toolbarcamera_settigs -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="1dp"
+            android:gravity="center"
+            android:background="#FFFFFF"
+            app:layout_gravity="center"
+            app:cardElevation="2dp"
+            app:cardMaxElevation="10dp"
+            android:translationZ="10dp"
+            android:animateLayoutChanges="true"
+            app:strokeColor="#F1ECEC"
+            app:strokeWidth="0dp">
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/imageButton_back_in_settings"
+                android:layout_width="43dp"
+                android:layout_height="55dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="#F1F4F4"
+                android:fontFamily="@font/alegreya_sans_sc_thin"
+                android:gravity="center"
+                android:stateListAnimator="@drawable/icon_back_tabelcustomer_arrow"
+                android:textAlignment="center"
+                android:translationZ="5dp"
+                app:cardCornerRadius="5dp"
+                app:cardElevation="2dp"
+                app:cardMaxElevation="20dp"
+                app:cornerRadius="20dp"
+                app:icon="@drawable/icon_back_tabelcustomer_arrow"
+                app:iconGravity="textEnd"
+                app:iconPadding="1dp"
+                app:iconSize="20dp"
+                app:iconTint="#909393"
+                app:rippleColor="#F50057"
+                app:strokeColor="#E0E0E3"
+                app:strokeWidth="1dp"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+
+            <TextView
+                android:id="@+id/TextViewLogo"
+                android:layout_width="wrap_content"
+                android:layout_height="270dp"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/alegreya_sans_sc_thin"
+                android:gravity="center"
+                android:hint="Настройки"
+                android:text="Настройки"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="36sp"
+                android:textStyle="bold"
+                android:visibility="visible" />
+        </RelativeLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_margin="5dp"
+            android:padding="2dp"
+            android:scrollbars="horizontal|vertical"
+            android:stackFromBottom="true"
+            android:transcriptMode="alwaysScroll"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:foregroundGravity="center"
+            android:fillViewport="true"
+            android:scrollbarThumbVertical="@color/divider"
+            android:outlineAmbientShadowColor="@color/actionbar_text_color">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/actionbar_text_color"
+                android:background="#FFFFFF"
+                app:layout_gravity="center"
+                app:cardCornerRadius="1dp"
+                app:cardElevation="10dp"
+                app:cardMaxElevation="10dp"
+                android:translationZ="50dp"
+                android:animateLayoutChanges="true"
+                app:strokeColor="#F1EEEE"
+                app:strokeWidth="0dp">
+
+
+
+
+
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="450dp"
+    android:layout_gravity="center"
+    android:gravity="top|center"
+    android:foregroundGravity="center"
+    android:orientation="vertical">
+            <!--   //TODO   #1 -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/КнопкаоСистеме"
+                style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_margin="5dp"
+                android:paddingStart="20dp"
+                android:backgroundTint="#FFFFFF"
+                android:drawableLeft="@drawable/icon_newsettings_info_settrtings"
+                android:fontFamily="@font/alfa_slab_one"
+                android:gravity="center"
+                android:minHeight="70dp"
+                android:paddingLeft="15dp"
+                android:drawablePadding="10dp"
+                android:text="О системе"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                android:translationZ="2dp"
+                android:visibility="visible"
+                app:cardElevation="2dp"
+                app:cardMaxElevation="1dp"
+                app:cornerRadius="15dp"
+                app:iconGravity="textStart"
+                app:rippleColor="@color/design_default_color_on_secondary"
+                app:strokeColor="#EEEDEF"
+                app:strokeWidth="1dp" />
+
+
+            <!--   //TODO   #2 -->
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/КнопкаПользователи"
+                style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_margin="5dp"
+                android:paddingStart="20dp"
+                android:backgroundTint="#FFFFFF"
+                android:drawableLeft="@drawable/icon_newsetting_users_ettings"
+                android:fontFamily="@font/alfa_slab_one"
+                android:gravity="center"
+                android:minHeight="70dp"
+                android:paddingLeft="15dp"
+                android:drawablePadding="10dp"
+                android:text="Пользователи"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                android:translationZ="2dp"
+                android:visibility="visible"
+                app:cardElevation="2dp"
+                app:cardMaxElevation="1dp"
+                app:cornerRadius="15dp"
+                app:iconGravity="textStart"
+                app:rippleColor="@color/design_default_color_on_secondary"
+                app:strokeColor="#EEEDEF"
+                app:strokeWidth="1dp" />
+
+
+    <!--   //TODO   #3 -->
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/КнопкаОбменДанными"
+        style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_margin="5dp"
+        android:paddingStart="20dp"
+        android:backgroundTint="#FFFFFF"
+        android:drawableLeft="@drawable/icon_newsettings_async"
+        android:fontFamily="@font/alfa_slab_one"
+        android:gravity="center"
+        android:minHeight="70dp"
+        android:paddingLeft="15dp"
+        android:drawablePadding="10dp"
+        android:text="Обмен данными"
+        android:textColor="#000000"
+        android:textSize="14sp"
+        android:textStyle="normal"
+        android:translationZ="2dp"
+        android:visibility="visible"
+        app:cardElevation="2dp"
+        app:cardMaxElevation="1dp"
+        app:cornerRadius="15dp"
+        app:iconGravity="textStart"
+        app:rippleColor="@color/design_default_color_on_secondary"
+        app:strokeColor="#EEEDEF"
+        app:strokeWidth="1dp" />
+    <!--   //TODO   #4-->
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/Кнопкаобновление"
+        style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_margin="5dp"
+        android:paddingStart="20dp"
+        android:backgroundTint="#FFFFFF"
+        android:drawableLeft="@drawable/icon_newsettings_updatepo"
+        android:fontFamily="@font/alfa_slab_one"
+        android:gravity="center"
+        android:minHeight="70dp"
+        android:paddingLeft="15dp"
+        android:drawablePadding="10dp"
+        android:text="Обновление ПО"
+        android:textColor="#000000"
+        android:textSize="14sp"
+        android:textStyle="normal"
+        android:translationZ="2dp"
+        android:visibility="visible"
+        app:cardElevation="2dp"
+        app:cardMaxElevation="1dp"
+        app:cornerRadius="15dp"
+        app:iconGravity="textStart"
+        app:rippleColor="@color/design_default_color_on_secondary"
+        app:strokeColor="#EEEDEF"
+        app:strokeWidth="1dp" />
+    <!--   //TODO   #5-->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/КнопкаОшибки"
+        style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_margin="5dp"
+        android:paddingStart="20dp"
+        android:backgroundTint="#FFFFFF"
+        android:drawableLeft="@drawable/icon_newsettings_error"
+        android:fontFamily="@font/alfa_slab_one"
+        android:gravity="center"
+        android:minHeight="70dp"
+        android:paddingLeft="15dp"
+        android:drawablePadding="10dp"
+        android:text="Ошибки"
+        android:textColor="#000000"
+        android:textSize="14sp"
+        android:textStyle="normal"
+        android:translationZ="2dp"
+        android:visibility="visible"
+        app:cardElevation="2dp"
+        app:cardMaxElevation="1dp"
+        app:cornerRadius="15dp"
+        app:iconGravity="textStart"
+        app:rippleColor="@color/design_default_color_on_secondary"
+        app:strokeColor="#EEEDEF"
+        app:strokeWidth="1dp" />
+    <!--   //TODO   #6-->
+
+
+
+        </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </ScrollView>
+    </LinearLayout>
+    <!--      //TODO конец всех данных-->
+</com.google.android.material.card.MaterialCardView>
+
+
+
+
+
+
+
+
+
+

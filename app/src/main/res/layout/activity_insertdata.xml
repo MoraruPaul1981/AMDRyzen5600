@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scro"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:padding="5dp"
+    android:visibility="visible"
+    tools:context=".BootAndAsync.Window.MainActivityBootAndAsync"
+    tools:visibility="visible">
+
+
+
+        <ProgressBar
+            android:id="@+id/prograssbardownload"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:indeterminateTint="#00ACC1"
+            android:layout_alignParentTop="true"
+            android:indeterminateTintMode="src_in"
+            android:visibility="visible"
+            android:translationZ="150dp"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="15dp"
+            app:cornerRadius='15dp'
+            android:scaleY="2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
+
+
+
+
+        <!--  todo кнопка для сохранения-->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/bottom_alaliz_and_dwonloadupdatepo"
+        style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton.Icon"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/prograssbardownload"
+        android:layout_centerHorizontal  ="true"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:text="Загрузить"
+        android:textColor="#0E0E0E"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+        android:translationZ="150dp"
+        android:visibility="visible"
+        app:backgroundTint="#00E5FF"
+        app:cornerRadius="20dp"
+        tools:visibility="visible" />
+
+
+
+
+
+
+</RelativeLayout>
+

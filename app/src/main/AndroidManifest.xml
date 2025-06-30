@@ -1,0 +1,774 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dist="http://schemas.android.com/apk/distribution"
+    xmlns:tools="http://schemas.android.com/tools">
+    <dist:module dist:instant="true" />
+
+   <!-- //TODO permission-->
+
+    <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS" tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="com.google.android.c2dm.permission.SEND" />
+    <uses-permission android:name="oppo.permission.OPPO_COMPONENT_SAFE" />
+    <uses-permission android:name="com.huawei.permission.external_app_settings.USE_COMPONENT" />
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.intent.action.USER_PRESENT" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="com.dsy.dsu.providerdatabase.pemission" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_CALENDAR" />
+    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_MEDIA_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.ACTION_LOCKED_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="oppo.permission.OPPO_COMPONENT_SAFE" />
+    <uses-permission android:name="com.huawei.permission.external_app_settings.USE_COMPONENT" />
+    <uses-permission android:name="com.huawei.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+    <uses-permission android:name="oppo.permission.OPPO_COMPONENT_SAFE" />
+    <uses-permission android:name="com.huawei.permission.external_app_settings.USE_COMPONENT" />
+    <uses-permission android:name="android.permission.SET_ALARM" />
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.intent.action.ACTION_EXTERNAL_APPLICATIONS_AVAILABLE" />
+    <uses-permission android:name="android.intent.action.BOOT_COMPLETED" />
+    <uses-permission android:name="android.intent.action.SEND" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.intent.action.SENDTO" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"  />
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" tools:ignore="ScopedStorage" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"  />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.USE_BIOMETRIC" />
+    <uses-permission android:name="android.permission.INSTALL_SHORTCUT" />
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
+    <uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT" />
+    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+    <uses-permission android:name="com.sec.android.provider.badge.permission.READ" />
+    <uses-permission android:name="com.sec.android.provider.badge.permission.WRITE" />
+    <uses-permission android:name="com.htc.launcher.permission.UPDATE_SHORTCUT" />
+    <uses-permission android:name="com.sonyericsson.home.permission.BROADCAST_BADGE" />
+    <uses-permission android:name="com.sonymobile.home.permission.PROVIDER_INSERT_BADGE" />
+    <uses-permission android:name="com.anddoes.launcher.permission.UPDATE_COUNT" />
+    <uses-permission android:name="com.majeur.launcher.permission.UPDATE_BADGE" />
+    <uses-permission android:name="com.huawei.android.launcher.permission.CHANGE_BADGE" />
+    <uses-permission android:name="com.huawei.android.launcher.permission.READ_SETTINGS" />
+    <uses-permission android:name="com.huawei.android.launcher.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_APP_BADGE" />
+    <uses-permission android:name="com.oppo.launcher.permission.READ_SETTINGS" />
+    <uses-permission android:name="com.oppo.launcher.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="me.everything.badger.permission.BADGE_COUNT_READ" />
+    <uses-permission android:name="me.everything.badger.permission.BADGE_COUNT_WRITE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.CAMERAX" />
+    <uses-permission android:name="com.mycoolcam.USE_COOL_CAMERA" />
+    <uses-permission android:name="android.media.action.IMAGE_CAPTURE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICEDATA_SYNC" tools:node="remove" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC"/>
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" tools:node="remove" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" tools:node="remove" />
+    <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE" tools:ignore="ProtectedPermissions" />
+
+    <!-- //TODO feature-->
+
+    <uses-feature android:glEsVersion="0x00020000" android:required="false" />
+    <uses-feature android:name="android.hardware.telephony" android:required="false" />
+    <uses-feature android:name="android.hardware.wifi" android:required="false" />
+    <uses-feature android:name="android.hardware.screen.PORTRAIT" android:required="false" />
+    <uses-feature android:name="android.hardware.microphone" android:required="false" />
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
+    <uses-feature android:name="android.hardware.camera.any" android:required="false" />
+    <uses-feature android:name="android.hardware.camera.front" android:required="false" />
+    <uses-feature android:name="android.hardware.camera2" android:required="false" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-feature android:name="android.hardware.camera2.full" />
+
+
+    <application
+        android:name=".CoreApp.view.CoreApp"
+        android:allowBackup="true"
+        android:appCategory="productivity"
+        android:hardwareAccelerated="false"
+        android:usesCleartextTraffic="true"
+        android:icon="@mipmap/deliverytruckcolors"
+        android:label="@string/name_dsu"
+        android:largeHeap="true"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:requestLegacyExternalStorage="true"
+        android:roundIcon="@mipmap/deliverytruckcolors"
+        android:screenOrientation="portrait"
+        android:showOnLockScreen="true"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar.Bridge"
+        android:minSdkVersion="29"
+        android:targetSdkVersion="34"
+        tools:ignore="MissingClass">
+        <meta-data android:name="com.google.android.gms.car.application"
+            android:resource="@xml/automotive_app_desc" />
+       <!-- //TODO настройки проекта ROOT-->
+        <meta-data
+            android:name="com.google.android.gms.ads.AD_MANAGER_APP"
+            android:value="true" />
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-3940256099942544~3347511713" /> <!-- @style/Theme.MaterialComponents.DayNight.DarkActionBar -->
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+
+
+
+
+    <!--    //TODO-05,02,2025-09,22  начинаем добавлять пользовательские обьекты -->      <!--    //TODO-05,02,2025-09,22  начинаем добавлять пользовательские обьекты -->
+        <!-- //TODO all SERVICES-04.02.2025-17.24-->
+        <service
+            android:name=".BusinessLogicForApps.BootAndAsync.Model.Service.IntentServiceBoot"
+            android:directBootAware="true"
+            android:enabled="true"
+            android:exported="true"
+            android:stopWithTask="false"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            android:foregroundServiceType="dataSync"
+            android:requestLegacyExternalStorage="true"
+            android:showOnLockScreen="true">
+        </service>
+
+
+        <service
+            android:name=".BusinessLogicForApps.Services.ServiceOneSignalForFirebase"
+            android:directBootAware="true"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            android:requestLegacyExternalStorage="true"
+            android:showOnLockScreen="true"
+            android:stopWithTask="false">
+
+        </service>
+
+        <service
+            android:name=".AdmissionMaterialsApp.Service.ServiceCameraTake"
+            android:directBootAware="true"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            android:requestLegacyExternalStorage="true"
+            android:showOnLockScreen="true">
+
+        </service>
+
+
+
+        <service
+            android:name=".BusinessLogicForApps.Services.ServiceForCommitPay"
+            android:directBootAware="true"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            android:requestLegacyExternalStorage="true"
+            android:showOnLockScreen="true">
+
+        </service>
+        <service
+            android:name=".OrdersTransportsApp.Background.ServiceOrserTransportService"
+            android:directBootAware="true"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            android:requestLegacyExternalStorage="true"
+            android:showOnLockScreen="true">
+
+        </service>
+
+        <service
+            android:name=".BusinessLogicForApps.Services.ServiceForRemoteAsyncBinary"
+            android:directBootAware="true"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            android:requestLegacyExternalStorage="true"
+            android:showOnLockScreen="true">
+
+        </service>
+        <service
+            android:name=".BusinessLogicForApps.Services.ServiceForAdminissionMaterial"
+            android:directBootAware="true"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            android:requestLegacyExternalStorage="true"
+            android:showOnLockScreen="true">
+
+        </service>
+
+
+        <service
+            android:name=".BusinessLogicForApps.Services.ServiceForNotifocations"
+            android:directBootAware="true"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            android:requestLegacyExternalStorage="true"
+            android:showOnLockScreen="true"
+            android:stopWithTask="false">
+
+        </service> <!-- android:permission="android.intent.action.BOOT_COMPLETED" -->
+        <service
+            android:name=".BusinessLogicForApps.Services.ServiceForTasks"
+            android:directBootAware="true"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            android:requestLegacyExternalStorage="true"
+            android:showOnLockScreen="true"
+            android:stopWithTask="false">
+
+        </service> <!-- android:permission="android.intent.action.BOOT_COMPLETED" -->
+        <!-- todo JOBintenservice -->
+        <service
+            android:name=".BusinessLogicForApps.Services.ServiceForChatten"
+            android:directBootAware="true"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            android:requestLegacyExternalStorage="true"
+            android:showOnLockScreen="true"
+            android:stopWithTask="false">
+
+        </service> <!-- android:permission="android.intent.action.BOOT_COMPLETED" -->
+        <!-- android:permission="android.intent.action.BOOT_COMPLETED" -->
+        <service
+            android:name=".BusinessLogicForApps.Services.ServiceForApprove"
+            android:directBootAware="true"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            android:requestLegacyExternalStorage="true"
+            android:showOnLockScreen="true">
+
+        </service> <!-- android:permission="android.intent.action.BOOT_COMPLETED" -->
+        <service
+            android:name=".BusinessLogicForApps.Services.ServiceFor1C"
+            android:directBootAware="true"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            android:requestLegacyExternalStorage="true"
+            android:showOnLockScreen="true"
+            android:stopWithTask="false">
+
+        </service>
+        <service
+            android:name=".BusinessLogicForApps.Services.Service_Async_1C"
+            android:directBootAware="true"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            android:requestLegacyExternalStorage="true"
+            android:showOnLockScreen="true"
+            android:stopWithTask="false">
+
+        </service>
+        <service
+            android:name=".BusinessLogicForApps.Services.ServiceUpdatesPO"
+            android:directBootAware="true"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            android:requestLegacyExternalStorage="true"
+            android:showOnLockScreen="true"
+            android:stopWithTask="false">
+
+        </service>
+
+        <service
+            android:name=".BusinessLogicForApps.FirebaseAndOneSignal.Firebase.MyFirebaseInstanceIDService"
+            android:directBootAware="true"
+            android:exported="false"
+            android:showOnLockScreen="true">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <action android:name="com.google.android.c2dm.permission.SEND" />
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+
+            <meta-data
+                android:name="com.onesignal.NotificationOpened.DEFAULT"
+                android:value="ENABLE" />
+        </service>
+
+
+
+
+       <!-- //TODO начало актвити-->
+        <activity
+            android:name=".CommitPricesApp.View.Window.MainActivityCommitingPrices"
+            android:exported="true"
+            android:grantUriPermissions="true"
+            android:label="Согласование цены"
+            android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar">
+            />
+        </activity>
+
+
+
+
+        <activity
+            android:name=".AdmissionMaterialsApp.Window.MainActivity_AdmissionMaterials"
+            android:exported="true"
+            android:grantUriPermissions="true"
+            android:label="Поступление материалов"
+            android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar"
+            android:windowSoftInputMode="adjustResize">
+
+        </activity>
+
+
+        <!--//TODO  END  Бродкаст Ресиверы -->
+        <activity
+            android:name=".ChatsApp.MainActivity_List_Chats"
+            android:exported="true"
+            android:grantUriPermissions="true"
+            android:label="Чат"
+            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar.Bridge">
+        </activity>
+        <activity
+            android:name=".TasksApp.MainActivity_Tasks"
+            android:exported="true"
+            android:grantUriPermissions="true"
+            android:label="Задания"
+            android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar"
+            android:windowSoftInputMode="stateVisible|adjustPan">
+        </activity>
+        <activity
+            android:name=".PaysCommitApp.View.Window.MainActivity_CommitPay"
+            android:exported="true"
+            android:grantUriPermissions="true"
+            android:label="Задания"
+            android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar">
+        </activity> <!-- android:permission="android.intent.action.BOOT_COMPLETED" -->
+        <activity
+            android:name=".MaterialsShipmentApp.MainActivity_shipment_of_materials"
+            android:exported="true"
+            android:grantUriPermissions="true"
+            android:label="Задания"
+            android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar">
+        </activity> <!-- android:permission="android.intent.action.BOOT_COMPLETED" -->
+
+        <activity
+            android:name=".BusinessLogicForApps.BootAndAsync.View.MainActivityBootAndAsync"
+            android:exported="true"
+            android:grantUriPermissions="true"
+            android:label="@string/name_dsu"
+            android:launchMode="singleTask"
+            android:alwaysRetainTaskState="true"
+            android:noHistory="false"
+            android:requestLegacyExternalStorage="true"
+            android:showOnLockScreen="true"
+            android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!-- активити прикложения ДСУ-1 -->
+        <!-- активити прикложения ДСУ-1 -->
+        <!-- активити прикложения ДСУ-1 -->
+        <!-- активити прикложения ДСУ-1  singleTask  singleTask   standard -->
+
+
+
+        <activity
+            android:name=".CoreApp.Apps.PasswordsCoreApp.view.MainActivityPasswords"
+            android:exported="true"
+            android:label="Аунтификация ДСУ-1"
+            android:grantUriPermissions="true"
+            android:requestLegacyExternalStorage="true"
+            android:launchMode="singleInstance"
+            android:clearTaskOnLaunch="true"
+            android:showOnLockScreen="true"
+            android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar">
+        </activity>
+
+
+
+
+
+        <activity
+            android:name=".TabelsApp.Tabel.Single.view.MainActivity_Metki_Tabel"
+            android:exported="true"
+            android:label="Список Контант Слов Для Табеля"
+            android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.dsy.dsu.TabelsApp.Tabel.Single.view.MainActivity_Metki_Tabel" />
+        </activity> <!-- TODO НАЧИНАЮТЬСЯ РАБОЧИЕ АКТИВИТИ ПРИЛОЖЕНИЯ -->
+        <activity
+            android:name=".TabelsApp.Peoples.MainActivityFindPeoples"
+            android:exported="true"
+            android:label="Выбор Сотрудника"
+            android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.dsy.dsu.TabelsApp.Peoples.MainActivityFindPeoples" />
+        </activity>
+
+        <activity
+            android:name=".TabelsApp.Templates.view.MainActivityListTemplates"
+            android:exported="true"
+            android:label="Списко шаблонов"
+            android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.dsy.dsu.TabelsApp.Peoples.MainActivityFindPeoples" />
+        </activity>
+
+        <activity
+            android:name=".TabelsApp.Templates.view.MainActivityFindTemplates_in_proccesing"
+            android:exported="true"
+            android:label="Поиск шаблон"
+            android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.dsy.dsu.TabelsApp.Peoples.MainActivityFindPeoples" />
+        </activity>
+
+
+
+
+
+
+
+        <activity
+            android:name=".TabelsApp.Peoples.MainActivityNewPeople"
+            android:exported="true"
+            android:label="Новый Сотрудник"
+            android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.dsy.dsu.TabelsApp.Peoples.MainActivityNewPeople" />
+        </activity>
+        <activity
+            android:name=".TabelsApp.Tabel.Single.view.MainActivity_Tabel_Single_PeopleOneSwipe"
+            android:exported="true"
+            android:label="Табель"
+            android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar"
+            android:windowSoftInputMode="stateVisible|adjustPan">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.dsy.dsu.TabelsApp.Peoples.MainActivityListPeoples" />
+        </activity>
+        <activity
+            android:name=".TabelsApp.Peoples.MainActivityListPeoples"
+            android:exported="true"
+            android:label="Сотрудники Табеля"
+            android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.dsy.dsu.TabelsApp.Tabel.ListTabels.MainActivity_List_Tabels" />
+        </activity>
+        <activity
+            android:name=".TabelsApp.Tabel.ListTabels.MainActivity_List_Tabels"
+            android:exported="true"
+            android:label="Выбор ЦФО"
+            android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar">
+        </activity>
+
+
+
+
+        <activity
+            android:name=".TabelsApp.Tabel.New.MainActivityNewTabels"
+            android:exported="true"
+            android:label="Логины ДСУ-1"
+            android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.dsy.dsu.TabelsApp.Tabel.ListTabels.MainActivity_List_Tabels" />
+        </activity>
+        <activity
+            android:name=".CoreApp.Apps.SettingsCoreApp.View.MainActivity_Settings"
+            android:exported="true"
+            android:finishOnTaskLaunch="true"
+            android:label="Форма просмотр Логин"
+            android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar">
+        </activity>
+        <activity
+            android:name=".OrdersTransportsApp.Window.MainActivityOrdersTransports"
+            android:exported="true"
+            android:label="Союз-Автодор"
+            android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar">
+        </activity>
+
+
+
+        <activity
+            android:name=".Documents1CApp.View.Window.ActivityCommitDocuments"
+            android:exported="true"
+            android:label="Союз-Автодор"
+            android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar">
+        </activity>
+
+
+
+
+
+
+
+    <!--   //TODO-05,02,2025-09,26 Дополнительные компоненты Провайдеры и БроадКстер Ресиверы-->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_path" />
+        </provider> <!-- ПРОВАЙДЕР ДЛЯ БАЗЫ ДАННЫХ  ${applicationId}.file  content://com.dsy.dsu/Database DSU-1.db  content://com.example.app.provider/table2/dataset1  content://com.example.app.provider/table1    uriMatcher.addURI("com.example.app.provider", "table3/#", 2); -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider> <!-- ПРОВАЙДЕР ДЛЯ БАЗЫ ДАННЫХ  ${applicationId}.file  content://com.dsy.dsu/Database DSU-1.db  content://com.example.app.provider/table2/dataset1  content://com.example.app.provider/table1    uriMatcher.addURI("com.example.app.provider", "table3/#", 2); -->
+        <provider
+            android:name=".BusinessLogicForApps.Providers.ContentProviderSynsInsert"
+            android:authorities="com.dsy.dsu.providerdatabase"
+            android:directBootAware="true"
+            android:enabled="true"
+            android:excludeFromRecents="true"
+            android:exported="true"
+            android:grantUriPermissions="true"
+            android:permission="com.dsy.dsu.providerdatabase.pemission"
+            android:readPermission="true"
+            android:writePermission="true" />
+        <provider
+            android:name=".BusinessLogicForApps.Providers.ContentProviderSynsInsertOnlyAsync"
+            android:authorities="com.dsy.dsu.providerdatabaseonlyasync"
+            android:directBootAware="true"
+            android:enabled="true"
+            android:excludeFromRecents="true"
+            android:exported="true"
+            android:grantUriPermissions="true"
+            android:permission="com.dsy.dsu.providerdatabaseonlyasync.pemission"
+            android:readPermission="true"
+            android:writePermission="true" />
+        <provider
+            android:name=".BusinessLogicForApps.Providers.ContentProviderSynsUpdate"
+            android:authorities="com.dsy.dsu.providerdatabasemirror"
+            android:directBootAware="true"
+            android:enabled="true"
+            android:excludeFromRecents="true"
+            android:exported="true"
+            android:grantUriPermissions="true"
+            android:permission="com.dsy.dsu.providerdatabasemirror.pemission"
+            android:readPermission="true"
+            android:writePermission="true" />
+        <provider
+            android:name=".BusinessLogicForApps.Providers.ContentProviderSynsUpdateBinary"
+            android:authorities="com.dsy.dsu.providerdatabasemirrorbinary"
+            android:directBootAware="true"
+            android:enabled="true"
+            android:excludeFromRecents="true"
+            android:exported="true"
+            android:grantUriPermissions="true"
+            android:permission="com.dsy.dsu.providerdatabasemirrorbinary.pemission"
+            android:readPermission="true"
+            android:writePermission="true" />
+        <provider
+            android:name=".BusinessLogicForApps.Providers.ContentProviderSynsUpdateChangeDeleting"
+            android:authorities="com.dsy.dsu.providerdatachangedeleting"
+            android:directBootAware="true"
+            android:enabled="true"
+            android:excludeFromRecents="true"
+            android:exported="true"
+            android:grantUriPermissions="true"
+            android:permission="com.dsy.dsu.providerdatachangedeleting.pemission"
+            android:readPermission="true"
+            android:writePermission="true" />
+        <provider
+            android:name=".BusinessLogicForApps.Providers.ContentProviderForAdminissionMaterial"
+            android:authorities="com.dsy.dsu.providerdataadminissionmaterial"
+            android:directBootAware="true"
+            android:enabled="true"
+            android:excludeFromRecents="true"
+            android:exported="true"
+            android:grantUriPermissions="true"
+            android:permission="com.dsy.dsu.providerdataadminissionmaterial.pemission"
+            android:readPermission="true"
+            android:writePermission="true" />
+        <provider
+            android:name=".BusinessLogicForApps.Providers.ContentProviderForDataBaseCurrentOperations"
+            android:authorities="com.dsy.dsu.providerdatabasecurrentoperations"
+            android:directBootAware="true"
+            android:enabled="true"
+            android:excludeFromRecents="true"
+            android:exported="true"
+            android:grantUriPermissions="true"
+            android:permission="com.dsy.dsu.providerdatabasecurrentoperations.pemission"
+            android:readPermission="true"
+            android:writePermission="true" />
+
+
+        <provider
+            android:name=".BusinessLogicForApps.Providers.ContentProviderForSystemTables"
+            android:authorities="com.dsy.dsu.providerforsystemtables"
+            android:directBootAware="true"
+            android:enabled="true"
+            android:excludeFromRecents="true"
+            android:exported="true"
+            android:grantUriPermissions="true"
+            android:permission="com.dsy.dsu.providerforsystemtables.pemission"
+            android:readPermission="true"
+            android:writePermission="true" />
+
+
+
+
+        <provider
+            android:name="androidx.startup.InitializationProvider"
+            android:authorities="${applicationId}.androidx-startup"
+            android:enabled="true"
+            android:exported="false"
+            tools:node="merge" />
+        <provider
+            android:name="androidx.startup.InitializationProvider"
+            android:authorities="${applicationId}.workmanager-init"
+            android:enabled="true"
+            android:exported="false"
+            tools:node="merge" />
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.dsy.dsu.provider"
+            android:enabled="true"
+            android:exported="true"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/fileprovider" />
+        </provider>
+
+
+
+        <!--//TODO  Start Бродкаст Ресиверы -->
+        <receiver
+            android:name=".BusinessLogicForApps.BroadcastRecievers.BroadCastMyReceiverPublic"
+            android:enabled="true"
+            android:exported="true"
+            android:directBootAware="true"
+            android:label="BroadCastMyReceiverPublic"
+            android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.ACTION_BOOT_COMPLETED" />
+                <action android:name="android.intent.action.REBOOT" />
+                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+                <action android:name="com.htc.intent.action.QUICKBOOT_POWERON" />
+                <action android:name="android.intent.action.ACTION_SHUTDOWN" />
+                <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="android.intent.action.SCREEN_OFF" />
+                <action android:name="android.intent.action.SCREEN_ON" />
+                <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED" />
+                <action android:name="android.intent.action.USER_PRESENT" />
+                <category android:name="android.intent.category.HOME" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name=".BusinessLogicForApps.BroadcastRecievers.BroadCastMyReceiverNotifications"
+            android:enabled="true"
+            android:exported="true"
+            android:directBootAware="true"
+            android:label="BroadCastMyReceiverNotifications"
+            android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.ACTION_BOOT_COMPLETED" />
+                <action android:name="android.intent.action.REBOOT" />
+                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+                <action android:name="com.htc.intent.action.QUICKBOOT_POWERON" />
+                <action android:name="android.intent.action.ACTION_SHUTDOWN" />
+                <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="android.intent.action.SCREEN_OFF" />
+                <action android:name="android.intent.action.SCREEN_ON" />
+                <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED" />
+                <action android:name="android.intent.action.USER_PRESENT" />
+                <category android:name="android.intent.category.HOME" />
+            </intent-filter>
+        </receiver>
+
+
+        <receiver
+            android:name=".BusinessLogicForApps.BroadcastRecievers.BootCompletedReceiver"
+            android:enabled="true"
+            android:exported="true"
+            android:directBootAware="true"
+            android:label="BootCompletedReceiver">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.ACTION_BOOT_COMPLETED" />
+                <action android:name="android.intent.action.REBOOT" />
+                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+                <action android:name="com.htc.intent.action.QUICKBOOT_POWERON" />
+                <action android:name="android.intent.action.ACTION_SHUTDOWN" />
+                <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="android.intent.action.SCREEN_OFF" />
+                <action android:name="android.intent.action.SCREEN_ON" />
+                <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED" />
+                <action android:name="android.intent.action.USER_PRESENT" />
+                <category android:name="android.intent.category.HOME" />
+            </intent-filter>
+        </receiver>
+
+
+
+
+
+       <!-- //TODO конец всех настроект-->
+    </application>
+
+</manifest>

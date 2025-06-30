@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/linearLayout_orders_transport"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".OrdersTransportsApp.Window.MainActivityOrdersTransports"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/RelativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:background="#FFFFFF">
+
+        <TextView
+            android:id="@+id/TextViewHadler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:text="ЗАКАЗЫ ТРАСПОРТА"
+            android:hint="ЗАКАЗЫ ТРАСПОРТА"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:textColor="#00574B"
+            android:minWidth="100dp"
+            android:minHeight="35dp"
+            android:textSize="14sp"
+            android:visibility="visible"
+            tools:ignore="MissingConstraints,RtlCompat" />
+
+
+        <View
+            android:id="@+id/view2Линия"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="3dp"
+            android:background="#0A524B"
+            android:foregroundGravity="center"
+            android:visibility="visible"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/TextViewHadler"
+            />
+
+
+
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/relativeLayoutrootordertransport"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:orientation="vertical"
+        android:background="#FFFFFF">
+
+
+        <ScrollView
+            android:id="@+id/scrollview_OrderTransport"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/BottomNavigationOrderTransport"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
+            android:fillViewport="true"
+            android:minHeight="500dp"
+            android:scrollbars="horizontal|vertical"
+            android:stackFromBottom="true"
+            android:transcriptMode="alwaysScroll">
+            <!--   НАЧАЛО главный для созадного воного ЗАказа Тарсопрта -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView_OrderTransport"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/BottomNavigationOrderTransport"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="5dp"
+                android:background="#FFFFFF"
+                android:minHeight="500dp"
+                android:visibility="visible"
+                tools:ignore="MissingConstraints" />
+        </ScrollView>
+
+
+
+
+
+
+
+
+        <ProgressBar
+            android:id="@+id/ProgressBar"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_above="@+id/BottomNavigationOrderTransport"
+            android:layout_width="match_parent"
+            android:background="#FFFFFF"
+            android:layout_height="10dp"
+            android:scaleY="3"
+            android:scaleX="1"
+            android:layout_centerHorizontal="true"
+            android:indeterminate="true"
+            android:visibility="visible" />
+
+
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/BottomNavigationOrderTransport"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:scrollbarFadeDuration="@integer/config_navAnimTime"
+            android:background="#0A524B"
+            android:translationZ="5dp"
+            app:itemIconTint="#F2F5F5"
+            app:menu="@menu/menuadmissionmaterisls_add_history"
+            tools:ignore="MissingConstraints" />
+
+    </RelativeLayout>
+
+
+
+
+
+
+</LinearLayout>

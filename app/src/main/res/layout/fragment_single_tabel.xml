@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TabelsApp.Tabel.FragmentSingleTabel">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <!-- TODO: Update blank fragment layout -->
+        <TextView
+            android:id="@+id/textfragnetviewpager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:minHeight="250dp"
+            android:layout_margin="5dp"
+            android:padding="2dp"
+            android:background="#F0FFFF"
+            android:textSize="50sp" />
+        <!-- TODO: Update blank fragment layout -->
+        <TextView
+            android:id="@+id/textfragnetviewpager2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:minHeight="250dp"
+            android:layout_margin="5dp"
+            android:padding="2dp"
+            android:background="#F0DFFF"
+            android:textSize="50sp" />
+        <!-- TODO: Update blank fragment layout -->
+        <TextView
+            android:id="@+id/textfragnetviewpager3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:minHeight="250dp"
+            android:layout_margin="5dp"
+            android:padding="2dp"
+            android:background="#F0AFFF"
+            android:textSize="50sp" />
+
+    </LinearLayout>
+
+
+</FrameLayout>

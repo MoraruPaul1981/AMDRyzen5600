@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/activity_fragment1_for_shipment_of_materials"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#FFFFFF"
+    tools:context=".MaterialsShipmentApp.MainActivity_shipment_of_materials"
+    android:orientation="vertical">
+
+
+
+
+        <RelativeLayout
+            android:id="@+id/activitynain_for_Taskslinelayoutrela3nameAndLine"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:background="#FFFFFF"
+            tools:context=".TasksApp.MainActivity_Tasks">
+
+
+            <TextView
+                android:id="@+id/activy_shipment_of_materials_fragment1_tasksnameеtextview"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:gravity="center_vertical"
+                android:text=""
+                android:textAlignment="textStart"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:visibility="visible"
+                tools:ignore="MissingConstraints,RtlCompat" />
+
+            <View
+                android:id="@+id/viewФрагментДляактивтизадачи"
+                android:layout_width="200dp"
+                android:layout_height="3dp"
+                android:layout_marginTop="2dp"
+                android:background="@color/colorPrimaryDark"
+                android:layout_below="@+id/activy_shipment_of_materials_fragment1_tasksnameеtextview"
+                android:layout_centerHorizontal="true"
+                android:gravity="center_vertical" />
+
+
+            <Spinner
+                android:id="@+id/Spinner_shipment_of_materials"
+                style="@android:style/Widget.Holo.TextView.SpinnerItem"
+                android:layout_width="380dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/viewФрагментДляактивтизадачи"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center_horizontal"
+                android:lineSpacingExtra="10sp"
+                android:minHeight="30dp"
+                android:spinnerMode="dropdown"
+                android:textAlignment="gravity"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:textStyle="normal"
+                android:visibility="visible" />
+
+
+
+
+        </RelativeLayout>
+
+
+
+
+
+
+
+
+    <RelativeLayout
+        android:id="@+id/activitynain_for_Taskslinelayoutrela3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:orientation="vertical"
+        android:background="#FFFFFF"
+        tools:context=".MaterialsShipmentApp.MainActivity_shipment_of_materials">
+
+
+        <HorizontalScrollView
+            android:id="@+id/horizontalscrollview_shipment_of_materials"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/bottomnavigationActivicommit"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center|center_horizontal"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:fadingEdge="horizontal|vertical"
+            android:visibility="visible">
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycleview_shipment_of_materials"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/bottomnavigationActivicommit"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="3dp"
+                android:background="#FFFFFF"
+                android:minHeight="500dp"
+                android:visibility="visible"
+                tools:ignore="MissingConstraints" />
+
+
+        </HorizontalScrollView>
+
+
+
+
+
+
+
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottomnavigationActivicommit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:background="#FFFFFF"
+            android:scrollbarFadeDuration="@integer/config_navAnimTime"
+            android:translationZ="60dp"
+            app:menu="@menu/manu_navigator_buttom_for_commitpay"
+            app:popupTheme="@style/fortasknavigator"
+            tools:ignore="MissingConstraints" />
+
+
+        <ProgressBar
+            android:id="@+id/prograessbarprograessbar_shipment_of_materials"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_above="@+id/bottomnavigationActivicommit"
+            android:layout_width="match_parent"
+            android:background="#FFFFFF"
+            android:layout_height="10dp"
+            android:scaleY="3"
+            android:scaleX="1"
+            android:layout_centerHorizontal="true"
+            android:indeterminate="true"
+            android:visibility="visible" />
+
+
+    </RelativeLayout>
+
+
+
+
+</LinearLayout>
+

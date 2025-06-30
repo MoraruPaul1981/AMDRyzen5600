@@ -1,0 +1,433 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/simple_viewcreatedtasks"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar"
+    android:background="#F5FFFA"
+    android:orientation="vertical"
+    tools:context=".TasksApp.MainActivity_Tasks">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardviewmatirealtask"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:minHeight="600dp"
+        android:layout_margin="1dp"
+        android:layout_marginHorizontal="@+id/simple_task_for_Tasks"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
+        android:checkable="true"
+        android:clickable="false"
+        android:focusable="true"
+        android:singleLine="false"
+        android:textSize="10sp"
+        android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar"
+        app:cardBackgroundColor="#DCDCDC"
+        app:cardCornerRadius="1dp"
+        app:cardElevation="10dp"
+        app:strokeColor="#F5FFFA"
+        app:cardMaxElevation="100dp"
+        app:strokeWidth="0dp"
+        android:translationZ="150dp"
+        android:animateLayoutChanges="true">
+
+        <RelativeLayout
+            android:id="@+id/relativelayoutcardviewmatirealtask"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="2dp"
+            android:paddingTop="2dp"
+            android:paddingRight="2dp"
+            android:paddingBottom="2dp">
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text2_innercardviewcreting_this_task"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="5dp"
+                android:checkMark="?android:attr/textCheckMark"
+                android:gravity="center_vertical|center_horizontal"
+                android:inputType="textMultiLine|textCapSentences|textNoSuggestions|textLongMessage"
+                android:text="Заголовок"
+                android:textAlignment="gravity"
+                android:textColor="#808080"
+                android:textSize="13sp"
+                android:textStyle="normal"
+                android:visibility="visible" />
+
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/text3_innercardviewgretingtaskdown"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/text2_innercardviewcreting_this_task"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginEnd="5dp"
+                android:clickable="false"
+                android:drawableStart="@drawable/icon_dsu1_for_task_save_colorback"
+                android:focusable="false"
+                android:gravity="center_vertical|center_horizontal"
+                android:hint="описание !!!"
+                android:inputType="textMultiLine|textCapSentences|textNoSuggestions|textLongMessage"
+                android:longClickable="false"
+                android:maxLength="200"
+                android:minHeight="30dp"
+                android:textAppearance="?android:attr/textAppearanceListItemSmall"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:visibility="visible" />
+
+
+
+
+
+<!--            //TODO&#45;&#45;конец первый блок-->
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text2_innercardviewcreting_opisaniy_task"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_below="@+id/text3_innercardviewgretingtaskdown"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="1dp"
+                android:checkMark="?android:attr/textCheckMark"
+                android:gravity="center_vertical|center_horizontal"
+                android:inputType="textMultiLine|textCapSentences|textNoSuggestions|textLongMessage"
+                android:text="Задача"
+                android:textAlignment="gravity"
+                android:textColor="#808080"
+                android:textSize="13sp"
+                android:textStyle="normal"
+                android:visibility="visible" />
+
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/text1_innercardview"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/text2_innercardviewcreting_opisaniy_task"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginEnd="5dp"
+                android:clickable="false"
+                android:drawableStart="@drawable/icon_dsu1_for_task_save_colorback"
+                android:focusable="false"
+                android:foregroundGravity="center"
+                android:gravity="center_horizontal|center_vertical"
+                android:hint="задача !!!"
+                android:inputType="textMultiLine|textCapSentences|textNoSuggestions|textLongMessage"
+                android:longClickable="false"
+                android:maxLength="200"
+                android:minHeight="30dp"
+                android:singleLine="false"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:visibility="visible" />
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text2_innercardviewcreting_fio_line"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_below="@+id/text1_innercardview"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:checkMark="?android:attr/textCheckMark"
+                android:gravity="center_vertical|center_horizontal"
+                android:inputType="textMultiLine|textCapSentences|textNoSuggestions|textLongMessage"
+                android:text="Кому"
+                android:textAlignment="gravity"
+                android:textColor="#808080"
+                android:textSize="13sp"
+                android:textStyle="normal"
+                android:visibility="visible" />
+
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/text9_innercardviewgretingtasfio"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_below="@+id/text2_innercardviewcreting_fio_line"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginEnd="5dp"
+                android:clickable="false"
+                android:drawableStart="@drawable/icon_dsu1_for_task_save_colorback"
+                android:focusable="false"
+                android:gravity="center_vertical|center_horizontal"
+                android:hint="ФИО кому задача"
+                android:inputType="textMultiLine|textCapSentences|textNoSuggestions|textLongMessage"
+                android:longClickable="false"
+                android:maxLength="200"
+                android:textAppearance="?android:attr/textAppearanceListItemSmall"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:visibility="visible" />
+
+<!--
+//TODO сюда вставляем дату задачи
+            -->
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text2_innercardviewcreting_date_line"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_below="@+id/text9_innercardviewgretingtasfio"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:checkMark="?android:attr/textCheckMark"
+                android:gravity="center_vertical|center_horizontal"
+                android:inputType="textMultiLine|textCapSentences|textNoSuggestions|textLongMessage"
+                android:text="Дата"
+                android:textAlignment="gravity"
+                android:textColor="#808080"
+                android:textSize="13sp"
+                android:textStyle="normal"
+                android:visibility="visible" />
+
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/text11_innercardviewgretingta_valuedate"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_below="@+id/text2_innercardviewcreting_date_line"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginEnd="5dp"
+                android:clickable="false"
+                android:drawableStart="@drawable/icon_dsu1_for_task_save_colorback"
+                android:focusable="false"
+                android:gravity="center_vertical|center_horizontal"
+                android:hint="дата задачи !!!"
+                android:inputType="textMultiLine|textCapSentences|textNoSuggestions|textLongMessage"
+                android:longClickable="false"
+                android:maxLength="200"
+                android:textAppearance="?android:attr/textAppearanceListItemSmall"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:visibility="visible" />
+
+
+           <!-- //TODO вставляем сюда дату сообщения-->
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text2_innercardviewcretinf_line_type_task"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_below="@+id/text11_innercardviewgretingta_valuedate"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:checkMark="?android:attr/textCheckMark"
+                android:gravity="center_vertical|center_horizontal"
+                android:inputType="textMultiLine|textCapSentences|textNoSuggestions|textLongMessage"
+                android:text="Тип"
+                android:textAlignment="gravity"
+                android:textColor="#808080"
+                android:textSize="13sp"
+                android:textStyle="normal"
+                android:visibility="visible" />
+
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/text2_innercardviewtwoSettasksType"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_below="@+id/text2_innercardviewcretinf_line_type_task"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginEnd="5dp"
+                android:clickable="false"
+                android:drawableStart="@drawable/icon_dsu1_for_task_save_colorback"
+                android:focusable="false"
+                android:foregroundGravity="center"
+                android:gravity="center_horizontal|center_vertical"
+                android:hint="Значение Тип "
+                android:inputType="textMultiLine|textCapSentences|textNoSuggestions|textLongMessage"
+                android:longClickable="false"
+                android:maxLength="200"
+                android:singleLine="false"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:visibility="visible" />
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text2_fragment1_primechanie_ktask"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_below="@+id/text2_innercardviewtwoSettasksType"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:checkMark="?android:attr/textCheckMark"
+                android:gravity="center_vertical|center_horizontal"
+                android:inputType="textMultiLine|textCapSentences|textNoSuggestions|textLongMessage"
+                android:text="Примечание"
+                android:textAlignment="gravity"
+                android:textColor="#808080"
+                android:textSize="13sp"
+                android:textStyle="normal"
+                android:visibility="visible" />
+
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/text12_innercardviewtextinutstatus_samoprimechanie"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/text2_fragment1_primechanie_ktask"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginEnd="5dp"
+                android:clickable="false"
+                android:drawableStart="@drawable/icon_dsu1_for_task_save_colorback"
+                android:focusable="false"
+                android:foregroundGravity="center"
+                android:gravity="center_horizontal|center_vertical"
+                android:hint=" примечание !!!"
+                android:inputType="textMultiLine|textCapSentences|textNoSuggestions|textLongMessage"
+                android:longClickable="false"
+                android:maxLength="200"
+                android:minHeight="20dp"
+                android:singleLine="false"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:visibility="visible" />
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text2_innercardviewcretingtaskbottomkey"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_below="@+id/text12_innercardviewtextinutstatus_samoprimechanie"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:checkMark="?android:attr/textCheckMark"
+                android:gravity="center_vertical|center_horizontal"
+                android:inputType="textMultiLine|textCapSentences|textNoSuggestions|textLongMessage"
+                android:text="Статус"
+                android:textAlignment="gravity"
+                android:textColor="#808080"
+                android:textSize="13sp"
+                android:textStyle="normal"
+                android:visibility="visible" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/text8_innercardviewtextinutstatus_taskcreatingdown"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_below="@+id/text2_innercardviewcretingtaskbottomkey"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginEnd="5dp"
+                android:clickable="false"
+                android:drawableStart="@drawable/icon_dsu1_for_task_save_colorback"
+                android:focusable="false"
+                android:foregroundGravity="center"
+                android:gravity="center_horizontal|center_vertical"
+                android:hint="Статус задачи"
+                android:inputType="textMultiLine|textCapSentences|textNoSuggestions|textLongMessage"
+                android:longClickable="false"
+                android:maxLength="200"
+                android:singleLine="false"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:visibility="visible" />
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/BottomFor_task_cancel_creating_task"
+                style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton.Icon"
+                android:layout_width="160dp"
+                android:layout_height="38dp"
+                android:layout_below="@+id/text8_innercardviewtextinutstatus_taskcreatingdown"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="7dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:clickable="true"
+                android:drawableLeft="@drawable/icon_dsu1_for_task_cancels"
+                android:focusable="auto"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center|center_vertical"
+                android:minHeight="30dp"
+                android:text="Отменить"
+                android:textColor="#0E0E0E"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+                android:typeface="normal"
+                android:visibility="visible"
+                app:cornerRadius="16dp"
+                tools:visibility="visible" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <!--     android:theme="@style/Theme.MaterialComponents.Light.DarkActionBar"-->
+        </RelativeLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+</LinearLayout>

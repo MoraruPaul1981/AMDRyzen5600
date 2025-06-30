@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:id="@+id/id_lback"
+        android:checkable="true"
+        android:contentDescription="Выйти"
+        android:enabled="true"
+        android:icon="@drawable/icon_dsu1_assinmaterial_exit5"
+        android:iconTint="#03A9F4"
+        android:title="Выйти"
+        android:tooltipText="назад в приложение" />
+
+
+
+
+</menu>

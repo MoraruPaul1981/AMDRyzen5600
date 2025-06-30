@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:popupTheme="@style/fortasknavigator"
+    tools:context=".CommitPricesApp.View.Window.MainActivityCommitingPrices">
+
+
+
+    <group android:id="@+id/grp1">
+        <item
+            android:id="@+id/bottomNavigationBack"
+            android:icon="@drawable/icon_dsu1_commit_exit556"
+            app:itemIconTint="@animator/select_forcommitmenu"
+            android:actionMenuTextColor="#FFD5D9DA"
+            android:tooltipText="Выйти"
+            android:title="Выйти"
+            app:showAsAction="ifRoom|withText">
+
+        </item>
+    </group>
+
+    <group android:id="@+id/grp2">
+
+        <item
+            android:id="@+id/bottomNavigationAsync"
+            android:contentDescription="Обмен"
+            android:icon="@drawable/icon_dsu1_commit_async"
+            app:itemIconTint="@animator/select_forcommitmenu"
+            android:title="Обмен"
+            android:actionMenuTextColor="#FFD5D9DA"
+            app:showAsAction="ifRoom|withText"
+            android:tooltipText="Обмен">
+        </item>
+    </group>
+
+    <group android:id="@+id/grp3">
+
+        <item
+            android:id="@+id/bottomNavigationSearch"
+            android:contentDescription="Поиск"
+            android:icon="@drawable/icon_for_commitpay_serach1"
+            app:itemIconTint="@animator/select_forcommitmenu"
+            android:title="Поиск"
+            android:actionMenuTextColor="#FFD5D9DA"
+            app:showAsAction="ifRoom|withText"
+            android:tooltipText="Поиск">
+        </item>
+    </group>
+
+
+
+
+
+
+
+
+
+
+        />
+</menu>

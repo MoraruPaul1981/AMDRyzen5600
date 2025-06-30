@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/cardviewisnullordertransport"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_gravity="center"
+    android:orientation="horizontal"
+    app:cardElevation="10dp"
+    android:padding="5dp"
+    android:layout_margin="30dp"
+    android:animateLayoutChanges="true"
+    android:background="#FFFFFF"
+    android:gravity="center">
+
+    <ImageView
+        android:id="@android:id/text1"
+        android:layout_height="match_parent"
+        android:layout_width="35dp"
+        android:animateLayoutChanges="true"
+        android:background="@drawable/stylesingletablerowiine"
+        android:gravity="center"
+        android:layout_margin="10dp"
+        android:visibility="visible"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="10dp"
+        app:srcCompat="@drawable/icon_rdertransport2"
+        app:strokeColor="#FFFFFF" />
+
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@android:id/text2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/stylesingletablerowiine"
+        android:checkMark="?android:attr/textCheckMark"
+        android:foregroundGravity="center"
+        android:gravity="center"
+        android:layout_margin="10dp"
+        android:paddingStart="?android:attr/listPreferredItemPaddingStart"
+        android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
+        android:textAlignment="gravity"
+        android:textAppearance="?android:attr/textAppearanceListItemSmall"
+        android:textColor="#000000"
+        android:textSize="14sp"
+        android:hint="Нет истории !!!"
+        android:textStyle="bold"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="10dp"
+        app:strokeColor="#F5FFFA"
+        android:animateLayoutChanges="true"
+        android:visibility="visible"/>
+
+</LinearLayout>
+
+
+
+

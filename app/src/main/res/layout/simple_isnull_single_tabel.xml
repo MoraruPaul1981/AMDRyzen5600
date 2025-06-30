@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/simple_task_for_Tasks"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical"
+    android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+    tools:context=".TabelsApp.Tabel.Single.view.MainActivity_Tabel_Single_PeopleOneSwipe">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardviewmatirealtask"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="5dp"
+        android:animateLayoutChanges="true"
+        android:checkable="true"
+        android:clickable="true"
+        android:focusable="true"
+        android:singleLine="false"
+        android:textSize="10sp"
+
+
+        android:translationZ="150dp"
+        app:cardBackgroundColor="#FFFFFF"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="10dp"
+        app:cardMaxElevation="100dp"
+        app:strokeColor="#F5FFFA"
+        app:strokeWidth="0dp">
+
+        <RelativeLayout
+            android:id="@+id/relativelayoutcardviewmatirealtask"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="2dp"
+            android:paddingTop="2dp"
+            android:paddingRight="2dp"
+            android:paddingBottom="2dp">
+
+
+            <TextView
+                android:id="@+id/text0_innercardview_headmessage"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="500dp"
+                android:checkMark="?android:attr/textCheckMark"
+                android:foregroundGravity="center"
+                android:gravity="left|center_vertical"
+                android:hint="Нет табеля"
+                android:minHeight="25dp"
+                android:rotation="1"
+                android:singleLine="false"
+                android:textAlignment="gravity"
+                android:textColor="#000000"
+                android:textColorHint="#80807C"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:translationZ="10dp"
+                android:visibility="visible" />
+
+
+        </RelativeLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+</LinearLayout>

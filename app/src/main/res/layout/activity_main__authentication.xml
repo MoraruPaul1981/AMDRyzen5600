@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:backgroundTintMode="screen"
+    android:foregroundGravity="center"
+    android:saveEnabled="false"
+    android:visibility="visible"
+    app:layout_collapseMode="pin"
+    app:layout_scrollFlags="snapMargins|scroll|enterAlways|enterAlwaysCollapsed|exitUntilCollapsed|snap"
+    tools:context=".PasswordsCoreApp.MMVM.View.MainActivityPasswords"
+    tools:layout_editor_absoluteY="-97dp">
+
+    <ScrollView
+        android:id="@+id/ScrollViewАкнтификации"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="0dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="parent"></ScrollView>
+
+
+    <com.scwang.wave.MultiWaveHeader
+        android:id="@+id/waveHeader"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_alignParentTop="true"
+        app:layout_constraintBottom_toTopOf="@+id/textViewНастройки"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:mwhCloseColor="@color/color_beliyi"
+        app:mwhStartColor="@color/colorPrimary"
+        app:mwhWaves="MultiWave" />
+
+
+
+
+
+
+
+
+    <ImageView
+        android:id="@+id/textViewНастройки"
+        android:layout_width="100dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginBottom="210dp"
+        android:adjustViewBounds="false"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        android:typeface="monospace"
+        app:layout_constraintBottom_toTopOf="@+id/view4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/deliverytruckblack" />
+
+
+    <View
+        android:id="@+id/view4"
+        android:layout_width="120dp"
+        android:layout_height="3dp"
+        android:layout_marginTop="5dp"
+        android:background="#FF797C7C"
+        android:foregroundGravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewНастройки" />
+
+    <ProgressBar
+        android:id="@+id/progressBarДляWIFI"
+        style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Small.Inverse"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="50dp"
+        android:foregroundGravity="center"
+        android:indeterminateTint="#FF797C7C"
+        android:max="100"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/КнопкаВходаВПриложение"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ПарольДляВходавПрограмму"
+        app:layout_constraintVertical_bias="0.233" />
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/КнопкаВходаВПриложение"
+        android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+        style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="30dp"
+        android:backgroundTint="#797C7C"
+        android:backgroundTintMode="screen"
+        android:clickable="true"
+        android:focusable="auto"
+        android:fontFamily="sans-serif-medium"
+        android:foregroundGravity="center"
+        android:gravity="center|center_vertical"
+        android:scrollbarStyle="outsideInset"
+        android:text="Вход"
+        android:textColor="#0E0E0E"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:typeface="normal"
+        android:visibility="visible"
+        app:cornerRadius="18dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ScrollViewАкнтификации"
+        app:layout_constraintVertical_bias="1.0"
+        tools:visibility="visible" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/ПарольДляВходавПрограмму"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="60dp"
+        android:background="@drawable/style_forpolymaterialb_cycle_passwords2"
+        android:drawableLeft="@drawable/icon_dsu1_passwors_login"
+        android:drawablePadding="10dp"
+        android:foregroundGravity="left"
+        android:gravity="center_vertical"
+        android:hint="Пароль"
+        android:inputType="textPassword"
+        android:minHeight="40dp"
+        android:paddingStart="10dp"
+        android:textColor="#0E0E0E"
+        android:textColorHint="#FFD5D9DA"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:visibility="visible"
+        app:endIconMode="password_toggle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ИмяДляВходавПрограмму" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/ИмяДляВходавПрограмму"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="60dp"
+        android:background="@drawable/style_forpolymaterialb_cycle_passwords2"
+        android:drawableLeft="@drawable/icon_dsu1_login_name_3"
+        android:drawablePadding="10dp"
+        android:foregroundGravity="left"
+        android:gravity="center_vertical"
+        android:hint="Логин"
+        android:inputType="textPersonName"
+        android:minHeight="40dp"
+        android:paddingStart="10dp"
+        android:textColor="#0E0E0E"
+        android:textColorHint="#FFD5D9DA"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:typeface="sans"
+        android:visibility="visible"
+        app:endIconMode="password_toggle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toBottomOf="@+id/view4" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

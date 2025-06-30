@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:backgroundTintMode="screen"
+    android:focusable="auto"
+    app:layout_collapseMode="pin"
+    app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
+    tools:context=".TabelsApp.Tabel.ListTabels.MainActivity_List_Tabels">
+
+
+    <com.google.android.material.button.MaterialButton
+        android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+        style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+
+        android:id="@+id/КонопкаНазадСтрелкаВсеТабеля"
+        android:layout_width="70dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="1dp"
+
+
+
+        android:backgroundTint="#FFFFFF"
+        android:backgroundTintMode="screen"
+
+        android:foregroundGravity="center"
+        android:stateListAnimator="@drawable/icon_dsu1_exit3_foreground"
+        android:textAlignment="center"
+        android:visibility="visible"
+        app:icon="@drawable/icon_dsu1_exit3_foreground"
+        app:iconGravity="textEnd"
+        app:iconSize="40dp"
+        app:iconTint="#FFD5D9DA"
+        app:layout_constraintBottom_toBottomOf="@id/view2Линия"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.263"
+        app:rippleColor="#F50057" />
+
+    <TextView
+        android:id="@+id/textView3СловоТабель"
+        style="@style/Widget.MaterialComponents.MaterialCalendar.DayTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="33dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginBottom="1dp"
+        android:bufferType="normal"
+        android:capitalize="characters"
+        android:fontFamily="sans-serif-light"
+        android:foregroundGravity="center"
+        android:gravity="center"
+        android:text="Шаблоны"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textColor="#0E0E0E"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:theme="@style/Theme.AppCompat.DayNight"
+        android:typeface="monospace"
+        app:layout_constraintBottom_toTopOf="@+id/view2Линия"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingactionbuttontemplates"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/icon_dsu1_add_tably1"
+        android:visibility="visible"
+        app:backgroundTint="#FFD5D9DA"
+        app:fabSize="auto"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/ScrollViewListTabels" />
+
+    <View
+        android:id="@+id/view2Линия"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:layout_marginTop="1dp"
+        android:background="#FFD5D9DA"
+        android:foregroundGravity="center"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3СловоТабель"
+        tools:visibility="visible" />
+
+    <ScrollView
+        android:id="@+id/ScrollViewListTabels"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginBottom="10dp"
+        android:background="#FFFFFF"
+        android:scrollbars="horizontal|vertical"
+        app:layout_collapseMode="pin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/view2Линия"
+        app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
+
+        <LinearLayout
+            android:id="@+id/ГлавныйКонтейнерТабель"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#F5FFFA"
+            android:orientation="vertical"
+            android:visibility="visible"
+            app:layout_collapseMode="pin"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed|snap" />
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

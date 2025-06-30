@@ -1,0 +1,15 @@
+<resources>
+
+<style name="spinnerTaskstyle" parent="Widget.AppCompat.TextView.SpinnerItem">
+
+
+    <item name="android:padding">15dp</item>
+
+    <item name="colorOnBackground">#DC143C</item>
+
+
+</style>
+
+
+
+</resources>

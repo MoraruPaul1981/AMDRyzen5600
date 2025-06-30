@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#DCE5EA"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".MainActivity_CreateTableTHREE">
+
+
+    <!-- СТРОЧКА НОМЕР ДВА ЛИНИЯ ПОДЧЕРЧИКАТ фио -->
+    <GridLayout
+        android:id="@+id/КонтейнерДляТабеляГрид"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#DCE5EA"
+        android:columnCount="1"
+        android:orientation="horizontal"
+        android:scrollbarAlwaysDrawHorizontalTrack="true">
+        <!-- СТРОЧКА НОМЕР ОДИН  ФИО-->
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_row="0"
+            android:layout_columnWeight="1"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="0dp"
+            android:background="#DCE5EA"
+            android:gravity="center"
+            android:padding="0dp"
+            android:textAlignment="center"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/КонтейнерКудаЗагружаетьсяФИО"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:layout_columnWeight="50"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="start|left"
+            android:padding="15dp"
+            android:textColor="#2F4F4F"
+            android:textSize="22dp"
+            android:textStyle="normal|bold"
+            android:visibility="visible" />
+
+    </GridLayout>
+    <!-- СТРОЧКА НОМЕР ДВА ЛИНИЯ ПОДЧЕРЧИКАТ фио -->
+
+
+    <!-- линия сверху над названиями ТРЕТЬЯ СТРОЧКА  ДНИ  НЕДЕЛИ-->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_row="1"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        android:background="#C0C0C0"
+        android:gravity="center" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_row="2"
+        android:layout_column="0"
+        android:layout_columnWeight="1"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="0dp"
+        android:gravity="center"
+        android:padding="0dp"
+        android:background="#DCE5EA"
+        android:visibility="visible"
+        android:textAlignment="center"
+        android:textStyle="bold" />
+
+    <!-- СТРОЧКА НОМЕР ТРИ ЦИФРА ДЛЯ  -->
+    <GridLayout
+        android:id="@+id/КонтейнерДляТабеляГридВторойВнутрений"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#DCE5EA"
+        android:columnCount="1000"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:scrollbarAlwaysDrawHorizontalTrack="true">
+        <!-- холостой ход ТРЕТЬЯ СТРОЧКА  ДНИ  НЕДЕЛИ-->
+
+
+        <!--ТРЕТЬЯ СТРОЧКА  ДНИ  НЕДЕЛИ-->
+        <TextView
+            android:id="@+id/ВтораяСтрочкаПонедельник"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:layout_columnWeight="1"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:padding="20dp"
+            android:textAlignment="center"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/ВтораяСтрочкаВторник"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="1"
+            android:layout_column="1"
+            android:layout_columnWeight="1"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:padding="20dp"
+            android:textAlignment="center"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/ВтораяСтрочкаСреда"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="1"
+            android:layout_column="2"
+            android:layout_columnWeight="1"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:padding="20dp"
+            android:textAlignment="center"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/ВтораяСтрочкаЧетверг"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="1"
+            android:layout_column="3"
+            android:layout_columnWeight="1"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:padding="20dp"
+            android:textAlignment="center"
+            android:textStyle="bold" />
+
+    </GridLayout>
+
+
+    <!-- СТРОЧКА НОМЕР ТРИ ЦИФРА ДЛЯ  -->
+
+
+    <GridLayout
+        android:id="@+id/КонтейнерДляТабеляГридТретийВнутрений"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#DCE5EA"
+        android:columnCount="1000"
+        android:orientation="horizontal"
+        android:scrollbarAlwaysDrawHorizontalTrack="true">
+
+        <EditText
+            android:id="@+id/ВтораяСтрочкаПонедельникЗначение"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="0"
+            android:layout_column="0"
+            android:layout_columnWeight="1"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="0dp"
+            android:gravity="center"
+            android:inputType="number"
+            android:padding="15dp"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/ВтораяСтрочкавторникЗначение"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="0"
+            android:layout_column="1"
+            android:layout_columnWeight="1"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="0dp"
+            android:gravity="center"
+            android:inputType="number"
+            android:padding="15dp"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/ВтораяСтрочкасредаЗначение"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="0"
+            android:layout_column="2"
+            android:layout_columnWeight="1"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="0dp"
+            android:gravity="center"
+            android:inputType="number"
+            android:padding="15dp"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/ВтораяСтрочкачетвергЗначение"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="0"
+            android:layout_column="3"
+            android:layout_columnWeight="1"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="0dp"
+            android:gravity="center"
+            android:inputType="number"
+            android:padding="15dp"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+
+        <!-- TODO добавляем дополнительные textview но на экране их не будет видно -->
+        <EditText
+            android:id="@+id/ВтораяСтрочкаНевидимаяID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="0"
+            android:layout_column="4"
+            android:layout_columnWeight="1"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:inputType="number"
+            android:padding="15dp"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:visibility="gone" />
+
+        <EditText
+            android:id="@+id/ВтораяСтрочкаНевидимаяUUID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="0"
+            android:layout_column="5"
+            android:layout_columnWeight="1"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:inputType="number"
+            android:padding="15dp"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:visibility="gone" />
+
+
+        <!-- TODO конец  добавляем дополнительные textview но на экране их не будет видно -->
+
+        <!--  Холостые ячейки первой строчки-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:layout_columnWeight="1"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="0dp"
+            android:gravity="center"
+            android:padding="5dp"
+            android:textAlignment="center"
+            android:textStyle="bold" />
+
+
+    </GridLayout>
+
+    <!--  вторая СТРОЧКА НОМЕР ДВА ЛИНИЯ ПОДЧЕРЧИКАТ фио после вствки -->
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_row="0"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        android:background="#C0C0C0"
+        android:gravity="center" />
+    <!-- ТРЕТЬЯ СТРОЧКА ПОКАЗЫВАЕТ ПЯТИНЦУ СУББОТУ И ВОСКРЕСЕНОЕ   -->
+    <GridLayout
+        android:id="@+id/КонтейнерДляТабеляГридЧетвертыйВнутрений"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#DCE5EA"
+        android:columnCount="10"
+        android:orientation="horizontal"
+        android:scrollbarAlwaysDrawHorizontalTrack="true">
+
+        <TextView
+            android:id="@+id/ТретьяСтрочкаПятница"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:layout_columnWeight="1"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:padding="20dp"
+            android:textAlignment="center"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/ТретьяСтрочкаСубота"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="1"
+            android:layout_column="1"
+            android:layout_columnWeight="1"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:padding="20dp"
+            android:textAlignment="center"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/ТретьяСтрочкаВоскресенье"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="1"
+            android:layout_column="2"
+            android:layout_columnWeight="1"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:padding="20dp"
+            android:textAlignment="center"
+            android:textStyle="bold" />
+
+
+        <!--ДАННЫЕ ПЕРВОЙ СТРОЧКИ -->
+
+    </GridLayout>
+
+    <!-- СТРОЧКА НОМЕР ТРИ ЦИФРА ДЛЯ  -->
+
+
+    <!-- ЧеТВЕРТАЯ  САМИ ДАННЫЕ СТРОЧКА ПОКАЗЫВАЕТ ПЯТИНЦУ СУББОТУ И ВОСКРЕСЕНОЕ   -->
+
+    <GridLayout
+        android:id="@+id/КонтейнерДляТабеляГридПятыйВнутрений"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#DCE5EA"
+        android:columnCount="10"
+        android:orientation="horizontal"
+        android:scrollbarAlwaysDrawHorizontalTrack="true">
+
+        <EditText
+            android:id="@+id/ВтораяСтрочкаПятницаЗначение"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="0"
+            android:layout_column="0"
+            android:layout_columnWeight="1"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="0dp"
+            android:gravity="center"
+            android:inputType="number"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/ВтораяСтрочкаСубботаЗначение"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="0"
+            android:layout_column="1"
+            android:layout_columnWeight="1"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="0dp"
+            android:gravity="center"
+            android:inputType="number"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/ВтораяСтрочкавоскресеньеЗначение"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="0"
+            android:layout_column="2"
+            android:layout_columnWeight="1"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="0dp"
+            android:gravity="center"
+            android:inputType="number"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <!--TODO uuid and id чтобы не видно на третьестрочки-->
+        <EditText
+            android:id="@+id/ТретьяСтрочкаНевидимаяID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="0"
+            android:layout_column="4"
+            android:layout_columnWeight="1"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:inputType="number"
+            android:padding="15dp"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:visibility="gone" />
+
+        <EditText
+            android:id="@+id/ТретьяСтрочкаНевидимаяUUID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="0"
+            android:layout_column="5"
+            android:layout_columnWeight="1"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:inputType="number"
+            android:padding="15dp"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:visibility="gone" />
+        <!--  КОНЕЦ ДАННЫХ ВТРОЙ СТРОКИ-->
+
+        <!--  ВСТАВКА ХОЛОСТЫХ СТРОЧЕК-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="3"
+            android:layout_column="0"
+            android:layout_columnWeight="1"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:padding="8dp"
+            android:textAlignment="center"
+            android:textStyle="bold" />
+
+
+    </GridLayout>
+
+    <!--  вторая СТРОЧКА НОМЕР ДВА ЛИНИЯ ПОДЧЕРЧИКАТ фио после вствки -->
+
+    <!-- СТРОЧКА НОМЕР ДВА ЛИНИЯ ПОДЧЕРЧИКАТ фио -->
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="2dp"
+        android:layout_row="0"
+        android:layout_marginRight="0dp"
+        android:background="#C0C0C0"
+        android:dashWidth="20px"
+        android:dashGap="50px"
+        android:gravity="center" />
+
+    <!--        android:layout_marginLeft="150dp"-->
+
+</LinearLayout>

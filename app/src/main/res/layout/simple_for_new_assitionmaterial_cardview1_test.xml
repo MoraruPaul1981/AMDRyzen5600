@@ -1,0 +1,460 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardviewassintasmatrial"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar"
+    android:checkable="true"
+    android:clickable="false"
+    android:focusable="true"
+    app:cardBackgroundColor="#FFFAFA"
+    app:cardCornerRadius="3dp"
+    app:cardElevation="10dp"
+    app:strokeColor="#F5FFFA"
+    app:cardMaxElevation="100dp"
+    app:strokeWidth="3dp"
+    android:translationZ="150dp"
+    android:animateLayoutChanges="true"
+    tools:context=".AdmissionMaterialsApp.ActivityFragment.MainActivity_AdmissionMaterials">
+
+
+   <LinearLayout
+       android:id="@+id/scroll_new_assintalmaterial"
+       android:layout_width="match_parent"
+       android:layout_margin="5dp"
+       android:layout_height="match_parent"
+       android:orientation="vertical">
+
+      <!--   todo сами элементы начало -->
+      <!-- todo#1-->
+      <com.google.android.material.textview.MaterialTextView
+          android:id="@+id/textviewnamecfo"
+          android:layout_width="100dp"
+        android:layout_height="wrap_content" 
+          android:layout_alignParentLeft="true"
+          android:layout_marginStart="20dp"
+          android:layout_marginTop="5dp"
+          android:layout_marginBottom="5dp"
+          android:background="@drawable/style_for_assitiionmatrial_create_name"
+          android:gravity="center_vertical|center_horizontal"
+          android:hint="Цфо"
+          android:textColor="#000000"
+          android:textColorHint="#000000"
+          android:textSize="13sp"
+          android:textStyle="bold"
+          android:translationZ="1dp"
+          android:visibility="visible"
+          app:cardCornerRadius="1dp"
+          app:cardElevation="1dp" />
+
+      <com.google.android.material.textview.MaterialTextView
+          android:id="@+id/textViewcfo"
+          android:layout_width="match_parent"
+        android:layout_height="wrap_content" 
+          android:minHeight="37dp"
+          android:layout_alignParentLeft="true"
+          android:layout_alignParentRight="true"
+          android:layout_centerHorizontal="true"
+          android:layout_marginStart="5dp"
+          android:layout_marginEnd="5dp"
+          android:background="@drawable/style_forpolymaterialb_cycle_createspinner"
+          android:gravity="center"
+          android:textAlignment="gravity"
+          android:textColor="#000000"
+          android:textColorHighlight="#80807C"
+          android:textColorHint="#80807C"
+          android:textSize="15sp"
+          android:textStyle="bold"
+          android:hint="Выберете цфо"
+          android:visibility="visible" />
+
+
+
+      <com.google.android.material.textview.MaterialTextView
+          android:id="@+id/textviewnamematerial"
+          android:layout_width="150dp"
+        android:layout_height="wrap_content"
+          android:layout_alignParentLeft="true"
+          android:layout_marginStart="20dp"
+          android:layout_marginTop="10dp"
+          android:layout_marginBottom="5dp"
+          android:background="@drawable/style_for_assitiionmatrial_create_name"
+          android:gravity="center_vertical|center_horizontal"
+          android:hint="Группа материалов"
+          android:minWidth="50dp"
+          android:textColorHint="#000000"
+          android:textSize="13sp"
+          android:textStyle="bold"
+          android:translationZ="1dp"
+          android:visibility="visible"
+          app:cardCornerRadius="5dp"
+          app:cardElevation="1dp" />
+
+
+      <com.google.android.material.textview.MaterialTextView
+          android:id="@+id/marerialtextgroupmaterial"
+          android:layout_width="match_parent"
+        android:layout_height="wrap_content" 
+          android:minHeight="37dp"
+          android:layout_alignParentLeft="true"
+          android:layout_alignParentRight="true"
+          android:layout_centerHorizontal="true"
+          android:layout_marginStart="5dp"
+          android:layout_marginEnd="5dp"
+          android:background="@drawable/style_forpolymaterialb_cycle_createspinner"
+          android:gravity="center"
+          android:textAlignment="gravity"
+          android:textColor="#000000"
+          android:textColorHighlight="#80807C"
+          android:textColorHint="#80807C"
+          android:textSize="15sp"
+          android:textStyle="bold"
+          android:hint="Выберете группу материалов"
+          android:visibility="visible" />
+
+
+
+      <com.google.android.material.textview.MaterialTextView
+          android:id="@+id/textviewnamematerials"
+          android:layout_width="100dp"
+        android:layout_height="wrap_content"
+          android:layout_alignParentLeft="true"
+          android:layout_marginStart="20dp"
+          android:layout_marginTop="10dp"
+          android:layout_marginBottom="5dp"
+          android:background="@drawable/style_for_assitiionmatrial_create_name"
+          android:gravity="center_vertical|center_horizontal"
+          android:hint="Материалы"
+          android:minWidth="50dp"
+          android:textColor="#000000"
+          android:textColorHint="#000000"
+          android:textSize="13sp"
+          android:textStyle="bold"
+          android:translationZ="1dp"
+          android:visibility="visible"
+          app:cardCornerRadius="5dp"
+          app:cardElevation="1dp" />
+
+
+      <!-- todo старрт добавление еще двух полей стак и компания-->
+
+      <com.google.android.material.textview.MaterialTextView
+          android:id="@+id/materialtext_onematerial_ves"
+          style="@android:style/Widget.Holo.TextView.SpinnerItem"
+          android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+          android:layout_alignParentLeft="true"
+          android:layout_alignParentRight="true"
+          android:layout_centerHorizontal="true"
+          android:layout_marginStart="5dp"
+          android:layout_marginLeft="7dp"
+          android:layout_marginEnd="5dp"
+          android:layout_marginRight="3dp"
+          android:layout_marginBottom="-3dp"
+          android:background="@drawable/style_forpolymaterialb_cycle_createspinner"
+          android:gravity="center"
+          android:hint="Выберете материал"
+          android:minHeight="37dp"
+          android:textAlignment="gravity"
+          android:textColor="#000000"
+          android:textColorHighlight="#80807C"
+          android:textColorHint="#80807C"
+          android:textSize="15sp"
+          android:textStyle="bold"
+          android:visibility="visible" />
+
+      <com.google.android.material.textview.MaterialTextView
+          android:id="@+id/textviewtcomnapy"
+          android:layout_width="100dp"
+        android:layout_height="wrap_content"
+          android:layout_alignParentLeft="true"
+          android:layout_marginStart="20dp"
+          android:layout_marginTop="10dp"
+          android:layout_marginBottom="5dp"
+          android:background="@drawable/style_for_assitiionmatrial_create_name"
+          android:gravity="center_vertical|center_horizontal"
+          android:hint="Контрагент"
+          android:minWidth="50dp"
+          android:textColor="#000000"
+          android:textColorHint="#000000"
+          android:textSize="13sp"
+          android:textStyle="bold"
+          android:translationZ="1dp"
+          android:visibility="visible"
+          app:cardCornerRadius="5dp"
+          app:cardElevation="1dp" />
+      <com.google.android.material.textview.MaterialTextView
+          android:id="@+id/valuekontragent"
+          style="@android:style/Widget.Holo.TextView.SpinnerItem"
+          android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+          android:layout_alignParentLeft="true"
+          android:layout_alignParentRight="true"
+          android:layout_centerHorizontal="true"
+          android:layout_marginStart="5dp"
+          android:layout_marginEnd="5dp"
+          android:minHeight="37dp"
+          android:background="@drawable/style_forpolymaterialb_cycle_createspinner"
+          android:gravity="center"
+          android:textAlignment="gravity"
+          android:textColor="#000000"
+          android:textColorHighlight="#80807C"
+          android:textColorHint="#80807C"
+          android:textSize="15sp"
+          android:textStyle="bold"
+          android:padding="5dp"
+          android:hint="Выберете Контрагент"
+          android:visibility="visible" />
+
+
+
+
+
+      <!--   todo сами элементы конец -->
+
+
+
+
+
+
+
+
+
+
+
+      <!--todo  количество поле ввода данных -->
+      <com.google.android.material.textview.MaterialTextView
+          android:id="@+id/textviewtrack"
+          android:layout_width="100dp"
+        android:layout_height="wrap_content"
+          android:layout_alignParentLeft="true"
+          android:layout_marginStart="20dp"
+          android:layout_marginTop="10dp"
+          android:layout_marginBottom="5dp"
+          android:background="@drawable/style_for_assitiionmatrial_create_name"
+          android:gravity="center_vertical|center_horizontal"
+          android:hint="Автомобили"
+          android:minWidth="50dp"
+          android:textColor="#000000"
+          android:textColorHint="#000000"
+          android:textSize="13sp"
+          android:textStyle="bold"
+          android:translationZ="1dp"
+          android:visibility="visible"
+          app:cardCornerRadius="5dp"
+          app:cardElevation="1dp" />
+
+      <com.google.android.material.textview.MaterialTextView
+          android:id="@+id/valueavtomobil"
+          style="@android:style/Widget.Holo.TextView.SpinnerItem"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_alignParentLeft="true"
+          android:layout_alignParentRight="true"
+          android:layout_centerHorizontal="true"
+          android:layout_marginStart="5dp"
+          android:layout_marginEnd="5dp"
+          android:minHeight="37dp"
+          android:background="@drawable/style_forpolymaterialb_cycle_createspinner"
+          android:gravity="center"
+          android:textAlignment="gravity"
+          android:textColor="#000000"
+          android:textColorHighlight="#80807C"
+          android:textColorHint="#80807C"
+          android:textSize="15sp"
+          android:textStyle="bold"
+          android:padding="5dp"
+          android:hint="Выберете Автомобиль"
+          android:visibility="visible" />
+
+
+
+      <com.google.android.material.textview.MaterialTextView
+          android:id="@+id/textviewmaterialttn"
+          android:layout_width="100dp"
+        android:layout_height="wrap_content"
+          android:layout_alignParentLeft="true"
+          android:layout_marginStart="20dp"
+          android:layout_marginTop="10dp"
+          android:layout_marginBottom="5dp"
+          android:background="@drawable/style_for_assitiionmatrial_create_name"
+          android:gravity="center_vertical|center_horizontal"
+          android:hint="Номер ттн"
+          android:minWidth="50dp"
+          android:textColor="#000000"
+          android:textColorHint="#000000"
+          android:textSize="13sp"
+          android:textStyle="bold"
+          android:translationZ="1dp"
+          android:visibility="visible"
+          app:cardCornerRadius="5dp"
+          app:cardElevation="1dp" />
+
+
+      <com.google.android.material.textfield.TextInputEditText
+          android:id="@+id/textipputmaretialttn"
+          style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_alignParentLeft="true"
+          android:layout_alignParentRight="true"
+          android:layout_centerHorizontal="true"
+          android:layout_marginStart="5dp"
+          android:layout_marginEnd="5dp"
+          android:background="@drawable/style_forpolymaterialb_cycle_createspinner"
+          android:foregroundGravity="center"
+          android:gravity="center_horizontal|center_vertical"
+          android:hint="Номер ттн"
+          android:inputType="textCapSentences"
+          android:minHeight="37dp"
+          android:textColor="#000000"
+          android:textColorHighlight="#80807C"
+          android:textColorHint="#80807C"
+          android:textSize="15sp"
+          android:textStyle="bold"
+          android:visibility="visible" />
+
+
+      <com.google.android.material.textview.MaterialTextView
+          android:id="@+id/textviewmaterialttndata"
+          android:layout_width="100dp"
+        android:layout_height="wrap_content"
+          android:layout_alignParentLeft="true"
+          android:layout_marginStart="20dp"
+          android:layout_marginTop="10dp"
+          android:layout_marginBottom="5dp"
+          android:background="@drawable/style_for_assitiionmatrial_create_name"
+          android:gravity="center_vertical|center_horizontal"
+          android:hint="Дата ттн"
+          android:minWidth="50dp"
+          android:textColor="#000000"
+          android:textColorHint="#000000"
+          android:textSize="13sp"
+          android:textStyle="bold"
+          android:translationZ="1dp"
+          android:visibility="visible"
+          app:cardCornerRadius="5dp"
+          app:cardElevation="1dp" />
+
+
+      <com.google.android.material.textfield.TextInputEditText
+          android:id="@+id/textipputmaretialttdata"
+          style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_alignParentLeft="true"
+          android:layout_alignParentRight="true"
+          android:layout_centerHorizontal="true"
+          android:layout_marginStart="5dp"
+          android:layout_marginEnd="5dp"
+          android:background="@drawable/style_forpolymaterialb_cycle_createspinner"
+          android:foregroundGravity="center"
+          android:gravity="center_horizontal|center_vertical"
+          android:hint="Дата ттн"
+          android:inputType="date"
+          android:minHeight="37dp"
+          android:textColor="#000000"
+          android:textColorHighlight="#80807C"
+          android:textColorHint="#80807C"
+          android:textSize="15sp"
+          android:textStyle="bold"
+          android:visibility="visible" />
+
+
+
+      <!-- todo нижнии поля вввода КОЛИЧЕСТВО  -->
+
+      <com.google.android.material.textview.MaterialTextView
+          android:id="@+id/textviewnamecount"
+          android:layout_width="100dp"
+        android:layout_height="wrap_content"
+          android:layout_alignParentLeft="true"
+          android:layout_marginStart="20dp"
+          android:layout_marginTop="10dp"
+          android:layout_marginBottom="5dp"
+          android:background="@drawable/style_for_assitiionmatrial_create_name"
+          android:gravity="center_vertical|center_horizontal"
+          android:hint="Количество"
+          android:minWidth="50dp"
+          android:textColor="#000000"
+          android:textColorHint="#000000"
+          android:textSize="13sp"
+          android:textStyle="bold"
+          android:translationZ="1dp"
+          android:visibility="visible"
+          app:cardCornerRadius="5dp"
+          app:cardElevation="1dp" />
+
+
+
+      <com.google.android.material.textfield.TextInputEditText
+          android:id="@+id/textipputcountassinmaterail"
+          style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_alignParentLeft="true"
+          android:layout_alignParentRight="true"
+          android:layout_centerHorizontal="true"
+          android:layout_marginStart="5dp"
+          android:layout_marginEnd="5dp"
+          android:background="@drawable/style_forpolymaterialb_cycle_createspinner"
+          android:foregroundGravity="center"
+          android:gravity="center_horizontal|center_vertical"
+          android:hint="Количество"
+          android:inputType="number|numberDecimal"
+          android:minHeight="37dp"
+          android:textColorHighlight="#80807C"
+          android:textColor="#000000"
+          android:textColorHint="#80807C"
+          android:textSize="15sp"
+          android:textStyle="bold"
+          android:visibility="visible" />
+
+      <!--  todo кнопка для сохранения-->
+      <com.google.android.material.button.MaterialButton
+          android:id="@+id/bottomcreateassionmaterial"
+          style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton.Icon"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="10dp"
+          android:layout_centerInParent="true"
+          android:layout_centerHorizontal="true"
+          android:layout_marginLeft="115dp"
+          android:layout_alignParentLeft="true"
+          android:clickable="true"
+          android:enabled="true"
+          android:focusable="auto"
+          android:fontFamily="sans-serif-medium"
+          android:foregroundGravity="center"
+          android:gravity="center"
+          android:minHeight="25dp"
+          android:minWidth="120dp"
+          android:text="Сохранить"
+          android:textColor="#0E0E0E"
+          android:textSize="10sp"
+          android:textStyle="bold"
+          android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+          android:visibility="visible"
+          app:backgroundTint="#00E5FF"
+          app:cornerRadius="20dp"
+          android:translationZ="150dp"
+          tools:visibility="visible" />
+
+      <com.google.android.material.button.MaterialButton
+          android:id="@+id/textView19"
+          android:layout_width="match_parent"
+          android:layout_height="10dp"
+          android:layout_alignParentBottom="true"
+          android:background="#FFFAFA"
+          android:layout_marginTop="15dp"
+          android:layout_marginBottom="35dp"
+          android:padding="20dp"
+          android:visibility="invisible"
+          android:text="TextView666" />
+
+
+   </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

@@ -1,0 +1,869 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardviewassintasmatrial"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar"
+    android:checkable="true"
+    android:clickable="false"
+    android:focusable="true"
+    app:cardBackgroundColor="#F0FFFF"
+    app:cardCornerRadius="3dp"
+    app:cardElevation="10dp"
+    app:strokeColor="#FDFCFC"
+    app:cardMaxElevation="100dp"
+    app:strokeWidth="3dp"
+    android:translationZ="150dp"
+    android:animateLayoutChanges="true"
+    tools:context=".AdmissionMaterialsApp.Window.MainActivity_AdmissionMaterials">
+
+   <TableLayout
+       android:layout_width="match_parent"
+       android:shrinkColumns="*"
+       android:stretchColumns="*"
+       android:layout_height="wrap_content">
+
+      <TableRow
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="2dp"
+          android:layout_marginEnd="2dp"
+          android:gravity="center">
+
+   <ScrollView
+       android:id="@+id/scrollview_new_materials"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_alignParentTop="true"
+       android:layout_centerHorizontal="true"
+       android:fillViewport="true"
+       android:scrollbars="horizontal|vertical"
+       android:stackFromBottom="true"
+       android:transcriptMode="alwaysScroll">
+
+   <LinearLayout
+       android:id="@+id/scroll_new_assintalmaterial"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:background="#F0FFFF"
+       android:padding="2dp"
+       android:orientation="vertical">
+
+
+
+
+      <RelativeLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content">
+         <!-- todo#1-->
+         <com.google.android.material.textview.MaterialTextView
+             android:id="@+id/textviewnamecfo"
+             android:layout_width="150dp"
+             android:layout_height="wrap_content"
+             android:layout_centerHorizontal="true"
+             android:layout_marginTop="5dp"
+             android:layout_marginStart="5dp"
+             android:layout_marginEnd="5dp"
+             android:background="@drawable/style_for_assitiionmatrial_create_name"
+             android:gravity="center_vertical|center_horizontal"
+             android:hint="Цфо"
+             android:textColor="#000000"
+             android:textColorHint="#000000"
+             android:textSize="13sp"
+             android:textStyle="bold"
+             android:translationZ="1dp"
+             android:visibility="visible"
+             app:cardCornerRadius="1dp"
+             app:cardElevation="1dp" />
+
+         <com.google.android.material.textview.MaterialTextView
+             android:id="@+id/textViewcfo"
+             android:layout_width="match_parent"
+             android:layout_height="30dp"
+             android:layout_below="@+id/textviewnamecfo"
+             android:layout_alignParentLeft="true"
+             android:layout_alignParentRight="true"
+             android:layout_centerHorizontal="true"
+             android:layout_marginStart="5dp"
+             android:layout_marginEnd="5dp"
+             android:layout_marginTop="5dp"
+             android:background="@drawable/style_forpolymaterialb_cycle_createspinner"
+             android:gravity="center"
+             android:textAlignment="gravity"
+             android:textColor="#000000"
+             android:textColorHighlight="#80807C"
+             android:textColorHint="#80807C"
+             android:textSize="15sp"
+             android:textStyle="bold"
+             android:hint="Выберете цфо"
+             android:visibility="visible" />
+
+      </RelativeLayout>
+
+      <!--   todo сами элементы начало -->
+
+
+      <RelativeLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content">
+
+      <com.google.android.material.textview.MaterialTextView
+          android:id="@+id/textviewnamematerial"
+          android:layout_width="150dp"
+        android:layout_height="wrap_content"
+          android:layout_centerHorizontal="true"
+          android:layout_marginStart="20dp"
+          android:layout_marginTop="5dp"
+          android:layout_marginBottom="5dp"
+          android:background="@drawable/style_for_assitiionmatrial_create_name"
+          android:gravity="center_vertical|center_horizontal"
+          android:hint="Группа материалов"
+          android:minWidth="50dp"
+          android:textColorHint="#000000"
+          android:textSize="13sp"
+          android:textStyle="bold"
+          android:translationZ="1dp"
+          android:visibility="visible"
+          app:cardCornerRadius="5dp"
+          app:cardElevation="1dp" />
+
+
+      <com.google.android.material.textview.MaterialTextView
+          android:id="@+id/marerialtextgroupmaterial"
+          android:layout_width="match_parent"
+        android:layout_height="wrap_content" 
+          android:minHeight="30dp"
+          android:layout_below="@+id/textviewnamematerial"
+          android:layout_alignParentLeft="true"
+          android:layout_alignParentRight="true"
+          android:layout_centerHorizontal="true"
+          android:layout_marginStart="5dp"
+          android:layout_marginEnd="5dp"
+          android:layout_marginTop="5dp"
+          android:background="@drawable/style_forpolymaterialb_cycle_createspinner"
+          android:gravity="center"
+          android:textAlignment="gravity"
+          android:textColor="#000000"
+          android:textColorHighlight="#80807C"
+          android:textColorHint="#80807C"
+          android:textSize="15sp"
+          android:textStyle="bold"
+          android:hint="Выберете группу материалов"
+          android:visibility="visible" />
+
+      </RelativeLayout>
+
+
+
+      <RelativeLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content">
+
+      <com.google.android.material.textview.MaterialTextView
+          android:id="@+id/textviewnamematerials"
+          android:layout_width="150dp"
+        android:layout_height="wrap_content"
+          android:layout_centerHorizontal="true"
+          android:layout_marginStart="20dp"
+          android:layout_marginTop="5dp"
+          android:layout_marginBottom="5dp"
+          android:background="@drawable/style_for_assitiionmatrial_create_name"
+          android:gravity="center_vertical|center_horizontal"
+          android:hint="Материалы"
+          android:minWidth="50dp"
+          android:textColor="#000000"
+          android:textColorHint="#000000"
+          android:textSize="13sp"
+          android:textStyle="bold"
+          android:translationZ="1dp"
+          android:visibility="visible"
+          app:cardCornerRadius="5dp"
+          app:cardElevation="1dp" />
+
+
+      <!-- todo старрт добавление еще двух полей стак и компания-->
+
+      <com.google.android.material.textview.MaterialTextView
+          android:id="@+id/materialtext_onematerial_ves"
+          style="@android:style/Widget.Holo.TextView.SpinnerItem"
+          android:layout_below="@+id/textviewnamematerials"
+          android:layout_width="match_parent"
+          android:layout_height="30dp"
+          android:layout_alignParentLeft="true"
+          android:layout_alignParentRight="true"
+          android:layout_centerHorizontal="true"
+          android:layout_marginStart="5dp"
+          android:layout_marginEnd="5dp"
+          android:layout_marginTop="5dp"
+          android:background="@drawable/style_forpolymaterialb_cycle_createspinner"
+          android:gravity="center"
+          android:hint="Выберете материал"
+          android:minHeight="30dp"
+          android:textAlignment="gravity"
+          android:textColor="#000000"
+          android:textColorHighlight="#80807C"
+          android:textColorHint="#80807C"
+          android:textSize="15sp"
+          android:textStyle="bold"
+          android:visibility="visible" />
+
+      </RelativeLayout>
+
+
+
+      <RelativeLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content">
+
+
+
+      <com.google.android.material.textview.MaterialTextView
+          android:id="@+id/textviewtcomnapy"
+          android:layout_width="150dp"
+        android:layout_height="wrap_content"
+          android:layout_centerHorizontal="true"
+          android:layout_marginStart="20dp"
+          android:layout_marginTop="5dp"
+          android:layout_marginBottom="5dp"
+          android:background="@drawable/style_for_assitiionmatrial_create_name"
+          android:gravity="center_vertical|center_horizontal"
+          android:hint="Контрагент"
+          android:minWidth="50dp"
+          android:textColor="#000000"
+          android:textColorHint="#000000"
+          android:textSize="13sp"
+          android:textStyle="bold"
+          android:translationZ="1dp"
+          android:visibility="visible"
+          app:cardCornerRadius="5dp"
+          app:cardElevation="1dp" />
+
+
+      <com.google.android.material.textview.MaterialTextView
+          android:id="@+id/valuekontragent"
+          style="@android:style/Widget.Holo.TextView.SpinnerItem"
+          android:layout_below="@+id/textviewtcomnapy"
+          android:layout_width="match_parent"
+          android:layout_height="30dp"
+          android:layout_alignParentLeft="true"
+          android:layout_alignParentRight="true"
+          android:layout_centerHorizontal="true"
+          android:layout_marginStart="5dp"
+          android:layout_marginEnd="5dp"
+          android:layout_marginTop="5dp"
+          android:background="@drawable/style_forpolymaterialb_cycle_createspinner"
+          android:gravity="center"
+          android:textAlignment="gravity"
+          android:textColor="#000000"
+          android:textColorHighlight="#80807C"
+          android:textColorHint="#80807C"
+          android:textSize="15sp"
+          android:textStyle="bold"
+          android:padding="5dp"
+          android:hint="Выберете Контрагент"
+          android:visibility="visible" />
+
+      </RelativeLayout>
+
+
+
+      <!--   todo сами элементы конец -->
+
+
+
+
+
+
+
+
+      <RelativeLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content">
+
+
+      <!--todo  количество поле ввода данных -->
+      <com.google.android.material.textview.MaterialTextView
+          android:id="@+id/textviewtrack"
+          android:layout_width="150dp"
+        android:layout_height="wrap_content"
+          android:layout_centerHorizontal="true"
+          android:layout_marginStart="20dp"
+          android:layout_marginTop="5dp"
+          android:layout_marginBottom="5dp"
+          android:background="@drawable/style_for_assitiionmatrial_create_name"
+          android:gravity="center_vertical|center_horizontal"
+          android:hint="Автомобили"
+          android:minWidth="50dp"
+          android:textColor="#000000"
+          android:textColorHint="#000000"
+          android:textSize="13sp"
+          android:textStyle="bold"
+          android:translationZ="1dp"
+          android:visibility="visible"
+          app:cardCornerRadius="5dp"
+          app:cardElevation="1dp" />
+
+      <com.google.android.material.textview.MaterialTextView
+          android:id="@+id/valueavtomobil"
+          style="@android:style/Widget.Holo.TextView.SpinnerItem"
+          android:layout_below="@+id/textviewtrack"
+          android:layout_width="match_parent"
+          android:layout_height="30dp"
+          android:layout_alignParentLeft="true"
+          android:layout_alignParentRight="true"
+          android:layout_centerHorizontal="true"
+          android:layout_marginStart="5dp"
+          android:layout_marginEnd="5dp"
+          android:layout_marginTop="5dp"
+          android:minHeight="30dp"
+          android:background="@drawable/style_forpolymaterialb_cycle_createspinner"
+          android:gravity="center"
+          android:textAlignment="gravity"
+          android:textColor="#000000"
+          android:textColorHighlight="#80807C"
+          android:textColorHint="#80807C"
+          android:textSize="15sp"
+          android:textStyle="bold"
+          android:padding="5dp"
+          android:hint="Выберете Автомобиль"
+          android:visibility="visible" />
+
+
+
+
+      </RelativeLayout>
+
+
+
+
+
+      <RelativeLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content">
+
+
+      <com.google.android.material.textview.MaterialTextView
+          android:id="@+id/textviewmaterialttn"
+          android:layout_width="150dp"
+        android:layout_height="wrap_content"
+          android:layout_centerHorizontal="true"
+          android:layout_marginStart="20dp"
+          android:layout_marginTop="5dp"
+          android:layout_marginBottom="5dp"
+          android:background="@drawable/style_for_assitiionmatrial_create_name"
+          android:gravity="center_vertical|center_horizontal"
+          android:hint="Номер ттн"
+          android:minWidth="50dp"
+          android:textColor="#000000"
+          android:textColorHint="#000000"
+          android:textSize="13sp"
+          android:textStyle="bold"
+          android:translationZ="1dp"
+          android:visibility="visible"
+          app:cardCornerRadius="5dp"
+          app:cardElevation="1dp" />
+
+
+      <com.google.android.material.textfield.TextInputEditText
+          android:id="@+id/textipputmaretialttn"
+          style="@android:style/Widget.Holo.TextView.SpinnerItem"
+          android:layout_below="@+id/textviewmaterialttn"
+          android:layout_width="match_parent"
+          android:layout_height="30dp"
+          android:layout_alignParentLeft="true"
+          android:layout_alignParentRight="true"
+          android:layout_centerHorizontal="true"
+          android:layout_marginStart="5dp"
+          android:layout_marginEnd="5dp"
+          android:layout_marginTop="5dp"
+          android:background="@drawable/style_forpolymaterialb_cycle_createspinner"
+          android:foregroundGravity="center"
+          android:gravity="center"
+          android:hint="Номер ттн"
+          android:textColor="#000000"
+          android:textColorHighlight="#80807C"
+          android:textColorHint="#80807C"
+          android:textSize="15sp"
+          android:textStyle="bold"
+          android:visibility="visible" />
+
+
+
+      </RelativeLayout>
+
+
+
+
+
+      <RelativeLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content">
+
+
+
+      <com.google.android.material.textview.MaterialTextView
+          android:id="@+id/textviewmaterialttndata"
+          android:layout_width="150dp"
+        android:layout_height="wrap_content"
+          android:layout_centerHorizontal="true"
+          android:layout_marginStart="20dp"
+          android:layout_marginTop="5dp"
+          android:layout_marginBottom="5dp"
+          android:background="@drawable/style_for_assitiionmatrial_create_name"
+          android:gravity="center_vertical|center_horizontal"
+          android:hint="Дата ттн"
+          android:minWidth="50dp"
+          android:textColor="#000000"
+          android:textColorHint="#000000"
+          android:textSize="13sp"
+          android:textStyle="bold"
+          android:translationZ="1dp"
+          android:visibility="visible"
+          app:cardCornerRadius="5dp"
+          app:cardElevation="1dp" />
+
+
+      <TextView
+          android:id="@+id/textipputmaretialttdata"
+          style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+          android:layout_below="@+id/textviewmaterialttndata"
+          android:layout_width="match_parent"
+          android:layout_height="30dp"
+          android:layout_alignParentLeft="true"
+          android:layout_alignParentRight="true"
+          android:layout_centerHorizontal="true"
+          android:layout_marginStart="5dp"
+          android:layout_marginEnd="5dp"
+          android:layout_marginTop="5dp"
+          android:background="@drawable/style_forpolymaterialb_cycle_createspinner"
+          android:foregroundGravity="center"
+          android:gravity="center_horizontal|center_vertical"
+          android:hint="Дата ттн"
+          android:inputType="date"
+          android:textColor="#000000"
+          android:textColorHighlight="#80807C"
+          android:textColorHint="#80807C"
+          android:textSize="15sp"
+          android:textStyle="bold"
+          android:visibility="visible" />
+
+
+
+
+      </RelativeLayout>
+
+
+
+
+
+      <RelativeLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content">
+
+
+
+      <!-- todo нижнии поля вввода КОЛИЧЕСТВО  -->
+
+      <com.google.android.material.textview.MaterialTextView
+          android:id="@+id/textviewnamecount"
+          android:layout_width="150dp"
+        android:layout_height="wrap_content"
+          android:layout_centerHorizontal="true"
+         android:layout_margin="5dp"
+          android:background="@drawable/style_for_assitiionmatrial_create_name"
+          android:gravity="center_vertical|center_horizontal"
+          android:hint="Количество"
+          android:minWidth="50dp"
+          android:textColor="#000000"
+          android:textColorHint="#000000"
+          android:textSize="13sp"
+          android:textStyle="bold"
+          android:translationZ="1dp"
+          android:visibility="visible"
+          app:cardCornerRadius="5dp"
+          app:cardElevation="1dp" />
+
+
+      <com.google.android.material.textfield.TextInputEditText
+          android:id="@+id/textipputcountassinmaterail"
+          style="@android:style/Widget.Holo.TextView.SpinnerItem"
+          android:layout_below="@+id/textviewnamecount"
+          android:layout_width="match_parent"
+          android:layout_height="30dp"
+          android:layout_alignParentLeft="true"
+          android:layout_alignParentRight="true"
+          android:layout_centerHorizontal="true"
+          android:layout_margin="5dp"
+          android:padding="5dp"
+          android:background="@drawable/style_forpolymaterialb_cycle_createspinner"
+          android:foregroundGravity="center"
+          android:gravity="center"
+          android:hint="Количество"
+          android:inputType="number"
+          android:textColor="#000000"
+          android:textColorHighlight="#80807C"
+          android:textColorHint="#80807C"
+          android:textSize="15sp"
+          android:textStyle="bold"
+          android:visibility="visible" />
+
+      </RelativeLayout>
+   </LinearLayout>
+   </ScrollView>
+   </TableRow>
+
+      <TableRow
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:gravity="center">
+
+         <!--TODO начинаест строчка без сколлла КНОПКА СОХРАНИТЬ-->
+         <!--TODO начинаест строчка без сколлла КНОПКА СОХРАНИТЬ-->
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:background="#F0FFFF"
+             android:layout_margin="2dp"
+             android:padding="2dp"
+             android:orientation="vertical">
+            <!--todo IMAGE-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+               <!-- todo нижнии поля вввода КОЛИЧЕСТВО  -->
+               <com.google.android.material.textview.MaterialTextView
+                   android:id="@+id/textviewimage"
+                   android:layout_width="150dp"
+                   android:layout_height="wrap_content"
+                   android:layout_margin="2dp"
+                   android:padding="2dp"
+                   android:layout_centerHorizontal="true"
+                   android:background="@drawable/style_for_assitiionmatrial_create_name"
+                   android:gravity="center_vertical|center_horizontal"
+                   android:hint="Фотографии"
+                   android:textColor="#000000"
+                   android:textColorHint="#000000"
+                   android:textSize="13sp"
+                   android:textStyle="bold"
+                   android:translationZ="1dp"
+                   android:visibility="visible"
+                   app:cardCornerRadius="5dp"
+                   app:cardElevation="1dp" />
+
+
+
+               <!--  НАЧАЛО  блок Image -->
+               <TableLayout
+                   android:id="@+id/TableLayout_create_image"
+                   android:layout_below="@+id/textviewimage"
+                   android:shrinkColumns="*"
+                   android:stretchColumns="*"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:background="#F0FFFF"
+                   android:gravity="center"
+                   android:fadeScrollbars="false"
+                   android:scrollbarStyle="insideInset"
+                   android:scrollbarTrackVertical="@drawable/stylesingletablerowiine"
+                   android:scrollbarSize="10dp"
+                   android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+                   tools:context=".OrdersTransportsApp.Window.MainActivityOrdersTransports">
+
+                  <HorizontalScrollView
+                      android:id="@+id/ГоризонтльнаяПрокруткаВнутриСамТабель_mm"
+                      android:layout_width="match_parent"
+                      android:layout_height="match_parent"
+                      android:layout_gravity="center|center_horizontal"
+                      android:fadingEdge="horizontal|vertical"
+                      android:visibility="visible"
+                      app:layout_constraintBottom_toBottomOf="parent"
+                      app:layout_constraintEnd_toEndOf="parent"
+                      app:layout_constraintStart_toStartOf="parent"
+                      app:layout_constraintTop_toTopOf="@+id/КонтейнерКудаЗагружаетьсяФИО">
+                     <!--//TODO начало  стрчока Image-->
+                     <TableRow
+                         android:id="@+id/tablerow_create_image"
+                         android:layout_width="match_parent"
+                         android:layout_height="match_parent"
+                         android:gravity="center"
+                         android:background="#FFFFFF"
+                         android:layout_margin="2dp">
+
+
+                        <ImageView
+                            android:id="@+id/bottom_create_image"
+                            android:layout_column="0"
+                            android:layout_width="45dp"
+                            android:layout_height="45dp"
+                            android:text="1"
+                            android:background="@drawable/style_for_mateial_new_image1"
+                            android:gravity="center"
+                            android:layout_margin="2dp"
+                            android:adjustViewBounds="true"
+                            android:textSize="34sp"
+                            android:visibility="visible"
+                            android:scaleType="center"
+                            app:backgroundTint="#00E5FF"
+                            app:srcCompat="@drawable/icon_material_down_image1"
+                            android:textStyle="bold" />
+
+
+                        <ImageView
+                            android:id="@+id/im1"
+                            android:layout_column="1"
+                            android:layout_width="45dp"
+                            android:layout_height="45dp"
+                            android:scaleType="centerCrop"
+                            android:text="1"
+                            android:background="@drawable/style_for_mateial_new_image1"
+                            android:gravity="center"
+                            android:layout_margin="2dp"
+                            android:adjustViewBounds="true"
+                            android:textSize="34sp"
+                            android:visibility="visible"
+                            android:tooltipText="рис.1"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:id="@+id/im2"
+                            android:layout_column="2"
+                            android:layout_width="45dp"
+                            android:layout_height="45dp"
+                            android:scaleType="centerCrop"
+                            android:text="2"
+                            android:gravity="center"
+                            android:layout_margin="2dp"
+                            android:background="@drawable/style_for_mateial_new_image1"
+                            android:adjustViewBounds="true"
+                            android:textSize="34sp"
+                            android:visibility="visible"
+                            android:tooltipText="рис.2"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:id="@+id/im3"
+                            android:layout_column="3"
+                            android:layout_width="45dp"
+                            android:layout_height="45dp"
+                            android:scaleType="centerCrop"
+                            android:text="3"
+                            android:gravity="center"
+                            android:layout_margin="2dp"
+                            android:background="@drawable/style_for_mateial_new_image1"
+                            android:adjustViewBounds="true"
+                            android:textSize="34sp"
+                            android:visibility="visible"
+                            android:tooltipText="рис.3"
+                            android:textStyle="bold" />
+                        <ImageView
+                            android:id="@+id/im4"
+                            android:layout_column="4"
+                            android:layout_width="45dp"
+                            android:layout_height="45dp"
+                            android:scaleType="centerCrop"
+                            android:text="4"
+                            android:gravity="center"
+                            android:layout_margin="2dp"
+                            android:background="@drawable/style_for_mateial_new_image1"
+                            android:adjustViewBounds="true"
+                            android:textSize="34sp"
+                            android:textStyle="bold"
+                            android:tooltipText="рис.4"
+                            android:visibility="visible" />
+
+                        <ImageView
+                            android:id="@+id/im5"
+                            android:layout_column="5"
+                            android:layout_width="45dp"
+                            android:layout_height="45dp"
+                            android:scaleType="centerCrop"
+                            android:text="4"
+                            android:gravity="center"
+                            android:layout_margin="2dp"
+                            android:background="@drawable/style_for_mateial_new_image1"
+                            android:adjustViewBounds="true"
+                            android:textSize="34sp"
+                            android:textStyle="bold"
+                            android:tooltipText="рис.5"
+                            android:visibility="visible" />
+                        <ImageView
+                            android:id="@+id/im6"
+                            android:layout_column="5"
+                            android:layout_width="45dp"
+                            android:layout_height="45dp"
+                            android:scaleType="centerCrop"
+                            android:text="4"
+                            android:gravity="center"
+                            android:layout_margin="2dp"
+                            android:background="@drawable/style_for_mateial_new_image1"
+                            android:adjustViewBounds="true"
+                            android:textSize="34sp"
+                            android:textStyle="bold"
+                            android:tooltipText="рис.6"
+                            android:visibility="visible" />
+                        <ImageView
+                            android:id="@+id/im7"
+                            android:layout_column="5"
+                            android:layout_width="45dp"
+                            android:layout_height="45dp"
+                            android:scaleType="centerCrop"
+                            android:text="4"
+                            android:gravity="center"
+                            android:layout_margin="2dp"
+                            android:background="@drawable/style_for_mateial_new_image1"
+                            android:adjustViewBounds="true"
+                            android:textSize="34sp"
+                            android:textStyle="bold"
+                            android:tooltipText="рис.7"
+                            android:visibility="visible" />
+                        <ImageView
+                            android:id="@+id/im8"
+                            android:layout_column="5"
+                            android:layout_width="45dp"
+                            android:layout_height="45dp"
+                            android:scaleType="centerCrop"
+                            android:text="4"
+                            android:gravity="center"
+                            android:layout_margin="2dp"
+                            android:background="@drawable/style_for_mateial_new_image1"
+                            android:adjustViewBounds="true"
+                            android:textSize="34sp"
+                            android:textStyle="bold"
+                            android:tooltipText="рис.8"
+                            android:visibility="visible" />
+                        <ImageView
+                            android:id="@+id/im9"
+                            android:layout_column="5"
+                            android:layout_width="45dp"
+                            android:layout_height="45dp"
+                            android:scaleType="centerCrop"
+                            android:text="4"
+                            android:gravity="center"
+                            android:layout_margin="2dp"
+                            android:background="@drawable/style_for_mateial_new_image1"
+                            android:adjustViewBounds="true"
+                            android:textSize="34sp"
+                            android:textStyle="bold"
+                            android:tooltipText="рис.9"
+                            android:visibility="visible" />
+                        <ImageView
+                            android:id="@+id/im10"
+                            android:layout_column="5"
+                            android:layout_width="45dp"
+                            android:layout_height="45dp"
+                            android:scaleType="centerCrop"
+                            android:text="4"
+                            android:gravity="center"
+                            android:layout_margin="2dp"
+                            android:background="@drawable/style_for_mateial_new_image1"
+                            android:adjustViewBounds="true"
+                            android:textSize="34sp"
+                            android:textStyle="bold"
+                            android:tooltipText="рис.10"
+                            android:visibility="visible" />
+
+                     </TableRow>
+                     <!--//TODO начало    строчки ТС-->
+                  </HorizontalScrollView>
+
+               </TableLayout>
+
+
+            </RelativeLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <RelativeLayout
+                android:id="@+id/linearlayout2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:padding="2dp"
+                >
+
+               <!--  todo кнопка для сохранения-->
+               <com.google.android.material.button.MaterialButton
+                   android:id="@+id/bottomcreateassionmaterial"
+                   style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton.Icon"
+                   android:layout_width="120dp"
+                   android:layout_height="40dp"
+                   android:layout_centerInParent="true"
+                   android:clickable="true"
+                   android:enabled="true"
+                   android:focusable="auto"
+                   android:fontFamily="sans-serif-medium"
+                   android:foregroundGravity="center"
+                   android:gravity="center"
+                   android:text="Сохранить"
+                   android:textColor="#0E0E0E"
+                   android:textSize="10sp"
+                   android:textStyle="bold"
+                   android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+                   android:translationZ="150dp"
+                   android:visibility="visible"
+                   app:backgroundTint="#00E5FF"
+                   app:cornerRadius="20dp"
+                   tools:visibility="visible" />
+
+            </RelativeLayout>
+
+
+
+
+
+
+
+
+
+
+
+         </LinearLayout>
+
+
+
+      </TableRow>
+
+
+
+
+
+
+   </TableLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</com.google.android.material.card.MaterialCardView>

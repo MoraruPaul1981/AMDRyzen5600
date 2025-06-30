@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardveiw_otsinglerow"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layout_gravity="center"
+    app:cardCornerRadius="1dp"
+    app:cardElevation="10dp"
+    app:cardMaxElevation="5dp"
+    app:strokeWidth="1dp"
+    android:translationZ="100dp"
+    android:animateLayoutChanges="true"
+    android:background="#F0FFFF"
+    app:cardBackgroundColor="#F0FFFF"
+    app:strokeColor="#316E6E"
+    tools:context=".OrdersTransportsApp.Window.MainActivityOrdersTransports">
+    <!--  НАЧАЛО ПЕРВОГО БЛОКА -->
+        <TableLayout
+            android:id="@+id/tablelayout_singleot_gosnomer"
+            android:shrinkColumns="*"
+            android:stretchColumns="*"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#F0FFFF"
+            android:gravity="center_horizontal|center_vertical"
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+            tools:context=".OrdersTransportsApp.Window.MainActivityOrdersTransports">
+            <!--//TODO начало    строчки ЦФО-->
+            <TableRow
+                android:id="@+id/tableRowChildOt_gosnomer"
+                android:layout_width="match_parent"
+                android:gravity="center_vertical|center_horizontal"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:id="@+id/linearlayout_otsinglerow"
+                    android:layout_column="0"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#F0FFFF"
+                    android:gravity="center"
+                    tools:context=".OrdersTransportsApp.Window.MainActivityOrdersTransports"
+                    android:orientation="vertical">
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/ot_key_order_singlevalue"
+                    android:layout_column="0"
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:layout_marginStart="100dp"
+                    android:layout_marginEnd="100dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:hint="Шабка Новой  "
+                    android:padding="1dp"
+                    android:animateLayoutChanges="true"
+                    android:background="@drawable/style_for_assitiionmatrial_create_name"
+                    android:gravity="center"
+                    android:visibility="visible"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="10dp"
+                    app:srcCompat="@drawable/icon_ordertransportorder1"
+                    app:strokeColor="#F5FFFA" />
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/ot_date_order_singlevalue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="20dp"
+                    android:padding="1dp"
+                    android:layout_margin="1dp"
+                    android:background="@drawable/stylesingletablerowiine4"
+                    android:checkMark="?android:attr/textCheckMark"
+                    android:foregroundGravity="center"
+                    android:gravity="center"
+                    android:paddingStart="?android:attr/listPreferredItemPaddingStart"
+                    android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
+                    android:hint="  Данные Новой Строчки #1"
+                    android:textAlignment="gravity"
+                    android:textAppearance="?android:attr/textAppearanceListItemSmall"
+                    android:textColor="#000000"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="10dp"
+                    app:strokeColor="#F5FFFA"
+                    android:animateLayoutChanges="true"
+                    android:visibility="visible"/>
+                 </LinearLayout>
+
+            </TableRow>
+            <!--//TODO начало    строчки ТС-->
+            <!--//TODO конец первой строки Названия -->
+        </TableLayout>
+</com.google.android.material.card.MaterialCardView>
+
+
+
+
+
+

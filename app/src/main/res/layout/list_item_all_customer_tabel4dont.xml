@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@android:id/text1"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:layout_margin="5dp">
+
+
+
+
+    <CheckedTextView
+        android:id="@+id/textView3SapolnitFrrombackmezaz"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center|right"
+        android:layout_centerInParent="true"
+        android:paddingStart="?android:attr/listPreferredItemPaddingStart"
+        android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
+        android:text="Табеля нет !!!    "
+        android:textAlignment="center"
+        android:textAppearance="?android:attr/textAppearanceListItemSmall"
+        android:layout_marginLeft="25dp"
+        android:textSize="15sp"
+        android:clickable="false"
+        android:checked="true"
+        android:checkMark="?android:attr/listChoiceIndicatorSingle"
+        android:onClick="toggle" />
+
+
+
+</RelativeLayout>
+
+
+
+

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:popupTheme="@style/fortasknavigator">
+
+
+    <item
+        android:id="@+id/id_commiback"
+        android:checkable="true"
+        android:icon="@drawable/icon_dsu1_commit_exit556"
+        android:iconTint="#03A9F4"
+        android:title="Выйти">
+
+    </item>
+    <item
+        android:id="@+id/id_commitasync"
+        android:contentDescription="Обмен"
+        android:icon="@drawable/icon_dsu1_commit_async"
+        android:iconTint="#E91E63"
+        android:title="Обновить"
+        android:tooltipText="Получение данных от сервера">
+</item>
+
+
+
+
+
+
+
+        />
+</menu>

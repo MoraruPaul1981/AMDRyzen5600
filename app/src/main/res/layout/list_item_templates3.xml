@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@android:id/text1"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:gravity="center_horizontal"
+    android:visibility="visible"
+    android:orientation="vertical"
+    tools:context=".TabelsApp.Peoples.MainActivityListPeoples">
+
+
+
+
+<TableLayout
+    android:id="@+id/tableLayoutPeople"
+    android:shrinkColumns="*"
+    android:stretchColumns="*"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="#FFFFFF"
+    android:gravity="center_horizontal|center_vertical"
+    android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+
+    >
+                <!--//TODO начало    строчки ЦФО-->
+                <TableRow
+                    android:id="@+id/tableRowPeople"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="2dp"
+                    android:padding="2dp"
+                    android:gravity="center_vertical|center_horizontal">
+
+                    <CheckedTextView xmlns:android="http://schemas.android.com/apk/res/android"
+                        xmlns:app="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/checkedtextviewtemplates"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:textAlignment="gravity"
+                        android:layout_margin="5dp"
+                        android:padding="2dp"
+                        android:background="@drawable/stylefortemplates1"
+                        android:checkMark="?android:attr/textCheckMarkInverse"
+                        android:paddingStart="?android:attr/listPreferredItemPaddingStart"
+                        android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
+                        android:textAppearance="?android:attr/textAppearanceListItemSmall"
+                        android:textColor="#000000"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        app:layout_gravity="center_horizontal"
+                        android:visibility="visible"/>
+
+
+
+
+                </TableRow>
+                <!--//TODO начало    строчки ТС-->
+                <!--//TODO конец первой строки Названия -->
+        </TableLayout>
+
+
+</LinearLayout>
+
+
+
+
+
+
+
+
+
+
+

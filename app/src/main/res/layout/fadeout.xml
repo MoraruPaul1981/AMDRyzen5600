@@ -1,0 +1,6 @@
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fillAfter="true" android:layout_height="match_parent" android:layout_width="match_parent">
+    <alpha android:fromAlpha="1.0"
+        android:toAlpha="0.0"
+        android:duration="500"/> //Time in milliseconds
+</set>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:bottom="3dp">
+
+
+        <shape android:shape="rectangle">
+
+            <corners android:radius="0dp" />
+            <stroke
+                android:width="0.5dp"
+                android:color="#f7125d" />
+        </shape>
+    </item>
+
+
+</layer-list><!--стиль подчеркивания textview and editext-->
+
+    <!--стиль подчеркивания добавляет цвет красный вниз
+      <stroke
+                android:color="#F4ECEC"
+                android:width="10dp"
+                android:height="10dp"
+
+                      <stroke
+                android:color="#f0c284"
+                android:width="10dp"
+                android:height="10dp"
+                />
+                />
+    />-->

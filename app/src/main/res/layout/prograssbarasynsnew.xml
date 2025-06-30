@@ -1,0 +1,24 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@android:id/background">
+        <shape android:shape="oval">
+            <stroke
+                android:width="10dp"
+                android:color="#DADADA" />
+        </shape>
+    </item>
+    <item android:id="@android:id/progress">
+        <rotate
+            android:fromDegrees="180"
+            android:pivotX="50%"
+            android:pivotY="50%"
+            android:toDegrees="180">
+            <shape
+                android:innerRadiusRatio="2.2"
+                android:shape="ring"
+                android:thickness="10dp"
+                android:thicknessRatio="25.0">
+                <solid android:color="#2299FF" />
+            </shape>
+        </rotate>
+    </item>
+</layer-list>

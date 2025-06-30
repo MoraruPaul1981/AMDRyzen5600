@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_fragment3_for_create_new_tasks"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5FFFA"
+    android:orientation="vertical"
+    tools:context=".TasksApp.MainActivity_Tasks">
+
+
+    <RelativeLayout
+        android:id="@+id/activitynain_for_Taskslinelayoutrela3nameAndLine"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:background="#F5FFFA"
+        tools:context=".TasksApp.MainActivity_Tasks">
+
+
+        <TextView
+            android:id="@+id/activy_task_fragment1_tasksnameеtextview"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:text=""
+            android:textAlignment="textStart"
+            android:textColor="#000000"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:visibility="visible"
+            tools:ignore="MissingConstraints,RtlCompat" />
+
+        <View
+            android:id="@+id/viewФрагментДляактивтизадачи"
+            android:layout_width="110dp"
+            android:layout_height="3dp"
+            android:layout_below="@+id/activy_task_fragment1_tasksnameеtextview"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="2dp"
+            android:background="@color/colorPrimaryDark"
+            android:gravity="center_vertical"
+            app:layout_constraintTop_toTopOf="@+id/activy_task_fragment1_tasksnameеtextview" />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/activitynain_for_Taskslinelayoutrela3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:background="#F5FFFA"
+        android:orientation="vertical"
+        tools:context=".TasksApp.MainActivity_Tasks">
+
+
+        <TextView
+            android:id="@+id/activy_task_nameеtextviewcursornull"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:text="Нет Задач !!!"
+            android:textAlignment="textStart"
+            android:textColor="#48D1CC"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            tools:ignore="MissingConstraints,RtlCompat" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycleviewActivi_create_newTask"
+            android:layout_width="match_parent"
+            android:layout_height="610dp"
+            android:layout_alignParentEnd="@+id/bottomnavigationActiviTask8"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:padding="10dp"
+            android:visibility="visible"
+            tools:ignore="MissingConstraints" />
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottomnavigationActiviTask8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/recycleviewActivi_create_newTask"
+            android:layout_alignBottom="@+id/recycleviewActivi_create_newTask"
+            android:layout_alignParentBottom="true"
+            app:menu="@menu/manu_navigator_buttom_for_task"
+            app:popupTheme="@style/fortasknavigator"
+            tools:ignore="MissingConstraints" />
+
+
+    </RelativeLayout>
+
+
+</LinearLayout>
+

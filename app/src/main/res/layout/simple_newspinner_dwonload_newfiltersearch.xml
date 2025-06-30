@@ -1,0 +1,30 @@
+<com.google.android.material.textview.MaterialTextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".TabelsApp.Tabel.New.MainActivityNewTabels"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@android:id/text1"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:padding="2dp"
+    android:checkMark="?android:attr/listChoiceIndicatorSingle"
+    android:gravity="center_vertical|center_horizontal"
+    android:minWidth="50dp"
+    android:minHeight="40dp"
+    android:textStyle="normal"
+    android:textColor="@color/colorPrimary"
+    android:textSize="13dp"
+    android:background="@drawable/style_for_newstypespinners_ietm7"
+    android:translationZ="5dp"
+    app:cardCornerRadius="3dp"
+    app:cardElevation="1dp"
+    app:cardMaxElevation="5dp"
+    app:cornerRadius="10dp"
+    android:icon="@drawable/brograssbarnews4"
+    app:strokeWidth="0dp">
+</com.google.android.material.textview.MaterialTextView>
+
+
+
+

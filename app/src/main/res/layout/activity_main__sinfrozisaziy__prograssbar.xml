@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawerLayout_async_prograsser"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:openDrawer="left"
+    android:visibility="visible"
+    android:background="#FFFFFF"
+    android:backgroundTint="@color/cardview_light_background"
+    tools:context=".CoreApp.Apps.SettingsCoreApp.View.MainActivity_Settings">
+
+<!--//TODO Начало Основного Экрана-->
+
+
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/LineLayFaceApp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FFFFFF"
+            android:backgroundTint="@color/cardview_light_background"
+            android:gravity="center"
+            android:visibility="visible"
+            android:layout_margin="5dp"
+            android:padding="5dp"
+            tools:layout_editor_absoluteX="5dp"
+            tools:context=".SettingsCoreApp.MainActivity_Visible_Async"
+            tools:layout_editor_absoluteY="5dp">
+
+
+            <ImageView
+                android:id="@+id/imageView_icon_asynsapp"
+                android:layout_width="37dp"
+                android:layout_height="37dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="#FFFFFF"
+                android:foregroundGravity="center_vertical"
+                android:stateListAnimator="@android:animator/fade_in"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/icon_dsu1_async_asynprograssbar"
+                tools:src="@tools:sample/avatars" />
+
+
+            <ProgressBar
+                android:id="@+id/progressBar4ПоКругуСинхронизации"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="100dp"
+                android:layout_height="115dp"
+                android:layout_marginStart="120dp"
+                android:layout_marginEnd="120dp"
+                android:indeterminate="false"
+                android:max="100"
+                android:padding="5dip"
+                android:progress="0"
+                android:progressDrawable="@drawable/brograssbarnews2"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.25" />
+
+            <TextView
+                android:id="@+id/TextViewДляProgressBarГлавнойСинхронизации"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:fontFamily="@font/archivo_black"
+                android:gravity="center_horizontal|center_vertical"
+                android:minWidth="30dp"
+                android:padding="1dp"
+                android:text="0%"
+                android:textAlignment="center"
+                android:textColor="@color/colorAccent"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="@+id/progressBar4ПоКругуСинхронизации"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/progressBar4ПоКругуСинхронизации" />
+
+
+            <TextView
+                android:id="@+id/textViewТекущийПользовательПРиВизуальнойСинхронизации"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="sans-serif-condensed-light"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/TExtViewНазваниеКонторыСнизуСинх"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/TExtViewНазваниеКонторыСнизуСинх"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="60dp"
+                android:fontFamily="sans-serif-condensed-light"
+                android:minWidth="40dp"
+                android:textAlignment="center"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+    <!--TODO НАчало Боллоковой Панели-->
+    <com.google.android.material.navigation.NavigationView
+        tools:context=".SettingsCoreApp.MainActivity_Visible_Async"
+        android:id="@+id/navigator_asyncapp"
+        android:layout_width="230dp"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF"
+        android:layout_gravity="left"
+        android:layout_marginRight="160dp"
+        android:fitsSystemWindows="true"
+        app:itemIconSize="35dp"
+        app:itemIconTint="#00ACC1"
+        android:visibility="visible"
+        android:backgroundTint="@color/cardview_light_background"
+        app:itemTextColor="@color/cardview_dark_background"
+        app:menu="@menu/menu_for_asynsapp_navigationview">
+    </com.google.android.material.navigation.NavigationView>
+
+</androidx.drawerlayout.widget.DrawerLayout>

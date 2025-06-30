@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="5dp"
+    android:background="#FFFFFF"
+    android:layout_gravity="center_horizontal|center_vertical"
+    android:id="@+id/relativeLayout"
+    tools:context=".TabelsApp.Tabel.ListTabels.MainActivity_List_Tabels">
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/КонопкаНазадСтрелкаВсеТабеля"
+        android:layout_width="70dp"
+        android:layout_height="40dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="#FFFFFF"
+        android:stateListAnimator="@drawable/icon_dsu1_exit3_foreground"
+        android:textAlignment="center"
+        android:visibility="visible"
+        app:backgroundTint="#FFFFFF"
+        app:icon="@drawable/icon_dsu1_exit3_foreground"
+        app:iconGravity="textEnd"
+        app:iconSize="40dp"
+        app:iconTint="#FFD5D9DA"
+        app:rippleColor="#F50057" />
+
+
+    <TextView
+        android:id="@+id/textView3СловоТабель"
+        style="@style/Widget.MaterialComponents.MaterialCalendar.DayTextView"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_toLeftOf="@+id/textViewКоличествоТабелей"
+        android:layout_toRightOf="@+id/КонопкаНазадСтрелкаВсеТабеля"
+        android:background="#FFFFFF"
+        android:bufferType="normal"
+        android:gravity="center"
+        android:fontFamily="sans-serif-light"
+        android:foregroundGravity="center"
+        android:text="Табеля"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textColor="#0E0E0E"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+
+    <TextView
+        android:id="@+id/textViewКоличествоТабелей"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="#FFFFFF"
+        android:gravity="center"
+        android:text="(0)"
+        android:textAlignment="center"
+        android:textColor="#0E0E0E"
+        android:textSize="12sp"
+        android:textStyle="bold" />
+
+
+    <View
+        android:id="@+id/view2Линия"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:layout_below="@+id/КонопкаНазадСтрелкаВсеТабеля"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginBottom="3dp"
+        android:background="#FFD5D9DA"
+        android:foregroundGravity="center"
+        android:visibility="visible"
+        tools:visibility="visible" />
+
+<!--    КОНЕЦ ВЕРХНЕЙ СТРОЧКИ-->
+
+<!--   НАЧАЛО САМИХ ДАННЫХ ВСЕ ТАБЕЛЯ -->
+    <GridView
+        android:id="@+id/gridViewAllTabes"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/КруглаяКнопкаСамТабель"
+        android:layout_below="@+id/view2Линия"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="#FFFFFF"
+        android:columnWidth="700dp"
+        android:gravity="center"
+        android:horizontalSpacing="5dp"
+        android:numColumns="1"
+        android:padding="2dp"
+        android:scrollIndicators="left"
+        android:scrollbars="horizontal|vertical"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="10dp"
+        android:fitsSystemWindows="true"
+        tools:ignore="MissingConstraints"></GridView>
+
+
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/КруглаяКнопкаСамТабель"
+        android:layout_width="56dp"
+        android:layout_height="83dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="bottom|end"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/icon_dsu1_add_tably1"
+        android:visibility="visible"
+        app:backgroundTint="#D5D9DA"
+        app:fabSize="auto" />
+
+
+    <Spinner
+        android:id="@+id/СпинерТабельМесяцИсториииТабелей"
+        style="@android:style/Widget.Holo.Light.Spinner"
+        android:layout_width="310dp"
+        android:layout_height="41dp"
+        android:layout_toLeftOf ="@+id/КруглаяКнопкаСамТабель"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginStart="5dp"
+        android:background="@drawable/style_forpolymaterialb_cycle_createspinner3"
+        android:backgroundTintMode="multiply"
+        android:dropDownWidth="wrap_content"
+        android:spinnerMode="dropdown"
+        android:textColor="#0E0E0E"
+        android:textSize="9dp"
+        android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"
+        android:visibility="visible" />
+
+
+
+
+</RelativeLayout>

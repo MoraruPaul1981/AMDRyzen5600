@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawerLayout_faceapp_menu"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:openDrawer="left"
+    android:background="#FFFFFF"
+    tools:context=".SettingsCoreApp.MainActivity_Face_App_OLd">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout_faceapp22"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF"
+        android:foregroundGravity="center"
+        android:scrollbars="vertical">
+
+
+        <ImageView
+            android:id="@+id/imageView_ЗначекApp"
+            android:layout_width="37dp"
+            android:layout_height="37dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="1dp"
+            android:layout_marginBottom="5dp"
+            android:foregroundGravity="center_vertical"
+            android:scaleType="centerCrop"
+            android:stateListAnimator="@android:animator/fade_in"
+            android:visibility="visible"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@mipmap/icon_dsu1_for_mains_menu_faceapp111"
+            tools:src="@tools:sample/avatars" />
+
+
+        <ScrollView
+            android:id="@+id/ScrollFaceApp"
+            android:layout_width="match_parent"
+            android:layout_height="620dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginStart="5dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imageView_ЗначекApp"
+            app:layout_constraintVertical_bias="0.52">
+
+            <LinearLayout
+                android:id="@+id/LineLayFaceApp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="1dp"
+                android:layout_marginBottom="50dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imageView_ЗначекApp"
+                app:layout_constraintVertical_bias="0.32999998">
+
+
+                <!--todo ТАБЕЛЬ-->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="130dp"
+                    android:animateLayoutChanges="true"
+                    android:checkable="true"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:padding="1dp"
+                    android:singleLine="false"
+                    android:textAlignment="center"
+                    android:textSize="10sp"
+                    android:translationZ="15dp"
+                    app:cardBackgroundColor="#FFFFFF"
+                    app:cardCornerRadius="1dp"
+                    app:cardElevation="2dp"
+                    app:cardMaxElevation="100dp"
+                    app:strokeColor="#DCDADA"
+                    app:strokeWidth="2dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingLeft="2dp"
+                        android:paddingTop="2dp"
+                        android:paddingRight="2dp"
+                        android:paddingBottom="2dp">
+
+                        <TextView
+                            android:id="@+id/textViewtabel"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerInParent="true"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:gravity="center"
+                            android:text="Табель"
+                            android:textAlignment="gravity"
+                            android:textAppearance="?android:attr/textAppearanceListItemSmall"
+                            android:textColor="#000000"
+                            android:textSize="19sp"
+                            android:textStyle="bold"
+                            android:visibility="visible" />
+
+                        <ProgressBar
+                            android:id="@+id/progressBarTabel"
+                            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerHorizontal="true"
+                            android:indeterminate="true"
+                            android:visibility="invisible" />
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_alignLeft="@+id/textViewtabel"
+                            android:layout_centerHorizontal="true"
+                            android:layout_centerVertical="true"
+                            android:paddingLeft="5dp"
+                            app:srcCompat="@drawable/icon_dsu1_for_mainactivity_tabel2" />
+
+
+                    </RelativeLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+
+                <!--todo СОГЛАСОВАНИЕ-->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="130dp"
+                    android:layout_marginTop="30dp"
+                    android:animateLayoutChanges="true"
+                    android:checkable="true"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:padding="1dp"
+                    android:singleLine="false"
+                    android:textAlignment="center"
+                    android:textSize="10sp"
+                    android:translationZ="15dp"
+                    app:cardBackgroundColor="#FFFFFF"
+                    app:cardCornerRadius="1dp"
+                    app:cardElevation="2dp"
+                    app:cardMaxElevation="100dp"
+                    app:strokeColor="#DCDADA"
+                    app:strokeWidth="2dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingLeft="2dp"
+                        android:paddingTop="2dp"
+                        android:paddingRight="2dp"
+                        android:paddingBottom="2dp">
+
+                        <TextView
+                            android:id="@+id/textViewsogsovanie"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerInParent="true"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:gravity="center"
+                            android:text="Согласование"
+                            android:textAlignment="gravity"
+                            android:textAppearance="?android:attr/textAppearanceListItemSmall"
+                            android:textColor="#000000"
+                            android:textSize="19sp"
+                            android:textStyle="bold"
+                            android:visibility="visible" />
+
+                        <ProgressBar
+                            android:id="@+id/progressCommitpay"
+                            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerHorizontal="true"
+                            android:indeterminate="true"
+                            android:visibility="invisible" />
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_alignLeft="@+id/textViewsogsovanie"
+                            android:layout_centerHorizontal="true"
+                            android:layout_centerVertical="true"
+                            android:paddingLeft="5dp"
+                            app:srcCompat="@drawable/icon_dsu1_commit_pays" />
+
+
+                    </RelativeLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+
+                <!--todo  ПОСТУПЛЕНИЕ МАТЕРИАЛОВ-->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="130dp"
+                    android:layout_marginTop="30dp"
+                    android:animateLayoutChanges="true"
+                    android:checkable="true"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:padding="1dp"
+                    android:singleLine="false"
+                    android:textAlignment="center"
+                    android:textSize="10sp"
+                    android:translationZ="15dp"
+                    app:cardBackgroundColor="#FFFFFF"
+                    app:cardCornerRadius="1dp"
+                    app:cardElevation="2dp"
+                    app:cardMaxElevation="100dp"
+                    app:strokeColor="#DCDADA"
+                    app:strokeWidth="2dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingLeft="2dp"
+                        android:paddingTop="2dp"
+                        android:paddingRight="2dp"
+                        android:paddingBottom="2dp">
+
+                        <TextView
+                            android:id="@+id/textViewGetMaretial"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerInParent="true"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:gravity="center"
+                            android:text="    Поступление \n материалов"
+                            android:textAlignment="gravity"
+                            android:textAppearance="?android:attr/textAppearanceListItemSmall"
+                            android:textColor="#000000"
+                            android:textSize="19sp"
+                            android:textStyle="bold"
+                            android:visibility="visible" />
+
+                        <ProgressBar
+                            android:id="@+id/prograessbarOrderTransport"
+                            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerHorizontal="true"
+                            android:indeterminate="true"
+                            android:visibility="invisible" />
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_alignLeft="@+id/textViewGetMaretial"
+                            android:layout_centerHorizontal="true"
+                            android:layout_centerVertical="true"
+                            android:paddingLeft="5dp"
+                            app:srcCompat="@drawable/icon_dsu1_postubleniymaterialov" />
+                    </RelativeLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+
+                <!--todo ЗАЯВКА НА ТРАСПОРТ-->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="130dp"
+                    android:layout_marginTop="30dp"
+                    android:animateLayoutChanges="true"
+                    android:checkable="true"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:padding="1dp"
+                    android:singleLine="false"
+                    android:textAlignment="center"
+                    android:textSize="10sp"
+                    android:translationZ="15dp"
+                    app:cardBackgroundColor="#FFFFFF"
+                    app:cardCornerRadius="1dp"
+                    app:cardElevation="2dp"
+                    app:cardMaxElevation="100dp"
+                    app:strokeColor="#DCDADA"
+                    app:strokeWidth="2dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingLeft="2dp"
+                        android:paddingTop="2dp"
+                        android:paddingRight="2dp"
+                        android:paddingBottom="2dp">
+
+                        <TextView
+                            android:id="@+id/textViewZakazTrasport"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerInParent="true"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:gravity="center"
+                            android:text="    Заявки \n на траспорт"
+                            android:textAlignment="gravity"
+                            android:textAppearance="?android:attr/textAppearanceListItemSmall"
+                            android:textColor="#000000"
+                            android:textSize="19sp"
+                            android:textStyle="bold"
+                            android:visibility="visible" />
+
+                        <ProgressBar
+                            android:id="@+id/prograessbarControlAccess"
+                            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerHorizontal="true"
+                            android:indeterminate="true"
+                            android:visibility="invisible" />
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_alignLeft="@+id/textViewZakazTrasport"
+                            android:layout_centerHorizontal="true"
+                            android:layout_centerVertical="true"
+                            android:paddingLeft="5dp"
+                            app:srcCompat="@drawable/icon_rdertransport_aceapp" />
+                    </RelativeLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+
+
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigator_faceapp_main"
+        android:layout_width="230dp"
+        android:background="#FFFFFF"
+        android:layout_gravity="left"
+        android:layout_height="match_parent"
+        android:layout_marginRight="160dp"
+        android:fitsSystemWindows="true"
+        app:itemIconSize="35dp"
+        app:itemIconTint="#00ACC1"
+        android:visibility="gone"
+        app:itemTextColor="@color/cardview_dark_background"
+        app:menu="@menu/menu_for_faceapp_navigationview"
+        tools:ignore="MissingConstraints">
+
+    </com.google.android.material.navigation.NavigationView>
+
+</androidx.drawerlayout.widget.DrawerLayout>

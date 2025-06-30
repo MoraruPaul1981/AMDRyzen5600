@@ -1,0 +1,81 @@
+<LinearLayout android:id="@+id/lineoutneespinner1"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#FFFFFF"
+    tools:context=".TabelsApp.Tabel.New.MainActivityNewTabels"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout
+        android:id="@+id/RelativeLayoutinnner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="#FFFFFF"
+        tools:context=".TabelsApp.Tabel.New.MainActivityNewTabels">
+
+
+        <GridView
+            android:id="@+id/listView_create_image"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerHorizontal="true"
+            android:layout_centerInParent="true"
+            android:background="@drawable/style_for_newstypespinners_ietm7_frolist"
+            android:divider="#FFFFFF"
+            android:dividerHeight="2dp"
+            android:horizontalSpacing="5dp"
+            android:numColumns="1"
+            android:padding="2dp"
+            android:scrollIndicators="right"
+            android:stretchMode="columnWidth"
+            android:verticalSpacing="30dp">
+
+        </GridView>
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/bottom_close_create_image"
+            style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton.Icon"
+            android:layout_width="110dp"
+            android:layout_height="40dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/listView_create_image"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:backgroundTintMode="screen"
+            android:clickable="true"
+            android:enabled="true"
+            android:focusable="auto"
+            android:fontFamily="sans-serif-medium"
+            android:foregroundGravity="center"
+            android:gravity="center"
+            android:minHeight="20dp"
+            android:maxHeight="30dp"
+            android:text="Закрыть"
+            android:textColor="#0E0E0E"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+            android:typeface="normal"
+            android:visibility="visible"
+            app:backgroundTint="#00E5FF"
+            app:cornerRadius="20dp"
+            tools:visibility="visible" />
+
+
+
+
+    </RelativeLayout>
+
+
+
+
+
+
+
+</LinearLayout>

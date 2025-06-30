@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/materialCardView_camera"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:animateLayoutChanges="true"
+        android:gravity="center"
+        android:translationZ="15dp"
+        app:cardBackgroundColor="#F0FFFF"
+        app:cardCornerRadius="1dp"
+        app:cardElevation="2dp"
+        app:cardMaxElevation="10dp"
+        app:strokeColor="#D2EAEA"
+        app:strokeWidth="2dp"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context=".AdmissionMaterialsApp.Window.MainActivity_AdmissionMaterials">
+
+
+        <RelativeLayout
+            android:id="@+id/relativeLayoutcamera"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbarCamera"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentTop="true"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:elevation="1dp"
+                android:background="#F0FFFF"
+                app:showAsAction="always"
+                app:theme="@style/AppTheme"
+                app:titleTextAppearance="@style/TextAppearance.AppCompat.Widget.TextView.SpinnerItem">
+
+
+                <ImageButton
+                    android:id="@+id/imageButtonCameraback"
+                    android:layout_width="48dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentLeft="true"
+                    android:background="#F0FFFF"
+                    android:src="@drawable/icon_dsu1_arrrow1"
+                    tools:ignore="SpeakableTextPresentCheck" />
+
+                <TextView
+                    android:id="@+id/TextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:gravity="center"
+                    android:layout_toRightOf="@+id/imageButtonCamera"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginEnd="50dp"
+                    android:text="КАМЕРА"
+                    android:hint="КАМЕРА"
+                    android:textStyle="bold"
+                    android:textAlignment="center"
+                    android:textColor="#00574B"
+                    android:textSize="14sp"
+                    android:visibility="visible" />
+
+
+            </androidx.appcompat.widget.Toolbar>
+
+
+
+
+
+
+
+            <androidx.camera.view.PreviewView
+                android:id="@+id/preview_view"
+                android:background="#F0FFFF"
+                android:layout_below="@+id/toolbarCamera"
+                android:layout_centerHorizontal="true"
+                android:layout_width="match_parent"
+                android:layout_height="320dp" />
+
+
+
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_create_new_image"
+                style="@style/Widget.MaterialComponents.Button"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/preview_view"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:padding="2dp"
+                android:gravity="center"
+                android:layout_width="60dp"
+                android:layout_height="62dp"
+                android:backgroundTint="#00574B"
+                android:textColor="#131313"
+                app:cornerRadius="40dp"
+                app:icon="@drawable/icon_create_image13"
+                app:iconTint="#F0FFFF"
+                app:strokeColor="#120B0B"
+                app:iconGravity="textStart"
+                app:iconPadding="0dp"
+                android:insetLeft="10dp"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+        </RelativeLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+
