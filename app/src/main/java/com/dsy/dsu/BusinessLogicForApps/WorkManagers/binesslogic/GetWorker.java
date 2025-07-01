@@ -31,7 +31,7 @@ public class GetWorker {
         try{
             LinkedHashMap<Integer,String> getHiltPortJboss=   EntryPoints.get(context, getHiltPortJbossInterface.class).getHiltPortJboss();
 
-            Boolean isWorkManagerRunning=  new FindActivityRunning(context).isWorkManagerRunning(getAnalysisPublicWorkManger);
+            Boolean isPublicWorkManagerRunning=  new FindActivityRunning(context).isWorkManagerRunning(getAnalysisPublicWorkManger);
 
             // TODO: 22.12.2022  сама запуска синхронищации из workmanager ОБЩЕГО
             boolean ВыбранныйРежимСети =
@@ -45,7 +45,7 @@ public class GetWorker {
 
                 if (ВыбранныйРежимСети) {
                     // TODO: 30.06.2025
-                    if (  getActivityTasks  && isWorkManagerRunning==false) {
+                    if (  getActivityTasks  && isPublicWorkManagerRunning==false) {
                         // TODO: 30.06.2025
                             String actionSingleWorker =  "lanchUpdatePOAndAsync" ;
                             intentSingleWorker.setAction(actionSingleWorker);
@@ -64,7 +64,7 @@ public class GetWorker {
                     Log.d(this.getClass().getName(), "\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
                             " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
                             " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n"
-                            + " SINGLE SINGLE SINGLE  isWorkManagerRunning "+isWorkManagerRunning );
+                            + " SINGLE SINGLE SINGLE  isPublicWorkManagerRunning "+isPublicWorkManagerRunning );
 
 
                 }
@@ -99,7 +99,7 @@ public class GetWorker {
         try{
             LinkedHashMap<Integer,String> getHiltPortJboss=   EntryPoints.get(context, getHiltPortJbossInterface.class).getHiltPortJboss();
 
-            Boolean isWorkManagerRunning=  new FindActivityRunning(context).isWorkManagerRunning(getAnalysisSingleWorkManger);
+            Boolean isSingleWorkManagerRunning=  new FindActivityRunning(context).isWorkManagerRunning(getAnalysisSingleWorkManger);
 
             // TODO: 22.12.2022  сама запуска синхронищации из workmanager ОБЩЕГО
             boolean ВыбранныйРежимСети =
@@ -107,10 +107,12 @@ public class GetWorker {
             Intent intentSingleWorker=new Intent();
 
 
-            Boolean isWorkActivityRunning=          new FindActivityRunning(context).launchFindActivityRunning("MainActivityBootAndAsync");
+            Boolean isWorkActivityRunning=
+                    new FindActivityRunning(context).
+                            launchFindActivityRunning("com.dsy.dsu.BusinessLogicForApps.BootAndAsync.View.MainActivityBootAndAsync");
 
 
-                if(isWorkManagerRunning == false && ВыбранныйРежимСети && isWorkActivityRunning==false ) {
+                if(isSingleWorkManagerRunning == false && ВыбранныйРежимСети && isWorkActivityRunning==false ) {
                     // TODO: 30.06.2025
                             String actionSingleWorker =  "lanchAsync" ;
                             intentSingleWorker.setAction(actionSingleWorker);
@@ -125,7 +127,7 @@ public class GetWorker {
             Log.d(this.getClass().getName(), "\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
                     " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
                     " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n"
-                    + " PUBLIC PUBLIC PUBLIC isWorkManagerRunning " +isWorkManagerRunning     );
+                    + " PUBLIC PUBLIC PUBLIC isSingleWorkManagerRunning " +isSingleWorkManagerRunning     );
 
         } catch (Exception e) {
             e.printStackTrace();
