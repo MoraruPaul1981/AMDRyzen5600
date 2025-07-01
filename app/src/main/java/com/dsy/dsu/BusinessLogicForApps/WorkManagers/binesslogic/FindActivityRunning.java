@@ -14,41 +14,42 @@ import com.dsy.dsu.CoreApp.Apps.ErrorsCoreApp.model.bl_readnewerrors.RecordNewEr
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.function.Consumer;
 import java.util.function.Predicate;
 
-public class FindRunnigServiceBeforeWorkManager {
+public class FindActivityRunning {
 
 
     Context context;
 
-    public FindRunnigServiceBeforeWorkManager(Context context) {
+    public FindActivityRunning(Context context) {
         this.context = context;
     }
 
-    public boolean isMyServiceRunningWithNameActivity( ) {
+    public boolean launchFindActivityRunning( @NotNull String getActivityAnalyses) {
         // TODO: 14.01.2025
-        Boolean isMyActivityRunning=false;
+        AtomicBoolean isMyActivityRunning=new AtomicBoolean(false);
         try{
         ActivityManager manager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
-        for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
+            List<ActivityManager.RunningTaskInfo> runningTaskInfos = manager.getRunningTasks(Integer.MAX_VALUE);
 
+            runningTaskInfos.forEach(new Consumer<ActivityManager.RunningTaskInfo>() {
+                @Override
+                public void accept(ActivityManager.RunningTaskInfo runningTaskInfo) {
+                    if (runningTaskInfo.topActivity.getClassName().equalsIgnoreCase(getActivityAnalyses.trim())) {
+                        // TODO: 10.10.2024
 
+                        Log.d(this.getClass().getName(), "\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName()
+                                + "\n" +
+                                " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
+                                " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n"
+                                + " runningTaskInfo.topActivity.getClassName()" + runningTaskInfo.topActivity.getClassName());
 
-            if (service.service.getClassName().equalsIgnoreCase("MainActivityBootAndAsync")) {
-                // TODO: 10.10.2024
-
-                Log.d(this.getClass().getName(), "\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
-                        " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
-                        " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n"
-                        + " service.service.getClassName() " + service.service.getClassName()+" service.activeSince " +service.activeSince + " service.foreground " +service.foreground );
-
-                return true;
-            }
-            Log.d(this.getClass().getName(), "\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
-                    " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
-                    " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n"
-                    + "service.service.getClassName()" + service.service.getClassName());
-        }
+                        isMyActivityRunning.getAndSet(true);
+                    }
+                }
+            });
         Log.d(this.getClass().getName(), "\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
                 " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
                 " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n");
@@ -61,7 +62,7 @@ public class FindRunnigServiceBeforeWorkManager {
                 Thread.currentThread().getStackTrace()[2].getMethodName(),
                 Thread.currentThread().getStackTrace()[2].getLineNumber());
     }
-        return isMyActivityRunning;
+        return isMyActivityRunning.get();
 
     }
     @SuppressLint({"SuspiciousIndentation", "NewApi"})

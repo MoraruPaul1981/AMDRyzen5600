@@ -31,7 +31,7 @@ public class GetWorker {
         try{
             LinkedHashMap<Integer,String> getHiltPortJboss=   EntryPoints.get(context, getHiltPortJbossInterface.class).getHiltPortJboss();
 
-            Boolean isWorkManagerRunning=  new FindRunnigServiceBeforeWorkManager(context).isWorkManagerRunning(getAnalysisPublicWorkManger);
+            Boolean isWorkManagerRunning=  new FindActivityRunning(context).isWorkManagerRunning(getAnalysisPublicWorkManger);
 
             // TODO: 22.12.2022  сама запуска синхронищации из workmanager ОБЩЕГО
             boolean ВыбранныйРежимСети =
@@ -99,7 +99,7 @@ public class GetWorker {
         try{
             LinkedHashMap<Integer,String> getHiltPortJboss=   EntryPoints.get(context, getHiltPortJbossInterface.class).getHiltPortJboss();
 
-            Boolean isWorkManagerRunning=  new FindRunnigServiceBeforeWorkManager(context).isWorkManagerRunning(getAnalysisSingleWorkManger);
+            Boolean isWorkManagerRunning=  new FindActivityRunning(context).isWorkManagerRunning(getAnalysisSingleWorkManger);
 
             // TODO: 22.12.2022  сама запуска синхронищации из workmanager ОБЩЕГО
             boolean ВыбранныйРежимСети =
@@ -107,7 +107,10 @@ public class GetWorker {
             Intent intentSingleWorker=new Intent();
 
 
-                if(isWorkManagerRunning == false && ВыбранныйРежимСети ) {
+            Boolean isWorkActivityRunning=          new FindActivityRunning(context).launchFindActivityRunning("MainActivityBootAndAsync");
+
+
+                if(isWorkManagerRunning == false && ВыбранныйРежимСети && isWorkActivityRunning==false ) {
                     // TODO: 30.06.2025
                             String actionSingleWorker =  "lanchAsync" ;
                             intentSingleWorker.setAction(actionSingleWorker);
