@@ -2047,7 +2047,7 @@ private  void методСозданиеNewImage(@NonNull MyViewHolder holder){
                          }
                                 .setTitle(ФлагРежимНовогоФильтра)
                                 .setCancelable(false)
-                                .setIcon( R.drawable.icon_newscannertwo)
+                                .setIcon( R.drawable.icon_add)
                                 .setView(getLayoutInflater().inflate( КакойИмменоВидЗагружатьДляНовогоПосика, null ));
 
                             // TODO: 04.08.2023  запускаем нвоый справочник со сПОИИСКОМ
