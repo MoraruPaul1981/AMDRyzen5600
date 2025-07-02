@@ -416,6 +416,7 @@ public class FragmentNewOrderTransport extends Fragment {
 
 
 
+        @SuppressLint("SuspiciousIndentation")
         @NonNull
         private String методПарсингаДатыЗаказа(String DateOrder) throws ParseException {
             try{
@@ -1145,7 +1146,7 @@ public class FragmentNewOrderTransport extends Fragment {
             }
                     .setTitle(Спровочник)
                     .setCancelable(false)
-                    .setIcon( R.drawable.icon_newscannertwo)
+                    .setIcon( R.drawable.icon_dsu1_new_tamples)
                     .setView(getLayoutInflater().inflate( R.layout.simple_for_new_spinner_searchview_newordertransport2, null )).show();
             WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
             layoutParams.copyFrom(    alertDialogNewOrderTranport.getWindow().getAttributes());

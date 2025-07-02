@@ -2985,7 +2985,7 @@ public class FragmentSingleTabelOneSwipe extends Fragment {
                     }
                             .setTitle("Профессии")
                             .setCancelable(false)
-                            .setIcon( R.drawable.icon_newscannertwo)
+                            .setIcon( R.drawable.icon_dsu1_new_tamples)
                             .setView(getLayoutInflater().inflate( R.layout.simple_for_new_spinner_searchview, null ))
                             .show();
                     WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
