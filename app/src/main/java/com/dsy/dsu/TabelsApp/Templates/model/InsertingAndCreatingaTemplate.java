@@ -46,17 +46,35 @@ public class InsertingAndCreatingaTemplate extends TemplateGenerator {
     public Long addingTemplateForTabel(@NonNull Bundle bundleItemCompletetemplate ) {
         long         addingTemplateForTabel=0;
         try{
-            ProgressDialog progressDialog= new ProgressDialog(activity);
-            progressDialog.setIndeterminate(true);
-            progressDialog.setCancelable(false);
-            progressDialog.setCancelable(false);
-            progressDialog.setTitle("Новый шаблон");
-            progressDialog.setMessage("Добавление...");
-            progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-            progressDialog.setProgress(0);
-            progressDialog.setCanceledOnTouchOutside(false);
-            progressDialog.show();
+            // TODO: 02.07.2025
+            activity.runOnUiThread(()->{
+                ProgressDialog progressDialog= new ProgressDialog(activity);
+                progressDialog.setIndeterminate(true);
+                progressDialog.setCancelable(false);
+                progressDialog.setCancelable(false);
+                progressDialog.setTitle("Шаблон");
+                progressDialog.setMessage("Добавление в табель...");
+                progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+                progressDialog.setMax(1);
+                progressDialog.setProgress(0);
+                progressDialog.setCanceledOnTouchOutside(false);
+                progressDialog.show();
+            });
 
+            Log.d(context.getClass().getName(), "\n"
+                    + " время: " + new Date()+"\n+" +
+                    " Класс в процессе... " +  this.getClass().getName()+"\n"+
+                    " метод в процессе... " + Thread.currentThread().getStackTrace()[2].getMethodName() + " bundleItemCompletetemplate " +bundleItemCompletetemplate);
+
+
+            // TODO: 02.07.2025  вставка из Готового Шаблона в Табель
+
+            AdinngATemplates adinngATemplates=new AdinngATemplates(context);
+            adinngATemplates.launchAdinng();
+
+
+            AdinngInsideTemplate adinngInsideTemplate=new AdinngInsideTemplate(context);
+            adinngInsideTemplate.launchAdinng();
 
 
          /*   ContentValues contentValuesaddingTemplateForTabel = new ContentValues();////контрейнер для нового табеля
@@ -285,11 +303,11 @@ public class InsertingAndCreatingaTemplate extends TemplateGenerator {
     
     ///todo финалный метод еотровый другому активти посылает данные
     @Override
-    public void backToActivityListTabels(@NonNull Bundle bundlebackActivitylistPeoples) {
+    public void backToActivityListTabels(@NonNull Bundle bundleDontWorkActivityListPeoples) {
         try{
             Intent ИнтентBackToActivityListTabels = new Intent(activity, MainActivityListPeoples.class);
             ИнтентBackToActivityListTabels.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            ИнтентBackToActivityListTabels.putExtras(bundlebackActivitylistPeoples);
+            ИнтентBackToActivityListTabels.putExtras(bundleDontWorkActivityListPeoples);
             activity. startActivity( ИнтентBackToActivityListTabels);
             // TODO: 17.04.2023
             Log.d(this.getClass().getName(),"\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
@@ -341,13 +359,16 @@ public class InsertingAndCreatingaTemplate extends TemplateGenerator {
                 ///MessageBoxUpdate метод CLICK для DIALOBOX
                 @Override
                 public void onClick(View v) throws  NullPointerException {
-                    // TODO: 28.06.2025 Заполняем ФИо уже готовый Шаблон
+                    // TODO: 28.06.2025 Шаблон добавить в  Табель
+                    Long getaddingTamplateForTabel=          addingTemplateForTabel( bundleFromActivityListPeoples);
+
                     alertDialogChoiceTemplates .dismiss();
                     alertDialogChoiceTemplates.cancel();
                     // TODO: 17.04.2023
                     Log.d(this.getClass().getName(), "\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
                             " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
-                            " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n");
+                            " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n"
+                            + " getaddingTamplateForTabel "+getaddingTamplateForTabel);
                 }
             });
 
@@ -357,15 +378,13 @@ public class InsertingAndCreatingaTemplate extends TemplateGenerator {
                 ///MessageBoxUpdate метод CLICK для DIALOBOX
                 @Override
                 public void onClick(View v) throws  NullPointerException {
-                    // TODO: 28.06.2025 Добавляем  В табель
-                    Long addingTamplateForTabel=          addingTemplateForTabel( bundleFromActivityListPeoples);
                     // TODO: 26.06.2025
                     alertDialogChoiceTemplates.dismiss();
                     alertDialogChoiceTemplates.cancel();
                     // TODO: 17.04.2023
                     Log.d(this.getClass().getName(), "\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
                             " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
-                            " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n" + " addingTamplateForTabel " +addingTamplateForTabel);
+                            " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n" );
                 }
             });
 

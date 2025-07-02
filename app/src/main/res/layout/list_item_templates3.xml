@@ -37,9 +37,10 @@
                     android:padding="2dp"
                     android:gravity="center_vertical|center_horizontal">
 
-                    <CheckedTextView xmlns:android="http://schemas.android.com/apk/res/android"
-                        xmlns:app="http://schemas.android.com/apk/res-auto"
+                    <CheckedTextView
                         android:id="@+id/checkedtextviewtemplates"
+                        xmlns:android="http://schemas.android.com/apk/res/android"
+                        xmlns:app="http://schemas.android.com/apk/res-auto"
                         android:layout_width="match_parent"
                         android:layout_height="100dp"
                         android:textAlignment="gravity"
