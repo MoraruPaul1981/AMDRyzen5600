@@ -51,7 +51,6 @@ public class InsertingAndCreatingaTemplate extends TemplateGenerator {
                 ProgressDialog progressDialog= new ProgressDialog(activity);
                 progressDialog.setIndeterminate(true);
                 progressDialog.setCancelable(false);
-                progressDialog.setCancelable(false);
                 progressDialog.setTitle("Шаблон");
                 progressDialog.setMessage("Добавление в табель...");
                 progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
@@ -69,12 +68,14 @@ public class InsertingAndCreatingaTemplate extends TemplateGenerator {
 
             // TODO: 02.07.2025  вставка из Готового Шаблона в Табель
 
-            AdinngATemplates adinngATemplates=new AdinngATemplates(context);
-            adinngATemplates.launchAdinng();
+            AdinngATemplatesForTabel adinngATemplates=new AdinngATemplatesForTabel(context);
+            Long getlaunchAdinng=    adinngATemplates.launchAdinng(bundleItemCompletetemplate);
 
 
-            AdinngInsideTemplate adinngInsideTemplate=new AdinngInsideTemplate(context);
-            adinngInsideTemplate.launchAdinng();
+            Log.d(context.getClass().getName(), "\n"
+                    + " время: " + new Date()+"\n+" +
+                    " Класс в процессе... " +  this.getClass().getName()+"\n"+
+                    " метод в процессе... " + Thread.currentThread().getStackTrace()[2].getMethodName() + " getlaunchAdinng " +getlaunchAdinng);
 
 
          /*   ContentValues contentValuesaddingTemplateForTabel = new ContentValues();////контрейнер для нового табеля
