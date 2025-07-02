@@ -312,69 +312,18 @@ public class InsertingAndCreatingaTemplate extends TemplateGenerator {
         try {
             int ФлагЗнака = R.drawable.icon_for_tastk_fragment_create_tastks_dostavleno;//icon_dsu1_new_customer7
             LayoutInflater layoutInflater = LayoutInflater.from(activity);
-            View promptView = layoutInflater.inflate(R.layout.simpletemplates5, null);
+            View templatesView = layoutInflater.inflate(R.layout.simpletemplates5, null);
 /////////TODO создание Шаблона
             final MaterialAlertDialogBuilder materialAlertDialogBuilderChoiceTemplates = new MaterialAlertDialogBuilder(activity)
                     .setTitle("Шаблон")
                     .setIcon(ФлагЗнака)
                    .setCancelable(false)
                   .setIcon( R.drawable.icon_add)
-                  .setView(promptView );
+                  .setView(templatesView );
             final AlertDialog   alertDialogChoiceTemplates= materialAlertDialogBuilderChoiceTemplates.create();
             // TODO: 28.06.2025 Кнопки
-//            final Button buttonNegativeChoice = alertDialogChoiceTemplates.getButton(AlertDialog.BUTTON_NEGATIVE);
-//            buttonNegativeChoice.setOnClickListener(     new View.OnClickListener() {
-//                ///MessageBoxUpdate метод CLICK для DIALOBOX
-//                @Override
-//                public void onClick(View v) throws  NullPointerException {
-//                    // TODO: 28.06.2025 Заполняем ФИо уже готовый Шаблон
-//
-//                    alertDialogChoiceTemplates .dismiss();
-//                    alertDialogChoiceTemplates.cancel();
-//                    // TODO: 17.04.2023
-//                    Log.d(this.getClass().getName(), "\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
-//                            " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
-//                            " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n");
-//                }
-//            });
-//
-//            // TODO: 28.06.2025 Кнопки
-//            final Button buttonPositiveChoice = alertDialogChoiceTemplates.getButton(AlertDialog.BUTTON_POSITIVE);
-//            buttonPositiveChoice.setOnClickListener(new View.OnClickListener() {
-//                ///MessageBoxUpdate метод CLICK для DIALOBOX
-//                @Override
-//                public void onClick(View v) throws  NullPointerException {
-//                    // TODO: 28.06.2025 Добавляем  В табель
-//                    Long addingTamplateForTabel=          addingTemplateForTabel( bundleFromActivityListPeoples);
-//                    // TODO: 26.06.2025
-//                    alertDialogChoiceTemplates.dismiss();
-//                    alertDialogChoiceTemplates.cancel();
-//                    // TODO: 17.04.2023
-//                    Log.d(this.getClass().getName(), "\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
-//                            " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
-//                            " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n" + " addingTamplateForTabel " +addingTamplateForTabel);
-//                }
-//            });
-//
-//            // TODO: 28.06.2025 Кнопки
-//            final Button buttonExitMessage = alertDialogChoiceTemplates.getButton(AlertDialog.BUTTON_NEUTRAL);
-//            buttonExitMessage.setOnClickListener(new View.OnClickListener() {
-//                ///MessageBoxUpdate метод CLICK для DIALOBOX
-//                @Override
-//                public void onClick(View v) throws  NullPointerException {
-//                    // TODO: 02.07.2025
-//                    alertDialogChoiceTemplates.dismiss();
-//                    alertDialogChoiceTemplates.cancel();
-//                    // TODO: 17.04.2023
-//                    Log.d(this.getClass().getName(), "\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
-//                            " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
-//                            " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n" + " addingTamplateForTabel ");
-//                }
-//            });
-            // TODO: 17.04.2023
-            Log.d(this.getClass().getName(), "\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
-                    " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
-                    " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n");
+
+
             // TODO: 02.07.2025 финальные настройки Message Box
             WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
             layoutParams.copyFrom(   alertDialogChoiceTemplates.getWindow().getAttributes());
@@ -383,6 +332,63 @@ public class InsertingAndCreatingaTemplate extends TemplateGenerator {
             layoutParams.gravity = Gravity.CENTER;
             alertDialogChoiceTemplates.getWindow().setAttributes(layoutParams);
             alertDialogChoiceTemplates.show();
+
+
+
+
+            final Button buttonNegativeChoice =     alertDialogChoiceTemplates.findViewById(R.id.buttonaddtabell);
+            buttonNegativeChoice.setOnClickListener(     new View.OnClickListener() {
+                ///MessageBoxUpdate метод CLICK для DIALOBOX
+                @Override
+                public void onClick(View v) throws  NullPointerException {
+                    // TODO: 28.06.2025 Заполняем ФИо уже готовый Шаблон
+                    alertDialogChoiceTemplates .dismiss();
+                    alertDialogChoiceTemplates.cancel();
+                    // TODO: 17.04.2023
+                    Log.d(this.getClass().getName(), "\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
+                            " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
+                            " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n");
+                }
+            });
+
+            // TODO: 28.06.2025 Кнопки
+            final Button buttonPositiveChoice =    alertDialogChoiceTemplates.findViewById(R.id.buttoncompletetemplates);
+            buttonPositiveChoice.setOnClickListener(new View.OnClickListener() {
+                ///MessageBoxUpdate метод CLICK для DIALOBOX
+                @Override
+                public void onClick(View v) throws  NullPointerException {
+                    // TODO: 28.06.2025 Добавляем  В табель
+                    Long addingTamplateForTabel=          addingTemplateForTabel( bundleFromActivityListPeoples);
+                    // TODO: 26.06.2025
+                    alertDialogChoiceTemplates.dismiss();
+                    alertDialogChoiceTemplates.cancel();
+                    // TODO: 17.04.2023
+                    Log.d(this.getClass().getName(), "\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
+                            " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
+                            " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n" + " addingTamplateForTabel " +addingTamplateForTabel);
+                }
+            });
+
+            // TODO: 28.06.2025 Кнопки
+            final Button buttonExitMessage =     alertDialogChoiceTemplates.findViewById(R.id.buttonexitemplates);
+            buttonExitMessage.setOnClickListener(new View.OnClickListener() {
+                ///MessageBoxUpdate метод CLICK для DIALOBOX
+                @Override
+                public void onClick(View v) throws  NullPointerException {
+                    // TODO: 02.07.2025
+                    alertDialogChoiceTemplates.dismiss();
+                    alertDialogChoiceTemplates.cancel();
+                    // TODO: 17.04.2023
+                    Log.d(this.getClass().getName(), "\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
+                            " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
+                            " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n" + " addingTamplateForTabel ");
+                }
+            });
+            // TODO: 17.04.2023
+            Log.d(this.getClass().getName(), "\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
+                    " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
+                    " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n");
+
 
 
 
