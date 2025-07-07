@@ -1,0 +1,77 @@
+<LinearLayout
+        android:id="@+id/layouttemplates"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:background="#FFFDFD"
+        android:layout_gravity="top"
+        android:gravity="center"
+        android:foregroundGravity="top"
+        android:layout_margin="5dp"
+        android:padding="2dp"
+        tools:context=".TabelsApp.Templates.view.MainActivityListTemplates"
+        android:orientation="vertical">
+
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonnewtemplates"
+        style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton.Icon"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_margin="5dp"
+        android:backgroundTintMode="screen"
+        android:clickable="true"
+        android:enabled="true"
+        android:focusable="auto"
+        android:fontFamily="sans-serif-medium"
+        android:foregroundGravity="center"
+        android:gravity="center"
+        android:text="Создать шаблон"
+        android:textColor="#0E0E0E"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+        android:typeface="normal"
+        android:visibility="visible"
+        app:backgroundTint="#DDE0E1"
+        app:cornerRadius="20dp"
+        tools:visibility="visible" />
+
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonexitemplates"
+            style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton.Icon"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:layout_margin="5dp"
+            android:backgroundTintMode="screen"
+            android:clickable="true"
+            android:enabled="true"
+            android:focusable="auto"
+            android:fontFamily="sans-serif-medium"
+            android:foregroundGravity="center"
+            android:gravity="center"
+            android:text="Закрыть"
+            android:textColor="#0E0E0E"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+            android:typeface="normal"
+            android:visibility="visible"
+            app:backgroundTint="#DEE2E3"
+            app:cornerRadius="20dp"
+            tools:visibility="visible" />
+
+
+
+
+    </LinearLayout>
+
+
+
+
+
