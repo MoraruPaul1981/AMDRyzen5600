@@ -41,11 +41,11 @@ public class BinesslogicMessageTemplate extends MessageTemplateIntarface {
     public void messageNewTemplate(@NonNull String СообщениеДиалога, @NonNull String namenewtemplate, @NonNull Bundle bundleFromActivityListPeoples) {
         try {
             int ФлагЗнака = R.drawable.icon_for_tastk_fragment_create_tastks_dostavleno;//icon_dsu1_new_customer7
-            LayoutInflater layoutInflater = LayoutInflater.from(activity);
+            LayoutInflater layoutInflater = LayoutInflater.from(context);
             View templatesView = layoutInflater.inflate(R.layout.simpletemplates6, null);
 /////////TODO создание Шаблона
             final MaterialAlertDialogBuilder materialAlertDialogBuilderNewTemplate = new MaterialAlertDialogBuilder(activity)
-                    .setTitle("Шаблон")
+                    .setTitle("Шаблоны")
                     .setIcon(ФлагЗнака)
                     .setCancelable(false)
                     .setIcon( R.drawable.icon_add)
@@ -58,7 +58,7 @@ public class BinesslogicMessageTemplate extends MessageTemplateIntarface {
             WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
             layoutParams.copyFrom(   alertDialogNewTemplate.getWindow().getAttributes());
             layoutParams.width = WindowManager.LayoutParams.MATCH_PARENT;
-            layoutParams.height =1100;
+            layoutParams.height = WindowManager.LayoutParams.WRAP_CONTENT;
             layoutParams.gravity = Gravity.CENTER;
             alertDialogNewTemplate.getWindow().setAttributes(layoutParams);
             alertDialogNewTemplate.show();
@@ -72,17 +72,8 @@ public class BinesslogicMessageTemplate extends MessageTemplateIntarface {
                 @Override
                 public void onClick(View v) throws  NullPointerException {
                     // TODO: 28.06.2025 Создание нового Шаблона
-                    Integer         getnewTamplate=  new BinesslogicNewTemplate(context,activity).newTamplate(v,namenewtemplate);
-                      if(getnewTamplate>0){
-                          // TODO: 17.04.2023
-                          Log.d(this.getClass().getName(), "\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
-                                  " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
-                                  " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n");
+                    new BinesslogicNewTemplate(context,activity).newTamplate(v,namenewtemplate);
 
-                } else {
-                    Snackbar snackbar=      Snackbar.make(v, "Нет создан шаблона !!!",Snackbar.LENGTH_LONG).setAction("Action",null);
-                    snackbar.show();
-                }
                     alertDialogNewTemplate .dismiss();
                     alertDialogNewTemplate.cancel();
 
@@ -170,7 +161,7 @@ public class BinesslogicMessageTemplate extends MessageTemplateIntarface {
             WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
             layoutParams.copyFrom(   alertDialogCompleteTemplate.getWindow().getAttributes());
             layoutParams.width = WindowManager.LayoutParams.MATCH_PARENT;
-            layoutParams.height =1100;
+            layoutParams.height = WindowManager.LayoutParams.WRAP_CONTENT;
             layoutParams.gravity = Gravity.CENTER;
             alertDialogCompleteTemplate.getWindow().setAttributes(layoutParams);
             alertDialogCompleteTemplate.show();

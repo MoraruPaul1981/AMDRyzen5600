@@ -22,8 +22,12 @@ import com.google.android.material.snackbar.Snackbar;
 import com.sous.backasync.launch.ModuleInserting;
 
 import java.util.Date;
+import java.util.concurrent.atomic.AtomicReference;
 
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.core.Single;
+import io.reactivex.rxjava3.disposables.Disposable;
+import io.reactivex.rxjava3.functions.Consumer;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
 public class BinesslogicNewTemplate  extends NewTemplateIntarface {
@@ -38,9 +42,11 @@ public class BinesslogicNewTemplate  extends NewTemplateIntarface {
     @Override
     public Integer newTamplate(@NonNull View v, @NonNull String namenewtemplate) {
         Integer         getnewTamplate=0;
+       AtomicReference<ProgressDialog>  atomicProgressDialog=new AtomicReference<>();
         try{
-            activity.runOnUiThread(()->{
-            ProgressDialog progressDialog= new ProgressDialog(activity);
+
+            // TODO: 08.07.2025
+            ProgressDialog progressDialog=new ProgressDialog(activity);
             progressDialog.setIndeterminate(true);
             progressDialog.setCancelable(false);
             progressDialog.setCancelable(false);
@@ -48,25 +54,67 @@ public class BinesslogicNewTemplate  extends NewTemplateIntarface {
             progressDialog.setMessage("Добавление...");
             progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
             progressDialog.setProgress(0);
+            progressDialog.setMax(1);
             progressDialog.setCanceledOnTouchOutside(false);
             progressDialog.show();
-            });
-            // TODO: 27.06.2025  Создание
-            String НазваниеТаблицы = "templates";
-            ContentValues contentValuesNewTamplate = new ContentValues();
-            // TODO: 09.10.2024 Public ID
-            Integer getPublicID = new GetttingPublicID().getttingPublicID(context);
-            contentValuesNewTamplate.put("user_update",getPublicID);
-            Long getUUIDGenerator = (Long) new GreatUuidGeneration(context).greatUuidGeneration();
-            contentValuesNewTamplate.put("uuid",getUUIDGenerator);
-            contentValuesNewTamplate.put("name_templates", namenewtemplate);
+            atomicProgressDialog.getAndSet(progressDialog);
 
-            String getNewDateCurrent = new GetMainDateForApp(context).getMainDateForApp();
-            contentValuesNewTamplate.put("date_update", getNewDateCurrent);
-            contentValuesNewTamplate.put("status_send", " ");
+            //todo гененируем если есть публичный id
+               Single.fromCallable(()->{
+                // TODO: 08.07.2025  
+                // TODO: 27.06.2025  Создание
+                String НазваниеТаблицы = "templates";
+                ContentValues contentValuesNewTamplate = new ContentValues();
+                // TODO: 09.10.2024 Public ID
+                Integer getPublicID = new GetttingPublicID().getttingPublicID(context);
+                contentValuesNewTamplate.put("user_update",getPublicID);
+                Long getUUIDGenerator = (Long) new GreatUuidGeneration(context).greatUuidGeneration();
+                contentValuesNewTamplate.put("uuid",getUUIDGenerator);
+                contentValuesNewTamplate.put("name_templates", namenewtemplate);
 
-            // TODO: 14.05.2025 Создание Нового шаблона
-            getnewTamplate =   operationsNewTemplate(contentValuesNewTamplate,НазваниеТаблицы);
+                String getNewDateCurrent = new GetMainDateForApp(context).getMainDateForApp();
+                contentValuesNewTamplate.put("date_update", getNewDateCurrent);
+                contentValuesNewTamplate.put("status_send", " ");
+
+                // TODO: 14.05.2025 Создание Нового шаблона
+              Integer   newTamplate =   operationsNewTemplate(contentValuesNewTamplate,НазваниеТаблицы);
+                
+                // TODO: 02.05.2021
+                Log.d(context.getClass().getName(), "\n"
+                        + " время: " + new Date()+"\n+" +
+                        " Класс в процессе... " +  this.getClass().getName()+"\n"+
+                        " метод в процессе... " + Thread.currentThread().getStackTrace()[2].getMethodName()
+                        + " result "+newTamplate);
+                return  newTamplate;
+            }).subscribeOn(AndroidSchedulers.mainThread())
+                       .doOnSuccess(new Consumer<Integer>() {
+                @Override
+                public void accept(Integer getnewTamplate) throws Throwable {
+                    // TODO: 08.07.2025
+                    if (getnewTamplate>0) {
+                        ProgressDialog    progressDialog = atomicProgressDialog.get();
+                        progressDialog.setIndeterminate(false);
+                        progressDialog.setProgress(1);
+                        progressDialog.setMessage("Успешно");
+
+                    }else {
+                        Snackbar snackbar=      Snackbar.make(v, "Нет создан шаблона !!!",Snackbar.LENGTH_LONG)
+                                .setAction("Action",null);
+                        snackbar.show();
+                    }
+                    // TODO: 08.07.2025  
+                    progressDialog.dismiss();
+                    progressDialog.cancel();
+                    // TODO: 08.07.2025  
+                    Log.d(context.getClass().getName(), "\n"
+                            + " время: " + new Date()+"\n+" +
+                            " Класс в процессе... " +  this.getClass().getName()+"\n"+
+                            " метод в процессе... " + Thread.currentThread().getStackTrace()[2].getMethodName()
+                            + " getnewTamplate " +getnewTamplate);
+                    
+                }
+            }).subscribeOn(Schedulers.single())
+                       .subscribe();
 
             Log.d(context.getClass().getName(), "\n"
                     + " время: " + new Date()+"\n+" +
@@ -104,25 +152,15 @@ public class BinesslogicNewTemplate  extends NewTemplateIntarface {
           Integer resultatOperation = 0;
           try {
               //todo гененируем если есть публичный id
-              Single<Integer> singleOperation =       Single.fromCallable(()->{
                   ModuleInserting moduleQuety=new ModuleInserting(context);
-               Integer   result   =moduleQuety.getModuleInsert(getNameTable,contentvaluesTemplateOperationsAdding);
+                  resultatOperation   =moduleQuety.getModuleInsert(getNameTable,contentvaluesTemplateOperationsAdding);
                   // TODO: 02.05.2021
                   Log.d(context.getClass().getName(), "\n"
                           + " время: " + new Date()+"\n+" +
                           " Класс в процессе... " +  this.getClass().getName()+"\n"+
                           " метод в процессе... " + Thread.currentThread().getStackTrace()[2].getMethodName()
-                          + " result "+result);
-                return  result;
-              });
-              resultatOperation=   singleOperation.subscribeOn(Schedulers.single()).blockingGet();
-
+                          + " resresultatOperationult "+resultatOperation);
               // TODO: 02.05.2021
-              Log.d(context.getClass().getName(), "\n"
-                      + " время: " + new Date()+"\n+" +
-                      " Класс в процессе... " +  this.getClass().getName()+"\n"+
-                      " метод в процессе... " + Thread.currentThread().getStackTrace()[2].getMethodName() + " resultatOperation "+resultatOperation);
-
           } catch (Exception e) {
               e.fillInStackTrace();
               Log.e(this.getClass().getName(), "Ошибка " + e + " Метод :" + Thread.currentThread().getStackTrace()[2].getMethodName() +
