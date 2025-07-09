@@ -5,6 +5,7 @@ import android.app.ProgressDialog;
 import android.content.ContentValues;
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -40,7 +41,7 @@ public class BinesslogicNewTemplate  extends NewTemplateIntarface {
     }
     ////todo добавления новый Шаблон
     @Override
-    public Integer newTamplate(@NonNull View v, @NonNull String namenewtemplate) {
+    public Integer newTamplate(@NonNull View v, @NonNull String namenewtemplate,   @NonNull Handler getHandler) {
         Integer         getnewTamplate=0;
        AtomicReference<ProgressDialog>  atomicProgressDialog=new AtomicReference<>();
         try{
@@ -48,7 +49,6 @@ public class BinesslogicNewTemplate  extends NewTemplateIntarface {
             // TODO: 08.07.2025
             ProgressDialog progressDialog=new ProgressDialog(activity);
             progressDialog.setIndeterminate(true);
-            progressDialog.setCancelable(false);
             progressDialog.setCancelable(false);
             progressDialog.setTitle("Новый шаблон");
             progressDialog.setMessage("Добавление...");
@@ -59,7 +59,7 @@ public class BinesslogicNewTemplate  extends NewTemplateIntarface {
             progressDialog.show();
             atomicProgressDialog.getAndSet(progressDialog);
 
-            //todo гененируем если есть публичный id
+            //todo New Templates
                Single.fromCallable(()->{
                 // TODO: 08.07.2025  
                 // TODO: 27.06.2025  Создание
@@ -97,6 +97,9 @@ public class BinesslogicNewTemplate  extends NewTemplateIntarface {
                         progressDialog.setProgress(1);
                         progressDialog.setMessage("Успешно");
 
+                        // TODO: 09.07.2025 посылаем ответ   после создание Шаблона
+                        sendAfterCreatingTemplate(getnewTamplate,getHandler);
+
                     }else {
                         Snackbar snackbar=      Snackbar.make(v, "Нет создан шаблона !!!",Snackbar.LENGTH_LONG)
                                 .setAction("Action",null);
@@ -130,6 +133,23 @@ public class BinesslogicNewTemplate  extends NewTemplateIntarface {
         return  getnewTamplate;
     }
 
+    private   void sendAfterCreatingTemplate(Integer getnewTamplate,@NonNull  Handler getHandler) {
+        // TODO: 09.07.2025
+        try{
+            // TODO: 09.07.2025
+        getHandler.sendEmptyMessage(getnewTamplate);
+        Log.d(context.getClass().getName(), "\n"
+                + " время: " + new Date()+"\n+" +
+                " Класс в процессе... " +  this.getClass().getName()+"\n"+
+                " метод в процессе... " + Thread.currentThread().getStackTrace()[2].getMethodName() + " getnewTamplate " +getnewTamplate);
+    } catch (Exception e) {
+        e.printStackTrace();
+        Log.e(this.getClass().getName(), "Ошибка " + e + " Метод :" + Thread.currentThread().getStackTrace()[2].getMethodName() +
+                " Линия  :" + Thread.currentThread().getStackTrace()[2].getLineNumber());
+        new RecordNewErros(context).recordnewerror(e.toString(), this.getClass().getName(),
+                Thread.currentThread().getStackTrace()[2].getMethodName(), Thread.currentThread().getStackTrace()[2].getLineNumber());
+    }
+    }
 
 
 
@@ -139,9 +159,7 @@ public class BinesslogicNewTemplate  extends NewTemplateIntarface {
 
 
 
-
-
-      /**
+    /**
        * @param contentvaluesTemplateOperationsAdding
        * @param getNameTable
        * @return

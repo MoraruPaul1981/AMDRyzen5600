@@ -15,12 +15,22 @@ import android.widget.Button;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 
+import com.dsy.dsu.BusinessLogicForApps.Dates.GetMainDateForApp;
+import com.dsy.dsu.BusinessLogicForApps.GetPublicID.GetttingPublicID;
+import com.dsy.dsu.BusinessLogicForApps.GreatUuidGenerations.GreatUuidGeneration;
 import com.dsy.dsu.CoreApp.Apps.ErrorsCoreApp.model.bl_readnewerrors.RecordNewErros;
 import com.dsy.dsu.R;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.google.android.material.snackbar.Snackbar;
 import com.sous.backasync.launch.ModuleInserting;
 
 import java.util.Date;
+import java.util.concurrent.atomic.AtomicReference;
+
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.core.Single;
+import io.reactivex.rxjava3.functions.Consumer;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 
 public class BinesslogicAddingTemplate extends AddingTemplateIntarface {
   private Context context;
@@ -36,35 +46,79 @@ public class BinesslogicAddingTemplate extends AddingTemplateIntarface {
 
   @Override
   ////todo добавления новый Шаблон
-  public Long addingTemplateInTabel(@NonNull Bundle bundleItemCompletetemplate ) {
+  public Long addingTemplateInTabel(@NonNull  View v, @NonNull Bundle bundleItemCompletetemplate ) {
       long         addingTemplateForTabel=0;
+      AtomicReference<ProgressDialog> atomicReferenceAddingTemplateAddTabel=new AtomicReference();
       try{
           // TODO: 02.07.2025
-          activity.runOnUiThread(()->{
-              ProgressDialog progressDialog= new ProgressDialog(activity);
-              progressDialog.setIndeterminate(true);
-              progressDialog.setCancelable(false);
-              progressDialog.setTitle("Шаблон");
-              progressDialog.setMessage("Добавление в табель...");
-              progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-              progressDialog.setMax(1);
-              progressDialog.setProgress(0);
-              progressDialog.setCanceledOnTouchOutside(false);
-              progressDialog.show();
-          });
+                  ProgressDialog progressDialogAddTemplaesInTabel= new ProgressDialog(activity);
+                  progressDialogAddTemplaesInTabel.setIndeterminate(true);
+                  progressDialogAddTemplaesInTabel.setCancelable(false);
+                  progressDialogAddTemplaesInTabel.setTitle("Из Шаблона");
+                  progressDialogAddTemplaesInTabel.setMessage("Добавление в табель...");
+                  progressDialogAddTemplaesInTabel.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+                  progressDialogAddTemplaesInTabel.setMax(1);
+                  progressDialogAddTemplaesInTabel.setProgress(0);
+                  progressDialogAddTemplaesInTabel.setCanceledOnTouchOutside(false);
+                  progressDialogAddTemplaesInTabel.show();
+                 // TODO: 08.07.2025
+                atomicReferenceAddingTemplateAddTabel.getAndSet(progressDialogAddTemplaesInTabel);
 
-          Log.d(context.getClass().getName(), "\n"
-                  + " время: " + new Date()+"\n+" +
-                  " Класс в процессе... " +  this.getClass().getName()+"\n"+
-                  " метод в процессе... " + Thread.currentThread().getStackTrace()[2].getMethodName()
-                  + " bundleItemCompletetemplate " +bundleItemCompletetemplate);
+          // TODO: 02.07.2025  ADDING
+          Single.fromCallable(()->{
+                      // TODO: 08.07.2025
+                      // TODO: 27.06.2025  Создание
+                      String НазваниеТаблицы = "data_tabels";
+/*                      ContentValues contentValuesNewTamplate = new ContentValues();
+                      // TODO: 09.10.2024 Public ID
+                      Integer getPublicID = new GetttingPublicID().getttingPublicID(context);
+                      contentValuesNewTamplate.put("user_update",getPublicID);
+                      Long getUUIDGenerator = (Long) new GreatUuidGeneration(context).greatUuidGeneration();
+                      contentValuesNewTamplate.put("uuid",getUUIDGenerator);
+                      contentValuesNewTamplate.put("name_templates", namenewtemplate);
 
+                      String getNewDateCurrent = new GetMainDateForApp(context).getMainDateForApp();
+                      contentValuesNewTamplate.put("date_update", getNewDateCurrent);
+                      contentValuesNewTamplate.put("status_send", " ");
 
-          // TODO: 02.07.2025  вставка из Готового Шаблона в Табель
+                      // TODO: 14.05.2025 Создание Нового шаблона
+                      Integer   newTamplate =   operationsNewTemplate(contentValuesNewTamplate,НазваниеТаблицы);*/
 
+                      // TODO: 02.05.2021
+                      Log.d(context.getClass().getName(), "\n"
+                              + " время: " + new Date()+"\n+" +
+                              " Класс в процессе... " +  this.getClass().getName()+"\n"+
+                              " метод в процессе... " + Thread.currentThread().getStackTrace()[2].getMethodName());
+                      return  0;
+                  }).subscribeOn(AndroidSchedulers.mainThread())
+                  .doOnSuccess(new Consumer<Integer>() {
+                      @Override
+                      public void accept(Integer getnewTamplate) throws Throwable {
+                          // TODO: 08.07.2025
+                          ProgressDialog    progressDialogAddingInTabel = atomicReferenceAddingTemplateAddTabel.get();
+                          if (getnewTamplate>0) {
+                              progressDialogAddingInTabel.setIndeterminate(false);
+                              progressDialogAddingInTabel.setProgress(1);
+                              progressDialogAddingInTabel.setMessage("Успешно");
 
+                          }else {
+                              Snackbar snackbar=      Snackbar.make(v, "Не добавилось в табель !!!",Snackbar.LENGTH_LONG)
+                                      .setAction("Action",null);
+                              snackbar.show();
+                          }
+                          // TODO: 08.07.2025
+                          progressDialogAddingInTabel.dismiss();
+                          progressDialogAddingInTabel.cancel();
+                          // TODO: 08.07.2025
+                          Log.d(context.getClass().getName(), "\n"
+                                  + " время: " + new Date()+"\n+" +
+                                  " Класс в процессе... " +  this.getClass().getName()+"\n"+
+                                  " метод в процессе... " + Thread.currentThread().getStackTrace()[2].getMethodName()
+                                  + " getnewTamplate " +getnewTamplate);
 
-
+                      }
+                  }).subscribeOn(Schedulers.single())
+                  .subscribe();
           Log.d(context.getClass().getName(), "\n"
                   + " время: " + new Date()+"\n+" +
                   " Класс в процессе... " +  this.getClass().getName()+"\n"+
