@@ -29,6 +29,7 @@ import java.util.Date;
 import java.util.concurrent.atomic.AtomicReference;
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.core.Flowable;
 import io.reactivex.rxjava3.core.Single;
 import io.reactivex.rxjava3.functions.Consumer;
 import io.reactivex.rxjava3.schedulers.Schedulers;
@@ -71,10 +72,25 @@ public class BinesslogicAddingTemplate extends AddingTemplateIntarface {
                       // TODO: 27.06.2025  Создание
                       String НазваниеТаблицы = "data_tabels";
 
-                      Cursor getInseiderRowTemplate=  new BinesslogiсGetCursorTemplate(context).getInseiderRowTemplate(getFindUUID);
+                      Long getFindUUID=   bundleItemCompletetemplate.getLong("getFindUUID");
+                      Cursor getInseiderRowsTemplate=  new BinesslogiсGetCursorTemplate(context).getInseiderRowTemplate(getFindUUID);
+
+                      Flowable.range(0,getInseiderRowsTemplate.getCount())
+                              .onBackpressureBuffer()
+                              .blockingForEach(new Consumer<Integer>() {
+                          @Override
+                          public void accept(Integer itemGetSelectFioRow) throws Throwable {
+                              // TODO: 02.05.2021
+                              Log.d(context.getClass().getName(), "\n"
+                                      + " время: " + new Date()+"\n+" +
+                                      " Класс в процессе... " +  this.getClass().getName()+"\n"+
+                                      " метод в процессе... " + Thread.currentThread().getStackTrace()[2].getMethodName()+
+                                      " itemGetSelectFioRow " +itemGetSelectFioRow);
+                          }
+                      });
 
 
-
+                     // TODO: 10.07.2025  ROW
                       ContentValues contentValuesNewTamplate = new ContentValues();
                       // TODO: 09.10.2024 Public ID
                       Integer getPublicID = new GetttingPublicID().getttingPublicID(context);

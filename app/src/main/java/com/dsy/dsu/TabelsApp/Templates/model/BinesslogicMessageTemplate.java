@@ -147,8 +147,7 @@ public class BinesslogicMessageTemplate extends MessageTemplateIntarface {
     public void messageCompleteTemplate(@NonNull String СообщениеДиалога,
                                         @NonNull String namenewtemplate,
                                         @NonNull Bundle bundleFromActivityListPeoples,
-                                        @NonNull Handler gethandler,
-                                        @NonNull Integer getCoutInseRow) {
+                                        @NonNull Handler gethandler) {
         try {
             int ФлагЗнака = R.drawable.icon_for_tastk_fragment_create_tastks_dostavleno;//icon_dsu1_new_customer7
             LayoutInflater layoutInflater = LayoutInflater.from(activity);
@@ -182,18 +181,8 @@ public class BinesslogicMessageTemplate extends MessageTemplateIntarface {
                 @Override
                 public void onClick(View v) throws  NullPointerException {
                     // TODO: 28.06.2025 Шаблон добавить в  Табель
-
-
                     //TODO   в Табель добаляем созданный ранее Шаблон или в Табель
-               if (getCoutInseRow>0) {
                         new BinesslogicAddingTemplate(context,activity).addingTemplateInTabel(v,bundleFromActivityListPeoples);
-                  }else {
-                   // TODO: 10.07.2025
-       /*            Snackbar snackbar=      Snackbar.make(v, "Нет данных !!!",Snackbar.LENGTH_LONG).setAction("Action",null);
-                   snackbar.show();*/
-                   // TODO: 10.07.2025
-                   Toast.makeText(context, "Нет данных !!!", Toast.LENGTH_LONG).show();
-               }
 
                     alertDialogCompleteTemplate .dismiss();
                     alertDialogCompleteTemplate.cancel();
