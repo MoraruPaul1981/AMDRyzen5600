@@ -87,5 +87,12 @@ public class BinesslogiсSystemTemplate  implements  SystemTemplateIntarface {
     }
 
 
+
+
+
+
+
+
+
     //TODO END CLASS
 }

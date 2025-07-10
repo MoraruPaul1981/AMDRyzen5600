@@ -157,7 +157,6 @@ public Cursor getModuleQueryForceLoad(@NonNull Bundle bundleModuleBack){
             new RecordNewErroBack(context).recordnewerrorBack(e.toString(),
                     this.getClass().getName(), Thread.currentThread().getStackTrace()[2].getMethodName(),
                     Thread.currentThread().getStackTrace()[2].getLineNumber());
-            Log.e(context.getClass().getName(), " Ошибка СЛУЖБА Service_ДляЗапускаодноразовойСинхронизации   ");
         }
         return cursor;
     }

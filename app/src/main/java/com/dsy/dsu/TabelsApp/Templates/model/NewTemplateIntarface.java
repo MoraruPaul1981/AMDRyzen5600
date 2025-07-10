@@ -1,6 +1,7 @@
 package com.dsy.dsu.TabelsApp.Templates.model;
 
 import android.content.ContentValues;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -57,6 +58,16 @@ abstract class MessageTemplateIntarface {
 
 
 
+
+// TODO: 06.07.2025 Code System
+interface GetCursorTemplateIntarface {
+    // TODO: 26.06.2025
+    Cursor getCompletesTemplates() ;
+
+    Cursor getInseiderRowTemplate(@NonNull Long findUUID) ;
+
+
+}//TODO END CLASS
 
 
 
