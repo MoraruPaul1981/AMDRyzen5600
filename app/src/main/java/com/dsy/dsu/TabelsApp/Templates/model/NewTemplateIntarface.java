@@ -52,7 +52,8 @@ abstract class MessageTemplateIntarface {
                                                  @NonNull Bundle bundleFromActivityListPeoples,@NonNull Handler getHandler  );
 
     public   abstract  void messageCompleteTemplate( @NonNull String СообщениеДиалога, @NonNull String namenewtemplate,
-                                              @NonNull Bundle bundleFromActivityListPeoples ,@NonNull Handler getHandler  );
+                                              @NonNull Bundle bundleFromActivityListPeoples ,@NonNull Handler getHandler  ,
+                                                     @NonNull Integer getCoutInseRow);
 }//TODO END CLASS
 
 

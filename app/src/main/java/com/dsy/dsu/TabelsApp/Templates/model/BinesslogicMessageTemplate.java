@@ -18,6 +18,8 @@ import androidx.appcompat.app.AlertDialog;
 import com.dsy.dsu.CoreApp.Apps.ErrorsCoreApp.model.bl_readnewerrors.RecordNewErros;
 import com.dsy.dsu.R;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.textview.MaterialTextView;
 
 public class BinesslogicMessageTemplate extends MessageTemplateIntarface {
   private Context context;
@@ -144,7 +146,8 @@ public class BinesslogicMessageTemplate extends MessageTemplateIntarface {
     public void messageCompleteTemplate(@NonNull String СообщениеДиалога,
                                         @NonNull String namenewtemplate,
                                         @NonNull Bundle bundleFromActivityListPeoples,
-                                        @NonNull Handler gethandler) {
+                                        @NonNull Handler gethandler,
+                                        @NonNull Integer getCoutInseRow) {
         try {
             int ФлагЗнака = R.drawable.icon_for_tastk_fragment_create_tastks_dostavleno;//icon_dsu1_new_customer7
             LayoutInflater layoutInflater = LayoutInflater.from(activity);
@@ -178,8 +181,16 @@ public class BinesslogicMessageTemplate extends MessageTemplateIntarface {
                 @Override
                 public void onClick(View v) throws  NullPointerException {
                     // TODO: 28.06.2025 Шаблон добавить в  Табель
+
+
                     //TODO   в Табель добаляем созданный ранее Шаблон или в Табель
-                    new BinesslogicAddingTemplate(context,activity).addingTemplateInTabel(v,bundleFromActivityListPeoples);
+               if (getCoutInseRow>0) {
+                        new BinesslogicAddingTemplate(context,activity).addingTemplateInTabel(v,bundleFromActivityListPeoples);
+                  }else {
+                   // TODO: 10.07.2025
+                   Snackbar snackbar=      Snackbar.make(v, "Нет данных !!!",Snackbar.LENGTH_LONG).setAction("Action",null);
+                   snackbar.show();
+               }
 
                     alertDialogCompleteTemplate .dismiss();
                     alertDialogCompleteTemplate.cancel();
