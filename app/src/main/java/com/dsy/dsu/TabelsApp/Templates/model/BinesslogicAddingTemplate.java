@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
@@ -69,34 +70,42 @@ public class BinesslogicAddingTemplate extends AddingTemplateIntarface {
                       // TODO: 08.07.2025
                       // TODO: 27.06.2025  Создание
                       String НазваниеТаблицы = "data_tabels";
-/*                      ContentValues contentValuesNewTamplate = new ContentValues();
+
+                      Cursor getInseiderRowTemplate=  new BinesslogiсGetCursorTemplate(context).getInseiderRowTemplate(getFindUUID);
+
+
+
+                      ContentValues contentValuesNewTamplate = new ContentValues();
                       // TODO: 09.10.2024 Public ID
                       Integer getPublicID = new GetttingPublicID().getttingPublicID(context);
                       contentValuesNewTamplate.put("user_update",getPublicID);
                       Long getUUIDGenerator = (Long) new GreatUuidGeneration(context).greatUuidGeneration();
                       contentValuesNewTamplate.put("uuid",getUUIDGenerator);
-                      contentValuesNewTamplate.put("name_templates", namenewtemplate);
-
+                      // TODO: 10.07.2025
                       String getNewDateCurrent = new GetMainDateForApp(context).getMainDateForApp();
                       contentValuesNewTamplate.put("date_update", getNewDateCurrent);
                       contentValuesNewTamplate.put("status_send", " ");
+                      Long getMainParentUUID=   bundleItemCompletetemplate.getLong("MainParentUUID");
+                      contentValuesNewTamplate.put("uuid_tabel", getMainParentUUID);//MainParentUUID
+                      Long getCurrentFIOUUID=   bundleItemCompletetemplate.getLong("CurrentFIOUUID");
+                      contentValuesNewTamplate.put("fio", getCurrentFIOUUID);
 
                       // TODO: 14.05.2025 Создание Нового шаблона
-                      Integer   newTamplate =   operationsNewTemplate(contentValuesNewTamplate,НазваниеТаблицы);*/
-
+                      Integer   addingInTabelTamplate =   operationsCompleteAfterTemplate(contentValuesNewTamplate,НазваниеТаблицы);
                       // TODO: 02.05.2021
                       Log.d(context.getClass().getName(), "\n"
                               + " время: " + new Date()+"\n+" +
                               " Класс в процессе... " +  this.getClass().getName()+"\n"+
-                              " метод в процессе... " + Thread.currentThread().getStackTrace()[2].getMethodName());
-                      return  0;
+                              " метод в процессе... " + Thread.currentThread().getStackTrace()[2].getMethodName()+
+                              " addingInTabelTamplate " +addingInTabelTamplate);
+                      return addingInTabelTamplate;
                   }).subscribeOn(AndroidSchedulers.mainThread())
                   .doOnSuccess(new Consumer<Integer>() {
                       @Override
-                      public void accept(Integer getnewTamplate) throws Throwable {
+                      public void accept(Integer getAddingInTabelTamplate) throws Throwable {
                           // TODO: 08.07.2025
                           ProgressDialog    progressDialogAddingInTabel = atomicReferenceAddingTemplateAddTabel.get();
-                          if (getnewTamplate>0) {
+                          if (getAddingInTabelTamplate>0) {
                               progressDialogAddingInTabel.setIndeterminate(false);
                               progressDialogAddingInTabel.setProgress(1);
                               progressDialogAddingInTabel.setMessage("Успешно");
@@ -114,7 +123,7 @@ public class BinesslogicAddingTemplate extends AddingTemplateIntarface {
                                   + " время: " + new Date()+"\n+" +
                                   " Класс в процессе... " +  this.getClass().getName()+"\n"+
                                   " метод в процессе... " + Thread.currentThread().getStackTrace()[2].getMethodName()
-                                  + " getnewTamplate " +getnewTamplate);
+                                  + " getAddingInTabelTamplate " +getAddingInTabelTamplate);
 
                       }
                   }).subscribeOn(Schedulers.single())
@@ -123,53 +132,6 @@ public class BinesslogicAddingTemplate extends AddingTemplateIntarface {
                   + " время: " + new Date()+"\n+" +
                   " Класс в процессе... " +  this.getClass().getName()+"\n"+
                   " метод в процессе... " + Thread.currentThread().getStackTrace()[2].getMethodName()  );
-
-
-       /*   ContentValues contentValuesaddingTemplateForTabel = new ContentValues();////контрейнер для нового табеля
-          String СгенерированованныйДатаДляДаннойОперации = new GetMainDateForApp(context).getMainDateForApp();
-          contentValuesaddingTemplateForTabel.put("date_update", СгенерированованныйДатаДляДаннойОперации);
-
-          // TODO: 09.04.2023  курсор самим создаваемых табеляПОСИК ДАННЫХ ЧЕРЕЗ UUID
-          contentValuesaddingTemplateForTabel.put("user_update", ПубличноеID);
-          contentValuesaddingTemplateForTabel.put("status_carried_out", "False");
-          //  АдаптерВставкиDATAtABELS.putNull("_id");
-          contentValuesaddingTemplateForTabel.put("fio", CurrentFIOUUID);
-          contentValuesaddingTemplateForTabel.put("uuid", UUIDGeneratorINset);
-          contentValuesaddingTemplateForTabel.put("status_send", " ");
-          contentValuesaddingTemplateForTabel.put("uuid_tabel", MainParentUUID);//MainParentUUID
-          contentValuesaddingTemplateForTabel.put("prof", Prof);//MainParentUUID
-
-
-
-// TODO: 08.10.2021 повышаем версию
-          // TODO: 18.03.2023  получаем ВЕСИЮ ДАННЫХ
-          Long getVersionCurrent = new VersionCurentTable(context).upVersionCurentTable("data_tabels"  );
-
-          contentValuesaddingTemplateForTabel.put("current_table", getVersionCurrent);
-          // TODO: 09.10.2024 Public ID
-          Integer getPublicID = new GetttingPublicID().getttingPublicID(context);
-          Long UUIDGeneratorForFindFio = (Long) new GreatUuidGeneration(context).greatUuidGeneration( );
-
-
-          // TODO: 14.03.2025  Вставка Уже готового Шаблона в Табель
-                    addingTemplateForTabel = addTemplateOperationsFinal(contentValuesaddingTemplateForTabel,"templates");
-
-          Log.d(context.getClass().getName(), "\n"
-                  + " время: " + new Date()+"\n+" +
-                  " Класс в процессе... " +  this.getClass().getName()+"\n"+
-                  " метод в процессе... " + Thread.currentThread().getStackTrace()[2].getMethodName() + " addingTemplateForTabel " +addingTemplateForTabel);
-
-          // TODO: 03.10.2021  второя событие   вставка ВС,СУББ Понедельник
-          if ( addingTemplateForTabel>0) {
-              // TODO: 14.03.2025
-              Integer resultInsertDaysOff=
-                      new AddingDaysOff(context).addingDaysOff( UUIDGeneratorForFindFio,ГодТабелей,МЕсяцТабелей );
-              Log.d(context.getClass().getName(), "\n"
-                      + " время: " + new Date()+"\n+" +
-                      " Класс в процессе... " +  this.getClass().getName()+"\n"+
-                      " метод в процессе... " + Thread.currentThread().getStackTrace()[2].getMethodName() + " resultInsertDaysOff "+resultInsertDaysOff);
-
-          }*/
 
           Log.d(context.getClass().getName(), "\n"
                   + " время: " + new Date()+"\n+" +
@@ -192,7 +154,8 @@ public class BinesslogicAddingTemplate extends AddingTemplateIntarface {
 
     // TODO: 07.09.2021  Терминальный метод вСтавки данных шаблон создание  и вставка Готовго Шаблона
     @Override
-    public Integer operationsCompleteAfterTemplate(@NonNull ContentValues contentvaluesTemplateOperationsAdding, @NonNull String getNameTable) {
+    public Integer operationsCompleteAfterTemplate(@NonNull ContentValues contentvaluesTemplateOperationsAdding,
+                                                   @NonNull String getNameTable) {
         // TODO: 26.06.2025
         Integer resultatOperation = 0;
         try {

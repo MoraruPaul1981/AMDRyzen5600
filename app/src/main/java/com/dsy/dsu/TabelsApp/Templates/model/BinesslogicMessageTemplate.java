@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -188,8 +189,10 @@ public class BinesslogicMessageTemplate extends MessageTemplateIntarface {
                         new BinesslogicAddingTemplate(context,activity).addingTemplateInTabel(v,bundleFromActivityListPeoples);
                   }else {
                    // TODO: 10.07.2025
-                   Snackbar snackbar=      Snackbar.make(v, "Нет данных !!!",Snackbar.LENGTH_LONG).setAction("Action",null);
-                   snackbar.show();
+       /*            Snackbar snackbar=      Snackbar.make(v, "Нет данных !!!",Snackbar.LENGTH_LONG).setAction("Action",null);
+                   snackbar.show();*/
+                   // TODO: 10.07.2025
+                   Toast.makeText(context, "Нет данных !!!", Toast.LENGTH_LONG).show();
                }
 
                     alertDialogCompleteTemplate .dismiss();
