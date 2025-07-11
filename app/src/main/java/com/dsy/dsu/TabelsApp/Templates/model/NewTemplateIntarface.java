@@ -65,6 +65,7 @@ interface GetCursorTemplateIntarface {
     Cursor getCompletesTemplates() ;
 
     Cursor getInseiderRowTemplate(@NonNull Long findUUID) ;
+    Cursor getInseiderRowFindProf(@NonNull Long findUUID) ;
 
 
 }//TODO END CLASS

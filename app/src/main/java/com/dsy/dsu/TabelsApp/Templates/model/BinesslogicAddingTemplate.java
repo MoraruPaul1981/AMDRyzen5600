@@ -20,6 +20,7 @@ import androidx.appcompat.app.AlertDialog;
 import com.dsy.dsu.BusinessLogicForApps.Dates.GetMainDateForApp;
 import com.dsy.dsu.BusinessLogicForApps.GetPublicID.GetttingPublicID;
 import com.dsy.dsu.BusinessLogicForApps.GreatUuidGenerations.GreatUuidGeneration;
+import com.dsy.dsu.BusinessLogicForApps.VersionCurentTable;
 import com.dsy.dsu.CoreApp.Apps.ErrorsCoreApp.model.bl_readnewerrors.RecordNewErros;
 import com.dsy.dsu.R;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
@@ -78,9 +79,10 @@ public class BinesslogicAddingTemplate extends AddingTemplateIntarface {
                       String НазваниеТаблицы = "data_tabels";
                      CopyOnWriteArrayList<Integer>    addingInTabelTamplate=new CopyOnWriteArrayList<>();
 
+
+                      // TODO: 11.07.2025 UUID сотрудника в таблице ФИО
                       Long getFindUUID=   bundleItemCompletetemplate.getLong("getFindUUID");
                       Cursor getCursorfioUuid=  new BinesslogiсGetCursorTemplate(context).getInseiderRowTemplate(getFindUUID);
-
 
                       // TODO: 11.07.2025 вставка из шаблона в табель
                       Flowable.range(0,getCursorfioUuid.getCount())
@@ -91,8 +93,12 @@ public class BinesslogicAddingTemplate extends AddingTemplateIntarface {
                               //TODO move
                               // TODO: 02.05.2021
                               getCursorfioUuid.moveToPosition(getRow);
-                              // TODO: 11.07.2025 get FIO
-                            Long getFio_template = getCursorfioUuid.getLong(getCursorfioUuid.getColumnIndex("fio_uuid"));
+
+
+
+
+
+
                               // TODO: 10.07.2025  ROW
                               ContentValues contentValuesNewTamplate = new ContentValues();
                               // TODO: 09.10.2024 Public ID
@@ -107,19 +113,41 @@ public class BinesslogicAddingTemplate extends AddingTemplateIntarface {
                               Long getMainParentUUID=   bundleItemCompletetemplate.getLong("MainParentUUID");
                               contentValuesNewTamplate.put("uuid_tabel", getMainParentUUID);//MainParentUUID
 
+                              // TODO: 11.07.2025 get FIO
+                              Long getFio_template = getCursorfioUuid.getLong(getCursorfioUuid.getColumnIndex("fio_uuid"));
                               contentValuesNewTamplate.put("fio", getFio_template);
 
+                              // TODO: 11.07.2025 ПРОФЕССИЯ
+                              Cursor getCursorgeRowFindProf=  new BinesslogiсGetCursorTemplate(context).getInseiderRowFindProf(getFio_template);
+                              Long getrowFindProf = getCursorgeRowFindProf.getLong(getCursorfioUuid.getColumnIndex("prof"));
+
+
+                              // TODO: 11.07.2025 Профессия
+                              if (getrowFindProf>0) {
+                                  contentValuesNewTamplate.put("prof", getrowFindProf);
+                              }else {
+                                  contentValuesNewTamplate.putNull("prof");
+                              }
+
+
+
+                              Long Версия = new VersionCurentTable(context).upVersionCurentTable(    НазваниеТаблицы);
+                              contentValuesNewTamplate.put("current_table", Версия);
+
+
+
+
                               // TODO: 14.05.2025 Создание Нового шаблона
-                            Integer inTabelTamplate=  operationsCompleteAfterTemplate(contentValuesNewTamplate,НазваниеТаблицы);
-                              if (inTabelTamplate>0) {
-                                  addingInTabelTamplate.add(inTabelTamplate );
+                            Integer getinTabelTamplate=  operationsCompleteAfterTemplate(contentValuesNewTamplate,НазваниеТаблицы);
+                              if (getinTabelTamplate>0) {
+                                  addingInTabelTamplate.add(getinTabelTamplate );
                               }
                               Log.d(context.getClass().getName(), "\n"
                                       + " время: " + new Date()+"\n+" +
                                       " Класс в процессе... " +  this.getClass().getName()+"\n"+
                                       " метод в процессе... " + Thread.currentThread().getStackTrace()[2].getMethodName()+
                                       " getRow " +getRow +
-                                      " getFio_template " +getFio_template + " addingInTabelTamplate " +addingInTabelTamplate.size());
+                                      " getinTabelTamplate " +getinTabelTamplate + " addingInTabelTamplate " +addingInTabelTamplate.size());
                           }
                       });
 
@@ -165,7 +193,16 @@ public class BinesslogicAddingTemplate extends AddingTemplateIntarface {
                                   " метод в процессе... " + Thread.currentThread().getStackTrace()[2].getMethodName()
                                   + " integersInTabelTamplate.size() " +integersInTabelTamplate.size());
                       }
-                  }).subscribeOn(Schedulers.single())
+                  }).subscribeOn(Schedulers.single()).doOnError(new Consumer<Throwable>() {
+                      @Override
+                      public void accept(Throwable throwable) throws Throwable {
+                          throwable.printStackTrace();
+                          Log.e(this.getClass().getName(), "Ошибка " + throwable + " Метод :" + Thread.currentThread().getStackTrace()[2].getMethodName() +
+                                  " Линия  :" + Thread.currentThread().getStackTrace()[2].getLineNumber());
+                          new RecordNewErros(context).recordnewerror(throwable.toString(), this.getClass().getName(),
+                                  Thread.currentThread().getStackTrace()[2].getMethodName(), Thread.currentThread().getStackTrace()[2].getLineNumber());
+                      }
+                  })
                   .subscribe();
           Log.d(context.getClass().getName(), "\n"
                   + " время: " + new Date()+"\n+" +

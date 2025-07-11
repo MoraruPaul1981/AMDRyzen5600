@@ -67,6 +67,7 @@ public class BinesslogiсGetCursorTemplate implements  GetCursorTemplateIntarfac
                     "   SELECT D.fio_uuid  FROM   " + Текущаятаблицы + " AS D " +
                             " WHERE  D.fio_template = '"+findUUID.toString()+"'   ORDER BY D.date_update  ", null);
             // TODO: 17.04.2023
+            getaInseiderRowTemplates.moveToFirst();
             Log.d(this.getClass().getName(), "\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
                     " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
                     " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n"
@@ -84,5 +85,43 @@ public class BinesslogiсGetCursorTemplate implements  GetCursorTemplateIntarfac
         }
         return getaInseiderRowTemplates;
     }
+
+
+    @Override
+    public Cursor getInseiderRowFindProf(@NonNull Long findUUID) {
+        // TODO: 26.06.2025
+        Cursor getaInseiderRowTemplates = null;
+        try {
+            // TODO: 14.05.2025
+            String Текущаятаблицы = "fio";
+            ModuleQuety moduleQuety = new ModuleQuety(context);
+            getaInseiderRowTemplates = moduleQuety.getModuleQuery(Текущаятаблицы,
+                    "   SELECT D.prof  FROM   " + Текущаятаблицы + " AS D " +
+                            " WHERE  D.uuid = '"+findUUID.toString()+"'   ORDER BY D.date_update  ", null);
+            // TODO: 17.04.2023
+            getaInseiderRowTemplates.moveToFirst();
+
+            Log.d(this.getClass().getName(), "\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
+                    " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
+                    " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n"
+                    + " getaInseiderRowTemplates " + getaInseiderRowTemplates);
+            // TODO: 09.07.2025
+        } catch (Exception e) {
+            e.printStackTrace();
+            Log.e(this.getClass().getName(), "Ошибка " + e + " Метод :" +
+                    Thread.currentThread().getStackTrace()[2].getMethodName() +
+                    " Линия  :" + Thread.currentThread().getStackTrace()[2].getLineNumber());
+            // TODO: 01.09.2021 метод вызова
+            new RecordNewErros(context).recordnewerror(e.toString(), this.getClass().getName(),
+                    Thread.currentThread().getStackTrace()[2].getMethodName(),
+                    Thread.currentThread().getStackTrace()[2].getLineNumber());
+        }
+        return getaInseiderRowTemplates;
+    }
+
+
+
+
+
     //TODO END CLASS
 }
