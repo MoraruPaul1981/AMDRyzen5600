@@ -1,5 +1,6 @@
 package com.dsy.dsu.TabelsApp.Templates.model;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.ContentValues;
@@ -23,14 +24,17 @@ import com.dsy.dsu.CoreApp.Apps.ErrorsCoreApp.model.bl_readnewerrors.RecordNewEr
 import com.dsy.dsu.R;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.common.util.concurrent.AtomicDouble;
 import com.sous.backasync.launch.ModuleInserting;
 
 import java.util.Date;
+import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.atomic.AtomicReference;
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.core.Flowable;
 import io.reactivex.rxjava3.core.Single;
+import io.reactivex.rxjava3.functions.Action;
 import io.reactivex.rxjava3.functions.Consumer;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
@@ -47,6 +51,7 @@ public class BinesslogicAddingTemplate extends AddingTemplateIntarface {
   // TODO: 26.06.2025
 
   @Override
+  @SuppressLint("Range")
   ////todo добавления новый Шаблон
   public Long addingTemplateInTabel(@NonNull  View v, @NonNull Bundle bundleItemCompletetemplate ) {
       long         addingTemplateForTabel=0;
@@ -71,43 +76,55 @@ public class BinesslogicAddingTemplate extends AddingTemplateIntarface {
                       // TODO: 08.07.2025
                       // TODO: 27.06.2025  Создание
                       String НазваниеТаблицы = "data_tabels";
+                     CopyOnWriteArrayList<Integer>    addingInTabelTamplate=new CopyOnWriteArrayList<>();
 
                       Long getFindUUID=   bundleItemCompletetemplate.getLong("getFindUUID");
-                      Cursor getInseiderRowsTemplate=  new BinesslogiсGetCursorTemplate(context).getInseiderRowTemplate(getFindUUID);
+                      Cursor getCursorfioUuid=  new BinesslogiсGetCursorTemplate(context).getInseiderRowTemplate(getFindUUID);
 
-                      Flowable.range(0,getInseiderRowsTemplate.getCount())
+
+                      // TODO: 11.07.2025 вставка из шаблона в табель
+                      Flowable.range(0,getCursorfioUuid.getCount())
                               .onBackpressureBuffer()
                               .blockingForEach(new Consumer<Integer>() {
                           @Override
-                          public void accept(Integer itemGetSelectFioRow) throws Throwable {
+                          public void accept(Integer  getRow) throws Throwable {
+                              //TODO move
                               // TODO: 02.05.2021
+                              getCursorfioUuid.moveToPosition(getRow);
+                              // TODO: 11.07.2025 get FIO
+                            Long getFio_template = getCursorfioUuid.getLong(getCursorfioUuid.getColumnIndex("fio_uuid"));
+                              // TODO: 10.07.2025  ROW
+                              ContentValues contentValuesNewTamplate = new ContentValues();
+                              // TODO: 09.10.2024 Public ID
+                              Integer getPublicID = new GetttingPublicID().getttingPublicID(context);
+                              contentValuesNewTamplate.put("user_update",getPublicID);
+                              Long getUUIDGenerator = (Long) new GreatUuidGeneration(context).greatUuidGeneration();
+                              contentValuesNewTamplate.put("uuid",getUUIDGenerator);
+                              // TODO: 10.07.2025
+                              String getNewDateCurrent = new GetMainDateForApp(context).getMainDateForApp();
+                              contentValuesNewTamplate.put("date_update", getNewDateCurrent);
+                              contentValuesNewTamplate.put("status_send", " ");
+                              Long getMainParentUUID=   bundleItemCompletetemplate.getLong("MainParentUUID");
+                              contentValuesNewTamplate.put("uuid_tabel", getMainParentUUID);//MainParentUUID
+
+                              contentValuesNewTamplate.put("fio", getFio_template);
+
+                              // TODO: 14.05.2025 Создание Нового шаблона
+                            Integer inTabelTamplate=  operationsCompleteAfterTemplate(contentValuesNewTamplate,НазваниеТаблицы);
+                              if (inTabelTamplate>0) {
+                                  addingInTabelTamplate.add(inTabelTamplate );
+                              }
                               Log.d(context.getClass().getName(), "\n"
                                       + " время: " + new Date()+"\n+" +
                                       " Класс в процессе... " +  this.getClass().getName()+"\n"+
                                       " метод в процессе... " + Thread.currentThread().getStackTrace()[2].getMethodName()+
-                                      " itemGetSelectFioRow " +itemGetSelectFioRow);
+                                      " getRow " +getRow +
+                                      " getFio_template " +getFio_template + " addingInTabelTamplate " +addingInTabelTamplate.size());
                           }
                       });
 
 
-                     // TODO: 10.07.2025  ROW
-                      ContentValues contentValuesNewTamplate = new ContentValues();
-                      // TODO: 09.10.2024 Public ID
-                      Integer getPublicID = new GetttingPublicID().getttingPublicID(context);
-                      contentValuesNewTamplate.put("user_update",getPublicID);
-                      Long getUUIDGenerator = (Long) new GreatUuidGeneration(context).greatUuidGeneration();
-                      contentValuesNewTamplate.put("uuid",getUUIDGenerator);
-                      // TODO: 10.07.2025
-                      String getNewDateCurrent = new GetMainDateForApp(context).getMainDateForApp();
-                      contentValuesNewTamplate.put("date_update", getNewDateCurrent);
-                      contentValuesNewTamplate.put("status_send", " ");
-                      Long getMainParentUUID=   bundleItemCompletetemplate.getLong("MainParentUUID");
-                      contentValuesNewTamplate.put("uuid_tabel", getMainParentUUID);//MainParentUUID
-                      Long getCurrentFIOUUID=   bundleItemCompletetemplate.getLong("CurrentFIOUUID");
-                      contentValuesNewTamplate.put("fio", getCurrentFIOUUID);
 
-                      // TODO: 14.05.2025 Создание Нового шаблона
-                      Integer   addingInTabelTamplate =   operationsCompleteAfterTemplate(contentValuesNewTamplate,НазваниеТаблицы);
                       // TODO: 02.05.2021
                       Log.d(context.getClass().getName(), "\n"
                               + " время: " + new Date()+"\n+" +
@@ -116,31 +133,37 @@ public class BinesslogicAddingTemplate extends AddingTemplateIntarface {
                               " addingInTabelTamplate " +addingInTabelTamplate);
                       return addingInTabelTamplate;
                   }).subscribeOn(AndroidSchedulers.mainThread())
-                  .doOnSuccess(new Consumer<Integer>() {
+                  .doOnSuccess(new Consumer<CopyOnWriteArrayList<Integer>>() {
                       @Override
-                      public void accept(Integer getAddingInTabelTamplate) throws Throwable {
+                      public void accept(CopyOnWriteArrayList<Integer> integersInTabelTamplate) throws Throwable {
+                          // TODO: 11.07.2025
                           // TODO: 08.07.2025
                           ProgressDialog    progressDialogAddingInTabel = atomicReferenceAddingTemplateAddTabel.get();
-                          if (getAddingInTabelTamplate>0) {
+                          Snackbar snackbar=null;
+                          if (integersInTabelTamplate.size()>0) {
                               progressDialogAddingInTabel.setIndeterminate(false);
                               progressDialogAddingInTabel.setProgress(1);
                               progressDialogAddingInTabel.setMessage("Успешно");
-
-                          }else {
-                              Snackbar snackbar=      Snackbar.make(v, "Не добавилось в табель !!!",Snackbar.LENGTH_LONG)
+                              snackbar=      Snackbar.make(v, "Успешно !!!",Snackbar.LENGTH_LONG)
                                       .setAction("Action",null);
-                              snackbar.show();
+                          }else {
+                              // TODO: 11.07.2025
+                              progressDialogAddingInTabel.setMessage("Нет");
+                                snackbar=      Snackbar.make(v, "Нет добавления !!!",Snackbar.LENGTH_LONG)
+                                      .setAction("Action",null);
+
                           }
                           // TODO: 08.07.2025
                           progressDialogAddingInTabel.dismiss();
                           progressDialogAddingInTabel.cancel();
+
+                          snackbar.show();
                           // TODO: 08.07.2025
                           Log.d(context.getClass().getName(), "\n"
                                   + " время: " + new Date()+"\n+" +
                                   " Класс в процессе... " +  this.getClass().getName()+"\n"+
                                   " метод в процессе... " + Thread.currentThread().getStackTrace()[2].getMethodName()
-                                  + " getAddingInTabelTamplate " +getAddingInTabelTamplate);
-
+                                  + " integersInTabelTamplate.size() " +integersInTabelTamplate.size());
                       }
                   }).subscribeOn(Schedulers.single())
                   .subscribe();

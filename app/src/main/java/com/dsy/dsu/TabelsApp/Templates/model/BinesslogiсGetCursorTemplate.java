@@ -64,7 +64,7 @@ public class BinesslogiсGetCursorTemplate implements  GetCursorTemplateIntarfac
             String Текущаятаблицы = "fio_template";
             ModuleQuety moduleQuety = new ModuleQuety(context);
             getaInseiderRowTemplates = moduleQuety.getModuleQuery(Текущаятаблицы,
-                    "   SELECT *  FROM   " + Текущаятаблицы + " AS D " +
+                    "   SELECT D.fio_uuid  FROM   " + Текущаятаблицы + " AS D " +
                             " WHERE  D.fio_template = '"+findUUID.toString()+"'   ORDER BY D.date_update  ", null);
             // TODO: 17.04.2023
             Log.d(this.getClass().getName(), "\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
