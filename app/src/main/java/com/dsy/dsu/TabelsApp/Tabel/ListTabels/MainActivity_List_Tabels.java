@@ -888,8 +888,8 @@ public class MainActivity_List_Tabels extends AppCompatActivity  {
                                     // TODO: 09.04.2023  ВставлЯем Данные
 
                                     RelativeLayout relativeLayout=view.findViewById(android.R.id.text1);
-                                    CheckedTextView checkedTextView=(CheckedTextView) relativeLayout.getChildAt(0);
-                                    checkedTextView.setHeight(1200);
+                                    CheckedTextView checkedTextView=(CheckedTextView) relativeLayout.findViewById(R.id.textView3SapolnitFrrombackmezaz);
+                                    checkedTextView.setHeight(1300);
                                     checkedTextView.setTextSize(18l);
                                     Log.d(this.getClass().getName(), "\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
                                             " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" + " MainParentUUID " + MainParentUUIDFromTabel);
@@ -1585,9 +1585,9 @@ public class MainActivity_List_Tabels extends AppCompatActivity  {
     //todo ВТОРОЙ МЕТОД УДАЛЕНИЕ ДЛЯ ВЕРХНЕНЙ ТАБЛИЦЫ ТАБЕЛЬ
     private void deletingTabel(@NotNull  Long ДляУдалениеUUID,
                                @NonNull  String ИзКакойТаблицыУдалять) {
-       Integer  УдалениеintegerArrayList=0;
+
         try{
-            УдалениеintegerArrayList=    Single.fromCallable(new Callable<Integer>() {
+       Single.fromCallable(new Callable<Integer>() {
                 @Override
                 public Integer call() throws Exception {
                     // TODO: 22.11.2022  первая часть
@@ -1628,7 +1628,11 @@ public class MainActivity_List_Tabels extends AppCompatActivity  {
                                     Thread.currentThread().getStackTrace()[2].getMethodName(), Thread.currentThread().getStackTrace()[2].getLineNumber());
                         }
                     })
-                    .subscribeOn(Schedulers.single()).blockingGet();
+                    .subscribeOn(Schedulers.single()).subscribe();
+            // TODO: 14.07.2025
+
+
+
         } catch (Exception e) {
             e.printStackTrace();
             Log.e(this.getClass().getName(), "Ошибка " + e + " Метод :" + Thread.currentThread().getStackTrace()[2].getMethodName() +

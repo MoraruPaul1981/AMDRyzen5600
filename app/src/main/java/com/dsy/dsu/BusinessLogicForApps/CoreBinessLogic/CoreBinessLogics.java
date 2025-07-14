@@ -1217,7 +1217,7 @@ import okio.BufferedSink;
 
             ModuleUpdating moduleUpdating = new ModuleUpdating(context);
             // TODO: 03.02.2025 update new back
-            resultUpdate=   moduleUpdating.getModuleUpdate(Таблица,contentValuesUpsdateData,"uuid=?", new String[] {UUIDUpdate.toString()});
+            resultUpdate=   moduleUpdating.getModuleUpdate(Таблица,contentValuesUpsdateData,ЧерезКакоеПолеУдлаяемФлаг+"=?", new String[] {UUIDUpdate.toString()});
             Log.d(this.getClass().getName(),"\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
                     " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
                     " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n" + " resultUpdate "+resultUpdate );

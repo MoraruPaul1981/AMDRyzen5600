@@ -6,9 +6,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
-    android:gravity="bottom"
-    android:foregroundGravity="top"
-    android:layout_gravity="center"
+    android:gravity="top"
+    android:foregroundGravity="center"
+    android:layout_gravity="top"
     android:layout_alignParentBottom="true"
     android:layout_alignParentTop="true"
     android:baselineAligned="true"
@@ -27,8 +27,6 @@
         android:layout_margin="5dp"
         android:padding="2dp"
         android:animateLayoutChanges="true"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
         android:gravity="center"
         android:translationZ="4dp"
         app:cardBackgroundColor="@color/actionbar_text_color"
@@ -118,9 +116,6 @@
                 android:textColor="#0E0E0E"
                 android:textSize="12sp"
                 android:textStyle="bold" />
-
-
-
         </RelativeLayout>
     </com.google.android.material.card.MaterialCardView>
 
@@ -128,12 +123,37 @@
 
 
 
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="5dp"
+        android:padding="2dp"
+        android:layout_weight="1"
+        android:animateLayoutChanges="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:foregroundGravity="center"
+        android:translationZ="4dp"
+        app:cardBackgroundColor="@color/actionbar_text_color"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="2dp"
+        app:cardMaxElevation="1dp"
+        app:strokeColor="@color/icon_dashdornd_tabel2_background"
+        app:strokeWidth="1dp">
+
+
+
     <GridView
         android:id="@+id/gridViewAllTabes"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center"
         android:layout_gravity="center"
-        android:layout_weight="1"
+        android:foregroundGravity="center"
         android:layout_centerInParent="true"
         android:layout_marginStart="5dp"
         android:layout_marginTop="5dp"
@@ -141,7 +161,6 @@
         android:layout_marginBottom="5dp"
         android:background="#FFFFFF"
         android:columnWidth="700dp"
-        android:gravity="center"
         android:horizontalSpacing="5dp"
         android:numColumns="1"
         android:padding="2dp"
@@ -158,7 +177,7 @@
     </GridView>
 
 
-
+    </com.google.android.material.card.MaterialCardView>
 
 
 
@@ -166,13 +185,15 @@
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/materialcardviewrow3"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="80dp"
         android:layout_margin="5dp"
         android:padding="2dp"
         android:animateLayoutChanges="true"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:gravity="center"
+        android:gravity="bottom"
+        android:layout_gravity="bottom"
+        android:foregroundGravity="bottom"
         android:translationZ="4dp"
         app:cardBackgroundColor="@color/actionbar_text_color"
         app:cardCornerRadius="5dp"
@@ -224,7 +245,7 @@
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
                 android:layout_marginBottom="15dp"
-                android:layout_marginEnd="15dp"
+                android:layout_marginEnd="5dp"
                 android:layout_marginStart="5dp"
                 android:background="@drawable/style_forpolymaterialb_cycle_createspinner3"
                 android:backgroundTintMode="multiply"
