@@ -7,6 +7,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -54,7 +55,7 @@ public class BinesslogicAddingTemplate extends AddingTemplateIntarface {
   @Override
   @SuppressLint("Range")
   ////todo добавления новый Шаблон
-  public Long addingTemplateInTabel(@NonNull  View v, @NonNull Bundle bundleItemCompletetemplate ) {
+  public Long addingTemplateInTabel(@NonNull  View v, @NonNull Bundle bundleItemCompletetemplate , @NonNull Handler handlerAfterAddingTemplate) {
       long         addingTemplateForTabel=0;
       AtomicReference<ProgressDialog> atomicReferenceAddingTemplateAddTabel=new AtomicReference();
       try{
@@ -119,7 +120,7 @@ public class BinesslogicAddingTemplate extends AddingTemplateIntarface {
 
                               // TODO: 11.07.2025 ПРОФЕССИЯ
                               Cursor getCursorgeRowFindProf=  new BinesslogiсGetCursorTemplate(context).getInseiderRowFindProf(getFio_template);
-                              Long getrowFindProf = getCursorgeRowFindProf.getLong(getCursorfioUuid.getColumnIndex("prof"));
+                              Long getrowFindProf = getCursorgeRowFindProf.getLong(getCursorgeRowFindProf.getColumnIndex("prof"));
 
 
                               // TODO: 11.07.2025 Профессия
@@ -131,8 +132,8 @@ public class BinesslogicAddingTemplate extends AddingTemplateIntarface {
 
 
 
-                              Long Версия = new VersionCurentTable(context).upVersionCurentTable(    НазваниеТаблицы);
-                              contentValuesNewTamplate.put("current_table", Версия);
+                              Long getVersionGenerator = new VersionCurentTable(context).upVersionCurentTable(    НазваниеТаблицы);
+                              contentValuesNewTamplate.put("current_table", getVersionGenerator);
 
 
 
@@ -174,6 +175,12 @@ public class BinesslogicAddingTemplate extends AddingTemplateIntarface {
                               progressDialogAddingInTabel.setMessage("Успешно");
                               snackbar=      Snackbar.make(v, "Успешно !!!",Snackbar.LENGTH_LONG)
                                       .setAction("Action",null);
+
+
+                              // TODO: 14.07.2025   возвращяем обратно после добавление из шаблона в табель
+                              sendAfterAddingTemplate(integersInTabelTamplate.size(),handlerAfterAddingTemplate);
+
+
                           }else {
                               // TODO: 11.07.2025
                               progressDialogAddingInTabel.setMessage("Нет");
@@ -257,7 +264,23 @@ public class BinesslogicAddingTemplate extends AddingTemplateIntarface {
 
 
 
-
+    private   void sendAfterAddingTemplate(Integer getnewTamplate,@NonNull  Handler getHandler) {
+        // TODO: 09.07.2025
+        try{
+            // TODO: 09.07.2025
+            getHandler.sendEmptyMessage(getnewTamplate);
+            Log.d(context.getClass().getName(), "\n"
+                    + " время: " + new Date()+"\n+" +
+                    " Класс в процессе... " +  this.getClass().getName()+"\n"+
+                    " метод в процессе... " + Thread.currentThread().getStackTrace()[2].getMethodName() + " getnewTamplate " +getnewTamplate);
+        } catch (Exception e) {
+            e.printStackTrace();
+            Log.e(this.getClass().getName(), "Ошибка " + e + " Метод :" + Thread.currentThread().getStackTrace()[2].getMethodName() +
+                    " Линия  :" + Thread.currentThread().getStackTrace()[2].getLineNumber());
+            new RecordNewErros(context).recordnewerror(e.toString(), this.getClass().getName(),
+                    Thread.currentThread().getStackTrace()[2].getMethodName(), Thread.currentThread().getStackTrace()[2].getLineNumber());
+        }
+    }
 
 
 

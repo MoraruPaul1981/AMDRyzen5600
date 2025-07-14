@@ -24,7 +24,7 @@ import androidx.annotation.NonNull;
 // TODO: 06.07.2025 add complte Temples  in Tabel
 abstract class AddingTemplateIntarface {
     // TODO: 26.06.2025
-    public   abstract   Long addingTemplateInTabel(@NonNull  View v,@NonNull Bundle bundleItemCompletetemplate);
+    public   abstract   Long addingTemplateInTabel(@NonNull  View v,@NonNull Bundle bundleItemCompletetemplate ,@NonNull Handler handlerAfterAddingTemplate);
     public   abstract  Integer operationsCompleteAfterTemplate(@NonNull ContentValues contentvaluesTemplateOperationsAdding,
                                                                @NonNull String getNameTable);
 }//TODO END CLASS
@@ -38,7 +38,7 @@ interface SystemTemplateIntarface {
        void backToActivityListTabels(@NonNull Bundle bundlebackActivitylistPeoples);
 
 
-    void launchToActivityFindTempales(@NonNull Bundle bundlebackActivitylistPeoples);
+    void launchToActivityFindTempales(@NonNull Bundle bundlebackActivitylistPeoples ,@NonNull Handler handlerAfterAddingTemplate);
 
 
 }//TODO END CLASS

@@ -6,6 +6,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -64,7 +65,7 @@ public class BinesslogiсSystemTemplate  implements  SystemTemplateIntarface {
      * launchToActivityFindTempales
      */
     @Override
-    public void launchToActivityFindTempales(@NonNull Bundle bundleFindTemplate ) {
+    public void launchToActivityFindTempales(@NonNull Bundle bundleFindTemplate,  @NonNull Handler handlerAfterAddingTemplate) {
         try{
             Intent  intentActivityFindTemplate = new Intent(activity, MainActivityFindTemplates_in_proccesing.class);
             intentActivityFindTemplate.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
