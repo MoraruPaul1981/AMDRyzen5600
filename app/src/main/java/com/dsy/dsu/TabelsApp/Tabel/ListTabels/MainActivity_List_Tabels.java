@@ -72,11 +72,13 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Locale;
 import java.util.Optional;
+import java.util.concurrent.Callable;
 import java.util.concurrent.TimeUnit;
 
 import dagger.hilt.android.AndroidEntryPoint;
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.core.Observable;
+import io.reactivex.rxjava3.core.Single;
 import io.reactivex.rxjava3.functions.Action;
 import io.reactivex.rxjava3.functions.BiFunction;
 import io.reactivex.rxjava3.functions.Consumer;
@@ -734,7 +736,7 @@ public class MainActivity_List_Tabels extends AppCompatActivity  {
             gridViewAllTabes.requestLayout();
             // TODO: 19.04.2023 слушаелти
             // TODO: 18.04.2023 Слушаиель Клика
-            методПоGridView( );
+            clickItemGridView( );
             // TODO: 18.04.2023 Слушатель Удалание
             методУдалениеТабеля( );
 
@@ -924,7 +926,7 @@ public class MainActivity_List_Tabels extends AppCompatActivity  {
 
 
 
-    private void методПоGridView( ) {
+    private void clickItemGridView( ) {
         gridViewAllTabes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -1454,9 +1456,12 @@ public class MainActivity_List_Tabels extends AppCompatActivity  {
 
 
                         // TODO: 15.02.2023  само удаление по двум таблицам
-                        МетодУдалениеСамогоТабеляИлиСотрудников(СамоЗначениеUUID,"data_tabels",cursorДляУдалениея);
+                        deletingTabel(СамоЗначениеUUID,"data_tabels",cursorДляУдалениея);
 
-                        Log.d(this.getClass().getName(), "  ФИНАЛ создание нового сотрудника " + "cursorДляУдалениея ");
+                        Log.d(context.getClass().getName(), "\n"
+                                + " время: " + new Date()+"\n+" +
+                                " Класс в процессе... " +  this.getClass().getName()+"\n"+
+                                " метод в процессе... " + Thread.currentThread().getStackTrace()[2].getMethodName());
                     }
 
 
@@ -1470,6 +1475,10 @@ public class MainActivity_List_Tabels extends AppCompatActivity  {
                 public void onClick(View v) {
                     //удаляем с экрана Диалог
                     alertDialog.dismiss();
+                    Log.d(context.getClass().getName(), "\n"
+                            + " время: " + new Date()+"\n+" +
+                            " Класс в процессе... " +  this.getClass().getName()+"\n"+
+                            " метод в процессе... " + Thread.currentThread().getStackTrace()[2].getMethodName());
                 }
             });
         } catch (Exception e) {
@@ -1489,9 +1498,9 @@ public class MainActivity_List_Tabels extends AppCompatActivity  {
 
 
     //todo метод удаление сотрудника из табеля
-    private void МетодУдалениеСамогоТабеляИлиСотрудников(@NonNull Long СамоЗначениеUUID,
-                                                         @NonNull  String ИзКакойТаблицыУдалять,
-                                                         @NonNull Cursor cursor) {
+    private void deletingTabel(@NonNull Long СамоЗначениеUUID,
+                               @NonNull  String ИзКакойТаблицыУдалять,
+                               @NonNull Cursor cursor) {
         ArrayList<Integer> УдалениеintegerArrayList=new ArrayList<>();
         try{
             Log.d(this.getClass().getName()," ДляУдалениеUUID " +ИзКакойТаблицыУдалять);
@@ -1502,10 +1511,10 @@ public class MainActivity_List_Tabels extends AppCompatActivity  {
             progressDialogДляУдаления.setCanceledOnTouchOutside(false);
             progressDialogДляУдаления.setMessage("Удаление...");
             progressDialogДляУдаления.show();
-            Integer СтрочкиОбработки=cursor.getCount();
-                        Observable.range(0,СтрочкиОбработки)
+                               //TODO
+                        Observable.range(0,cursor.getCount())
                                     .subscribeOn(Schedulers.single())
-                                    .zipWith(Observable.interval(300, TimeUnit.MILLISECONDS), new BiFunction<Object, Long, Object>() {
+                                    .zipWith(Observable.interval(150, TimeUnit.MILLISECONDS), new BiFunction<Object, Long, Object>() {
                                         @Override
                                         public Object apply(Object o, Long aLong) throws Throwable {
                                             Log.d(this.getClass().getName(), " o " + o+ " aLong " +aLong);
@@ -1516,37 +1525,45 @@ public class MainActivity_List_Tabels extends AppCompatActivity  {
                                     public void accept(Object o) throws Throwable {
                                         // TODO: 22.11.2022  первая часть
                                     Long    ДляУдалениеUUID=     cursor.getLong(0);
-                                   Integer     Удаление = new CoreBinessLogics(getApplicationContext()).УдалениеТолькоПустогоТабеляЧерезКонтейнерУниверсальная(ИзКакойТаблицыУдалять,
+                                   Integer     Удаление = new CoreBinessLogics(getApplicationContext()).launchUpdateData(ИзКакойТаблицыУдалять,
                                                     "uuid", ДляУдалениеUUID);
-                                            Log.d(this.getClass().getName(), " ДляУдалениеUUID " + ДляУдалениеUUID);
+
                                         if (Удаление>0) {
                                             УдалениеintegerArrayList.add(Удаление);
                                         }
+
+                                        Log.d(context.getClass().getName(), "\n"
+                                                + " время: " + new Date()+"\n+" +
+                                                " Класс в процессе... " +  this.getClass().getName()+"\n"+
+                                                " метод в процессе... " + Thread.currentThread().getStackTrace()[2].getMethodName()
+                                                + " УдалениеintegerArrayList.size()) " +УдалениеintegerArrayList.size());
+
+
                                     }
                                 })
                                 .doAfterNext(new Consumer<Object>() {
                                     @Override
                                     public void accept(Object o) throws Throwable {
                                         cursor.moveToNext();
-                                        context.getMainExecutor().execute(()->{
-                                            progressDialogДляУдаления.setMessage("Удалание..."+УдалениеintegerArrayList.size()+"("+СтрочкиОбработки+")");
-                                        });
+                                        if (Integer.parseInt(o.toString())>0) {
+                                            context.getMainExecutor().execute(()->{
+                                                progressDialogДляУдаления.setMessage("Удалание..."+УдалениеintegerArrayList.size()+"("+Integer.parseInt(o.toString())+")");
+                                            });
+                                        }
                                     }
                                 }).doOnComplete(new Action() {
                                     @Override
                                     public void run() throws Throwable {
-
-
-                                        МетодУдалениеСамогоТабеляИлиСотрудников(СамоЗначениеUUID,"tabel");
+                                        // TODO: 14.07.2025  
+                                            deletingTabel(СамоЗначениеUUID,"tabel");
+                                        
 
                                         Log.d(this.getClass().getName(), "\n"
                                                 + " время: " + new Date() + "\n+" +
                                                 " Класс в процессе... " + this.getClass().getName() + "\n" +
                                                 " метод в процессе... " + Thread.currentThread().getStackTrace()[2].getMethodName());
                                     }
-                                })
-                               .subscribeOn(AndroidSchedulers.mainThread())
-                                .subscribe();;
+                                }).subscribe();;
 
             Log.d(this.getClass().getName(), "\n"
                     + " время: " + new Date() + "\n+" +
@@ -1566,82 +1583,52 @@ public class MainActivity_List_Tabels extends AppCompatActivity  {
 
 
     //todo ВТОРОЙ МЕТОД УДАЛЕНИЕ ДЛЯ ВЕРХНЕНЙ ТАБЛИЦЫ ТАБЕЛЬ
-    private void МетодУдалениеСамогоТабеляИлиСотрудников(@NotNull  Long ДляУдалениеUUID,
-                                                         @NonNull  String ИзКакойТаблицыУдалять) {
-        ArrayList<Integer> УдалениеintegerArrayList=new ArrayList<>();
+    private void deletingTabel(@NotNull  Long ДляУдалениеUUID,
+                               @NonNull  String ИзКакойТаблицыУдалять) {
+       Integer  УдалениеintegerArrayList=0;
         try{
-            Log.d(this.getClass().getName()," ДляУдалениеUUID " +ДляУдалениеUUID);
-            Observable.range(0,1)
-                    .subscribeOn(Schedulers.single())
-                    .zipWith(Observable.interval(300, TimeUnit.MILLISECONDS), new BiFunction<Object, Long, Object>() {
+            УдалениеintegerArrayList=    Single.fromCallable(new Callable<Integer>() {
+                @Override
+                public Integer call() throws Exception {
+                    // TODO: 22.11.2022  первая часть
+                    Integer     deleteTabel = new CoreBinessLogics(getApplicationContext()).launchUpdateData(ИзКакойТаблицыУдалять,
+                            "uuid", ДляУдалениеUUID);
+                    Log.d(context.getClass().getName(), "\n"
+                            + " время: " + new Date()+"\n+" +
+                            " Класс в процессе... " +  this.getClass().getName()+"\n"+
+                            " метод в процессе... " + Thread.currentThread().getStackTrace()[2].getMethodName()
+                            + " deleteTabel " +deleteTabel);
+                    return deleteTabel;
+                }
+            }).subscribeOn(AndroidSchedulers.mainThread())
+                    .doOnSuccess(new Consumer<Integer>() {
                         @Override
-                        public Object apply(Object o, Long aLong) throws Throwable {
-                            Log.d(this.getClass().getName(), " o " + o+ " aLong " +aLong);
-                            return aLong;
-                        }
-                    }).doOnNext(new Consumer<Object>() {
-                        @Override
-                        public void accept(Object o) throws Throwable {
-                            // TODO: 22.11.2022  первая часть
-                            Integer     Удаление = new CoreBinessLogics(getApplicationContext()).УдалениеТолькоПустогоТабеляЧерезКонтейнерУниверсальная(ИзКакойТаблицыУдалять,
-                                    "uuid", ДляУдалениеUUID);
-                            Log.d(this.getClass().getName(), " ДляУдалениеUUID " + ДляУдалениеUUID);
-                            if (Удаление>0) {
-                                УдалениеintegerArrayList.add(Удаление);
+                        public void accept(Integer integer) throws Throwable {
+                            // TODO: 14.07.2025
+                            if (integer>0) {
+                                context.getMainExecutor().execute(()->{
+                                    progressDialogДляУдаления.setMessage("Удалание..."+integer +")");
+                                });
                             }
-                        }
-                    })
-                    .doAfterNext(new Consumer<Object>() {
-                        @Override
-                        public void accept(Object o) throws Throwable {
-                            context.getMainExecutor().execute(()->{
-                                progressDialogДляУдаления.setMessage("Удалание..."+УдалениеintegerArrayList.size()+"("+УдалениеintegerArrayList.size()+")");
-                            });
+                            progressDialogДляУдаления.dismiss();
+                            progressDialogДляУдаления.cancel();;
+
+                            // TODO: 24.08.2023  метод перегрузки reeboot данных
+                            методRebootGataTabel();
+
+                            onStart();
 
                         }
-                    })
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .doOnComplete(new Action() {
-                        @Override
-                        public void run() throws Throwable {
-                            Log.d(this.getClass().getName(), " УдалениеintegerArrayList.size() " +УдалениеintegerArrayList.size());
-                            if ( УдалениеintegerArrayList.size()>0) {
-                                // TODO: 07.10.2022  СИНХронизация
-                                // TODO: 15.02.2023
-                                progressDialogДляУдаления.dismiss();
-                                progressDialogДляУдаления.cancel();;
-
-                                // TODO: 24.08.2023  метод перегрузки reeboot данных
-                                методRebootGataTabel();
-
-                                onStart();
-                            }
-                        }
-                    })
-
-                    .doOnError(new Consumer<Throwable>() {
+                    }).doOnError(new Consumer<Throwable>() {
                         @Override
                         public void accept(Throwable throwable) throws Throwable {
-                            Log.d(this.getClass().getName(), " doOnError  МетодУдалениеСамогоТабеля  throwable " +throwable.getMessage());
-                            ///метод запись ошибок в таблицу
                             Log.e(this.getClass().getName(), "Ошибка " + throwable + " Метод :" + Thread.currentThread().getStackTrace()[2].getMethodName() +
                                     " Линия  :" + Thread.currentThread().getStackTrace()[2].getLineNumber());
                             new RecordNewErros(getApplicationContext()).recordnewerror(throwable.toString(), this.getClass().getName(),
                                     Thread.currentThread().getStackTrace()[2].getMethodName(), Thread.currentThread().getStackTrace()[2].getLineNumber());
                         }
                     })
-                    .onErrorComplete(new Predicate<Throwable>() {
-                        @Override
-                        public boolean test(Throwable throwable) throws Throwable {
-                            Log.d(this.getClass().getName(), " onErrorComplete  МетодУдалениеСамогоТабеля  throwable " +throwable.getMessage());
-                            ///метод запись ошибок в таблицу
-                            Log.e(this.getClass().getName(), "Ошибка " + throwable + " Метод :" + Thread.currentThread().getStackTrace()[2].getMethodName() +
-                                    " Линия  :" + Thread.currentThread().getStackTrace()[2].getLineNumber());
-                            new RecordNewErros(getApplicationContext()).recordnewerror(throwable.toString(), this.getClass().getName(),
-                                    Thread.currentThread().getStackTrace()[2].getMethodName(), Thread.currentThread().getStackTrace()[2].getLineNumber());
-                            return false;
-                        }
-                    }).subscribe();
+                    .subscribeOn(Schedulers.single()).blockingGet();
         } catch (Exception e) {
             e.printStackTrace();
             Log.e(this.getClass().getName(), "Ошибка " + e + " Метод :" + Thread.currentThread().getStackTrace()[2].getMethodName() +
@@ -1650,6 +1637,11 @@ public class MainActivity_List_Tabels extends AppCompatActivity  {
                     Thread.currentThread().getStackTrace()[2].getMethodName(), Thread.currentThread().getStackTrace()[2].getLineNumber());
         };
     }
+
+
+
+
+
 
     private void методRebootGataTabel() {
         try{

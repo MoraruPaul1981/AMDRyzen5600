@@ -22,6 +22,7 @@ import com.dsy.dsu.BusinessLogicForApps.Dates.GetMainDateForApp;
 import com.dsy.dsu.BusinessLogicForApps.DeviceName.ModulegetDeviceName;
 import com.dsy.dsu.BusinessLogicForApps.GetPublicID.GetttingPublicID;
 import com.dsy.dsu.BusinessLogicForApps.JbossAdress.JbossContext;
+import com.dsy.dsu.BusinessLogicForApps.VersionCurentTable;
 import com.dsy.dsu.CoreApp.Apps.ErrorsCoreApp.model.bl_readnewerrors.RecordNewErros;
 import com.dsy.dsu.BusinessLogicForApps.JbossAdress.JbossHilt.intarfaces.getHiltPortJbossInterface;
 import com.dsy.dsu.BusinessLogicForApps.Hilt.OkhhtpBuilder.GetAsyncOkHttpClientBuilder;
@@ -1166,16 +1167,17 @@ import okio.BufferedSink;
     }
 
 
-    public Integer УдалениеТолькоПустогоТабеляЧерезКонтейнерУниверсальная(String ТаблицаОткудаУдлаяемЗапись,
-                                                                          String ЧерезКакоеПолеУдлаяемФлаг,
-                                                                          Long UUIDДляСостыковПриОбновления) {
+    public Integer launchDeletingDataTabels(String ТаблицаОткудаУдлаяемЗапись,
+                                            String ЧерезКакоеПолеУдлаяемФлаг,
+                                            Long UUIDДляСостыковПриОбновления) {
         Integer Результат_УдалениеДанных = 0;
         // TODO: 30.08.2021    КОД ОБНОВЛЕНИЕ   ДАННЫХ   ЧЕРЕ
             try {
                 // TODO: 14.05.2025
                 ModuleDeleting moduleDeleting = new ModuleDeleting(context);
                 // TODO: 03.02.2025 update new back
-                Результат_УдалениеДанных=    moduleDeleting.getModuleDelete(ТаблицаОткудаУдлаяемЗапись,ЧерезКакоеПолеУдлаяемФлаг,new String[]{UUIDДляСостыковПриОбновления.toString()});
+                Результат_УдалениеДанных=    moduleDeleting.getModuleDelete(ТаблицаОткудаУдлаяемЗапись,
+                        ЧерезКакоеПолеУдлаяемФлаг,new String[]{UUIDДляСостыковПриОбновления.toString()});
                 Log.d(this.getClass().getName(),"\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
                         " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
                         " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n" + " Результат_УдалениеДанных "+Результат_УдалениеДанных );
@@ -1191,28 +1193,68 @@ import okio.BufferedSink;
     }
 
 
-    public Integer УдалениеТолькоШАблонЧерезКонтейнерУниверсальная(String ТаблицаОткудаУдлаяемЗапись,
-                                                                   String ЧерезКакоеПолеУдлаяемФлаг,
-                                                                   String UUIDДляСостыковПриОбновления) {
-        Integer Результат_УдалениеТолькоШАблон = 0;
-            try {
-                // TODO: 14.05.2025
-                ModuleDeleting moduleDeleting = new ModuleDeleting(context);
-                // TODO: 03.02.2025 update new back
-                Результат_УдалениеТолькоШАблон=    moduleDeleting.getModuleDelete(ТаблицаОткудаУдлаяемЗапись,ЧерезКакоеПолеУдлаяемФлаг,new String[]{UUIDДляСостыковПриОбновления.toString()});
-                Log.d(this.getClass().getName(),"\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
-                        " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
-                        " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n" + " Результат_УдалениеТолькоШАблон "+Результат_УдалениеТолькоШАблон );
-                } catch (Exception e) {///////ошибки
-                e.printStackTrace();
-                ///метод запись ошибок в таблицу
-                Log.e(CoreBinessLogics.class.getName(), "Ошибка " + e.toString() + " Метод :" + Thread.currentThread().getStackTrace()[2].getMethodName() +
-                        " Линия  :" + Thread.currentThread().getStackTrace()[2].getLineNumber());
-                new RecordNewErros(context).recordnewerror(e.toString(), CoreBinessLogics.class.getName(),
-                        Thread.currentThread().getStackTrace()[2].getMethodName(), Thread.currentThread().getStackTrace()[2].getLineNumber());
-            }
-        return Результат_УдалениеТолькоШАблон;
+
+
+
+
+
+    public Integer launchUpdateData(String Таблица,
+                                    String ЧерезКакоеПолеУдлаяемФлаг,
+                                    Long UUIDUpdate) {
+        Integer resultUpdate= 0;
+        // TODO: 30.08.2021    КОД ОБНОВЛЕНИЕ   ДАННЫХ   ЧЕРЕ
+        try {
+            // TODO: 14.05.2025
+            ContentValues contentValuesUpsdateData=new ContentValues();
+            contentValuesUpsdateData = new ContentValues();
+            contentValuesUpsdateData.put("status_send", "Удаленная");
+            ////TODO ДАТА
+            String СгенерированованныйДатаДляДаннойОперации=     new GetMainDateForApp(context).getMainDateForApp();
+            contentValuesUpsdateData.put("date_update", СгенерированованныйДатаДляДаннойОперации);
+            Long getUpversionData =
+                    new VersionCurentTable(context).upVersionCurentTable(    Таблица);
+            contentValuesUpsdateData.put("current_table", getUpversionData);
+
+            ModuleUpdating moduleUpdating = new ModuleUpdating(context);
+            // TODO: 03.02.2025 update new back
+            resultUpdate=   moduleUpdating.getModuleUpdate(Таблица,contentValuesUpsdateData,"uuid=?", new String[] {UUIDUpdate.toString()});
+            Log.d(this.getClass().getName(),"\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
+                    " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
+                    " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n" + " resultUpdate "+resultUpdate );
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            Log.e(CoreBinessLogics.class.getName(), "Ошибка " + e.toString() + " Метод :" + Thread.currentThread().getStackTrace()[2].getMethodName() +
+                    " Линия  :" + Thread.currentThread().getStackTrace()[2].getLineNumber());
+            new RecordNewErros(context).recordnewerror(e.toString(), CoreBinessLogics.class.getName(),
+                    Thread.currentThread().getStackTrace()[2].getMethodName(), Thread.currentThread().getStackTrace()[2].getLineNumber());
+        }
+        return resultUpdate;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     @SuppressLint("SuspiciousIndentation")
