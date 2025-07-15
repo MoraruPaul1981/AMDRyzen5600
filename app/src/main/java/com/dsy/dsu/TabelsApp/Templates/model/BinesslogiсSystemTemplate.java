@@ -52,11 +52,11 @@ public class BinesslogiсSystemTemplate  implements  SystemTemplateIntarface {
      * launchToActivityFindTempales
      */
     @Override
-    public void launchToActivityFindTempales(@NonNull Bundle bundleFindTemplate,  @NonNull Handler handlerAfterAddingTemplate) {
+    public void launchToActivityFindTempales(@NonNull Bundle bundleFromActivityListPeoples,  @NonNull Handler handlerAfterAddingTemplate) {
         try{
             Intent  intentActivityFindTemplate = new Intent(activity, MainActivityTemplatesFindPeoples.class);
             intentActivityFindTemplate.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            intentActivityFindTemplate.putExtras(bundleFindTemplate);
+            intentActivityFindTemplate.putExtras(bundleFromActivityListPeoples);
             activity. startActivity( intentActivityFindTemplate);
             // TODO: 17.04.2023
             Log.d(this.getClass().getName(),"\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName()

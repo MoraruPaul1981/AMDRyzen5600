@@ -24,7 +24,7 @@ import java.util.function.Consumer;
 
 //этот класс создает базу данных SQLite
 public class GetSQLiteDatabase extends SQLiteOpenHelper{ ///SQLiteOpenHelper
-    static final int VERSION =              1078;//ПРИ ЛЮБОМ ИЗМЕНЕНИЕ В СТРУКТУРЕ БАЗЫ ДАННЫХ НУЖНО ДОБАВИТЬ ПЛЮС ОДНУ ЦИФРУ К ВЕРСИИ 1=1+1=2 ИТД.1
+    static final int VERSION =              1080;//ПРИ ЛЮБОМ ИЗМЕНЕНИЕ В СТРУКТУРЕ БАЗЫ ДАННЫХ НУЖНО ДОБАВИТЬ ПЛЮС ОДНУ ЦИФРУ К ВЕРСИИ 1=1+1=2 ИТД.1
     private   Context context;
 
 
@@ -351,7 +351,6 @@ public class GetSQLiteDatabase extends SQLiteOpenHelper{ ///SQLiteOpenHelper
                 " user_update INTEGER," +
                 "  current_table NUMERIC UNIQUE    ," +
                 " status_send  TEXT ," +
-                "FOREIGN KEY(fio_uuid  ) REFERENCES fio (uuid)  ON UPDATE CASCADE," +
                 "FOREIGN KEY( fio_template  ) REFERENCES templates (uuid)  ON UPDATE CASCADE ," +
                 "FOREIGN KEY( fio_template  ) REFERENCES templates (uuid)   ON DELETE CASCADE," +
                 " UNIQUE (fio_template,fio_uuid )) ");
@@ -1261,8 +1260,10 @@ public class GetSQLiteDatabase extends SQLiteOpenHelper{ ///SQLiteOpenHelper
             Log.d(this.getClass().getName(), " после СЛУЖБА  содание базы newVersion==  652   (например)   " + new Date() + " newVersion " + newVersion);
 
 
-            // TODO: 08.06.2021 создание Базы Данных  ЧИСТАЯ УСТАНОВКА
-            onCreate(ССылкаНаСозданнуюБазу);
+            if (newVersion>oldVersion) {
+                // TODO: 08.06.2021 создание Базы Данных  ЧИСТАЯ УСТАНОВКА
+                onCreate(ССылкаНаСозданнуюБазу);
+            }
 
             Log.d(this.getClass().getName(), "\n"
                     + " время: " + new Date() + "\n+" +
