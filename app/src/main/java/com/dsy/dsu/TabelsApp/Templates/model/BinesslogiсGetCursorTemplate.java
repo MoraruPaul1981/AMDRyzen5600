@@ -1,17 +1,12 @@
 package com.dsy.dsu.TabelsApp.Templates.model;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.database.Cursor;
-import android.os.Bundle;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
 
 import com.dsy.dsu.CoreApp.Apps.ErrorsCoreApp.model.bl_readnewerrors.RecordNewErros;
-import com.dsy.dsu.TabelsApp.Peoples.MainActivityListPeoples;
-import com.dsy.dsu.TabelsApp.Templates.view.MainActivityFindTemplates_in_proccesing;
 import com.sous.backasync.launch.ModuleQuety;
 
 public class BinesslogiсGetCursorTemplate implements  GetCursorTemplateIntarface {

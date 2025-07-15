@@ -456,7 +456,7 @@
         </activity>
 
         <activity
-            android:name=".TabelsApp.Templates.view.MainActivityFindTemplates_in_proccesing"
+            android:name=".TabelsApp.Templates.view.MainActivityTemplatesFindPeoples"
             android:exported="true"
             android:label="Поиск шаблон"
             android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar">
