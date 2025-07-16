@@ -19,8 +19,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
 import android.text.Spannable;
@@ -122,12 +120,11 @@ public class FragmentSingleTabelOneSwipe extends Fragment {
     private  Integer DigitalNameCFO=0;
     private MaterialButton imageButtonbackotsingletabel;
     private  long CurrenrsСhildUUID =0l;
-    private  long CurrenrsSelectFio =0l;
+    private  Long getCurrenrsSelectFio =0l;
     private  long MainParentUUID =0l;
 
     private  String ФИО;
-    private Message message;
-    private      Message messageRows;
+
     private RecyclerView recycleviewsingletabel;
     private  SubClassSingleTabelRecycreView. MyRecycleViewAdapter myRecycleViewAdapter;
     private  SubClassSingleTabelRecycreView. MyViewHolder myViewHolder;
@@ -164,7 +161,6 @@ public class FragmentSingleTabelOneSwipe extends Fragment {
         try{
             super.onCreate(savedInstanceState);
             fragmentSingleTabel=new SubClassBisscessFragmentSingleTabel();
-            fragmentSingleTabel.МетодGetmessage();
             // TODO: 29.03.2023  Метод RerecyView RerecyView RerecyView RerecyView RerecyView
             // TODO: 22.06.2023
             singleTabelRecycreView= new SubClassSingleTabelRecycreView( );
@@ -422,16 +418,12 @@ public class FragmentSingleTabelOneSwipe extends Fragment {
     protected   Cursor МетодКурсорДляПрофессииБезФильтра() {
         Cursor КурсорТаблицаПрофесии =null;
         try{
-            Bundle bundleПрофесии=new Bundle();
-            bundleПрофесии.putString("СамЗапрос","  SELECT * FROM  prof WHERE uuid!=? ");
-            bundleПрофесии.putStringArray("УсловияВыборки" ,new String[]{"0"});
-            bundleПрофесии.putString("Таблица","prof");
 
             // TODO: 14.05.2025
             String Текущаятаблицы="prof";
             ModuleQuety moduleQuety=new ModuleQuety(getContext());
             КурсорТаблицаПрофесии=   moduleQuety.getModuleQuery(Текущаятаблицы,"   SELECT *  FROM   "+Текущаятаблицы+" AS D " +
-                    "  WHERE   D.uuid='"+String.valueOf(0)+";" ,null);
+                    "  WHERE   D.name  IS NOT NULL " ,null);
             // TODO: 09.06.2025
             Log.d(this.getClass().getName(),"\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
                     " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
@@ -482,53 +474,7 @@ public class FragmentSingleTabelOneSwipe extends Fragment {
     @SuppressLint("Range")
     class  SubClassBisscessFragmentSingleTabel{
         //TODO метод делает callback с ответом на экран
-        private  void  МетодGetmessage(){
-            try{
-                message=new Handler(Looper.getMainLooper(), new Handler.Callback() {
-                    @Override
-                    public boolean handleMessage(@NonNull Message msg) {
-                        try{
-                            Log.d(this.getClass().getName(),"\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
-                                    " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
-                                    " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n");
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                            Log.e(this.getClass().getName(), "Ошибка " + e + " Метод :" + Thread.currentThread().getStackTrace()[2].getMethodName() +
-                                    " Линия  :" + Thread.currentThread().getStackTrace()[2].getLineNumber());
-                            new RecordNewErros(getContext()).recordnewerror(e.toString(),
-                                    this.getClass().getName(), Thread.currentThread().getStackTrace()[2].getMethodName(),
-                                    Thread.currentThread().getStackTrace()[2].getLineNumber());
-                        }
-                        return true;
-                    }
-                }).obtainMessage();
 
-                messageRows=Message.obtain(new Handler(Looper.myLooper()),()->{
-                    try{
-                        Bundle bundle=   messageRows.getData();
-                        Log.i(this.getClass().getName(),  " Атоманически установкаОбновление ПО "+
-                                Thread.currentThread().getStackTrace()[2].getMethodName()+
-                                " время " +new Date().toLocaleString() + " bundle " +bundle );
-                        Log.i(this.getClass().getName(), "bundle " +bundle);
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                        Log.e(this.getClass().getName(), "Ошибка " + e + " Метод :" + Thread.currentThread().getStackTrace()[2].getMethodName() +
-                                " Линия  :" + Thread.currentThread().getStackTrace()[2].getLineNumber());
-                        new RecordNewErros(getContext()).recordnewerror(e.toString(),
-                                this.getClass().getName(), Thread.currentThread().getStackTrace()[2].getMethodName(),
-                                Thread.currentThread().getStackTrace()[2].getLineNumber());
-                    }
-                });
-
-            } catch (Exception e) {
-                e.printStackTrace();
-                Log.e(this.getClass().getName(), "Ошибка " + e + " Метод :" + Thread.currentThread().getStackTrace()[2].getMethodName() +
-                        " Линия  :" + Thread.currentThread().getStackTrace()[2].getLineNumber());
-                new RecordNewErros(getContext()).recordnewerror(e.toString(),
-                        this.getClass().getName(), Thread.currentThread().getStackTrace()[2].getMethodName(),
-                        Thread.currentThread().getStackTrace()[2].getLineNumber());
-            }
-        }
 
         //TODO хдесь мы запускаем метод создание и обработка самого табеля
         private void методСпинерМесяцы( ) {
@@ -724,7 +670,7 @@ public class FragmentSingleTabelOneSwipe extends Fragment {
                         ИмесяцвИГодСразу= bundleИзMainActitivy_List_Tables.getString("ИмесяцвИГодСразу", "").trim();
                         CurrenrsСhildUUID= bundleИзMainActitivy_List_Tables.getLong("CurrenrsСhildUUID", 0l);
                         ФИО= bundleИзMainActitivy_List_Tables.getString("ФИО", "").trim();
-                        CurrenrsSelectFio= bundleИзMainActitivy_List_Tables.getLong("CurrenrsSelectFio", 0l);
+                        getCurrenrsSelectFio = bundleИзMainActitivy_List_Tables.getLong("CurrenrsSelectFio", 0l);
                         getlistpeoplesposition =  bundleИзMainActitivy_List_Tables.getInt("listpeoplesposition", 0);
                         Log.d(this.getClass().getName(),"\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
                                 " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
@@ -757,7 +703,7 @@ public class FragmentSingleTabelOneSwipe extends Fragment {
                         DigitalNameCFO=   cursor.getInt(cursor.getColumnIndex("cfo"));
                         CurrenrsСhildUUID= cursor.getLong(cursor.getColumnIndex("uuid"));
                         ФИО= cursor.getString(cursor.getColumnIndex("name"));
-                        CurrenrsSelectFio= cursor.getLong(cursor.getColumnIndex("fio"));
+                        getCurrenrsSelectFio = cursor.getLong(cursor.getColumnIndex("fio"));
                         Log.d(this.getClass().getName(),"\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
                                 " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
                                 " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n"
@@ -880,7 +826,7 @@ public class FragmentSingleTabelOneSwipe extends Fragment {
                 Log.d(this.getClass().getName(),"\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
                         " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
                         " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n"+"CurrentFragmentMaxItem   " + CurrentFragmentMaxItem + " cursorForViewPager " + cursorForViewPager +
-                        " posio " +myViewHolder.getLayoutPosition()  + " CurrenrsСhildUUID " +CurrenrsСhildUUID + " CurrenrsSelectFio " +CurrenrsSelectFio + "  ФИО " + ФИО
+                        " posio " +myViewHolder.getLayoutPosition()  + " CurrenrsСhildUUID " +CurrenrsСhildUUID + " CurrenrsSelectFio " + getCurrenrsSelectFio + "  ФИО " + ФИО
                         + " cursorSwipeViewPager " + cursorSwipeViewPager.getPosition());
 
             } catch (Exception e) {
@@ -921,7 +867,7 @@ public class FragmentSingleTabelOneSwipe extends Fragment {
                 Log.d(this.getClass().getName(),"\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
                         " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
                         " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n"+"CurrentFragmentMaxItem   " + CurrentFragmentMaxItem + " cursorForViewPager " + cursorForViewPager +
-                        " posio " +myViewHolder.getLayoutPosition()  + " CurrenrsСhildUUID " +CurrenrsСhildUUID + " CurrenrsSelectFio " +CurrenrsSelectFio + "  ФИО " + ФИО
+                        " posio " +myViewHolder.getLayoutPosition()  + " CurrenrsСhildUUID " +CurrenrsСhildUUID + " CurrenrsSelectFio " + getCurrenrsSelectFio + "  ФИО " + ФИО
                         + " cursorSwipeViewPager " + cursorSwipeViewPager.getPosition());
 
             } catch (Exception e) {
@@ -1100,7 +1046,7 @@ public class FragmentSingleTabelOneSwipe extends Fragment {
                             Log.d(this.getClass().getName(), "\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
                                     " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
                                     " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n" + "PositionCustomer   "
-                                    + " CurrenrsСhildUUID " + CurrenrsСhildUUID + " CurrenrsSelectFio " + CurrenrsSelectFio + "  ФИО " + ФИО);
+                                    + " CurrenrsСhildUUID " + CurrenrsСhildUUID + " CurrenrsSelectFio " + getCurrenrsSelectFio + "  ФИО " + ФИО);
                         } catch (Exception e) {
                             e.printStackTrace();
                             Log.e(getContext().getClass().getName(),
@@ -1448,7 +1394,7 @@ public class FragmentSingleTabelOneSwipe extends Fragment {
                                     String Текущаятаблицы="fio";
                                     ModuleQuety moduleQuety=new ModuleQuety(getContext());
                                     Cursor    КурсорТаблицаФИО=   moduleQuety.getModuleQuery(Текущаятаблицы,"   SELECT *  FROM   "+Текущаятаблицы+" AS D " +
-                                            "  WHERE   D.uuid='"+String.valueOf(CurrenrsSelectFio)+";" ,null);
+                                            "  WHERE   D.uuid='"+ getCurrenrsSelectFio.toString()+"'" ,null);
                                     // TODO: 09.06.2025
                                     Log.d(this.getClass().getName(),"\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
                                             " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
@@ -1462,7 +1408,7 @@ public class FragmentSingleTabelOneSwipe extends Fragment {
                                       String ФИОИнфо= Optional.ofNullable(КурсорТаблицаФИО.getString(КурсорТаблицаФИО.getColumnIndex("name"))).orElse("");
                                         String ДеньРОжденияИНФО= Optional.ofNullable(КурсорТаблицаФИО.getString(КурсорТаблицаФИО.getColumnIndex("BirthDate"))).orElse("");
                                         Long СНИЛСИНфо= КурсорТаблицаФИО.getLong(КурсорТаблицаФИО.getColumnIndex("snils"));
-                                        String ПрофессияИзФИо= Optional.ofNullable(КурсорТаблицаФИО.getString(КурсорТаблицаФИО.getColumnIndex("prof"))).orElse("Должность");
+                                        //String ПрофессияИзФИо= Optional.ofNullable(КурсорТаблицаФИО.getString(КурсорТаблицаФИО.getColumnIndex("prof"))).orElse("Должность");
 
 
                                         // TODO: 20.03.2023  ПОказываем Данные Для Обзора
@@ -1543,9 +1489,12 @@ public class FragmentSingleTabelOneSwipe extends Fragment {
 
 
                                     materialTextViewprofession.setBackgroundColor(Color.WHITE);
+
                                     Cursor КурсорТаблицаПрофесии = МетодКурсорДляПрофессииБезФильтра();
                                     // TODO: 27.03.2023 Новый ПОсик
-                                    new SubClassSearchProfessia().МетодСообщениеНовыйПоиска(getActivity(),КурсорТаблицаПрофесии ,message,"prof", CurrenrsСhildUUID);
+                                    new SubClassSearchProfessia().МетодСообщениеНовыйПоиска(getActivity(),КурсорТаблицаПрофесии , "prof", CurrenrsСhildUUID);
+
+
                                     Log.d(this.getClass().getName(), "\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
                                             " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
                                             " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n"+
@@ -1583,11 +1532,10 @@ public class FragmentSingleTabelOneSwipe extends Fragment {
 
                 if (bundleToMainActitivyMetkiTabel!=null) {
                     intentПереХодНаМеткиТабеля.putExtras(bundleToMainActitivyMetkiTabel);
-                    message.getTarget().postDelayed(()->{
-                        // TODO: 10.04.2023  переход ИЗ MAINaCTITyTabelSingle Peolpe
-                        // TODO: 10.04.2023  ОТПРАВЛЯЕММ ПЕРЕМЕННЫЕ
-                      startActivity(intentПереХодНаМеткиТабеля);
-                    },100);
+
+                    // TODO: 10.04.2023  переход ИЗ MAINaCTITyTabelSingle Peolpe
+                    // TODO: 10.04.2023  ОТПРАВЛЯЕММ ПЕРЕМЕННЫЕ
+                    startActivity(intentПереХодНаМеткиТабеля);
                 }
 
                 Log.d(this.getClass().getName(), "\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
@@ -1769,10 +1717,9 @@ public class FragmentSingleTabelOneSwipe extends Fragment {
                         getLoopNameRecycreViewSingleTable(holder, cursor);
 
 
-                        messageRows.getTarget().post(()->{
+
                             // TODO: 22.06.2023 loop   Value
                             getLoopValueRecycreViewSingleTable(holder, cursor);
-                        });
 
                         // TODO: 16.04.2023 Професии Професии Професии Професии
                         МетодаКликаTableRowФИО( );
@@ -2262,7 +2209,7 @@ public class FragmentSingleTabelOneSwipe extends Fragment {
                     dataRowData.putString("ИмесяцвИГодСразу", ИмесяцвИГодСразу);
                     dataRowData.putLong("CurrenrsСhildUUID", CurrenrsСhildUUID);
                     dataRowData.putString("ФИО", ФИО);
-                    dataRowData.putLong("CurrenrsSelectFio", CurrenrsSelectFio);
+                    dataRowData.putLong("CurrenrsSelectFio", getCurrenrsSelectFio);
                     editTextRowКликПоДАнными.setVisibility(View.VISIBLE);
                     editTextRowКликПоДАнными.setTag(dataRowData);
                     editTextRowКликПоДАнными.setText(День.trim());
@@ -2581,10 +2528,7 @@ public class FragmentSingleTabelOneSwipe extends Fragment {
                             методСчитаемЧасы(myRecycleViewAdapter.cursor,myRecycleViewAdapter.cursor.getPosition());
 
                             new SubClassSingleTabelRecycreView().МетодЗаполняемФИОиПрофесиюRow(cursorSingleTabels);
-                                 message.getTarget().postDelayed(()->{
                                      editTextRowКликПоДАнными.startAnimation(animation1);
-                                 },50);
-
                             // TODO: 19.06.2023 код когда данные в ячейке не сохранились
                         } else {
                             методКогдаДанныеНеСохранились(editTextRowКликПоДАнными, getNewValueCell.toString());
@@ -2681,9 +2625,9 @@ public class FragmentSingleTabelOneSwipe extends Fragment {
                     v2.vibrate(VibrationEffect.createOneShot(100, VibrationEffect.DEFAULT_AMPLITUDE));
 
                     editTextRowКликПоДАнными.setError(После);
-                    message.getTarget().postDelayed(()->{
+
                         editTextRowКликПоДАнными.setError(null);
-                },5000);
+
                 Log.d(this.getClass().getName(), "\n" + "Start Update D1 class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
                         " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
                         " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n"  );
@@ -2777,8 +2721,7 @@ public class FragmentSingleTabelOneSwipe extends Fragment {
             private    Cursor  КурсорТаблицаПрофесии;
             @UiThread
             private void МетодСообщениеНовыйПоиска(@NonNull Activity activity
-                    ,@NonNull Cursor КурсорТаблицаПрофесии,
-                                                   @NonNull Message message
+                    ,@NonNull Cursor КурсорТаблицаПрофесии
                     ,@NonNull String ТаблицаПосика,
                                                    @NonNull Long РодительскийUUDТаблицыТабель) {
                 try{
@@ -2972,7 +2915,7 @@ public class FragmentSingleTabelOneSwipe extends Fragment {
                             listViewДляНовыйПосик.forceLayout();
 
                             // TODO: 13.12.2022  Поиск и его слушель
-                            МетодПоискаФильтрНовыйПосик(searchViewДляНовогоПоиска,simpleCursorAdapterЦФО,message,listViewДляНовыйПосик,ТаблицаПосика);
+                            МетодПоискаФильтрНовыйПосик(searchViewДляНовогоПоиска,simpleCursorAdapterЦФО,listViewДляНовыйПосик,ТаблицаПосика);
                             // TODO: 13.12.2022 Закрыаем Посик Профессий
                             методЗакрываемПосикПровфесиий(materialButtonЗакрываемПосик);
                             Log.d(this.getClass().getName(),"\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
@@ -3043,7 +2986,6 @@ public class FragmentSingleTabelOneSwipe extends Fragment {
 
             private void МетодПоискаФильтрНовыйПосик(@NonNull  androidx.appcompat.widget.SearchView searchViewДляНовогоЦФО,
                                                      @NonNull SimpleCursorAdapter simpleCursorAdapterЦФО,
-                                                     @NonNull Message message,
                                                      @NonNull ListView listViewДляНовыйПосик
                     ,@NonNull String ТаблицаПосика) {
                 try{
@@ -3108,7 +3050,7 @@ public class FragmentSingleTabelOneSwipe extends Fragment {
                             Log.d(this.getClass().getName()," constraint"  +constraint);
                             try{
                                 КурсорТаблицаПрофесии=      МетодКурсорДляНовогоПосика(constraint.toString());
-                                message.getTarget().post(()->{
+
                                     if (КурсорТаблицаПрофесии.getCount()>0 && constraint.length()>0) {
                                         // TODO: 05.02.2025
                                         startswapCursor(simpleCursorAdapterЦФО,  listViewДляНовыйПосик,alertDialogНовыйПосик);
@@ -3126,7 +3068,7 @@ public class FragmentSingleTabelOneSwipe extends Fragment {
                                                 " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
                                                 " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n"+" КурсорТаблицаПрофесии " +КурсорТаблицаПрофесии+"\n" +" constraint"  +constraint);
 
-                                            message.getTarget().postDelayed(() -> {
+
                                                 searchViewДляНовогоЦФО.setBackgroundColor(Color.parseColor("#F2F5F5"));
                                                 // TODO: 05.02.2025
 
@@ -3137,7 +3079,7 @@ public class FragmentSingleTabelOneSwipe extends Fragment {
                                                 Log.d(this.getClass().getName(),"\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
                                                         " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
                                                         " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n"+" КурсорТаблицаПрофесии " +КурсорТаблицаПрофесии+"\n" +" constraint"  +constraint);
-                                            }, 500);
+
 
                                     }
 
@@ -3147,7 +3089,6 @@ public class FragmentSingleTabelOneSwipe extends Fragment {
                                     listViewДляНовыйПосик.deferNotifyDataSetChanged();
                                     listViewДляНовыйПосик.refreshDrawableState();
                                     listViewДляНовыйПосик.forceLayout();
-                                });
                                 Log.d(this.getClass().getName(),"\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
                                         " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
                                         " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n"+" КурсорТаблицаПрофесии " +КурсорТаблицаПрофесии+"\n" +" constraint"  +constraint);
