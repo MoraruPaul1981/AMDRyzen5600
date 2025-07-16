@@ -27,7 +27,6 @@ import dagger.hilt.components.SingletonComponent;
 public class ModulegetsslSocketFactory2 {
     @SuppressLint("SuspiciousIndentation")
     @QualifiergetsslSocketFactory2
-    @Singleton
     @Provides
     public SSLSocketFactory getsslSocketFactory2(@ApplicationContext Context context) {
         SSLSocketFactory sslSocketFactory2=null;

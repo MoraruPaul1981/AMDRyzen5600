@@ -23,6 +23,7 @@ import com.dsy.dsu.BusinessLogicForApps.AnalysisUserAuthenticated.GetAnalysisUse
 
 
 import com.dsy.dsu.BusinessLogicForApps.GetPublicID.QualifierPublicID;
+import com.dsy.dsu.BusinessLogicForApps.JbossAdress.module.ModulePortJboss;
 import com.dsy.dsu.CoreApp.Apps.ErrorsCoreApp.model.bl_readnewerrors.RecordNewErros;
 import com.dsy.dsu.BusinessLogicForApps.JbossAdress.JbossHilt.intarfaces.QualifierPortJboss;
 
@@ -64,11 +65,10 @@ public class IntentServiceBoot extends IntentService {
     @QualifierPublicID
     Integer getHiltPublicId;
    private Notification notification;
-
-
     @Inject
     @QualifierPortJboss
     public  LinkedHashMap<Integer,String> getHiltPortJboss;
+
 
     public IntentServiceBoot() {
 
@@ -151,6 +151,8 @@ public class IntentServiceBoot extends IntentService {
     protected void onHandleIntent(Intent intent) {
         try {
 
+
+           getHiltPortJboss=new ModulePortJboss().getHiltPortJboss(getApplicationContext());
 
 
             startingServiceBoot(intent,   getHiltPortJboss);

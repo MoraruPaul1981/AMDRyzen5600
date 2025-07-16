@@ -13,6 +13,8 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
 import android.os.Message;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -34,11 +36,13 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.multidex.BuildConfig;
 
+import com.dsy.dsu.BusinessLogicForApps.BootAndAsync.Model.EventsBus.MessageEvensBusNetworkStatuses;
 import com.dsy.dsu.BusinessLogicForApps.BootAndAsync.Model.EventsBus.MessageEvensBusUpdatePO;
 import com.dsy.dsu.BusinessLogicForApps.BootAndAsync.Model.Service.bl_service_boot.StartServiceBootAndAsync;
 import com.dsy.dsu.BusinessLogicForApps.BootAndAsync.Model.BinesslogicActivityBoot.GetComponentActivityBootService;
 
 
+import com.dsy.dsu.BusinessLogicForApps.BootAndAsync.View.BootFragment;
 import com.dsy.dsu.BusinessLogicForApps.CoreBinessLogic.CoreBinessLogics;
 import com.dsy.dsu.BusinessLogicForApps.GetClearDataUserAnCnahgeData;
 import com.dsy.dsu.BusinessLogicForApps.GetPingServers.GetPingServerJboss;
@@ -58,6 +62,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.snackbar.Snackbar;
 import com.jakewharton.rxbinding4.view.RxView;
 
+import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
@@ -246,6 +251,8 @@ public class DashboardFragmentSettings extends  DialogFragment {
             // TODO: 10.03.2025  биндинг обновление ПО
             new BindingSoftwareUpdatePO().getbindingSoftwareUpdatePO();
 
+            registeEventBusFirst(this);
+
             // TODO: 17.08.2023
             Log.d(this.getClass().getName(),"\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
                     " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
@@ -294,7 +301,7 @@ public class DashboardFragmentSettings extends  DialogFragment {
         super.onStop();
         try{
             try{
-
+                unregisterEventBusFirst(this);
                 // TODO: 17.08.2023
                 Log.d(this.getClass().getName(),"\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
                         " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
@@ -596,6 +603,8 @@ public class DashboardFragmentSettings extends  DialogFragment {
                             })
                             .subscribe( GetNameSingleAsync1c-> {
 
+                                Vibrator v2 = (Vibrator) getContext().getSystemService(Context.VIBRATOR_SERVICE);
+                                v2.vibrate(VibrationEffect.createOneShot(100, VibrationEffect.DEFAULT_AMPLITUDE));
                                 // TODO: 24.01.2024  запуска синхрониахции из фрагмента настройкит 
                                 startingPoUpdateFromFragmentSettings();
 
@@ -828,7 +837,8 @@ public class DashboardFragmentSettings extends  DialogFragment {
                        })
                        .subscribe( GetNameSingleAsync1c-> {
 
-
+                           Vibrator v2 = (Vibrator) getContext().getSystemService(Context.VIBRATOR_SERVICE);
+                           v2.vibrate(VibrationEffect.createOneShot(100, VibrationEffect.DEFAULT_AMPLITUDE));
 
 // TODO: 10.07.2023  запуск обновление ПО
                            // TODO: 16.12.2021 НЕПОСРЕДСТВЕННЫЙ ПИНГ СИСТЕНМ ИНТРЕНАТ НА НАЛИЧЕНИ СВАЗИ С БАЗОЙ SQL SERVER
@@ -984,6 +994,53 @@ class BindingSoftwareUpdatePO{
 
 
 }
+
+
+    // TODO: 23.01.2024 EventBus for Status
+    @Subscribe (threadMode = ThreadMode.MAIN_ORDERED)
+    public void EventMessageEvensBusAyns(MessageEvensBusNetworkStatuses messageEvensBusNetworkStatuses){
+        try{
+
+            blInnerMainActivityBootAndAsync .getEventBusNetworkStatuses(messageEvensBusNetworkStatuses);
+
+            Log.d(getContext().getClass().getName(), "\n"
+                    + " время: " + new Date() + "\n+" +
+                    " Класс в процессе... " + this.getClass().getName() + "\n" +
+                    " метод в процессе... " + Thread.currentThread().getStackTrace()[2].getMethodName()
+                    + "   starting... onRestart" + " starting... onRestart");
+        } catch (Exception e) {
+            e.printStackTrace();
+            Log.e(this.getClass().getName(), "Ошибка " + e + " Метод :" + Thread.currentThread().getStackTrace()[2].getMethodName() + " Линия  :"
+                    + Thread.currentThread().getStackTrace()[2].getLineNumber());
+            new RecordNewErros(getContext()).recordnewerror(e.toString(), this.getClass().getName(), Thread.currentThread().getStackTrace()[2].getMethodName(),
+                    Thread.currentThread().getStackTrace()[2].getLineNumber());
+        }
+    }
+
+
+
+    public void registeEventBusFirst(@NonNull DashboardFragmentSettings dashboardFragmentSettings) throws Exception {
+
+        if (  !EventBus.getDefault().isRegistered(dashboardFragmentSettings)) {
+            EventBus.getDefault().register(dashboardFragmentSettings);
+        }
+        Log.d(dashboardFragmentSettings.getContext().getClass().getName(), "\n"
+                + " время: " + new Date() + "\n+" +
+                " Класс в процессе... " + this.getClass().getName() + "\n" +
+                " метод в процессе... " + Thread.currentThread().getStackTrace()[2].getMethodName()+
+                " registeEventBusFirst bootFragment  " +dashboardFragmentSettings);
+    }
+
+    public void unregisterEventBusFirst(@NonNull DashboardFragmentSettings dashboardFragmentSettings) throws Exception {
+        if (  EventBus.getDefault().isRegistered(dashboardFragmentSettings)) {
+            EventBus.getDefault().unregister(dashboardFragmentSettings);
+        }
+        Log.d(dashboardFragmentSettings.getContext().getClass().getName(), "\n"
+                + " время: " + new Date() + "\n+" +
+                " Класс в процессе... " + this.getClass().getName() + "\n" +
+                " метод в процессе... " + Thread.currentThread().getStackTrace()[2].getMethodName()
+                + "   unregisterEventBusFirst bootFragment "+dashboardFragmentSettings);
+    }
 
 // TODO: 10.03.2025  END
 }
