@@ -36,13 +36,12 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.multidex.BuildConfig;
 
-import com.dsy.dsu.BusinessLogicForApps.BootAndAsync.Model.EventsBus.MessageEvensBusNetworkStatuses;
-import com.dsy.dsu.BusinessLogicForApps.BootAndAsync.Model.EventsBus.MessageEvensBusUpdatePO;
-import com.dsy.dsu.BusinessLogicForApps.BootAndAsync.Model.Service.bl_service_boot.StartServiceBootAndAsync;
-import com.dsy.dsu.BusinessLogicForApps.BootAndAsync.Model.BinesslogicActivityBoot.GetComponentActivityBootService;
+import com.dsy.dsu.CoreApp.Apps.BootAndAsyncApp.Model.EventsBus.MessageEvensBusNetworkStatuses;
+import com.dsy.dsu.CoreApp.Apps.BootAndAsyncApp.Model.EventsBus.MessageEvensBusUpdatePO;
+import com.dsy.dsu.CoreApp.Apps.BootAndAsyncApp.Model.Service.bl_service_boot.StartServiceBootAndAsync;
+import com.dsy.dsu.CoreApp.Apps.BootAndAsyncApp.Model.BinesslogicActivityBoot.GetComponentActivityBootService;
 
 
-import com.dsy.dsu.BusinessLogicForApps.BootAndAsync.View.BootFragment;
 import com.dsy.dsu.BusinessLogicForApps.CoreBinessLogic.CoreBinessLogics;
 import com.dsy.dsu.BusinessLogicForApps.GetClearDataUserAnCnahgeData;
 import com.dsy.dsu.BusinessLogicForApps.GetPingServers.GetPingServerJboss;

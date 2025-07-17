@@ -16,7 +16,7 @@
     android:animateLayoutChanges="true"
     app:strokeColor="@color/actionbar_text_color"
     app:strokeWidth="1dp"
-    tools:context=".BusinessLogicForApps.BootAndAsync.View.MainActivityBootAndAsync">
+    tools:context=".CoreApp.Apps.BootAndAsyncApp.View.MainActivityBootAndAsync">
 
 
 

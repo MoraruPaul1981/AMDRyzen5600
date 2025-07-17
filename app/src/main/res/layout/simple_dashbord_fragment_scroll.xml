@@ -11,7 +11,7 @@
     android:background="#FFFFFF"
     android:gravity="top"
     android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
-    tools:context=".BusinessLogicForApps.BootAndAsync.View.MainActivityBootAndAsync"
+    tools:context=".CoreApp.Apps.BootAndAsyncApp.View.MainActivityBootAndAsync"
     tools:ignore="MissingClass">
 
 

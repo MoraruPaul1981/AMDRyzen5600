@@ -16,7 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 
-import com.dsy.dsu.BusinessLogicForApps.BootAndAsync.Model.Service.bl_service_boot.BinessLogicIntentServiceBoot;
+import com.dsy.dsu.CoreApp.Apps.BootAndAsyncApp.Model.Service.bl_service_boot.BinessLogicIntentServiceBoot;
 import com.dsy.dsu.BusinessLogicForApps.AfterSynchRemoveDeletedStatus.GetAfterSynchRemoveDeletedStatus;
 import com.dsy.dsu.BusinessLogicForApps.GetPublicID.QualifierPublicID;
 import com.dsy.dsu.CoreApp.Apps.ErrorsCoreApp.model.bl_readnewerrors.RecordNewErros;

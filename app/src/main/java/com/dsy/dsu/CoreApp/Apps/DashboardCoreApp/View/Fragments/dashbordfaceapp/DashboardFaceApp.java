@@ -24,7 +24,7 @@ import androidx.lifecycle.LifecycleOwner;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.dsy.dsu.AdmissionMaterialsApp.Window.MainActivity_AdmissionMaterials;
-import com.dsy.dsu.BusinessLogicForApps.BootAndAsync.Model.BinesslogicActivityBoot.GetFinishAffinityFragment;
+import com.dsy.dsu.CoreApp.Apps.BootAndAsyncApp.Model.BinesslogicActivityBoot.GetFinishAffinityFragment;
 import com.dsy.dsu.BusinessLogicForApps.BroadcastRecievers.Bl.RegisterBroadcastForWorkManager;
 import com.dsy.dsu.BusinessLogicForApps.GetPublicID.QualifierPublicID;
 import com.dsy.dsu.CommitPricesApp.View.Window.MainActivityCommitingPrices;

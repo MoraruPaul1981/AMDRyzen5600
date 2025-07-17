@@ -8,7 +8,7 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 
 
-import com.dsy.dsu.BusinessLogicForApps.BootAndAsync.Model.EventsBus.MessageEvensBusPrograssBar;
+import com.dsy.dsu.CoreApp.Apps.BootAndAsyncApp.Model.EventsBus.MessageEvensBusPrograssBar;
 import com.dsy.dsu.BusinessLogicForApps.Class_Visible_Processing_Async;
 import com.dsy.dsu.BusinessLogicForApps.WorkerTables.GetWorkerAndSystemTables;
 import com.dsy.dsu.CoreApp.Apps.ErrorsCoreApp.model.bl_readnewerrors.RecordNewErros;

@@ -19,9 +19,9 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 
 
-import com.dsy.dsu.BusinessLogicForApps.BootAndAsync.Model.DowloadUpdatePO.DeletingFiles.GetDeletingFilesJsonAndApk;
+import com.dsy.dsu.CoreApp.Apps.BootAndAsyncApp.Model.DowloadUpdatePO.DeletingFiles.GetDeletingFilesJsonAndApk;
 
-import com.dsy.dsu.BusinessLogicForApps.BootAndAsync.Model.EventsBus.MessageEvensBusNetworkStatuses;
+import com.dsy.dsu.CoreApp.Apps.BootAndAsyncApp.Model.EventsBus.MessageEvensBusNetworkStatuses;
 import com.dsy.dsu.BusinessLogicForApps.CoreBinessLogic.CoreBinessLogics;
 import com.dsy.dsu.CoreApp.Apps.ErrorsCoreApp.model.bl_readnewerrors.RecordNewErros;
 import com.dsy.dsu.BusinessLogicForApps.JbossAdress.JbossContext;

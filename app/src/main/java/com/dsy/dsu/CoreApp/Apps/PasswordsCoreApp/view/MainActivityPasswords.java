@@ -28,7 +28,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.multidex.BuildConfig;
 
 
-import com.dsy.dsu.BusinessLogicForApps.BootAndAsync.View.MainActivityBootAndAsync;
+import com.dsy.dsu.CoreApp.Apps.BootAndAsyncApp.View.MainActivityBootAndAsync;
 
 import com.dsy.dsu.BusinessLogicForApps.CoreBinessLogic.CoreBinessLogics;
 import com.dsy.dsu.BusinessLogicForApps.GetPingServers.GetPingServerJboss;

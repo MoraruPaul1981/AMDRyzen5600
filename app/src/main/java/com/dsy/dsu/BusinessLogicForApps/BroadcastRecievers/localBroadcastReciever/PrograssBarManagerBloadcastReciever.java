@@ -11,7 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 
-import com.dsy.dsu.BusinessLogicForApps.BootAndAsync.Model.BinesslogicActivityBoot.GetComponentActivityBootService;
+import com.dsy.dsu.CoreApp.Apps.BootAndAsyncApp.Model.BinesslogicActivityBoot.GetComponentActivityBootService;
 import com.dsy.dsu.CoreApp.Apps.ErrorsCoreApp.model.bl_readnewerrors.RecordNewErros;
 
 import java.util.Date;

@@ -6,7 +6,7 @@ import android.net.Uri;
 import android.util.Log;
 
 
-import com.dsy.dsu.BusinessLogicForApps.BootAndAsync.Model.Service.IntentServiceBoot;
+import com.dsy.dsu.CoreApp.Apps.BootAndAsyncApp.Model.Service.IntentServiceBoot;
 import com.dsy.dsu.BusinessLogicForApps.GetConnectivityManagerAndroid;
 import com.dsy.dsu.CoreApp.Apps.ErrorsCoreApp.model.bl_readnewerrors.RecordNewErros;
 import com.dsy.dsu.BusinessLogicForApps.JbossAdress.JbossHilt.intarfaces.getHiltPortJbossInterface;
@@ -109,7 +109,7 @@ public class GetWorker {
 
             Boolean isWorkActivityRunning=
                     new FindActivityRunning(context).
-                            launchFindActivityRunning("com.dsy.dsu.BusinessLogicForApps.BootAndAsync.View.MainActivityBootAndAsync");
+                            launchFindActivityRunning("com.dsy.dsu.CoreApp.Apps.View.BootAndAsync.MainActivityBootAndAsync");
 
 
                 if(isSingleWorkManagerRunning == false && ВыбранныйРежимСети && isWorkActivityRunning==false ) {

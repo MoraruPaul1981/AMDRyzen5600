@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.Log;
 
 
-import com.dsy.dsu.BusinessLogicForApps.BootAndAsync.Model.DowloadUpdatePO.ClassCreateFolderUpdatePO;
+import com.dsy.dsu.CoreApp.Apps.BootAndAsyncApp.Model.DowloadUpdatePO.ClassCreateFolderUpdatePO;
 import com.dsy.dsu.BusinessLogicForApps.CreateFolderBinatySave.ClassCreateFolderBinatyMatrilal;
 import com.dsy.dsu.BusinessLogicForApps.CreateFolderBinatySave.ClassCreateFolderCommitPays1C;
 import com.dsy.dsu.CoreApp.Apps.ErrorsCoreApp.model.bl_readnewerrors.RecordNewErros;

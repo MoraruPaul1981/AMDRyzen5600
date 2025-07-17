@@ -8,7 +8,7 @@
     android:layout_height="match_parent"
     tools:openDrawer="left"
     android:backgroundTint="@color/cardview_light_background"
-    tools:context=".BusinessLogicForApps.BootAndAsync.View.MainActivityBootAndAsync">
+    tools:context=".CoreApp.Apps.BootAndAsyncApp.View.MainActivityBootAndAsync">
 
 
 
