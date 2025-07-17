@@ -2853,7 +2853,9 @@ public class FragmentSingleTabelOneSwipe extends Fragment {
                                                                         if (ПровйдерСменаПрофесии>0) {
                                                                             // TODO: 27.05.2025
                                                                             new SetFioAndProfessionDisayn(0).методПерегрузкаВидаПрофесии(НазваниеПрофесии , materialTextViewprofession);
+
                                                                             // TODO: 17.07.2025
+                                                                            materialTextViewprofession.startAnimation(animationFromRecyReview);
                                                                             ((MaterialTextView)view).startAnimation(animationFromRecyReview);
                                                                             searchViewДляНовогоПоиска.startAnimation(animationFromRecyReview);
                                                                  /*           onStart();
@@ -3475,7 +3477,6 @@ public class FragmentSingleTabelOneSwipe extends Fragment {
             SpannableString ss=new SpannableString(Профессия);
             ss.setSpan(new UnderlineSpan(), ДлинаПодчерникания, Профессия.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
             materialTextView.setText(ss);
-                materialTextView.startAnimation(animationFromRecyReview);
                 materialTextView.refreshDrawableState();
                 materialTextView.requestLayout();
 
