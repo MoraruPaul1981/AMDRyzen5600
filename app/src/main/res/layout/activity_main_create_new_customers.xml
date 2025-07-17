@@ -20,34 +20,7 @@
         app:layout_constraintVertical_bias="0.0"
         tools:context=".TabelsApp.Peoples.MainActivityNewPeople">
 
-        <Spinner
-            android:id="@+id/значениеИзСпинераОрганизацияДляНовогоСотрудника"
-            style="@android:style/Widget.Holo.Light.Spinner"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="25dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="80dp"
-            android:backgroundTintMode="multiply"
-            android:dropDownWidth="wrap_content"
-            android:ellipsize="none"
-            android:gravity="center|center_horizontal"
-            android:inputType="textMultiLine"
-            android:lines="2"
-            android:maxLines="50"
-            android:scrollHorizontally="false"
-            android:singleLine="false"
-            android:spinnerMode="dropdown"
-            android:textColor="#0E0E0E"
-            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"
-            android:visibility="visible"
-            app:layout_constraintBottom_toTopOf="@+id/КнопкаСозданиеНовогоТабеля"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ЗначениеДатаСоздаваемогоТабеля"
-            app:layout_constraintVertical_bias="0.147" />
+
 
         <ScrollView
             android:id="@+id/ScrollViewАкнтификации"
@@ -210,6 +183,55 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ЗначениеДепартаментаПриСоздаенииНовогоТабеля"
             app:layout_constraintVertical_bias="0.069" />
+
+
+
+
+        <Spinner
+            android:id="@+id/значениеИзСпинераОрганизацияДляНовогоСотрудника"
+            style="@android:style/Widget.Holo.Light.Spinner"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="80dp"
+            android:backgroundTintMode="multiply"
+            android:dropDownWidth="wrap_content"
+            android:ellipsize="none"
+            android:gravity="center|center_horizontal"
+            android:inputType="textMultiLine"
+            android:lines="2"
+            android:maxLines="50"
+            android:scrollHorizontally="false"
+            android:singleLine="false"
+            android:spinnerMode="dropdown"
+            android:textColor="#0E0E0E"
+            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"
+            android:visibility="visible"
+            app:layout_constraintBottom_toTopOf="@+id/КнопкаСозданиеНовогоТабеля"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ЗначениеДатаСоздаваемогоТабеля"
+            app:layout_constraintVertical_bias="0.147" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         <com.google.android.material.button.MaterialButton
             android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"

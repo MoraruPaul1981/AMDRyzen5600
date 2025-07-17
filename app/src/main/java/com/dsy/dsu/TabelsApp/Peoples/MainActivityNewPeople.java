@@ -102,23 +102,17 @@ public class MainActivityNewPeople extends AppCompatActivity implements DatePick
 
     private JbossContext Class_Engine_SQLГдеНаходитьсяМенеджерПотоков =null;
     private   ProgressDialog progressDialog;
-    private      ConstraintLayout constraintLayout;
+
 
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_create_new_customers);
+        try{
+        setContentView(R.layout.activity_main_create_new_customers2);
         //TODO  ОЧИЩАЕМ ПАМТЬ
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        try{
-
-       constraintLayout = (ConstraintLayout)  findViewById(R.id.constraintLayout);
-
-        Log.d(this.getClass().getName(), " constraintLayout   "+constraintLayout);
-///////TODO
-
             Log.d(getApplicationContext().getClass().getName(), "\n"
                     + " время: " + new Date() + "\n+" +
                     " Класс в процессе... " + this.getClass().getName() + "\n" +
@@ -278,7 +272,7 @@ public class MainActivityNewPeople extends AppCompatActivity implements DatePick
                     ((TextView) parent.getChildAt(0)).setTypeface(Typeface.DEFAULT_BOLD);
                     ((TextView) parent.getChildAt(0)).setHint("Выберете Организацию".toUpperCase(Locale.ROOT));
                     ((TextView) parent.getChildAt(0)).setHintTextColor(Color.parseColor("#675757"));
-                    ((TextView) parent.getChildAt(0)).setBackgroundResource(R.drawable.textlines);
+                    ((TextView) parent.getChildAt(0)).setBackgroundResource(R.drawable.textlinesgrey);
                     ((TextView) parent.getChildAt(0)).setGravity(Gravity.CENTER_HORIZONTAL | Gravity.CENTER_VERTICAL);
 
                     ПолученноеТекущееЗначениеСпинераОрганизация = parent.getItemAtPosition(position).toString();
@@ -290,7 +284,7 @@ public class MainActivityNewPeople extends AppCompatActivity implements DatePick
 
                 }else if (position==0){
                     ((TextView) parent.getChildAt(0)).setTextColor(Color.BLACK);
-                    ((TextView) parent.getChildAt(0)).setBackgroundResource(R.drawable.textlines);
+                    ((TextView) parent.getChildAt(0)).setBackgroundResource(R.drawable.textlinesgrey);
                     ((TextView) parent.getChildAt(0)).setTextSize(12);
                     ((TextView) parent.getChildAt(0)).setTypeface(Typeface.DEFAULT_BOLD);
                     ((TextView) parent.getChildAt(0)).setGravity(Gravity.CENTER_HORIZONTAL | Gravity.CENTER_VERTICAL);
@@ -530,7 +524,6 @@ private void МетодВозврещениеНаПредыдущуюАктив�
                                             progressDialog.setProgress(0);
                                             progressDialog.setIndeterminate(true);
                                             progressDialog.show();
-                                            constraintLayout.setClickable(false);
                                         });
 
 
@@ -570,7 +563,6 @@ private void МетодВозврещениеНаПредыдущуюАктив�
                                 doOnComplete(new Action() {
                                     @Override
                                     public void run() throws Throwable {
-                                        constraintLayout.forceLayout();
                                         progressDialog.setProgress(1);
 
                                         if (РезультатВставкиDataTabels.get()>0) {
@@ -578,7 +570,6 @@ private void МетодВозврещениеНаПредыдущуюАктив�
                                             if (progressDialog!=null) {
                                                 progressDialog.setIndeterminate(false);
                                                 progressDialog.dismiss();
-                                                constraintLayout.setClickable(true);
                                             }
 
                                             методBackActivityListPeoples();
