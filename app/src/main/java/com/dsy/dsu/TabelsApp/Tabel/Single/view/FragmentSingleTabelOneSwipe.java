@@ -80,6 +80,7 @@ import com.sous.backasync.launch.ModuleQuety;
 import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEvent;
 import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEventListener;
 
+import org.checkerframework.checker.units.qual.A;
 import org.jetbrains.annotations.NotNull;
 
 import java.text.ParseException;
@@ -1725,6 +1726,8 @@ public class FragmentSingleTabelOneSwipe extends Fragment {
                             // TODO: 22.06.2023 loop   Value
                             getLoopValueRecycreViewSingleTable(holder, cursor);
 
+
+
                         // TODO: 16.04.2023 Професии Професии Професии Професии
                         МетодаКликаTableRowФИО( );
 
@@ -1964,6 +1967,7 @@ public class FragmentSingleTabelOneSwipe extends Fragment {
             ///todo первый метод #2
             private void getLoopValueRecycreViewSingleTable(@NonNull  MyViewHolder holder, @NonNull Cursor cursor) {
                 try {
+                    getHandler.post(()->{
 // TODO: 26.06.2023 Цикл Крутим Нахвание и Данные Экрана
                     Flowable.fromIterable(holder.linkedHashMapsНазваниеиДанные)
                             .onBackpressureBuffer(1)
@@ -2005,7 +2009,7 @@ public class FragmentSingleTabelOneSwipe extends Fragment {
                                 }
                             }).subscribe();
 
-
+                    });
                     // TODO: 26.06.2023
                     Log.d(this.getClass().getName(),"\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
                             " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
@@ -2849,9 +2853,11 @@ public class FragmentSingleTabelOneSwipe extends Fragment {
                                                                         if (ПровйдерСменаПрофесии>0) {
                                                                             // TODO: 27.05.2025
                                                                             new SetFioAndProfessionDisayn(0).методПерегрузкаВидаПрофесии(НазваниеПрофесии , materialTextViewprofession);
-
-                                                                            onStart();
-                                                                            onResume();
+                                                                            // TODO: 17.07.2025
+                                                                            ((MaterialTextView)view).startAnimation(animationFromRecyReview);
+                                                                            searchViewДляНовогоПоиска.startAnimation(animationFromRecyReview);
+                                                                 /*           onStart();
+                                                                            onResume();*/
 
                                                                             alertDialogНовыйПосик.dismiss();
                                                                             alertDialogНовыйПосик.cancel();
@@ -3469,6 +3475,7 @@ public class FragmentSingleTabelOneSwipe extends Fragment {
             SpannableString ss=new SpannableString(Профессия);
             ss.setSpan(new UnderlineSpan(), ДлинаПодчерникания, Профессия.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
             materialTextView.setText(ss);
+                materialTextView.startAnimation(animationFromRecyReview);
                 materialTextView.refreshDrawableState();
                 materialTextView.requestLayout();
 
