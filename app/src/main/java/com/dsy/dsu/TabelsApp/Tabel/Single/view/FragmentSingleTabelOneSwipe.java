@@ -80,7 +80,6 @@ import com.sous.backasync.launch.ModuleQuety;
 import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEvent;
 import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEventListener;
 
-import org.checkerframework.checker.units.qual.A;
 import org.jetbrains.annotations.NotNull;
 
 import java.text.ParseException;
@@ -279,12 +278,14 @@ public class FragmentSingleTabelOneSwipe extends Fragment {
         super.onStart();
         try{
             // TODO: 08.05.2025   главный курсор
-            cursorSingleTabels =   singleTabelRecycreView.  new GetCursorSingleTabel().МетодSwipesКурсор();
+               launchRebootGetCursor();
+
+            // TODO: 04.04.2023  ФИО
+            new SubClassSingleTabelRecycreView().МетодЗаполняемФИОиПрофесиюRow(cursorSingleTabels);
+
             // TODO: 21.06.2023 Смещения Курсоора
             singleTabelRecycreView.МетодСлушательКурсора(cursorSingleTabels);
             singleTabelRecycreView.  методСчитаемЧасы(cursorSingleTabels );
-            // TODO: 04.04.2023  ФИО
-            new SubClassSingleTabelRecycreView().МетодЗаполняемФИОиПрофесиюRow(cursorSingleTabels);
 
             // TODO: 26.06.2023  созданнй CallBack
             singleTabelRecycreView.методДляSimpeCallbacks( );
@@ -307,33 +308,32 @@ public class FragmentSingleTabelOneSwipe extends Fragment {
     }
 
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        // TODO: 16.11.2023
-                try{
-                    if (cursorSingleTabels !=null) {
-                //singleTabelRecycreView.metodAddCurcorRecyreview(cursorForViewPager );
-                  singleTabelRecycreView.  методRebootRecyreview(cursorSingleTabels);
-                // TODO: 16.06.2023  перегрузка экрана
 
 
-                Log.d(this.getClass().getName(),"\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
-                        " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
-                        " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n");
 
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-                Log.e(this.getClass().getName(), "Ошибка " + e + " Метод :"
-                        + Thread.currentThread().getStackTrace()[2].getMethodName() + " Линия  :"
-                        + Thread.currentThread().getStackTrace()[2].getLineNumber());
-                new RecordNewErros(getContext()).recordnewerror(e.toString(), this.getClass().getName(),
-                        Thread.currentThread().getStackTrace()[2].getMethodName(),
-                        Thread.currentThread().getStackTrace()[2].getLineNumber());
-            }
 
+                void launchRebootGetCursor(){
+              try{
+
+                    // TODO: 08.05.2025   главный курсор
+                    cursorSingleTabels =   singleTabelRecycreView.  new GetCursorSingleTabel().МетодSwipesКурсор();
+                    // TODO: 17.07.2025
+                    singleTabelRecycreView.  методRebootRecyreview(cursorSingleTabels);
+
+                    Log.d(this.getClass().getName(),"\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
+                            " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
+                            " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n"+ " getlistpeoplesposition " +getlistpeoplesposition);
+                } catch (Exception e) {
+        e.printStackTrace();
+        Log.e(this.getClass().getName(), "Ошибка " + e + " Метод :"
+                + Thread.currentThread().getStackTrace()[2].getMethodName() + " Линия  :"
+                + Thread.currentThread().getStackTrace()[2].getLineNumber());
+        new RecordNewErros(getContext()).recordnewerror(e.toString(), this.getClass().getName(),
+                Thread.currentThread().getStackTrace()[2].getMethodName(),
+                Thread.currentThread().getStackTrace()[2].getLineNumber());
     }
+                }
+
 
 
 
@@ -897,6 +897,7 @@ public class FragmentSingleTabelOneSwipe extends Fragment {
                 myRecycleViewAdapter = new  MyRecycleViewAdapter(cursorForViewPager );
                 myRecycleViewAdapter.notifyDataSetChanged();
                 recycleviewsingletabel.setAdapter(myRecycleViewAdapter);
+                recycleviewsingletabel.refreshDrawableState();
                 recycleviewsingletabel.requestLayout();
                 Log.d(this.getClass().getName(),"\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
                         " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
@@ -1137,6 +1138,7 @@ public class FragmentSingleTabelOneSwipe extends Fragment {
                 RecyclerView.Adapter recyclerViewОбновление=         recycleviewsingletabel.getAdapter();
                 recycleviewsingletabel.swapAdapter(recyclerViewОбновление,true);
                 recycleviewsingletabel.getAdapter().notifyDataSetChanged();
+                recyclerViewОбновление.notifyDataSetChanged();
                 Log.d(this.getClass().getName(),"\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
                         " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
                         " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n" +" cursorForRebootCursor " +cursorForRebootCursor );
@@ -2852,14 +2854,16 @@ public class FragmentSingleTabelOneSwipe extends Fragment {
 
                                                                         if (ПровйдерСменаПрофесии>0) {
                                                                             // TODO: 27.05.2025
+
+                                                                            launchRebootGetCursor();
+
                                                                             new SetFioAndProfessionDisayn(0).методПерегрузкаВидаПрофесии(НазваниеПрофесии , materialTextViewprofession);
 
                                                                             // TODO: 17.07.2025
                                                                             materialTextViewprofession.startAnimation(animationFromRecyReview);
                                                                             ((MaterialTextView)view).startAnimation(animationFromRecyReview);
                                                                             searchViewДляНовогоПоиска.startAnimation(animationFromRecyReview);
-                                                                 /*           onStart();
-                                                                            onResume();*/
+
 
                                                                             alertDialogНовыйПосик.dismiss();
                                                                             alertDialogНовыйПосик.cancel();
@@ -3310,6 +3314,10 @@ public class FragmentSingleTabelOneSwipe extends Fragment {
                     materialTextViewprofession.setTag(bundleFio);
                    // TODO: 27.05.2025
                     КурсорПрофессия.close();
+
+                    new SetFioAndProfessionDisayn(0).методПерегрузкаВидаПрофесии(Профессия , materialTextViewprofession);
+
+
 
                     Log.d(this.getClass().getName(),"\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
                             " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
