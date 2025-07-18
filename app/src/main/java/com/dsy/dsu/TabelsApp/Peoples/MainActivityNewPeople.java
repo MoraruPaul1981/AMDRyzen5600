@@ -29,7 +29,6 @@ import android.widget.Toast;
 import androidx.annotation.UiThread;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.dsy.dsu.BusinessLogicForApps.Dates.GetMainDateForApp;
 import com.dsy.dsu.BusinessLogicForApps.GetPublicID.GetttingPublicID;
@@ -70,7 +69,7 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
 @AndroidEntryPoint
 public class MainActivityNewPeople extends AppCompatActivity implements DatePickerDialog.OnDateSetListener  {
     ////todo переменные для новго сотрдуника при создание на  активтик
-    private Button КнопкаСозданиеНовогоСотрудника;
+    private Button butttonNewSaveCustomer;
     private EditText ЗначениеФИОСозданиеСотрудника,  ЗначениеСНИЛССозданиеСотрудника;
     private TextView  ЗначениеДеньРожденияСозданиеСотрудника;
     private   String FullNameCFO;
@@ -96,8 +95,7 @@ public class MainActivityNewPeople extends AppCompatActivity implements DatePick
     private Context КонтекстДляАктивтиСозданиеНовогоСотрудника;
     private  Spinner СпинерВыборОрганизацииПриСозданииНовогоСотрудника;/////спинеры для создание табеля
     private    String ПолученноеТекущееЗначениеСпинераОрганизация;
-    private long РезультатВставкиНовогоТабеляЧерезКонтрейнерТаблицыФИО;
-    private   int Результат_ПриписиИзменнийВерсииДанныхВФонеПослеОбработкиТекущийТаблицыФИО;
+
 
 
     private JbossContext Class_Engine_SQLГдеНаходитьсяМенеджерПотоков =null;
@@ -130,7 +128,7 @@ public class MainActivityNewPeople extends AppCompatActivity implements DatePick
         getSupportActionBar().hide(); ///скрывать тул бар
         /////todo данная настрока запрещает при запуке активти подскаваать клавиатуре вверх на компонеты eedittext
         КонтекстДляАктивтиСозданиеНовогоСотрудника=this;
-        КнопкаСозданиеНовогоСотрудника = findViewById(R.id.КнопкаСозданиеНовогоТабеля);
+        butttonNewSaveCustomer = findViewById(R.id.КнопкаСозданиеНовогоТабеля);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LOCKED);
         /////
         Log.d(this.getClass().getName(), "   ");
@@ -486,7 +484,7 @@ private void МетодВозврещениеНаПредыдущуюАктив�
        void МетодЗапускаКодаПоСозданиюНовогоСотрудникаДляДвухТаблицФиоиДатаТабеля()  throws  InterruptedException{
            final AtomicLong РезультатВставкиDataTabels = new AtomicLong(0l);
            try{
-            КнопкаСозданиеНовогоСотрудника.setOnClickListener(new View.OnClickListener() {
+            butttonNewSaveCustomer.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Log.d(this.getClass().getName(), " ЗначениеФИОСозданиеСотрудника  "+ ЗначениеФИОСозданиеСотрудника+
@@ -612,11 +610,11 @@ private void МетодВозврещениеНаПредыдущуюАктив�
                                 }).subscribe();
 
                     } else {
-                        activity.runOnUiThread(()->{
-                            Snackbar.make(v, "Заполните данные (СНИЛС от 11 знаков) ", Snackbar.LENGTH_LONG).show();
-                            Log.i(this.getClass().getName(), " Не все поля заполены (снилс от 10 знаков) ");
-                        });
 
+                            Snackbar.make(v, "Данные не заполнены !!!", Snackbar.LENGTH_LONG).show();
+                            Log.i(this.getClass().getName(), " Не все поля заполены (снилс от 10 знаков) ");
+
+                        Toast.makeText(getApplicationContext(),     "Данные не заполнены !!!"    , Toast.LENGTH_LONG).show();
                     }
                 }
             });
@@ -877,9 +875,7 @@ private void МетодВозврещениеНаПредыдущуюАктив�
 
                         Log.d(this.getClass().getName(),"\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
                                 " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
-                                " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n"
-                                + " РезультатВставкиНовогоТабеляЧерезКонтрейнерТаблицыФИО"
-                                +РезультатВставкиНовогоТабеляЧерезКонтрейнерТаблицыФИО);
+                                " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n");
                             return words;
                     }
                 }).blockingSubscribe();
@@ -933,9 +929,7 @@ private void МетодВозврещениеНаПредыдущуюАктив�
 
                             Log.d(this.getClass().getName(),"\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
                                     " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
-                                    " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n"
-                                    + " РезультатВставкиНовогоТабеляЧерезКонтрейнерТаблицыФИО"
-                                    +РезультатВставкиНовогоТабеляЧерезКонтрейнерТаблицыФИО);
+                                    " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n");
                         }
                     });
 
@@ -943,9 +937,7 @@ private void МетодВозврещениеНаПредыдущуюАктив�
                 }
                 Log.d(this.getClass().getName(),"\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
                         " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
-                        " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n"
-                        + " РезультатВставкиНовогоТабеляЧерезКонтрейнерТаблицыФИО"
-                        +РезультатВставкиНовогоТабеляЧерезКонтрейнерТаблицыФИО);
+                        " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n");
 //TODO ОКОНЧИАЕМ ВСТАВКУ ДАННЫХ
             } catch (Exception e) {
                 e.printStackTrace();
