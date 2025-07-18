@@ -18,7 +18,12 @@ import com.dsy.dsu.BusinessLogicForApps.VersionCurentTable;
 import com.google.android.material.textview.MaterialTextView;
 
 import java.util.Date;
+import java.util.concurrent.Callable;
 import java.util.function.LongToIntFunction;
+
+import io.reactivex.rxjava3.core.Completable;
+import io.reactivex.rxjava3.core.Single;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 
 //TODO класс обновление Ячеек
 public class SubClassUpdatesCELL {
@@ -47,15 +52,6 @@ public class SubClassUpdatesCELL {
                 bundleперезаписьЯчейки.putString("ПослеЗначниеДня"  , String.valueOf(getNewValueCell));
             }
         }
-   // }/*else{
-    /*    // TODO: 11.04.2023 Обновление Ячейки через ПРовайдер
-        ОбновлениеЯчейки=    МетодСохранениеЯчейкиCellТабель(editTextRowКликПоДАнными,0,context);
-        if (ОбновлениеЯчейки>0) {
-            Bundle bundleперезаписьЯчейки=(Bundle) editTextRowКликПоДАнными.getTag();
-            bundleперезаписьЯчейки.putString("ПослеЗначниеДня"  , String.valueOf(getNewValueCell));*/
-        //}
-    //}
-
             Log.d(this.getClass().getName(),"\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
                     " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
                     " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n"  +
@@ -138,10 +134,20 @@ public class SubClassUpdatesCELL {
             contentValuesОбноленияЯчейкиSingleTanel.put("user_update", getPublicID);
 
 
+            ОбновлениеЯчейки= Single.fromCallable(new Callable<Integer>() {
+                @Override
+                public Integer call() throws Exception {
+                    // TODO: 12.04.2023 отправялем в провайдеор
+                    ContentResolver contentResolver=context.getContentResolver();
+                   Integer ОбновлениеЯчейки=  contentResolver.update(uri, contentValuesОбноленияЯчейкиSingleTanel,"uuid=?",new String[]{String.valueOf(uuid)});
 
-            // TODO: 12.04.2023 отправялем в провайдеор
-            ContentResolver contentResolver=context.getContentResolver();
-            ОбновлениеЯчейки=  contentResolver.update(uri, contentValuesОбноленияЯчейкиSingleTanel,"uuid=?",new String[]{String.valueOf(uuid)});
+                    Log.d(this.getClass().getName(),"\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
+                            " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
+                            " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n"+" РЕЗУЛЬТАТ ОбновлениеЯчейки  " +  ОбновлениеЯчейки);
+
+                    return ОбновлениеЯчейки;
+                }
+            }).subscribeOn(Schedulers.single()).blockingGet();
             Log.d(this.getClass().getName(),"\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
                     " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
                     " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n"+" РЕЗУЛЬТАТ ОбновлениеЯчейки  " +  ОбновлениеЯчейки);

@@ -100,7 +100,6 @@ import java.util.stream.IntStream;
 
 import dagger.hilt.android.AndroidEntryPoint;
 import io.reactivex.rxjava3.core.Flowable;
-import io.reactivex.rxjava3.disposables.Disposable;
 import io.reactivex.rxjava3.functions.Action;
 import io.reactivex.rxjava3.functions.Consumer;
 import io.reactivex.rxjava3.schedulers.Schedulers;
@@ -141,7 +140,7 @@ public class FragmentSingleTabelOneSwipe extends Fragment {
     private  Integer getlistpeoplesposition;
   private      Animation animation1;
   private      Animation animationFromRecyReview;
-  private CopyOnWriteArrayList<Disposable>  disposableAfterTextChangeEvent=new CopyOnWriteArrayList<>();
+
   private      Cursor cursorSingleTabels;
   private      Handler handlerМетодForCurcorHandlerCallBack;
   private  MaterialTextView  materialTextViewfio,materialTextViewprofession;
@@ -278,7 +277,7 @@ public class FragmentSingleTabelOneSwipe extends Fragment {
         super.onStart();
         try{
             // TODO: 08.05.2025   главный курсор
-               launchRebootGetCursor();
+           Cursor cursorSingleTabels=    launchRebootGetCursor();
 
             // TODO: 04.04.2023  ФИО
             new SubClassSingleTabelRecycreView().МетодЗаполняемФИОиПрофесиюRow(cursorSingleTabels);
@@ -312,7 +311,8 @@ public class FragmentSingleTabelOneSwipe extends Fragment {
 
 
 
-                void launchRebootGetCursor(){
+                Cursor launchRebootGetCursor(){
+        Cursor cursorSingleTabels=null;
               try{
 
                     // TODO: 08.05.2025   главный курсор
@@ -332,7 +332,33 @@ public class FragmentSingleTabelOneSwipe extends Fragment {
                 Thread.currentThread().getStackTrace()[2].getMethodName(),
                 Thread.currentThread().getStackTrace()[2].getLineNumber());
     }
+              return  cursorSingleTabels;
                 }
+
+
+
+    Cursor launchClearGetCursor(){
+        Cursor cursorSingleTabels=null;
+        try{
+            // TODO: 08.05.2025   главный курсор
+            cursorSingleTabels =   singleTabelRecycreView.  new GetCursorSingleTabel().МетодSwipesКурсор();
+
+            Log.d(this.getClass().getName(),"\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
+                    " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
+                    " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n"+ " getlistpeoplesposition " +getlistpeoplesposition);
+        } catch (Exception e) {
+            e.printStackTrace();
+            Log.e(this.getClass().getName(), "Ошибка " + e + " Метод :"
+                    + Thread.currentThread().getStackTrace()[2].getMethodName() + " Линия  :"
+                    + Thread.currentThread().getStackTrace()[2].getLineNumber());
+            new RecordNewErros(getContext()).recordnewerror(e.toString(), this.getClass().getName(),
+                    Thread.currentThread().getStackTrace()[2].getMethodName(),
+                    Thread.currentThread().getStackTrace()[2].getLineNumber());
+        }
+        return  cursorSingleTabels;
+    }
+
+
 
 
 
@@ -361,40 +387,7 @@ public class FragmentSingleTabelOneSwipe extends Fragment {
         }
     }
 
-    private void metodReebotDataForFragmentSingleTabel() {
-        try{
-            if (myRecycleViewAdapter.cursor!=null) {
-                singleTabelRecycreView.  методReeoBootCursorRecyreViewAlfterChangeProffesion();
-                // TODO: 15.06.2023 перегрузка данныех
-                myRecycleViewAdapter.notifyDataSetChanged();
-                recycleviewsingletabel.getAdapter().notifyDataSetChanged();
-                // TODO: 26.06.2023  перегрузка
 
-                // TODO: 10.08.2023
-            }
-            if (disposableAfterTextChangeEvent!=null) {
-                disposableAfterTextChangeEvent.forEach(new java.util.function.Consumer<Disposable>() {
-                                                           @Override
-                                                           public void accept(Disposable disposable) {
-                                                               disposable.dispose();
-                                                           }
-                                                       }
-                );
-            }
-
-            Log.d(this.getClass().getName(),"\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
-                    " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
-                    " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n");
-        } catch (Exception e) {
-            e.printStackTrace();
-            Log.e(this.getClass().getName(), "Ошибка " + e + " Метод :"
-                    + Thread.currentThread().getStackTrace()[2].getMethodName() + " Линия  :"
-                    + Thread.currentThread().getStackTrace()[2].getLineNumber());
-            new RecordNewErros(getContext()).recordnewerror(e.toString(), this.getClass().getName(),
-                    Thread.currentThread().getStackTrace()[2].getMethodName(),
-                    Thread.currentThread().getStackTrace()[2].getLineNumber());
-        }
-    }
 
 
 
@@ -1138,7 +1131,6 @@ public class FragmentSingleTabelOneSwipe extends Fragment {
                 RecyclerView.Adapter recyclerViewОбновление=         recycleviewsingletabel.getAdapter();
                 recycleviewsingletabel.swapAdapter(recyclerViewОбновление,true);
                 recycleviewsingletabel.getAdapter().notifyDataSetChanged();
-                recyclerViewОбновление.notifyDataSetChanged();
                 Log.d(this.getClass().getName(),"\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
                         " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
                         " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n" +" cursorForRebootCursor " +cursorForRebootCursor );
@@ -2244,10 +2236,10 @@ public class FragmentSingleTabelOneSwipe extends Fragment {
                 }
             }
 
-            private void методИзменяемЦветСодержимоваЦифраИлиБуква(@NonNull EditText editTextRowКликПоДАнными,@NonNull String День) {
+            private void методИзменяемЦветСодержимоваЦифраИлиБуква(@NonNull EditText editTextRowКликПоДАнными,@NonNull String getNewValueCell) {
                 try {
-                    if (День.length()>0) {
-                        char ЕслиБуквывДнеСодержимое=     День.charAt(0);
+                    if (getNewValueCell.length()>0) {
+                        char ЕслиБуквывДнеСодержимое=     getNewValueCell.charAt(0);
                         if(Character.isLetter( ЕслиБуквывДнеСодержимое )){
                         editTextRowКликПоДАнными.setTextColor(Color.parseColor("#887B7B"));
                         editTextRowКликПоДАнными.setTextSize(19l);
@@ -2420,7 +2412,7 @@ public class FragmentSingleTabelOneSwipe extends Fragment {
 
 
                                 // TODO: 25.08.2023  тест код
-                                disposableAfterTextChangeEvent.add(      RxTextView.afterTextChangeEvents( editTextRowКликПоДАнными)
+                                    RxTextView.afterTextChangeEvents( editTextRowКликПоДАнными)
                                         .skip(1)
                                         .debounce(500,TimeUnit.MILLISECONDS)///общее время event
                                         .filter(edit->edit.component1().getText().toString().length()<=2)
@@ -2502,7 +2494,7 @@ public class FragmentSingleTabelOneSwipe extends Fragment {
                                                         Thread.currentThread().getStackTrace()[2].getLineNumber());
                                             }
                                             }
-                                        }));
+                                        });
                             }
 
 
@@ -2531,21 +2523,32 @@ public class FragmentSingleTabelOneSwipe extends Fragment {
                         SubClassUpdatesCELL subClassUpdateSingletabel = new SubClassUpdatesCELL(getContext());
                         // TODO: 10.05.2023  ЗАВПИСЫАЕМ НОВЫЕ ДАННЫВЕ В БАЗУ
                           РезультатОбновлениеЯчейки = subClassUpdateSingletabel.МетодВалидацияЯчеекSaveCell(editTextRowКликПоДАнными,getNewValueCell);
-                        // TODO: 10.05.2023 После операции Сохранение в Ячкейке
-                        if (РезультатОбновлениеЯчейки > 0) {
-                            // TODO: 06.07.2023 Считаем ЧАсы
-                            методRefrefyGetDataRecycreView();
-                            методСчитаемЧасы(myRecycleViewAdapter.cursor,myRecycleViewAdapter.cursor.getPosition());
 
-                            new SubClassSingleTabelRecycreView().МетодЗаполняемФИОиПрофесиюRow(cursorSingleTabels);
-                                     editTextRowКликПоДАнными.startAnimation(animation1);
-                            // TODO: 19.06.2023 код когда данные в ячейке не сохранились
-                        } else {
-                            методКогдаДанныеНеСохранились(editTextRowКликПоДАнными, getNewValueCell.toString());
 
-                        }
-                        // TODO: 24.04.2023  после обновление ячейки Считаем Часы
+
+
+
+                    if (РезультатОбновлениеЯчейки > 0) {
+
+                        getWhentDataSaved(editTextRowКликПоДАнными, getNewValueCell.toString());
+
+                    }else {
+                        getWhentDataNotSaved(editTextRowКликПоДАнными, getNewValueCell.toString());
+
+
+                    }
+
+
+                 getHandler.postDelayed(()->{
+                        // TODO: 18.07.2025
                         методИзменяемЦветСодержимоваЦифраИлиБуква((editTextRowКликПоДАнными), getNewValueCell.toString());
+                    },2000);
+
+
+
+
+
+
 
                     Log.d(this.getClass().getName(), "\n" + " class " +
                             Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
@@ -2607,36 +2610,19 @@ public class FragmentSingleTabelOneSwipe extends Fragment {
             // TODO: 21.04.2023  записб данных в ячейку
 
 
-            private void методRefrefyGetDataRecycreView() {
-                try{
-                    Integer Полощения=  myRecycleViewAdapter.cursor.getPosition();
-                    Cursor     cursorForЧАсов=     myRecycleViewAdapter.cursor;
-                    cursorForЧАсов=    new GetCursorSingleTabel().МетодSwipesКурсор();
-                    cursorForЧАсов.moveToPosition(Полощения);
-                    myRecycleViewAdapter.cursor=cursorForЧАсов;
-                    Log.d(this.getClass().getName(), "\n" + "Start Update D1 class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
-                            " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
-                            " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n"  );
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    Log.e(this.getClass().getName(), "Ошибка " + e + " Метод :" + Thread.currentThread().getStackTrace()[2].getMethodName() +
-                            " Линия  :" + Thread.currentThread().getStackTrace()[2].getLineNumber());
-                    new RecordNewErros(getContext()).recordnewerror(e.toString(), this.getClass().getName(),
-                            Thread.currentThread().getStackTrace()[2].getMethodName(), Thread.currentThread().getStackTrace()[2].getLineNumber());
-                }
-            }
 
 
 
-            private void методКогдаДанныеНеСохранились(@NonNull EditText editTextRowКликПоДАнными,
-                                                       @NonNull String После) {
+
+            private void getWhentDataNotSaved(@NonNull EditText editTextRowКликПоДАнными,
+                                              @NonNull String getNewValueCell) {
                 try{
                     Vibrator v2 = (Vibrator) getContext().getSystemService(Context.VIBRATOR_SERVICE);
                     v2.vibrate(VibrationEffect.createOneShot(100, VibrationEffect.DEFAULT_AMPLITUDE));
 
-                    editTextRowКликПоДАнными.setError(После);
-
-                        editTextRowКликПоДАнными.setError(null);
+                                    editTextRowКликПоДАнными.setError(getNewValueCell);
+                                      editTextRowКликПоДАнными.setTextColor(Color.RED);
+                                      editTextRowКликПоДАнными.requestFocus();
 
                 Log.d(this.getClass().getName(), "\n" + "Start Update D1 class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
                         " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
@@ -2650,7 +2636,29 @@ public class FragmentSingleTabelOneSwipe extends Fragment {
             }
             }
 
+            private void getWhentDataSaved(@NonNull EditText editTextRowКликПоДАнными,
+                                              @NonNull String getNewValueCell) {
+                try{
+                    editTextRowКликПоДАнными.startAnimation(animation1);
+                    // TODO: 18.07.2025
+                    editTextRowКликПоДАнными.setTextColor(Color.parseColor("#1B5534"));
 
+                    // TODO: 06.07.2023 Считаем ЧАсы
+                    Cursor     cursorSingleTabels=    launchClearGetCursor();
+
+                    методСчитаемЧасы(cursorSingleTabels,cursorSingleTabels.getPosition());
+
+                    Log.d(this.getClass().getName(), "\n" + "Start Update D1 class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
+                            " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
+                            " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n"  );
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    Log.e(this.getClass().getName(), "Ошибка " + e + " Метод :" + Thread.currentThread().getStackTrace()[2].getMethodName() +
+                            " Линия  :" + Thread.currentThread().getStackTrace()[2].getLineNumber());
+                    new RecordNewErros(getContext()).recordnewerror(e.toString(), this.getClass().getName(),
+                            Thread.currentThread().getStackTrace()[2].getMethodName(), Thread.currentThread().getStackTrace()[2].getLineNumber());
+                }
+            }
 
             @Override
             public long getItemId(int position) {
