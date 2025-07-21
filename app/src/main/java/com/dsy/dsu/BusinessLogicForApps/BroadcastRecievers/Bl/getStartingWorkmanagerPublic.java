@@ -19,7 +19,7 @@ public class getStartingWorkmanagerPublic {
 
 
             // TODO: 14.12.2023 REPLACE
-            new CreatePublicWorkManager(context).getcreatePublicWorkManager(context ,"BootService");
+           new CreatePublicWorkManager(context).getcreatePublicWorkManager(context , "lanchOnlyAsync");
 
             Log.d(context.getClass().getName(), "\n"
                     + " время: " + new Date() + "\n+" +

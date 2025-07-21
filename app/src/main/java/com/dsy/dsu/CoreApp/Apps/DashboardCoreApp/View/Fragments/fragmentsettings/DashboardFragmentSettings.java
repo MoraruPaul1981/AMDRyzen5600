@@ -651,7 +651,12 @@ public class DashboardFragmentSettings extends  DialogFragment {
 
 
                         }else {
+
                             Snackbar.make(КнопкаОбменДанными, "Нет сети !!!",Snackbar.LENGTH_LONG).setAction("Action",null).show();
+                            //TODO
+                            Toast  toastNetwork=Toast.makeText(getContext(), "Нет сети !!!", Toast.LENGTH_LONG);
+                            toastNetwork.setGravity(Gravity.BOTTOM, 0, 40);
+                            toastNetwork.show();
                         }
 
 
@@ -853,7 +858,11 @@ public class DashboardFragmentSettings extends  DialogFragment {
                                         new CreateSingleWorkManager(getContext()).getcreateSingleWorkManager( "lanchOnlyUpdatePO");//"lanchUpdatePO"  BootService    // TODO: 03.03.2025 Запускем Синхрнонизацию через Singlw Work manager
                                        // new CreateSingleWorkManager(context).getcreateSingleWorkManager("BootService");//"lanchUpdatePO"
                                     } else {
-                                        Snackbar.make(КнопкаОбновлениеПО, "Нет сети !!!",Snackbar.LENGTH_LONG).setAction("Action",null).show();
+                                        Snackbar.make((MaterialButton)buttonUpdatePo, "Нет сети !!!",Snackbar.LENGTH_LONG).setAction("Action",null).show();
+
+                                        Toast  toastNetwork=Toast.makeText(getContext(), "Нет сети !!!", Toast.LENGTH_LONG);
+                                        toastNetwork.setGravity(Gravity.BOTTOM, 0, 40);
+                                        toastNetwork.show();
                                     }
 
                                     Log.i(this.getClass().getName(), " Из меню установкаОбновление ПО "
