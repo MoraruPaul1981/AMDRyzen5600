@@ -42,7 +42,7 @@ public class ModuleSingleWorkManager {
             if (getActivityTasks) {
 
                 // TODO: 03.03.2025 Запускем Синхрнонизацию через Singlw Work manager
-                new CreateSingleWorkManager(context).getcreateSingleWorkManager("BootService");
+                new CreateSingleWorkManager(context).getcreateSingleWorkManager("lanchUpdatePOAndAsync");//"lanchUpdatePO"
             }
             Log.d(context.getClass().getName(), "\n"
                     + " время: " + new Date() + "\n+" +

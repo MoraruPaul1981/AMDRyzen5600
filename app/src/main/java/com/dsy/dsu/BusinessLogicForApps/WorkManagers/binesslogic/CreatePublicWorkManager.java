@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.Log;
 
+import androidx.annotation.NonNull;
 import androidx.work.Constraints;
 import androidx.work.Data;
 import androidx.work.ExistingPeriodicWorkPolicy;
@@ -12,6 +13,7 @@ import androidx.work.PeriodicWorkRequest;
 import androidx.work.WorkInfo;
 import androidx.work.WorkManager;
 
+import com.dsy.dsu.BusinessLogicForApps.GetPublicID.GetttingPublicID;
 import com.dsy.dsu.CoreApp.Apps.ErrorsCoreApp.model.bl_readnewerrors.RecordNewErros;
 import com.dsy.dsu.BusinessLogicForApps.WorkManagers.MyWork_Async_Public;
 
@@ -32,10 +34,15 @@ public class CreatePublicWorkManager {
 
 
     @SuppressLint("NewApi")
-    public void getcreatePublicWorkManager(@NotNull Context context) {
+    public void getcreatePublicWorkManager(@NotNull Context context,@NonNull String getWhoLaunched) {
 
         try{
-            Data myDataДляОбщейСинхрониазации = new Data.Builder()
+            Integer PublicId =  new GetttingPublicID().getttingPublicID(context);
+
+            Data myDataPublicWorker = new Data.Builder()
+                    .putInt("ПубличныйID", PublicId)
+                    .putBoolean("StartPublicWorker", true)
+                    .putString("getWhoLaunched",   getWhoLaunched)
                     .build();
             Constraints constraintsСинхронизация= new Constraints.Builder()
                     .setRequiredNetworkType(NetworkType.CONNECTED)
@@ -46,7 +53,7 @@ public class CreatePublicWorkManager {
                     PeriodicWorkRequest.MIN_PERIODIC_INTERVAL_MILLIS, TimeUnit.MILLISECONDS)//MIN_PERIODIC_FLEX_MILLIS////
                     // PeriodicWorkRequest.MIN_PERIODIC_INTERVAL_MILLIS, TimeUnit.MILLISECONDS PeriodicWorkRequest.MIN_PERIODIC_INTERVAL_MILLIS
                     .addTag(ИмяСлужбыСинхронизации)
-                    .setInputData(myDataДляОбщейСинхрониазации)
+                    .setInputData(myDataPublicWorker)
                     .setConstraints(constraintsСинхронизация)
                     .build();
 

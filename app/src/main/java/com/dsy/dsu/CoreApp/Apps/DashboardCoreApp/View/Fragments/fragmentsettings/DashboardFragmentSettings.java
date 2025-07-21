@@ -36,9 +36,9 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.multidex.BuildConfig;
 
+import com.dsy.dsu.BusinessLogicForApps.WorkManagers.binesslogic.CreateSingleWorkManager;
 import com.dsy.dsu.CoreApp.Apps.BootAndAsyncApp.Model.EventsBus.MessageEvensBusNetworkStatuses;
 import com.dsy.dsu.CoreApp.Apps.BootAndAsyncApp.Model.EventsBus.MessageEvensBusUpdatePO;
-import com.dsy.dsu.CoreApp.Apps.BootAndAsyncApp.Model.Service.bl_service_boot.StartServiceBootAndAsync;
 import com.dsy.dsu.CoreApp.Apps.BootAndAsyncApp.Model.BinesslogicActivityBoot.GetComponentActivityBootService;
 
 
@@ -68,6 +68,7 @@ import org.greenrobot.eventbus.ThreadMode;
 import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicReference;
 
 import javax.inject.Inject;
 import javax.net.ssl.SSLSocketFactory;
@@ -101,11 +102,10 @@ public class DashboardFragmentSettings extends  DialogFragment {
     private ServiceUpdatesPO.localBinderОбновлениеПО localBinderОбновлениеПО;//TODO новаЯ
     private Subject<ServiceUpdatesPO.localBinderОбновлениеПО> UpdatePublish;
     private   ServiceConnection  connectionОбновлениеПО;
-    protected   GetComponentActivityBootService blInnerMainActivityBootAndAsync;
+    private   GetComponentActivityBootService blInnerMainActivityBootAndAsync;
 
     private SharedPreferences preferences;
-    @Inject
-    protected StartServiceBootAndAsync startServiceBootAndAsync;
+
     @Inject
     @QualifiergetsslSocketFactory2
     protected   SSLSocketFactory getsslSocketFactory2;
@@ -135,7 +135,7 @@ public class DashboardFragmentSettings extends  DialogFragment {
             fragmentTransaction = fragmentManager.beginTransaction();
             // TODO: 22.08.2023  настйроки анимацуии
             animation6 = AnimationUtils.loadAnimation(getContext(),R.anim.slide_in_row9);
-            
+
             classBiznesLogikaSettings=new ClassBiznesLogikaSettings();
             // TODO: 17.08.2023 inizial message
             classBiznesLogikaSettings.  МетодИнициализацияHandler();
@@ -147,50 +147,50 @@ public class DashboardFragmentSettings extends  DialogFragment {
             blInnerMainActivityBootAndAsync=new GetComponentActivityBootService(getsslSocketFactory2,getActivity(),getContext() ,lifecycleOwner);
 
             //  setStyle(DialogFragment.STYLE_NORMAL,android.R.style.Theme_Material_Dialog_Alert);//Theme_Dialog
-       // setStyle(DialogFragment.STYLE_NORMAL,android.R.style.Theme_DeviceDefault_Light_NoActionBar_Fullscreen);//Theme_Dialog
-      //  setStyle(DialogFragment.STYLE_NORMAL,android.R.style.Theme_DeviceDefault_Light_NoActionBar_TranslucentDecor);//Theme_Dialog
-       // setStyle(DialogFragment.STYLE_NORMAL,android.R.style.Theme_DeviceDefault_Light_NoActionBar_Fullscreen);//Theme_Dialog
-      //  setStyle(DialogFragment.STYLE_NORMAL,android.R.style.Theme_DeviceDefault_Dialog_Alert);//Theme_Dialog
-       // setStyle(DialogFragment.STYLE_NORMAL,android.R.style.Theme_DeviceDefault_Light_Dialog_NoActionBar_MinWidth);//Theme_Dialog
-       // setStyle(DialogFragment.STYLE_NO_INPUT,android.R.style.Theme_DeviceDefault_Light_Dialog_NoActionBar_MinWidth);//Theme_Dialog
-        //setStyle(DialogFragment.STYLE_NO_INPUT,android.R.style.Theme_DeviceDefault_Light_Panel);//Theme_Dialog
-      //  setStyle(DialogFragment.STYLE_NO_INPUT,android.R.style.Theme_DeviceDefault_InputMethod);//Theme_Dialog
-       // setStyle(DialogFragment.STYLE_NO_INPUT,android.R.style.Theme_DeviceDefault_Light_Panel);//Theme_Dialog
-       // setStyle(DialogFragment.STYLE_NO_INPUT,android.R.style.Theme_DeviceDefault_Panel);//Theme_Dialog
-       // setStyle(DialogFragment.STYLE_NO_INPUT,android.R.style.Theme_DeviceDefault_Settings);//Theme_Dialog
-        //setStyle(DialogFragment.STYLE_NO_TITLE,android.R.style.Theme_DeviceDefault_Wallpaper_NoTitleBar);//Theme_Dialog
-       // setStyle(DialogFragment.STYLE_NO_FRAME | DialogFragment.STYLE_NO_INPUT,android.R.style.Theme_DeviceDefault_Wallpaper_NoTitleBar);//Theme_Dialog
-      //  setStyle(  DialogFragment.STYLE_NO_FRAME | DialogFragment.STYLE_NO_TITLE,android.R.style.Theme_DeviceDefault_Wallpaper_NoTitleBar);//Theme_Dialog
-    //    setStyle(   DialogFragment.STYLE_NO_TITLE,android.R.style.Theme_DeviceDefault_Wallpaper_NoTitleBar);//Theme_Dialog
-      //  setStyle(   DialogFragment.STYLE_NO_INPUT ,android.R.style.Theme_DeviceDefault_Light_NoActionBar_Fullscreen);//Theme_Dialog
-       // setStyle(   DialogFragment.STYLE_NO_FRAME ,android.R.style.Theme_DeviceDefault_Light_NoActionBar_Overscan);//Theme_Dialog
-       // setStyle(   DialogFragment.STYLE_NORMAL ,android.R.style.Theme_DeviceDefault_Light_NoActionBar_Fullscreen);//Theme_Dialog
+            // setStyle(DialogFragment.STYLE_NORMAL,android.R.style.Theme_DeviceDefault_Light_NoActionBar_Fullscreen);//Theme_Dialog
+            //  setStyle(DialogFragment.STYLE_NORMAL,android.R.style.Theme_DeviceDefault_Light_NoActionBar_TranslucentDecor);//Theme_Dialog
+            // setStyle(DialogFragment.STYLE_NORMAL,android.R.style.Theme_DeviceDefault_Light_NoActionBar_Fullscreen);//Theme_Dialog
+            //  setStyle(DialogFragment.STYLE_NORMAL,android.R.style.Theme_DeviceDefault_Dialog_Alert);//Theme_Dialog
+            // setStyle(DialogFragment.STYLE_NORMAL,android.R.style.Theme_DeviceDefault_Light_Dialog_NoActionBar_MinWidth);//Theme_Dialog
+            // setStyle(DialogFragment.STYLE_NO_INPUT,android.R.style.Theme_DeviceDefault_Light_Dialog_NoActionBar_MinWidth);//Theme_Dialog
+            //setStyle(DialogFragment.STYLE_NO_INPUT,android.R.style.Theme_DeviceDefault_Light_Panel);//Theme_Dialog
+            //  setStyle(DialogFragment.STYLE_NO_INPUT,android.R.style.Theme_DeviceDefault_InputMethod);//Theme_Dialog
+            // setStyle(DialogFragment.STYLE_NO_INPUT,android.R.style.Theme_DeviceDefault_Light_Panel);//Theme_Dialog
+            // setStyle(DialogFragment.STYLE_NO_INPUT,android.R.style.Theme_DeviceDefault_Panel);//Theme_Dialog
+            // setStyle(DialogFragment.STYLE_NO_INPUT,android.R.style.Theme_DeviceDefault_Settings);//Theme_Dialog
+            //setStyle(DialogFragment.STYLE_NO_TITLE,android.R.style.Theme_DeviceDefault_Wallpaper_NoTitleBar);//Theme_Dialog
+            // setStyle(DialogFragment.STYLE_NO_FRAME | DialogFragment.STYLE_NO_INPUT,android.R.style.Theme_DeviceDefault_Wallpaper_NoTitleBar);//Theme_Dialog
+            //  setStyle(  DialogFragment.STYLE_NO_FRAME | DialogFragment.STYLE_NO_TITLE,android.R.style.Theme_DeviceDefault_Wallpaper_NoTitleBar);//Theme_Dialog
+            //    setStyle(   DialogFragment.STYLE_NO_TITLE,android.R.style.Theme_DeviceDefault_Wallpaper_NoTitleBar);//Theme_Dialog
+            //  setStyle(   DialogFragment.STYLE_NO_INPUT ,android.R.style.Theme_DeviceDefault_Light_NoActionBar_Fullscreen);//Theme_Dialog
+            // setStyle(   DialogFragment.STYLE_NO_FRAME ,android.R.style.Theme_DeviceDefault_Light_NoActionBar_Overscan);//Theme_Dialog
+            // setStyle(   DialogFragment.STYLE_NORMAL ,android.R.style.Theme_DeviceDefault_Light_NoActionBar_Fullscreen);//Theme_Dialog
             //setCancelable(false);
-           // setStyle(   DialogFragment.STYLE_NORMAL ,android.R.style.Theme_DeviceDefault_Light_NoActionBar_Fullscreen);//Theme_Dialog  Без Часов
-        //    setStyle(   DialogFragment.STYLE_NORMAL ,android.R.style.Theme_DeviceDefault_Light_NoActionBar_TranslucentDecor);//Theme_Dialog
-           // setStyle(   DialogFragment.STYLE_NORMAL ,android.R.style.Theme_DeviceDefault_Light_DarkActionBar);//Theme_Dialog
-          //  setStyle(   DialogFragment.STYLE_NORMAL ,android.R.style.Theme_DeviceDefault_Light_DialogWhenLarge_NoActionBar);//Theme_Dialog   с часами сверху
+            // setStyle(   DialogFragment.STYLE_NORMAL ,android.R.style.Theme_DeviceDefault_Light_NoActionBar_Fullscreen);//Theme_Dialog  Без Часов
+            //    setStyle(   DialogFragment.STYLE_NORMAL ,android.R.style.Theme_DeviceDefault_Light_NoActionBar_TranslucentDecor);//Theme_Dialog
+            // setStyle(   DialogFragment.STYLE_NORMAL ,android.R.style.Theme_DeviceDefault_Light_DarkActionBar);//Theme_Dialog
+            //  setStyle(   DialogFragment.STYLE_NORMAL ,android.R.style.Theme_DeviceDefault_Light_DialogWhenLarge_NoActionBar);//Theme_Dialog   с часами сверху
             // setStyle(   DialogFragment.STYLE_NORMAL ,android.R.style.Theme_DeviceDefault_Light_NoActionBar_Fullscreen);//Theme_Dialog  Без Часов
           /*    setStyle(   DialogFragment.STYLE_NORMAL ,android.R.style.Theme_DeviceDefault_Light_DialogWhenLarge_NoActionBar);//Theme_Dialog   с часами сверху
 
             setStyle(   DialogFragment.STYLE_NORMAL ,android.R.style.Theme_Black_NoTitleBar );*/
             setStyle(   DialogFragment.STYLE_NORMAL ,android.R.style.Theme_Material_Light_NoActionBar );
-  /*          setCancelable(false);*/
+            /*          setCancelable(false);*/
             setShowsDialog(true);
-        // TODO: 15.08.2023
-        Log.d(this.getClass().getName(),"\n" + " class "
-                + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
-                " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
-                " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n");
-    } catch (Exception e) {
-        e.printStackTrace();
-        Log.e(getContext().getClass().getName(),
-                "Ошибка " + e + " Метод :" + Thread.currentThread().getStackTrace()[2].getMethodName() +
-                        " Линия  :" + Thread.currentThread().getStackTrace()[2].getLineNumber());
-        new RecordNewErros(getContext()).recordnewerror(e.toString(),
-                this.getClass().getName().toString(), Thread.currentThread().getStackTrace()[2].getMethodName().toString(),
-                Thread.currentThread().getStackTrace()[2].getLineNumber());
-    }
+            // TODO: 15.08.2023
+            Log.d(this.getClass().getName(),"\n" + " class "
+                    + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
+                    " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
+                    " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n");
+        } catch (Exception e) {
+            e.printStackTrace();
+            Log.e(getContext().getClass().getName(),
+                    "Ошибка " + e + " Метод :" + Thread.currentThread().getStackTrace()[2].getMethodName() +
+                            " Линия  :" + Thread.currentThread().getStackTrace()[2].getLineNumber());
+            new RecordNewErros(getContext()).recordnewerror(e.toString(),
+                    this.getClass().getName().toString(), Thread.currentThread().getStackTrace()[2].getMethodName().toString(),
+                    Thread.currentThread().getStackTrace()[2].getLineNumber());
+        }
     }
 
 
@@ -202,11 +202,11 @@ public class DashboardFragmentSettings extends  DialogFragment {
        /*     ViewDashboart= inflater.inflate(R.layout.simple_dashbord_fragment_grey, container, false);
             ViewDashboart= inflater.inflate(R.layout.simple_dashbord_fragment_grey, container, false);
             ViewDashboart= inflater.inflate(R.layout.simple_dashbord_fragment_grey, container, false);*/
-           // ViewDashboart= inflater.inflate(R.layout.simple_dashbord_fragment_grey, container, false);
-           // ViewDashboart= inflater.inflate(R.layout.simple_dashbord_fragment_blue, container, false);
-          //  view= inflater.inflate(R.layout.simple_dashbord_fragment_grey, container, false);
+            // ViewDashboart= inflater.inflate(R.layout.simple_dashbord_fragment_grey, container, false);
+            // ViewDashboart= inflater.inflate(R.layout.simple_dashbord_fragment_blue, container, false);
+            //  view= inflater.inflate(R.layout.simple_dashbord_fragment_grey, container, false);
             view= inflater.inflate(R.layout.simple_dashbord_fragment_grey_materialdisign_4, container, false);
-         // TODO: 19.02.2025
+            // TODO: 19.02.2025
             MaterialCardView  materialcardview_settings         = (MaterialCardView) view.findViewById(R.id.materialcardview_settings); /////КНОПКА ТАБЕЛЬНОГО УЧЕТА
             КнопкаоСистеме   = (MaterialButton) materialcardview_settings.findViewById(R.id.КнопкаоСистеме); /////КНОПКА ТАБЕЛЬНОГО УЧЕТА
             КнопкаСменыПользователи = (MaterialButton) materialcardview_settings.findViewById(R.id.КнопкаПользователи); /////КНОПКА ТАБЕЛЬНОГО УЧЕТА
@@ -276,20 +276,20 @@ public class DashboardFragmentSettings extends  DialogFragment {
     public void onStart() {
         super.onStart();
         try{
-       classBiznesLogikaSettings.new ClassAnimatilBackButton().методToSettingsFragment();
-        // TODO: 20.07.2023
-        Log.d(this.getClass().getName(),"\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
-                " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
-                " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n"+ " localBinderОбновлениеПО " +localBinderОбновлениеПО  );
-    } catch (Exception e) {
-        e.printStackTrace();
-        Log.e(getContext().getClass().getName(),
-                "Ошибка " + e + " Метод :" + Thread.currentThread().getStackTrace()[2].getMethodName() +
-                        " Линия  :" + Thread.currentThread().getStackTrace()[2].getLineNumber());
-        new RecordNewErros(getContext()).recordnewerror(e.toString(),
-                this.getClass().getName().toString(), Thread.currentThread().getStackTrace()[2].getMethodName().toString(),
-                Thread.currentThread().getStackTrace()[2].getLineNumber());
-    }
+            classBiznesLogikaSettings.new ClassAnimatilBackButton().методToSettingsFragment();
+            // TODO: 20.07.2023
+            Log.d(this.getClass().getName(),"\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
+                    " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
+                    " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n"+ " localBinderОбновлениеПО " +localBinderОбновлениеПО  );
+        } catch (Exception e) {
+            e.printStackTrace();
+            Log.e(getContext().getClass().getName(),
+                    "Ошибка " + e + " Метод :" + Thread.currentThread().getStackTrace()[2].getMethodName() +
+                            " Линия  :" + Thread.currentThread().getStackTrace()[2].getLineNumber());
+            new RecordNewErros(getContext()).recordnewerror(e.toString(),
+                    this.getClass().getName().toString(), Thread.currentThread().getStackTrace()[2].getMethodName().toString(),
+                    Thread.currentThread().getStackTrace()[2].getLineNumber());
+        }
     }
 
 
@@ -318,15 +318,15 @@ public class DashboardFragmentSettings extends  DialogFragment {
             Log.d(this.getClass().getName(),"\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
                     " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
                     " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n");
-    } catch (Exception e) {
-        e.printStackTrace();
-        Log.e(this.getClass().getName(), "Ошибка " + e + " Метод :" + Thread.currentThread().getStackTrace()[2].getMethodName() + " Линия  :"
-                + Thread.currentThread().getStackTrace()[2].getLineNumber());
-        new RecordNewErros(getContext()).recordnewerror(e.toString(),
-                this.getClass().getName(), Thread.currentThread().getStackTrace()[2].getMethodName(),
-                Thread.currentThread().getStackTrace()[2].getLineNumber());
-        Log.d(this.getClass().getName(), "  Полусаем Ошибку e.toString() " + e.toString());
-    }
+        } catch (Exception e) {
+            e.printStackTrace();
+            Log.e(this.getClass().getName(), "Ошибка " + e + " Метод :" + Thread.currentThread().getStackTrace()[2].getMethodName() + " Линия  :"
+                    + Thread.currentThread().getStackTrace()[2].getLineNumber());
+            new RecordNewErros(getContext()).recordnewerror(e.toString(),
+                    this.getClass().getName(), Thread.currentThread().getStackTrace()[2].getMethodName(),
+                    Thread.currentThread().getStackTrace()[2].getLineNumber());
+            Log.d(this.getClass().getName(), "  Полусаем Ошибку e.toString() " + e.toString());
+        }
     }
 
 
@@ -488,7 +488,7 @@ public class DashboardFragmentSettings extends  DialogFragment {
                             // TODO: 27.03.2024 в зависомсти кто вызвает
                             launchActivityDashboard.     launchADashboardFragment(localBinderОбновлениеПО);
 
-                                // TODO: 01.08.2023
+                            // TODO: 01.08.2023
                             Log.d(this.getClass().getName(),"\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
                                     " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
                                     " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n");
@@ -600,11 +600,11 @@ public class DashboardFragmentSettings extends  DialogFragment {
                                     return false;
                                 }
                             })
-                            .subscribe( GetNameSingleAsync1c-> {
+                            .subscribe( bottomSync-> {
 
                                 Vibrator v2 = (Vibrator) getContext().getSystemService(Context.VIBRATOR_SERVICE);
                                 v2.vibrate(VibrationEffect.createOneShot(100, VibrationEffect.DEFAULT_AMPLITUDE));
-                                // TODO: 24.01.2024  запуска синхрониахции из фрагмента настройкит 
+                                // TODO: 24.01.2024  запуска синхрониахции из фрагмента настройкит
                                 startingPoUpdateFromFragmentSettings();
 
                             });
@@ -614,8 +614,9 @@ public class DashboardFragmentSettings extends  DialogFragment {
 
                 private void startingPoUpdateFromFragmentSettings() {
                     try{
-                    ///todo revboot
-                    ProgressDialog  progressDialogДляСинхронизации = new ProgressDialog(getActivity());
+                        ///todo revboot
+                         final     AtomicReference<ProgressDialog>   progressDialogДляСинхронизации = new AtomicReference<>();
+                        progressDialogДляСинхронизации.getAndSet(new ProgressDialog(getActivity()));
 
                         // TODO: 22.12.2022  сама запуска синхронищации из workmanager ОБЩЕГО
                         // TODO: 16.12.2021 НЕПОСРЕДСТВЕННЫЙ ПИНГ СИСТЕНМ ИНТРЕНАТ НА НАЛИЧЕНИ СВАЗИ С БАЗОЙ SQL SERVER
@@ -624,18 +625,23 @@ public class DashboardFragmentSettings extends  DialogFragment {
                                         pingServerJbossSuccessfulOrNot( getsslSocketFactory2,getHiltPortJboss);
                         if (СтатусРаботыСервера) {
                             handlerAsync.post(() -> {
-                                progressDialogДляСинхронизации.setTitle("Обмен данными");
-                                progressDialogДляСинхронизации.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-                                progressDialogДляСинхронизации.setProgress(0);
-                                progressDialogДляСинхронизации.setCanceledOnTouchOutside(false);
-                                progressDialogДляСинхронизации.setMessage("В процессе ....");
-                                if (!progressDialogДляСинхронизации.isShowing()) {
-                                    progressDialogДляСинхронизации.show();
-                                }
+                                progressDialogДляСинхронизации.get().setTitle("Обмен данными");
+                                progressDialogДляСинхронизации.get().setProgressStyle(ProgressDialog.STYLE_SPINNER);
+                                progressDialogДляСинхронизации.get().setProgress(0);
+                                progressDialogДляСинхронизации.get().setCanceledOnTouchOutside(false);
+                                progressDialogДляСинхронизации.get().setMessage("В процессе ....");
+                                progressDialogДляСинхронизации.get().setCancelable(false);
+                                progressDialogДляСинхронизации.get().show();
+
                             });
+                            handlerAsync.postDelayed(() -> {
+                                progressDialogДляСинхронизации.get().dismiss();
+                                progressDialogДляСинхронизации.get().cancel();
+                            }, 3000);
 
                             // TODO: 10.07.2023  запуск Синхрониаию
-                            startServiceBootAndAsync.startServiceBootAndAsync("lanchAsync");
+                            // TODO: 03.03.2025 Запускем Синхрнонизацию через Singlw Work manager
+                            new CreateSingleWorkManager(getContext()).getcreateSingleWorkManager( "lanchOnlyAsync");
                             // TODO: 26.06.2022
                             Log.d(this.getClass().getName(), "\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
                                     " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
@@ -643,23 +649,20 @@ public class DashboardFragmentSettings extends  DialogFragment {
 
                             // TODO: 14.12.2023
 
-                            handlerAsync.postDelayed(() -> {
-                                progressDialogДляСинхронизации.dismiss();
-                                progressDialogДляСинхронизации.cancel();
-                            }, 3000);
+
                         }else {
                             Snackbar.make(КнопкаОбменДанными, "Нет сети !!!",Snackbar.LENGTH_LONG).setAction("Action",null).show();
                         }
 
 
                     } catch (Exception e) {
-            e.printStackTrace();
-            Log.e(this.getClass().getName(), "Ошибка " + e + " Метод :" + Thread.currentThread().getStackTrace()[2].getMethodName() +
-                    " Линия  :" + Thread.currentThread().getStackTrace()[2].getLineNumber());
-            new RecordNewErros(getContext()).recordnewerror(e.toString(), this.getClass().getName(),
-                    Thread.currentThread().getStackTrace()[2].getMethodName(), Thread.currentThread().getStackTrace()[2].getLineNumber());
+                        e.printStackTrace();
+                        Log.e(this.getClass().getName(), "Ошибка " + e + " Метод :" + Thread.currentThread().getStackTrace()[2].getMethodName() +
+                                " Линия  :" + Thread.currentThread().getStackTrace()[2].getLineNumber());
+                        new RecordNewErros(getContext()).recordnewerror(e.toString(), this.getClass().getName(),
+                                Thread.currentThread().getStackTrace()[2].getMethodName(), Thread.currentThread().getStackTrace()[2].getLineNumber());
 
-        }
+                    }
                 }
 
 
@@ -676,7 +679,7 @@ public class DashboardFragmentSettings extends  DialogFragment {
                         public void onClick(View v) {
                             try {
                                 // TODO: 16.12.2021 НЕПОСРЕДСТВЕННЫЙ ПИНГ СИСТЕНМ ИНТРЕНАТ НА НАЛИЧЕНИ СВАЗИ С БАЗОЙ SQL SERVER
-                         Boolean   СтатусРаботыСервера =
+                                Boolean   СтатусРаботыСервера =
                                         new GetPingServerJboss(getContext()).
                                                 pingServerJbossSuccessfulOrNot( getsslSocketFactory2, getHiltPortJboss);
 
@@ -704,8 +707,8 @@ public class DashboardFragmentSettings extends  DialogFragment {
 
 
                                                 // TODO: 17.05.2025  Запускае Очистка таблиц
-                                            GetClearDataUserAnCnahgeData clearDataUserAnCnahgeDataWorkerTable      =      new GetClearDataUserAnCnahgeData(getActivity());
-                                            clearDataUserAnCnahgeDataWorkerTable .clearTableWorkerUsers(getContext(),getActivity(),prograssbarСменаДанныхПользователя );
+                                                GetClearDataUserAnCnahgeData clearDataUserAnCnahgeDataWorkerTable      =      new GetClearDataUserAnCnahgeData(getActivity());
+                                                clearDataUserAnCnahgeDataWorkerTable .clearTableWorkerUsers(getContext(),getActivity(),prograssbarСменаДанныхПользователя );
 
 
                                                 // TODO: 29.05.2025  Очистка Системных Таблиц
@@ -755,13 +758,13 @@ public class DashboardFragmentSettings extends  DialogFragment {
                                     materialAlertDialogBuilder.setIcon(R.drawable.icon_change_user1);
 
 // TODO: 22.08.2023
-                                if(    DialogBox==null ){
-                                    DialogBox=  materialAlertDialogBuilder.show();
-                                }else {
-                                    if(!DialogBox.isShowing()){
+                                    if(    DialogBox==null ){
                                         DialogBox=  materialAlertDialogBuilder.show();
+                                    }else {
+                                        if(!DialogBox.isShowing()){
+                                            DialogBox=  materialAlertDialogBuilder.show();
+                                        }
                                     }
-                                }
 
                                 } else {
                                     Toast.makeText(getContext(), "Для смены данных, нужно подключение к серверу !!! "
@@ -795,82 +798,84 @@ public class DashboardFragmentSettings extends  DialogFragment {
 
             // TODO: 23.08.2023 \ Class EntityMaterialBinary Обновление ПО
             class  ClassUpdatePO{
-           void методОбновлениеПО(){
-               try{
-               RxView.clicks(КнопкаОбновлениеПО)
-                       .throttleFirst(3, TimeUnit.SECONDS)
-                       .filter(s -> !s.toString().isEmpty())
-                       .map(new Function<Unit, Object>() {
-                           @Override
-                           public Object apply(Unit unit) throws Throwable {
-                               Log.d(this.getClass().getName(), "\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
-                                       " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
-                                       " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n" );
-                               return КнопкаОбновлениеПО;
-                           }
-                       })
-                       .doOnError(new io.reactivex.rxjava3.functions.Consumer<Throwable>() {
-                           @Override
-                           public void accept(Throwable throwable) throws Throwable {
-                               throwable.printStackTrace();
-                               Log.e(getContext().getClass().getName(),
-                                       "Ошибка " + throwable + " Метод :" + Thread.currentThread().getStackTrace()[2].getMethodName() +
-                                               " Линия  :" + Thread.currentThread().getStackTrace()[2].getLineNumber());
-                               new RecordNewErros(getContext()).recordnewerror(throwable.toString(),
-                                       this.getClass().getName().toString(), Thread.currentThread().getStackTrace()[2].getMethodName().toString(),
-                                       Thread.currentThread().getStackTrace()[2].getLineNumber());
-                           }
-                       })
-                       .onErrorComplete(new Predicate<Throwable>() {
-                           @Override
-                           public boolean test(Throwable throwable) throws Throwable {
-                               throwable.printStackTrace();
-                               Log.e(getContext().getClass().getName(),
-                                       "Ошибка " + throwable + " Метод :" + Thread.currentThread().getStackTrace()[2].getMethodName() +
-                                               " Линия  :" + Thread.currentThread().getStackTrace()[2].getLineNumber());
-                               new RecordNewErros(getContext()).recordnewerror(throwable.toString(),
-                                       this.getClass().getName().toString(), Thread.currentThread().getStackTrace()[2].getMethodName().toString(),
-                                       Thread.currentThread().getStackTrace()[2].getLineNumber());
-                               return false;
-                           }
-                       })
-                       .subscribe( GetNameSingleAsync1c-> {
+                void методОбновлениеПО(){
+                    try{
+                        RxView.clicks(КнопкаОбновлениеПО)
+                                .throttleFirst(3, TimeUnit.SECONDS)
+                                .filter(s -> !s.toString().isEmpty())
+                                .map(new Function<Unit, Object>() {
+                                    @Override
+                                    public Object apply(Unit unit) throws Throwable {
+                                        Log.d(this.getClass().getName(), "\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
+                                                " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
+                                                " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n" );
+                                        return КнопкаОбновлениеПО;
+                                    }
+                                })
+                                .doOnError(new io.reactivex.rxjava3.functions.Consumer<Throwable>() {
+                                    @Override
+                                    public void accept(Throwable throwable) throws Throwable {
+                                        throwable.printStackTrace();
+                                        Log.e(getContext().getClass().getName(),
+                                                "Ошибка " + throwable + " Метод :" + Thread.currentThread().getStackTrace()[2].getMethodName() +
+                                                        " Линия  :" + Thread.currentThread().getStackTrace()[2].getLineNumber());
+                                        new RecordNewErros(getContext()).recordnewerror(throwable.toString(),
+                                                this.getClass().getName().toString(), Thread.currentThread().getStackTrace()[2].getMethodName().toString(),
+                                                Thread.currentThread().getStackTrace()[2].getLineNumber());
+                                    }
+                                })
+                                .onErrorComplete(new Predicate<Throwable>() {
+                                    @Override
+                                    public boolean test(Throwable throwable) throws Throwable {
+                                        throwable.printStackTrace();
+                                        Log.e(getContext().getClass().getName(),
+                                                "Ошибка " + throwable + " Метод :" + Thread.currentThread().getStackTrace()[2].getMethodName() +
+                                                        " Линия  :" + Thread.currentThread().getStackTrace()[2].getLineNumber());
+                                        new RecordNewErros(getContext()).recordnewerror(throwable.toString(),
+                                                this.getClass().getName().toString(), Thread.currentThread().getStackTrace()[2].getMethodName().toString(),
+                                                Thread.currentThread().getStackTrace()[2].getLineNumber());
+                                        return false;
+                                    }
+                                })
+                                .subscribe( buttonUpdatePo-> {
 
-                           Vibrator v2 = (Vibrator) getContext().getSystemService(Context.VIBRATOR_SERVICE);
-                           v2.vibrate(VibrationEffect.createOneShot(100, VibrationEffect.DEFAULT_AMPLITUDE));
+                                    Vibrator v2 = (Vibrator) getContext().getSystemService(Context.VIBRATOR_SERVICE);
+                                    v2.vibrate(VibrationEffect.createOneShot(100, VibrationEffect.DEFAULT_AMPLITUDE));
 
 // TODO: 10.07.2023  запуск обновление ПО
-                           // TODO: 16.12.2021 НЕПОСРЕДСТВЕННЫЙ ПИНГ СИСТЕНМ ИНТРЕНАТ НА НАЛИЧЕНИ СВАЗИ С БАЗОЙ SQL SERVER
-                           Boolean   СтатусРаботыСервера =
-                                   new GetPingServerJboss(getContext()).
-                                           pingServerJbossSuccessfulOrNot( getsslSocketFactory2,getHiltPortJboss);
+                                    // TODO: 16.12.2021 НЕПОСРЕДСТВЕННЫЙ ПИНГ СИСТЕНМ ИНТРЕНАТ НА НАЛИЧЕНИ СВАЗИ С БАЗОЙ SQL SERVER
+                                    Boolean   СтатусРаботыСервера =
+                                            new GetPingServerJboss(getContext()).
+                                                    pingServerJbossSuccessfulOrNot( getsslSocketFactory2,getHiltPortJboss);
 // TODO: 10.07.2023  запуск обновление ПО
-                           if (СтатусРаботыСервера) {
-                               startServiceBootAndAsync.startServiceBootAndAsync("lanchUpdatePO");
-                           } else {
-                               Snackbar.make(КнопкаОбновлениеПО, "Нет сети !!!",Snackbar.LENGTH_LONG).setAction("Action",null).show();
-                           }
+                                    if (СтатусРаботыСервера) {
+                                        // TODO: 03.03.2025 Запускем Синхрнонизацию через Singlw Work manager
+                                        new CreateSingleWorkManager(getContext()).getcreateSingleWorkManager( "lanchOnlyUpdatePO");//"lanchUpdatePO"  BootService    // TODO: 03.03.2025 Запускем Синхрнонизацию через Singlw Work manager
+                                       // new CreateSingleWorkManager(context).getcreateSingleWorkManager("BootService");//"lanchUpdatePO"
+                                    } else {
+                                        Snackbar.make(КнопкаОбновлениеПО, "Нет сети !!!",Snackbar.LENGTH_LONG).setAction("Action",null).show();
+                                    }
 
-                           Log.i(this.getClass().getName(), " Из меню установкаОбновление ПО "
-                                       + Thread.currentThread().getStackTrace()[2].getMethodName()
-                                       + " время " + new Date().toLocaleString());
+                                    Log.i(this.getClass().getName(), " Из меню установкаОбновление ПО "
+                                            + Thread.currentThread().getStackTrace()[2].getMethodName()
+                                            + " время " + new Date().toLocaleString());
 
 
-                       });
+                                });
 
 
-           } catch (Exception e) {
-                    e.printStackTrace();
-                    Log.e(this.getClass().getName(), "Ошибка " + e + " Метод :"
-                            + Thread.currentThread().getStackTrace()[2].getMethodName() + " Линия  :"
-                            + Thread.currentThread().getStackTrace()[2].getLineNumber());
-                    new RecordNewErros(getContext()).recordnewerror(e.toString(),
-                            this.getClass().getName(), Thread.currentThread().getStackTrace()[2].getMethodName(),
-                            Thread.currentThread().getStackTrace()[2].getLineNumber());
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        Log.e(this.getClass().getName(), "Ошибка " + e + " Метод :"
+                                + Thread.currentThread().getStackTrace()[2].getMethodName() + " Линия  :"
+                                + Thread.currentThread().getStackTrace()[2].getLineNumber());
+                        new RecordNewErros(getContext()).recordnewerror(e.toString(),
+                                this.getClass().getName(), Thread.currentThread().getStackTrace()[2].getMethodName(),
+                                Thread.currentThread().getStackTrace()[2].getLineNumber());
+                    }
+
+
                 }
-
-
-           }
                 //TODO END   class  ClassUpdatePO
             }//TODO END   class  ClassUpdatePO
 
@@ -913,7 +918,7 @@ public class DashboardFragmentSettings extends  DialogFragment {
 
 
 // TODO: 04.10.2023  binder class
-          //TODO end class ClassAllTaskButtons
+            //TODO end class ClassAllTaskButtons
         }//TODO end class ClassAllTaskButtons
 
     }//TODO end Buniceess Lofic for Activity
@@ -921,13 +926,13 @@ public class DashboardFragmentSettings extends  DialogFragment {
 
 
 
-class BindingSoftwareUpdatePO{
+    class BindingSoftwareUpdatePO{
 
 
-    // TODO: 03.10.2023  метод когда не биндинга
-     void getbindingSoftwareUpdatePO(         ) {
-        try {
-            Boolean asBoolenОбновлениеПО = null;
+        // TODO: 03.10.2023  метод когда не биндинга
+        void getbindingSoftwareUpdatePO(         ) {
+            try {
+                Boolean asBoolenОбновлениеПО = null;
                 connectionОбновлениеПО = new ServiceConnection() {
                     @Override
                     public void onServiceConnected(ComponentName name, IBinder service) {
@@ -972,27 +977,27 @@ class BindingSoftwareUpdatePO{
                 Intent intentЗапускСлужбыОбновлениеПО = new Intent(getContext(), ServiceUpdatesPO.class);
                 intentЗапускСлужбыОбновлениеПО.setAction("com.ServiceUpdatesPO");
                 asBoolenОбновлениеПО = getContext().bindService(intentЗапускСлужбыОбновлениеПО, connectionОбновлениеПО, Context.BIND_AUTO_CREATE);
-            // TODO: 28.04.2023
-            Log.d(this.getClass().getName(), "\n" + " class " +
-                    Thread.currentThread().getStackTrace()[2].getClassName()
-                    + "\n" +
-                    " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
-                    " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n" + " asBoolenОбновлениеПО " + asBoolenОбновлениеПО);
-        } catch (Exception e) {
-            e.printStackTrace();
-            Log.e(this.getClass().getName(), "Ошибка " + e + " Метод :" + Thread.currentThread().getStackTrace()[2].getMethodName() + " Линия  :"
-                    + Thread.currentThread().getStackTrace()[2].getLineNumber());
-            new RecordNewErros(getContext()).recordnewerror(e.toString(), this.getClass().getName(), Thread.currentThread().getStackTrace()[2].getMethodName(),
-                    Thread.currentThread().getStackTrace()[2].getLineNumber());
-            Log.d(this.getClass().getName(), "  Полусаем Ошибку e.toString() " + e.toString());
+                // TODO: 28.04.2023
+                Log.d(this.getClass().getName(), "\n" + " class " +
+                        Thread.currentThread().getStackTrace()[2].getClassName()
+                        + "\n" +
+                        " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
+                        " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n" + " asBoolenОбновлениеПО " + asBoolenОбновлениеПО);
+            } catch (Exception e) {
+                e.printStackTrace();
+                Log.e(this.getClass().getName(), "Ошибка " + e + " Метод :" + Thread.currentThread().getStackTrace()[2].getMethodName() + " Линия  :"
+                        + Thread.currentThread().getStackTrace()[2].getLineNumber());
+                new RecordNewErros(getContext()).recordnewerror(e.toString(), this.getClass().getName(), Thread.currentThread().getStackTrace()[2].getMethodName(),
+                        Thread.currentThread().getStackTrace()[2].getLineNumber());
+                Log.d(this.getClass().getName(), "  Полусаем Ошибку e.toString() " + e.toString());
+            }
+
         }
 
+
+
+
     }
-
-
-
-
-}
 
 
     // TODO: 23.01.2024 EventBus for Status

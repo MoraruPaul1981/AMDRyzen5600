@@ -23,8 +23,9 @@ import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.LifecycleOwner;
 
 
+import com.dsy.dsu.BusinessLogicForApps.WorkManagers.binesslogic.CreateSingleWorkManager;
 import com.dsy.dsu.CoreApp.Apps.BootAndAsyncApp.Model.EventsBus.MessageEvensBusNetworkStatuses;
-import com.dsy.dsu.CoreApp.Apps.BootAndAsyncApp.Model.Service.bl_service_boot.StartServiceBootAndAsync;
+ 
 
 
 import com.dsy.dsu.BusinessLogicForApps.CallNavigarlaout.CallNavigarlaout;
@@ -360,7 +361,8 @@ public class GetComponentActivityBootService {
                                 item.setChecked(true);
                                 try {
 // TODO: 10.07.2023  запуск обновление ПО
-                                    new StartServiceBootAndAsync(context).startServiceBootAndAsync("lanchUpdatePO");
+                                    // TODO: 03.03.2025 Запускем Синхрнонизацию через Singlw Work manager
+                                    new CreateSingleWorkManager(context).getcreateSingleWorkManager("lanchOnlyUpdatePO");//"lanchUpdatePO"
 
                                     Log.d(context.getClass().getName(), "\n"
                                             + " время: " + new Date() + "\n+" +

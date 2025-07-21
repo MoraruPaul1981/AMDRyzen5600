@@ -88,8 +88,8 @@ public class BinessLogicIntentServiceBoot {
 
 
 
-    public void lanchUpdatePO(@NonNull LinkedHashMap<Integer,String> getHiltPortJboss,
-                              @NonNull Context context) {
+    public void lanchOnlyUpdatePO(@NonNull LinkedHashMap<Integer,String> getHiltPortJboss,
+                                  @NonNull Context context) {
         try {
             // TODO: 14.08.2023 вызов кода ПОльзовательский
 
@@ -147,11 +147,11 @@ public class BinessLogicIntentServiceBoot {
     }
 
     @SuppressLint("SuspiciousIndentation")
-    public Long lanchAsync(@NonNull Context context) {
+    public Long lanchOnlyAsync(@NonNull LinkedHashMap<Integer,String> getHiltPortJboss,@NonNull Context context) {
         Long  getcompleteAsync=0l;
         try {
             // TODO: 14.08.2023 вызов кода ПОльзовательский
-               getcompleteAsync =   completeAsync(   context);
+               getcompleteAsync =   completeAsync( getHiltPortJboss, context);
 
             // TODO: 03.10.2023
             Log.d(this.getClass().getName(), "\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
@@ -201,7 +201,7 @@ public class BinessLogicIntentServiceBoot {
                        " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n" );
             }).doOnComplete(()->{
                // TODO: 30.03.2025 Запускаем СИНХРОНИЗАЦИЮ
-               Long getcompleteAsync =   lanchAsync(   context  );
+               Long getcompleteAsync =   lanchOnlyAsync( getHiltPortJboss,  context  );
                    // TODO: 31.03.2025
 
                    // TODO: 31.03.2025 нет логина  и пароля переводим программу на Активити Password
@@ -483,7 +483,7 @@ public class BinessLogicIntentServiceBoot {
 
 
 
-    Long completeAsync( @NonNull Context context  ){
+    Long completeAsync(@NonNull  LinkedHashMap<Integer,String> getHiltPortJboss, @NonNull Context context  ){
         // TODO: 28.03.2025
         AtomicLong completeAsync=new AtomicLong(0l);
         try{

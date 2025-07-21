@@ -27,7 +27,7 @@ public class GetWorker {
     }
 
 
-    public void startingSingleWorkerManger(@NotNull  IntentServiceBoot.LocalBinderBootSerice          getlocalBinderBootSerice ,@NotNull String getAnalysisPublicWorkManger) {
+    public void startingSingleWorkerManger(@NotNull  IntentServiceBoot.LocalBinderBootSerice          getlocalBinderBootSerice ,@NotNull String getAnalysisPublicWorkManger ,@NotNull String getWhoLaunched) {
         try{
             LinkedHashMap<Integer,String> getHiltPortJboss=   EntryPoints.get(context, getHiltPortJbossInterface.class).getHiltPortJboss();
 
@@ -47,9 +47,8 @@ public class GetWorker {
                     // TODO: 30.06.2025
                     if (  getActivityTasks  && isPublicWorkManagerRunning==false) {
                         // TODO: 30.06.2025
-                            String actionSingleWorker =  "lanchUpdatePOAndAsync" ;
-                            intentSingleWorker.setAction(actionSingleWorker);
-                            intentSingleWorker.setData(Uri.parse(actionSingleWorker));
+                            intentSingleWorker.setAction(getWhoLaunched);
+                            intentSingleWorker.setData(Uri.parse(getWhoLaunched));
 // TODO: 30.06.2025 Запускаем Саму Службу Single Workmanager
                             getlocalBinderBootSerice.getService().startingServiceSingleWorkManger(intentSingleWorker, getHiltPortJboss);
                     }
@@ -95,7 +94,7 @@ public class GetWorker {
 
 
     public void startingPublicWorkManager(@NotNull  IntentServiceBoot.LocalBinderBootSerice          getlocalBinderBootSerice,
-                                          @NotNull String    getAnalysisSingleWorkManger  ) {
+                                          @NotNull String    getAnalysisSingleWorkManger  ,@NotNull String getWhoLaunched) {
         try{
             LinkedHashMap<Integer,String> getHiltPortJboss=   EntryPoints.get(context, getHiltPortJbossInterface.class).getHiltPortJboss();
 
@@ -114,9 +113,8 @@ public class GetWorker {
 
                 if(isSingleWorkManagerRunning == false && ВыбранныйРежимСети && isWorkActivityRunning==false ) {
                     // TODO: 30.06.2025
-                            String actionSingleWorker =  "lanchAsync" ;
-                            intentSingleWorker.setAction(actionSingleWorker);
-                            intentSingleWorker.setData(Uri.parse(actionSingleWorker));
+                            intentSingleWorker.setAction(getWhoLaunched);
+                            intentSingleWorker.setData(Uri.parse(getWhoLaunched));
 // TODO: 06.06.2025  запускам public work managers
                             getlocalBinderBootSerice.getService().startingServicePublicWorkManger(intentSingleWorker, getHiltPortJboss);
 

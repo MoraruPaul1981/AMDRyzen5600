@@ -36,7 +36,7 @@ public class BroadCastMyReceiverPublic extends BroadcastReceiver {
             // Toast.makeText(context, "ООО Союз-Автодор work Background !!! "+"\n"+new Date().toLocaleString().toString(), Toast.LENGTH_LONG).show();
 
              // TODO: 14.12.2023 REPLACE
-             new CreatePublicWorkManager(context).getcreatePublicWorkManager(context  );
+             new CreatePublicWorkManager(context).getcreatePublicWorkManager(context, "BootService" );
 
 
             Log.d(context.getClass().getName(), "\n"
