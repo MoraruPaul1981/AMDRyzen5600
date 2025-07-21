@@ -21,6 +21,7 @@ import com.dsy.dsu.BusinessLogicForApps.WorkManagers.binesslogic.GetWorker;
 import com.dsy.dsu.CoreApp.Apps.ErrorsCoreApp.model.bl_readnewerrors.RecordNewErros;
 
 import java.util.Date;
+import java.util.Optional;
 
 public class MyWork_Async_Public extends Worker {
     /*    private String ИмяСлужбыWorkManger ="WorkManager Synchronizasiy_Data";*/
@@ -30,14 +31,12 @@ public class MyWork_Async_Public extends Worker {
     /*  protected String ИмяСлужбыWorkManger ="WorkManager Synchronizasiy_Data";
       protected  String ИмяСлужбыSingleWorkManger ="WorkManager Synchronizasiy_Data Disposable";*/
     private  IntentServiceBoot.LocalBinderBootSerice          getlocalBinderBootSerice;
-    private String  getWhoLaunched;
+
     // TODO: 28.09.2022
     @SuppressLint("RestrictedApi")
     public MyWork_Async_Public(@NonNull Context context, @NonNull WorkerParameters workerParams) {
         super(context, workerParams);
         try{
-            // TODO: 22.12.2022
-            getInParamentesWork();
             // TODO: 02.04.2024 Bl
             getLiveBindibngServiceBoot();
 
@@ -66,6 +65,9 @@ public class MyWork_Async_Public extends Worker {
     @Override
     public Result doWork() {
         try {
+
+            // TODO: 22.12.2022
+              String  getWhoLaunched=    getInParamentesWork();
 
             Integer PublicIDWorkMangerPubluc=   new GetttingPublicID().getttingPublicID(getApplicationContext());
 
@@ -171,10 +173,12 @@ public class MyWork_Async_Public extends Worker {
 
     }
 
-    private void getInParamentesWork() {
+    private String getInParamentesWork() {
+        String  getWhoLaunched=null;
         try{
             Data data = getInputData();
             getWhoLaunched = data.getString("getWhoLaunched");
+            getWhoLaunched= Optional.ofNullable(getWhoLaunched).orElse("lanchOnlyAsync" );
             Log.d(this.getClass().getName(), "\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
                     " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
                     " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n");
@@ -188,6 +192,7 @@ public class MyWork_Async_Public extends Worker {
                     Thread.currentThread().getStackTrace()[2].getLineNumber());
 
         }
+        return  getWhoLaunched;
     }
 
 
