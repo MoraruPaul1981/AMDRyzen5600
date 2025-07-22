@@ -22,11 +22,12 @@ import com.dsy.dsu.CoreApp.Apps.ErrorsCoreApp.model.bl_readnewerrors.RecordNewEr
 
 import java.util.Date;
 import java.util.Optional;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class MyWork_Async_Public extends Worker {
     /*    private String ИмяСлужбыWorkManger ="WorkManager Synchronizasiy_Data";*/
     private  String getAnalysisSingleWorkManger ="WorkManager Synchronizasiy_Data Disposable";
-    private   ServiceConnection serviceConnectionPublic;
+    private AtomicReference<ServiceConnection>  serviceConnectionAtomicReference=new AtomicReference<>();
 
     /*  protected String ИмяСлужбыWorkManger ="WorkManager Synchronizasiy_Data";
       protected  String ИмяСлужбыSingleWorkManger ="WorkManager Synchronizasiy_Data Disposable";*/
@@ -129,7 +130,7 @@ public class MyWork_Async_Public extends Worker {
             if (getlocalBinderBootSerice==null) {
                 Intent intentstartServiceOneSignal=new Intent(getApplicationContext(), IntentServiceBoot.class);
                 // TODO: 19.07.2025
-                serviceConnectionPublic=      new ServiceConnection() {
+                serviceConnectionAtomicReference.getAndSet(   new ServiceConnection() {
                     @Override
                     public void onServiceConnected(ComponentName name, IBinder service) {
                         if (service.isBinderAlive()) {
@@ -154,9 +155,9 @@ public class MyWork_Async_Public extends Worker {
                                 " Класс в процессе... " + this.getClass().getName() + "\n" +
                                 " onServiceConnected  метод в процессе... " + Thread.currentThread().getStackTrace()[2].getMethodName());
                     }
-                };
+                });
                 // TODO: 24.01.2024
-                getApplicationContext().bindService(intentstartServiceOneSignal, serviceConnectionPublic, Context.BIND_AUTO_CREATE);
+                getApplicationContext().bindService(intentstartServiceOneSignal, serviceConnectionAtomicReference.get(), Context.BIND_AUTO_CREATE);
             }
 
             Log.d(getApplicationContext().getClass().getName(), "\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
