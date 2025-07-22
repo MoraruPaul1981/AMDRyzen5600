@@ -24,8 +24,8 @@ import androidx.lifecycle.LifecycleOwner;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.dsy.dsu.AdmissionMaterialsApp.Window.MainActivity_AdmissionMaterials;
+import com.dsy.dsu.BusinessLogicForApps.BroadcastRecievers.Bl.RegistrationPublicWorkmanager;
 import com.dsy.dsu.CoreApp.Apps.BootAndAsyncApp.Model.BinesslogicActivityBoot.GetFinishAffinityFragment;
-import com.dsy.dsu.BusinessLogicForApps.BroadcastRecievers.Bl.RegisterBroadcastForWorkManager;
 import com.dsy.dsu.BusinessLogicForApps.GetPublicID.QualifierPublicID;
 import com.dsy.dsu.CommitPricesApp.View.Window.MainActivityCommitingPrices;
 
@@ -80,8 +80,10 @@ public class DashboardFaceApp extends  DialogFragment  {
     @Inject
     @QualifierPublicID
         Integer getHiltPublicId;
+
     @Inject
-    RegisterBroadcastForWorkManager registerBroadcastForWorkManager;
+    RegistrationPublicWorkmanager registrationPublicWorkmanager;
+
 
   public    ViewPager2 pagerdachbord;
     protected LifecycleOwner getlifecycleOwner  ;
@@ -236,9 +238,8 @@ public class DashboardFaceApp extends  DialogFragment  {
                     ,КнопкаПоступлениеМатериалов,
                     КнопкаТабель,getGrantRemote);
 
-// TODO: 06.06.2025 workmanager registert
-
-            registerBroadcastForWorkManager.statingPublicWorkMAnager(getContext());
+// TODO: 06.06.2025 workmanager Регистация  Public
+            registrationPublicWorkmanager.registrationPublicWorkmanager();
 
 
 

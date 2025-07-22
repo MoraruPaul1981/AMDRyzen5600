@@ -34,7 +34,7 @@ public class CreatePublicWorkManager {
 
 
     @SuppressLint("NewApi")
-    public void getcreatePublicWorkManager(@NotNull Context context,@NonNull String getWhoLaunched) {
+    public void getcreatePublicWorkManager( @NonNull String getWhoLaunched) {
 
         try{
             Integer PublicId =  new GetttingPublicID().getttingPublicID(context);

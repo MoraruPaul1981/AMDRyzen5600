@@ -1,5 +1,6 @@
 package com.dsy.dsu.BusinessLogicForApps.BroadcastRecievers.Bl;
 
+import android.app.Application;
 import android.content.Context;
 import android.util.Log;
 
@@ -11,15 +12,26 @@ import com.dsy.dsu.CoreApp.Apps.ErrorsCoreApp.model.bl_readnewerrors.RecordNewEr
 
 import java.util.Date;
 
-public class getStartingWorkmanagerPublic {
+import javax.inject.Inject;
+import javax.inject.Named;
+
+import dagger.hilt.android.qualifiers.ApplicationContext;
 
 
-    public void metodRegistraBroadCastFroPublicAsyns(@NonNull Context context) {
+@Named
+public class RegistrationPublicWorkmanager {
+    Context context;
+
+    public @Inject RegistrationPublicWorkmanager(@ApplicationContext Context context) {
+        this.context=context;
+    }
+
+    public void  registrationPublicWorkmanager() {
         try {
 
 
             // TODO: 14.12.2023 REPLACE
-           new CreatePublicWorkManager(context).getcreatePublicWorkManager(context , "lanchOnlyAsync");
+           new CreatePublicWorkManager(context).getcreatePublicWorkManager(  "lanchOnlyAsync");
 
             Log.d(context.getClass().getName(), "\n"
                     + " время: " + new Date() + "\n+" +

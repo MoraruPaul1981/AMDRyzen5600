@@ -10,7 +10,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 
-import com.dsy.dsu.BroadcastRecievers.Bl.getStartingWorkmanagerPublic;
+import com.dsy.dsu.BroadcastRecievers.Bl.RegistrationPublicWorkmanager;
 import com.dsy.dsu.ErrorsCoreApp.controller.RecordNewBackErros;
 
 import org.java_websocket.server.WebSocketServer;
