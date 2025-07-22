@@ -3518,7 +3518,10 @@ public class FragmentSingleTabelOneSwipe extends Fragment {
     private  LinkedHashMap< String,String> getWorkerDays() throws ParseException,RuntimeException {
         LinkedHashMap< String,String> linkedHashMapВыходные=new LinkedHashMap<>();
         try {
-            Integer ПолученоеКоличествоДнейНаКонкретныйМЕсяц=МетодПолучениеСколькоДнейВКонкретномМесяце(ГодТабелей,    МЕсяцТабелей );
+            Integer ПолученоеКоличествоДнейНаКонкретныйМЕсяц= 0;
+            if (ГодТабелей>0 &&  МЕсяцТабелей >0) {
+                ПолученоеКоличествоДнейНаКонкретныйМЕсяц = МетодПолучениеСколькоДнейВКонкретномМесяце(ГодТабелей,    МЕсяцТабелей );
+            }
             IntStream.iterate(1, i -> i + 1).limit(ПолученоеКоличествоДнейНаКонкретныйМЕсяц ).parallel().forEachOrdered(new IntConsumer() {
                 @Override
                 public void accept(int ИндексДней) {

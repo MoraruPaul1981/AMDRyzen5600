@@ -26,9 +26,13 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.UiThread;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.MenuProvider;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LifecycleOwner;
 
 import com.dsy.dsu.BusinessLogicForApps.Dates.GetMainDateForApp;
 import com.dsy.dsu.BusinessLogicForApps.GetPublicID.GetttingPublicID;
@@ -694,65 +698,10 @@ private void МетодВозврещениеНаПредыдущуюАктив�
 
 
 
-    ///todo сообщение на активти создание новго сотрудника спрашиваем нужно ли создать
-    @UiThread
-    protected void СообщениеСообщаетОСоздаенииНовогоСотрудника(String ШабкаДиалога, final String СообщениеДиалога, boolean статус) {
-        ///////СОЗДАЕМ ДИАЛОГ ДА ИЛИ НЕТ///////СОЗДАЕМ ДИАЛОГ ДА ИЛИ НЕТ
-        int ФлагЗнака;
-        if (статус) {
-            ФлагЗнака = R.drawable.icon_dsu1_new_customer_success;
-        } else {
-            ФлагЗнака = R.drawable.icon_dsu1_new_customer_error;
-        }
 
-        try {
-//////сам вид
-            final AlertDialog alertDialog = new MaterialAlertDialogBuilder(КонтекстДляАктивтиСозданиеНовогоСотрудника)
-                    .setTitle(ШабкаДиалога)
-                    .setMessage(СообщениеДиалога)
-                    .setPositiveButton("ОК", null)
-                    .setIcon(ФлагЗнака)
-                    .show();
-/////////кнопка
-            final Button MessageBoxUpdateСоздатьТабель = alertDialog.getButton(AlertDialog.BUTTON_POSITIVE);
-            MessageBoxUpdateСоздатьТабель.setOnClickListener(new View.OnClickListener() {
-                ///MessageBoxUpdate метод CLICK для DIALOBOX
-                @Override
-                public void onClick(View v) {
-                    //удаляем с экрана Диалог
-                    alertDialog.dismiss();
-                    Log.d(this.getClass().getName(), "  ФИНАЛ создание нового сотрудника ");
+    @Override
+    public void addMenuProvider(@NonNull MenuProvider provider, @NonNull LifecycleOwner owner, @NonNull Lifecycle.State state) {
 
-                    if (статус) {
-                        ///todo после как мы либо создали новогосо остружника или обновли его в табел то обнуляем
-
-
-
-                        //todo обнуляем ПОСЛЕ ВСТАВКИ НОВГО СОТРУДНИКА
-
-                        ЗначениеФИОСозданиеСотрудника=null;
-
-                        ЗначениеДеньРожденияСозданиеСотрудника=null;
-
-                        ЗначениеСНИЛССозданиеСотрудника=null;
-
-///TODO метод запуска формы после вставки
-                        //TODO ПОСЛЕ УСПЕШНОЙ СОЗДАНИЕ НОВОГО СОТРУДНИКА ПЕРЕХОДИМ В ТАБЕЛЯ
-
-
-
-                    }
-                }
-            });
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            ///метод запись ошибок в таблицу
-            Log.e(this.getClass().getName(), "Ошибка " + e + " Метод :" + Thread.currentThread().getStackTrace()[2].getMethodName() + " Линия  :"
-                    + Thread.currentThread().getStackTrace()[2].getLineNumber());
-            new RecordNewErros(getApplicationContext()).recordnewerror(e.toString(), this.getClass().getName(), Thread.currentThread().getStackTrace()[2].getMethodName(),
-                    Thread.currentThread().getStackTrace()[2].getLineNumber());
-        }
     }
 
 
