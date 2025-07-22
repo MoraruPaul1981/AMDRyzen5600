@@ -10,7 +10,7 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 
 import com.dsy.dsu.CoreApp.Apps.ErrorsCoreApp.model.bl_readnewerrors.RecordNewErros;
-import com.dsy.dsu.TabelsApp.Peoples.MainActivityListPeoples;
+import com.dsy.dsu.TabelsApp.Peoples.listpeoples.view.MainActivityListPeoples;
 import com.dsy.dsu.TabelsApp.Templates.view.MainActivityTemplatesFindPeoples;
 
 public class BinesslogiсSystemTemplate  implements  SystemTemplateIntarface {

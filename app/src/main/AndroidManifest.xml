@@ -488,10 +488,10 @@
             android:windowSoftInputMode="stateVisible|adjustPan">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.dsy.dsu.TabelsApp.Peoples.MainActivityListPeoples" />
+                android:value="com.dsy.dsu.TabelsApp.Peoples.listpeoples.view.MainActivityListPeoples" />
         </activity>
         <activity
-            android:name=".TabelsApp.Peoples.MainActivityListPeoples"
+            android:name=".TabelsApp.Peoples.listpeoples.view.MainActivityListPeoples"
             android:exported="true"
             android:label="Сотрудники Табеля"
             android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar">

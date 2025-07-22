@@ -10,7 +10,8 @@
     android:layout_gravity="top"
     android:baselineAligned="true"
     android:background="#F6F2F2"
-    tools:context=".TabelsApp.Peoples.MainActivityListPeoples"
+    android:clickable="false"
+    tools:context=".TabelsApp.Peoples.listpeoples.view.MainActivityListPeoples"
     android:orientation="vertical">
 
 

@@ -15,7 +15,7 @@
         app:cardBackgroundColor="@color/actionbar_text_color"
         app:strokeColor="#FFFFFF"
         android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
-        tools:context=".TabelsApp.Peoples.MainActivityListPeoples">
+        tools:context=".TabelsApp.Peoples.listpeoples.view.MainActivityListPeoples">
 
 
     <RelativeLayout

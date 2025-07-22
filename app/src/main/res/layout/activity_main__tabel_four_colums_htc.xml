@@ -17,7 +17,7 @@
     app:layout_collapseMode="pin"
     app:layout_gravity="center_horizontal"
     app:layout_scrollFlags="snapMargins|scroll|enterAlways|enterAlwaysCollapsed|exitUntilCollapsed|snap"
-    tools:context=".TabelsApp.Peoples.MainActivityListPeoples"
+    tools:context=".TabelsApp.Peoples.listpeoples.view.MainActivityListPeoples"
     tools:visibility="visible">
 
 

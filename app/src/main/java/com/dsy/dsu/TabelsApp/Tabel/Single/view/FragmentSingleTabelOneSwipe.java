@@ -66,7 +66,7 @@ import com.dsy.dsu.BusinessLogicForApps.UpdateCellsTabel.SubClassUpdatesCELL;
 import com.dsy.dsu.BusinessLogicForApps.VersionCurentTable;
 import com.dsy.dsu.CoreApp.Apps.ErrorsCoreApp.model.bl_readnewerrors.RecordNewErros;
 import com.dsy.dsu.BusinessLogicForApps.Dates.GetMainDateForApp;
-import com.dsy.dsu.TabelsApp.Peoples.MainActivityListPeoples;
+import com.dsy.dsu.TabelsApp.Peoples.listpeoples.view.MainActivityListPeoples;
 import com.dsy.dsu.R;
 import com.dsy.dsu.TabelsApp.Tabel.Single.model.BunesslogicSingleTabel;
 import com.google.android.material.button.MaterialButton;

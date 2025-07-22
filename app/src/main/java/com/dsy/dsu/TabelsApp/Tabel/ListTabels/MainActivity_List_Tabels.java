@@ -51,7 +51,7 @@ import com.dsy.dsu.CoreApp.Apps.DashboardCoreApp.Model.bl_launchFragmentSettings
 import com.dsy.dsu.CoreApp.Apps.ErrorsCoreApp.model.bl_readnewerrors.RecordNewErros;
 
 import com.dsy.dsu.R;
-import com.dsy.dsu.TabelsApp.Peoples.MainActivityListPeoples;
+import com.dsy.dsu.TabelsApp.Peoples.listpeoples.view.MainActivityListPeoples;
 import com.dsy.dsu.TabelsApp.Tabel.New.MainActivityNewTabels;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -82,7 +82,6 @@ import io.reactivex.rxjava3.core.Single;
 import io.reactivex.rxjava3.functions.Action;
 import io.reactivex.rxjava3.functions.BiFunction;
 import io.reactivex.rxjava3.functions.Consumer;
-import io.reactivex.rxjava3.functions.Predicate;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
 

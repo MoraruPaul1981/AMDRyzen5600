@@ -38,6 +38,7 @@ import com.dsy.dsu.BusinessLogicForApps.GreatUuidGenerations.GreatUuidGeneration
 import com.dsy.dsu.BusinessLogicForApps.Class_Generations_New_Customers_For_Tabels;
 import com.dsy.dsu.BusinessLogicForApps.JbossAdress.JbossContext;
 import com.dsy.dsu.R;
+import com.dsy.dsu.TabelsApp.Peoples.listpeoples.view.MainActivityListPeoples;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.snackbar.Snackbar;
 import com.sous.backasync.launch.ModuleQuety;
