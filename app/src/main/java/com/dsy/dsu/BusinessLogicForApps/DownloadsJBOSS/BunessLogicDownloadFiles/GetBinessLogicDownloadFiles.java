@@ -1,5 +1,6 @@
 package com.dsy.dsu.BusinessLogicForApps.DownloadsJBOSS.BunessLogicDownloadFiles;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Build;
 import android.os.Environment;
@@ -14,6 +15,7 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.InputStream;
 import java.util.zip.GZIPInputStream;
 
 public class GetBinessLogicDownloadFiles implements  GetBinessLogicDwonloadFilesInterface {
@@ -23,7 +25,7 @@ public class GetBinessLogicDownloadFiles implements  GetBinessLogicDwonloadFiles
      * @return
      */
     @Override
-    public File getttingFilesJboss(@NotNull Context context, @NotNull byte[] getbytejboss, @NotNull String ИмяФайлаЗагрузки) {
+    public File getttingFilesJboss(@NotNull Context context, @NotNull InputStream getbytejboss, @NotNull String ИмяФайлаЗагрузки) {
         // TODO: 07.04.2025
         File  getNewFileJsonApk=null;
   try{
@@ -73,31 +75,26 @@ public class GetBinessLogicDownloadFiles implements  GetBinessLogicDwonloadFiles
       // TODO: 20.03.2023 само создание файла
       if ( getNewFileJsonApk.createNewFile()) {
 
-          try (ByteArrayInputStream bin = new ByteArrayInputStream(getbytejboss);
-               GZIPInputStream gzipper = new GZIPInputStream(bin)) {
-
-              ByteArrayOutputStream out = new ByteArrayOutputStream(2048);
+          try (@SuppressLint("NewApi") ByteArrayInputStream bin = new ByteArrayInputStream(getbytejboss.readAllBytes());
+               GZIPInputStream gzipper = new GZIPInputStream(bin,2048)) {
+              ByteArrayOutputStream out = new ByteArrayOutputStream();
              ByteStreams.copy(gzipper , out);
-
-
+              // TODO: 03.06.2025  close
+              gzipper.close();
                    FileOutputStream outputStream = new FileOutputStream(getNewFileJsonApk);
                   outputStream.write(out.toByteArray());
-
-
               // TODO: 03.06.2025  close
-                      gzipper.close();
                       out.flush();
                      out.close();
-
               Log.d(this.getClass().getName(), "\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
                       " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
                       " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + " getNewFileJsonApk.length() " +getNewFileJsonApk.length());
-
-
           }
 
       } else {
-          Log.e(context.getClass().getName(), "Ошибка ERRO FILE DONT NEW FILE  getNewFileJsonApk" + getNewFileJsonApk);
+          Log.d(this.getClass().getName(), "\n" + " class ERROR File  " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
+                  " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
+                  " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + " getNewFileJsonApk.length() " +getNewFileJsonApk.length());
       }
 
       Log.d(this.getClass().getName(), "\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +

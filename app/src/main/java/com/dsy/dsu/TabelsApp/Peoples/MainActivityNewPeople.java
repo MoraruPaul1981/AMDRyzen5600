@@ -26,13 +26,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.UiThread;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.MenuProvider;
-import androidx.lifecycle.Lifecycle;
-import androidx.lifecycle.LifecycleOwner;
 
 import com.dsy.dsu.BusinessLogicForApps.Dates.GetMainDateForApp;
 import com.dsy.dsu.BusinessLogicForApps.GetPublicID.GetttingPublicID;
@@ -43,7 +37,6 @@ import com.dsy.dsu.BusinessLogicForApps.Class_Generations_New_Customers_For_Tabe
 import com.dsy.dsu.BusinessLogicForApps.JbossAdress.JbossContext;
 import com.dsy.dsu.R;
 import com.dsy.dsu.TabelsApp.Peoples.listpeoples.view.MainActivityListPeoples;
-import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.snackbar.Snackbar;
 import com.sous.backasync.launch.ModuleQuety;
 
@@ -93,13 +86,13 @@ public class MainActivityNewPeople extends AppCompatActivity implements DatePick
 
     private Button КнопкаНазад;
     private   int DigitalNameCFO;
-    private  LinkedHashMap<String,Integer> ЛистДляАдаптераСпинерОрганизацияСамоЗначениеIDДляЗаписи;
+    private  LinkedHashMap<String,Integer> getListOrganizationsWithID;
     private   Activity activity;
 
 
     private Context КонтекстДляАктивтиСозданиеНовогоСотрудника;
-    private  Spinner СпинерВыборОрганизацииПриСозданииНовогоСотрудника;/////спинеры для создание табеля
-    private    String ПолученноеТекущееЗначениеСпинераОрганизация;
+    private  Spinner spinnerOrganizasiy;/////спинеры для создание табеля
+    private    int spinnerorganizasiyValue;
 
 
 
@@ -109,6 +102,7 @@ public class MainActivityNewPeople extends AppCompatActivity implements DatePick
 
 
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
@@ -153,7 +147,8 @@ public class MainActivityNewPeople extends AppCompatActivity implements DatePick
         ЗначениеСНИЛССозданиеСотрудника = findViewById(R.id.ЗначениеДатаСоздаваемогоТабеля);
         //todo кнопка назад
         КнопкаНазад= findViewById(R.id.imageViewСтрелкаНазадНовыйСотрудник);
-                СпинерВыборОрганизацииПриСозданииНовогоСотрудника= findViewById(R.id.значениеИзСпинераОрганизацияДляНовогоСотрудника);
+
+            spinnerOrganizasiy = findViewById(R.id.spinnerorganizasiy);
             // TODO: 17.04.2023 Переменные из других Активти
             //todo пришили данные из преедедущего активти с названием табеля сСАМО ИМЯ И ЕГО UUID
             методGetVaeribaleCustomers();
@@ -210,8 +205,8 @@ public class MainActivityNewPeople extends AppCompatActivity implements DatePick
         // TODO: 15.05.2025  
         try{
             // TODO: 24.03.2021 ЕслиВубличногоНЕтТоНАходим ЕГо
-            ArrayList<String> ЛистДляАдаптераСпинерОрганизация = new ArrayList<>();
-            ЛистДляАдаптераСпинерОрганизацияСамоЗначениеIDДляЗаписи = new LinkedHashMap<>();
+            ArrayList<String> getListOrganizations = new ArrayList<>();
+            getListOrganizationsWithID = new LinkedHashMap<>();
             // TODO: 14.05.2025
             String Текущаятаблицы="organization";
             ModuleQuety moduleQuety=new ModuleQuety(getApplicationContext());
@@ -226,25 +221,28 @@ public class MainActivityNewPeople extends AppCompatActivity implements DatePick
 
                 if(Курсор_ИщемВсеОрганизации.getCount()>0){
                     Курсор_ИщемВсеОрганизации.moveToFirst();
-                    ЛистДляАдаптераСпинерОрганизация=new ArrayList<>();
-                 ЛистДляАдаптераСпинерОрганизация.add("") ;
+                    getListOrganizations=new ArrayList<>();
+                 getListOrganizations.add("") ;
 // TODO: 07.09.2021 _old по данным
                     do{
                         Log.d(this.getClass().getName(), " Курсор_ИщемПУбличныйIDКогдаегоНетВстатике " + Курсор_ИщемВсеОрганизации.getCount());
                         int ПолощениеСамаОрганизация=Курсор_ИщемВсеОрганизации.getColumnIndex("name");
                         String          СамаОрганизация =Курсор_ИщемВсеОрганизации.getString(ПолощениеСамаОрганизация);
-                        Log.d(this.getClass().getName(), "  СамаОрганизация" +  СамаОрганизация);
-                        ЛистДляАдаптераСпинерОрганизация.add(СамаОрганизация) ;
+
+                        getListOrganizations.add(СамаОрганизация) ;
+
+
                         // TODO: 02.11.2021   ВтораяЧасть ПолученияID ДЛЯВставка
-                        int ПолощениеСамаОрганизацияIDДЛяЗаписи=Курсор_ИщемВсеОрганизации.getColumnIndex("id");
+                        int ПолощениеСамаОрганизацияIDДЛяЗаписи=Курсор_ИщемВсеОрганизации.getColumnIndex("uuid");
                         Integer         СамаОрганизацияIDЗаписи =Курсор_ИщемВсеОрганизации.getInt(ПолощениеСамаОрганизацияIDДЛяЗаписи);
-                        Log.d(this.getClass().getName(), "  СамаОрганизацияIDЗаписи" +  СамаОрганизацияIDЗаписи);
-                        ЛистДляАдаптераСпинерОрганизацияСамоЗначениеIDДляЗаписи.put(СамаОрганизация,СамаОрганизацияIDЗаписи);
+
+                        getListOrganizationsWithID.put(СамаОрганизация,СамаОрганизацияIDЗаписи);
                         // TODO: 15.05.2025  
                         Log.d(this.getClass().getName(), "\n"
                                 + " время: " + new Date() + "\n+" +
                                 " Класс в процессе... " + this.getClass().getName() + "\n" +
-                                " метод в процессе... " + Thread.currentThread().getStackTrace()[2].getMethodName()  + " ЛистДляАдаптераСпинерОрганизацияСамоЗначениеIDДляЗаписи.values() " +ЛистДляАдаптераСпинерОрганизацияСамоЗначениеIDДляЗаписи.values());
+                                " метод в процессе... " + Thread.currentThread().getStackTrace()[2].getMethodName()
+                                + " ЛистДляАдаптераСпинерОрганизацияСамоЗначениеIDДляЗаписи.values() " + getListOrganizationsWithID.values());
                         
                     } while (Курсор_ИщемВсеОрганизации.moveToNext());
                 }
@@ -253,17 +251,13 @@ public class MainActivityNewPeople extends AppCompatActivity implements DatePick
 
 // TODO: 15.05.2025  
         ArrayAdapter<String> АдаптерДляСпинераОрганизация = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_activated_1,
-                ЛистДляАдаптераСпинерОрганизация);
-        // Определяем разметку для использования при выборе элемента
+                getListOrganizations);
+
         АдаптерДляСпинераОрганизация.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        // Применяем адаптер к элементу spinner
-        СпинерВыборОрганизацииПриСозданииНовогоСотрудника.setAdapter(АдаптерДляСпинераОрганизация);
-
-        //
-        СпинерВыборОрганизацииПриСозданииНовогоСотрудника.setHorizontalScrollBarEnabled(true);
-        ////что быврали
-        СпинерВыборОрганизацииПриСозданииНовогоСотрудника.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-
+            spinnerOrganizasiy.setAdapter(АдаптерДляСпинераОрганизация);
+            spinnerOrganizasiy.setHorizontalScrollBarEnabled(true);
+            ArrayList<String> finalЛистДляАдаптераСпинерОрганизация = getListOrganizations;
+            spinnerOrganizasiy.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 //////СПИНЕР ДЕПАРТАМЕНТ
@@ -278,12 +272,16 @@ public class MainActivityNewPeople extends AppCompatActivity implements DatePick
                     ((TextView) parent.getChildAt(0)).setBackgroundResource(R.drawable.textlinesgrey);
                     ((TextView) parent.getChildAt(0)).setGravity(Gravity.CENTER_HORIZONTAL | Gravity.CENTER_VERTICAL);
 
-                    ПолученноеТекущееЗначениеСпинераОрганизация = parent.getItemAtPosition(position).toString();
+                   // spinnerorganizasiyValue = parent.getItemAtPosition(position).toString();
 
-                    Log.d(this.getClass().getName(), "ПолученноеТекущееЗначениеСпинераОрганизация " + ПолученноеТекущееЗначениеСпинераОрганизация);
-                        /*Toast toast = Toast.makeText(getApplicationContext(),
-                                "Ваш выбор Раздел : " + ПолученноеЗначениеИзСпинераРаздел + " " + position, Toast.LENGTH_SHORT);
-                        toast.show();*/
+                    spinnerorganizasiyValue=    getListOrganizationsWithID.values().stream().filter(fil->fil.longValue()==position).findAny().get();
+
+                    Log.d(getApplicationContext().getClass().getName(), "\n"
+                            + " время: " + new Date() + "\n+" +
+                            " Класс в процессе... " + this.getClass().getName() + "\n" +
+                            " метод в процессе... " + Thread.currentThread().getStackTrace()[2].getMethodName());
+
+
 
                 }else if (position==0){
                     ((TextView) parent.getChildAt(0)).setTextColor(Color.BLACK);
@@ -293,18 +291,22 @@ public class MainActivityNewPeople extends AppCompatActivity implements DatePick
                     ((TextView) parent.getChildAt(0)).setGravity(Gravity.CENTER_HORIZONTAL | Gravity.CENTER_VERTICAL);
                     ((TextView) parent.getChildAt(0)).setHint("Выберете Организацию".toUpperCase(Locale.ROOT));
                     ((TextView) parent.getChildAt(0)).setHintTextColor(Color.parseColor("#675757"));
+                    Log.d(getApplicationContext().getClass().getName(), "\n"
+                            + " время: " + new Date() + "\n+" +
+                            " Класс в процессе... " + this.getClass().getName() + "\n" +
+                            " метод в процессе... " + Thread.currentThread().getStackTrace()[2].getMethodName());
                 }
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
-
-            ///////
+            Log.d(getApplicationContext().getClass().getName(), "\n"
+                    + " время: " + new Date() + "\n+" +
+                    " Класс в процессе... " + this.getClass().getName() + "\n" +
+                    " метод в процессе... " + Thread.currentThread().getStackTrace()[2].getMethodName());
         } catch (Exception e) {
-            //  Block of code to handle errors
             e.printStackTrace();
-            ///метод запись ошибок в таблицу
             Log.e(this.getClass().getName(), "Ошибка " + e + " Метод :" + Thread.currentThread().getStackTrace()[2].getMethodName() + " Линия  :"
                     + Thread.currentThread().getStackTrace()[2].getLineNumber());
             new RecordNewErros(getApplicationContext()).recordnewerror(e.toString(), this.getClass().getName(), Thread.currentThread().getStackTrace()[2].getMethodName(),
@@ -492,22 +494,16 @@ private void МетодВозврещениеНаПредыдущуюАктив�
             butttonNewSaveCustomer.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Log.d(this.getClass().getName(), " ЗначениеФИОСозданиеСотрудника  "+ ЗначениеФИОСозданиеСотрудника+
-                            " ЗначениеДеньРожденияСозданиеСотрудника  " + ЗначениеДеньРожденияСозданиеСотрудника +
-                            " ЗначениеСНИЛССозданиеСотрудника  " +ЗначениеСНИЛССозданиеСотрудника);
-                    // TODO: 09.08.2022 создаем новго сотрудника
-                    int ТекущаяПозиция=СпинерВыборОрганизацииПриСозданииНовогоСотрудника.getSelectedItemPosition();
+
+                    int ТекущаяПозиция= spinnerOrganizasiy.getSelectedItemPosition();
                     Integer getPublicID=  new GetttingPublicID().getttingPublicID(getApplicationContext());
-                    ПолученноеТекущееЗначениеСпинераОрганизация=( СпинерВыборОрганизацииПриСозданииНовогоСотрудника.getItemAtPosition(ТекущаяПозиция).toString());
-                    Log.d(this.getClass().getName(), " ПолученноеТекущееЗначениеСпинераОрганизация  "+ ПолученноеТекущееЗначениеСпинераОрганизация);
+
 
 
                     if (ЗначениеФИОСозданиеСотрудника.length() > 0
                             && ЗначениеДеньРожденияСозданиеСотрудника.length() > 0
                             && ЗначениеСНИЛССозданиеСотрудника.length()>0 &&
-                            ТекущаяПозиция!=0 &&
-                            СпинерВыборОрганизацииПриСозданииНовогоСотрудника.getItemAtPosition(ТекущаяПозиция).toString()!=null &&
-                            СпинерВыборОрганизацииПриСозданииНовогоСотрудника.getItemAtPosition(ТекущаяПозиция).toString()!="") {
+                            ТекущаяПозиция!=0 && spinnerorganizasiyValue>0) {
                         // TODO: 17.04.2023 наинаем встаавку новаого сотрудинка Single
 
                         Completable.fromAction(new Action() {
@@ -531,12 +527,10 @@ private void МетодВозврещениеНаПредыдущуюАктив�
 
 
                                         Long   UUIDGenetetorNewCustoner= (Long) new GreatUuidGeneration(getApplicationContext()).greatUuidGeneration();
-                                        // TODO: 23.09.2021  получение из даты месяц и год
-                                        Log.d(this.getClass().getName(), " ИмесяцвИГодСразу  " + ИмесяцвИГодСразу);
-                                        // TODO: 22.09.2021 обработка ТАБЛИЦА ФИО
 
+                                        // TODO: 22.09.2021 обработка ТАБЛИЦА ФИО
                                         РезультатВставкивТаблицуФИО = new Class_Generator_New_Customer_In_Table_Fio()
-                                                .методВставкиВТАблицуФИО(ТекущаяПозиция,UUIDGenetetorNewCustoner,getPublicID);
+                                                .методВставкиВТАблицуФИО(UUIDGenetetorNewCustoner,getPublicID);
                                         // TODO: 22.09.2021 ПОСЛЕ ДВУХ ОБРАБОТКАХ  ФИО И ДАТА_ТАБЕЛЬ ПЕРЕРХОДИМ НА ДРГОЕ АКТИВТИ
                                         Log.d(this.getClass().getName(), " РезультатВставкивТаблицуФИО  " + РезультатВставкивТаблицуФИО);
 
@@ -699,13 +693,8 @@ private void МетодВозврещениеНаПредыдущуюАктив�
 
 
 
-    @Override
-    public void addMenuProvider(@NonNull MenuProvider provider, @NonNull LifecycleOwner owner, @NonNull Lifecycle.State state) {
-
-    }
 
 
-    /////////todo проверика подключение к wi fi
 
 
 
@@ -769,8 +758,7 @@ private void МетодВозврещениеНаПредыдущуюАктив�
 
 
       @SuppressLint("SuspiciousIndentation")
-      protected Integer методВставкиВТАблицуФИО(@NotNull  int ТекущееЗначение,
-                                                @NotNull Long   UUIDGenetetorNewCustoner
+      protected Integer методВставкиВТАблицуФИО(@NotNull Long   UUIDGenetetorNewCustoner
                                              , @NotNull Integer ПубличноеID) throws InterruptedException {
 
             Integer РезультаВставкиВТАблицуФИО=0;
@@ -784,6 +772,20 @@ private void МетодВозврещениеНаПредыдущуюАктив�
 
                 // TODO: 08.05.2025 ВСавка новго сотржника
                 АдаптерДляСозданиеНовогоСотрудаТАблицаФИО.put("name",НазваниеФИО);
+
+
+
+                АдаптерДляСозданиеНовогоСотрудаТАблицаФИО.put("current_organization",spinnerorganizasiyValue);
+
+
+
+
+
+
+
+
+
+
                 Flowable.just(НазваниеФИО).map(new Function<String, Object>() {
                     @SuppressLint("NewApi")
                     @Override

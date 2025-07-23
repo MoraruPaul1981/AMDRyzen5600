@@ -8,13 +8,14 @@ import com.dsy.dsu.CoreApp.Apps.ErrorsCoreApp.model.bl_readnewerrors.RecordNewEr
 import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
+import java.io.InputStream;
 
 final public class DownloadFiles {
 
 
 
-  public   File downloadFiles  (@NotNull Context context,@NotNull GetBinessLogicDwonloadFilesInterface getBinessLogicDwonloadFilesInterface,
-                                           @NotNull   byte[] getbytejboss,@NotNull String ИмяФайлаЗагрузки){
+  public   File downloadFiles  (@NotNull Context context, @NotNull GetBinessLogicDwonloadFilesInterface getBinessLogicDwonloadFilesInterface,
+                                @NotNull InputStream getbytejboss, @NotNull String ИмяФайлаЗагрузки){
         // TODO: 07.04.2025
         File downloadFile=null;
 

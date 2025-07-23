@@ -35,6 +35,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.time.YearMonth;
@@ -1383,8 +1384,8 @@ import okio.BufferedSink;
                             return chain.proceed(newRequest);
                         }
                     }).connectTimeout(5, TimeUnit.SECONDS)
-                    .writeTimeout(2, TimeUnit.MINUTES)
-                    .readTimeout(2, TimeUnit.MINUTES)
+                    .writeTimeout(5, TimeUnit.MINUTES)
+                    .readTimeout(5, TimeUnit.MINUTES)
                     .build();
             ///  MediaType JSON = MediaType.parse("application/json; charset=utf-16");
             Request requestGET = new Request.Builder().get().url(Adress).build();
@@ -1429,12 +1430,12 @@ import okio.BufferedSink;
                             // TODO: 06.05.2023  если ПОТОК ЕСТЬ СОДЕРЖИВАЕМ ПАРСИМ
                             if(РазмерПришедшегоПотока>0){
 
+
+                             final   InputStream getByteStream= response.body().byteStream();
                                 // TODO: 07.04.2025  получаем STEAM  от сервера и обрабоатываем его для получение файла
                                 DownloadFiles getBinessLogicDwonloadFiles=new DownloadFiles();
                                 // TODO: 07.04.2025 обрабоатываем пршедщий файл
-                                getFileAPKandJson.set(getBinessLogicDwonloadFiles.downloadFiles(context,
-                                        new GetBinessLogicDownloadFiles(),
-                                        response.body().bytes() ,ИмяФайлаЗагрузки)) ;
+                                getFileAPKandJson.set(getBinessLogicDwonloadFiles.downloadFiles(context, new GetBinessLogicDownloadFiles(),getByteStream,ИмяФайлаЗагрузки)) ;
 
                                 Log.d(this.getClass().getName(), "\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
                                         " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +

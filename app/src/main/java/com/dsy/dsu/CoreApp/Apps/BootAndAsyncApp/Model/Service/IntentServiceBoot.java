@@ -267,7 +267,8 @@ private      void startingServiceBoot(@NotNull Intent intent ,@NonNull  LinkedHa
                             // TODO: 26.12.2024 Синхрониазция
                             case "lanchAsync":
                                 // TODO: 19.01.2024  запуск класса бизнес логики службы Синхроиазции и Обновление ПО
-                                binessLogicIntentServiceBoot.lanchOnlyAsync(  getHiltPortJboss,getApplicationContext());
+                                Long  getcompleteBootAsync=           binessLogicIntentServiceBoot.lanchOnlyAsync(  getHiltPortJboss,getApplicationContext());
+
                                 Log.d(getApplicationContext().getClass().getName(), "\n"
                                         + " время: " + new Date() + "\n+" +
                                         " Класс в процессе... " + this.getClass().getName() + "\n" +
@@ -481,6 +482,7 @@ private      void startingServiceBoot(@NotNull Intent intent ,@NonNull  LinkedHa
                             case "lanchOnlyAsync" :
                                 // TODO: 19.01.2024  запуск класса бизнес логики службы Синхроиазции и Обновление ПО
                                 Long  getcompletePublicAsync=    binessLogicIntentServiceBoot.lanchOnlyAsync(getHiltPortJboss,getApplicationContext());
+
                                 Log.d(getApplicationContext().getClass().getName(), "\n"
                                         + " время: " + new Date() + "\n+" +
                                         " Класс в процессе... " + this.getClass().getName() + "\n" +
