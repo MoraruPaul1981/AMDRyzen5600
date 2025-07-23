@@ -8,6 +8,7 @@ import android.util.Log;
 
 import com.dsy.dsu.CoreApp.Apps.ErrorsCoreApp.model.bl_readnewerrors.RecordNewErros;
 import com.google.common.io.ByteStreams;
+import com.google.firebase.crashlytics.buildtools.reloc.org.apache.commons.io.IOUtils;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -25,7 +26,7 @@ public class GetBinessLogicDownloadFiles implements  GetBinessLogicDwonloadFiles
      * @return
      */
     @Override
-    public File getttingFilesJboss(@NotNull Context context, @NotNull InputStream getbytejboss, @NotNull String ИмяФайлаЗагрузки) {
+    public File getttingFilesJboss(@NotNull Context context, @NotNull InputStream inputsteamFile, @NotNull String ИмяФайлаЗагрузки) {
         // TODO: 07.04.2025
         File  getNewFileJsonApk=null;
   try{
@@ -75,7 +76,9 @@ public class GetBinessLogicDownloadFiles implements  GetBinessLogicDwonloadFiles
       // TODO: 20.03.2023 само создание файла
       if ( getNewFileJsonApk.createNewFile()) {
 
-          try (@SuppressLint("NewApi") ByteArrayInputStream bin = new ByteArrayInputStream(getbytejboss.readAllBytes());
+
+          byte[] getbytejboss = IOUtils.toByteArray(inputsteamFile);
+          try ( ByteArrayInputStream bin = new ByteArrayInputStream(getbytejboss);
                GZIPInputStream gzipper = new GZIPInputStream(bin,2048)) {
               ByteArrayOutputStream out = new ByteArrayOutputStream();
              ByteStreams.copy(gzipper , out);

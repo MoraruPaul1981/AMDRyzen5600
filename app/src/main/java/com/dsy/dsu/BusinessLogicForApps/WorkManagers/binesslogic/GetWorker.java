@@ -31,7 +31,7 @@ public class GetWorker {
         try{
             LinkedHashMap<Integer,String> getHiltPortJboss=   EntryPoints.get(context, getHiltPortJbossInterface.class).getHiltPortJboss();
 
-            Boolean isPublicWorkManagerRunning=  new FindActivityRunning(context).isWorkManagerRunning(getAnalysisPublicWorkManger);
+            ////Boolean isPublicWorkManagerRunning=  new FindActivityRunning(context).isWorkManagerRunning(getAnalysisPublicWorkManger);
 
             // TODO: 22.12.2022  сама запуска синхронищации из workmanager ОБЩЕГО
             boolean ВыбранныйРежимСети =
@@ -45,7 +45,7 @@ public class GetWorker {
 
                 if (ВыбранныйРежимСети) {
                     // TODO: 30.06.2025
-                    if (  getActivityTasks  && isPublicWorkManagerRunning==false) {
+                    if (  getActivityTasks) {
                         // TODO: 30.06.2025
                             intentSingleWorker.setAction(getWhoLaunched);
                             intentSingleWorker.setData(Uri.parse(getWhoLaunched));
@@ -63,7 +63,7 @@ public class GetWorker {
                     Log.d(this.getClass().getName(), "\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
                             " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
                             " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n"
-                            + " SINGLE SINGLE SINGLE  isPublicWorkManagerRunning "+isPublicWorkManagerRunning );
+                            + "  getActivityTasks "+getActivityTasks );
 
 
                 }
