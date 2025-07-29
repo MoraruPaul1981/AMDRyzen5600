@@ -554,7 +554,8 @@ public class MainActivity_List_Tabels extends AppCompatActivity  {
             // TODO: 09.04.2023  курсор самим создаваемых табеляПОСИК ДАННЫХ ЧЕРЕЗ UUID
             String Текущаятаблицы="tabel";
             ModuleQuety moduleQuety=new ModuleQuety(getApplicationContext());
-            getMainCursorListTabels=   moduleQuety.getModuleQuery(Текущаятаблицы,"   SELECT D.month_tabels, D.year_tabels , D.uuid ,COUNT(D.year_tabels )  FROM  "+Текущаятаблицы+" AS D" +
+            getMainCursorListTabels=   moduleQuety.getModuleQuery(Текущаятаблицы,"   SELECT D.month_tabels, D.year_tabels , D.uuid ,COUNT(D.year_tabels ) " +
+                    " FROM  "+Текущаятаблицы+" AS D" +
                     "  WHERE D.status_send!='Удаленная'   AND D.month_tabels IS NOT NULL  AND D.year_tabels IS NOT NULL " +
                     " GROUP BY D.month_tabels, D.year_tabels , D.uuid " +
                     "                 HAVING count(D.year_tabels )>0 " +

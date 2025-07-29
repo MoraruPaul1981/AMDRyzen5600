@@ -129,7 +129,7 @@ public class ModuleDeleting implements ModuleDeletingBackAsyncInterface {
                 Uri uri = Uri.parse("content://"+getNameProviderSystem+"/" + Таблица + "");
                 // TODO: 28.01.2025
                 ContentResolver contentProviderInsert=context.getContentResolver();
-                getDeletingBack= contentProviderInsert.acquireContentProviderClient(uri).delete(uri,null,null);
+                getDeletingBack= contentProviderInsert.acquireContentProviderClient(uri).delete(uri,"DELETE FROM " + Таблица+"",null);
 
 
                 getDeletingBack=

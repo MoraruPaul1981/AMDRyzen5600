@@ -321,15 +321,44 @@ this.context=context;
                                                              String SQlOperInsert,
                                                              @NonNull JsonNode jsonNodeParentMAP) {
         SQLiteStatement sqLiteStatementInsert = null;
-        try{
-            sqLiteStatementInsert= Create_Database_СамаБАзаSQLite.compileStatement(SQlOperInsert);
+        try {
+            sqLiteStatementInsert = Create_Database_СамаБАзаSQLite.compileStatement(SQlOperInsert);
             sqLiteStatementInsert.clearBindings();
             // TODO: 04.07.2023 цикл данных
             sqLiteStatementInsert.bindLong(1, jsonNodeParentMAP.get("cfo").intValue());//"uuid"
             sqLiteStatementInsert.bindLong(2, jsonNodeParentMAP.get("vid_trasport").intValue());//"uuid"
             sqLiteStatementInsert.bindString(3, jsonNodeParentMAP.get("dateorders").asText().trim());//"date_update"
-            sqLiteStatementInsert.bindLong(4, jsonNodeParentMAP.get("gos_nomer").intValue());//"uuid"
-            sqLiteStatementInsert.bindString(5, jsonNodeParentMAP.get("number_order").asText().trim());//"date_update"
+
+            // TODO: 29.07.2025  gos_nomer
+            if (jsonNodeParentMAP.has("gos_nomer")) {
+                if(!jsonNodeParentMAP.get("gos_nomer").isNull()){
+                    // TODO: 29.07.2025
+                    sqLiteStatementInsert.bindString(4, jsonNodeParentMAP.get("gos_nomer").asText().trim());//"date_update"
+                }else {
+                    sqLiteStatementInsert.bindNull(4);
+                }
+            }else {
+                // TODO: 29.07.2025
+                sqLiteStatementInsert.bindNull(4);
+            }
+
+
+
+
+            // TODO: 29.07.2025  number_order
+            if (jsonNodeParentMAP.has("number_order")) {
+                if(!jsonNodeParentMAP.get("number_order").isNull()){
+                    // TODO: 29.07.2025
+                    sqLiteStatementInsert.bindString(5, jsonNodeParentMAP.get("number_order").asText().trim());//"date_update"
+                }else {
+                    sqLiteStatementInsert.bindNull(5);
+                }
+            }else {
+                // TODO: 29.07.2025
+                sqLiteStatementInsert.bindNull(5);
+            }
+            // TODO: 29.07.2025
+
             sqLiteStatementInsert.bindLong(6, jsonNodeParentMAP.get("status").intValue());//"uuid"
             sqLiteStatementInsert.bindString(7, jsonNodeParentMAP.get("date_update").asText().trim());//"date_update"
             sqLiteStatementInsert.bindLong(8, jsonNodeParentMAP.get("uuid").longValue());//"uuid"
