@@ -31,6 +31,7 @@ import android.widget.Button;
 import android.widget.CheckedTextView;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.SimpleAdapter;
 import android.widget.SimpleCursorAdapter;
@@ -53,6 +54,7 @@ import com.dsy.dsu.CoreApp.Apps.ErrorsCoreApp.model.bl_readnewerrors.RecordNewEr
 import com.dsy.dsu.R;
 import com.dsy.dsu.TabelsApp.Peoples.listpeoples.view.MainActivityListPeoples;
 import com.dsy.dsu.TabelsApp.Tabel.New.MainActivityNewTabels;
+import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textview.MaterialTextView;
@@ -438,34 +440,25 @@ public class MainActivity_List_Tabels extends AppCompatActivity  {
                             Cursor getCursorItemSelected = launchCursorItemSelectedListtabels(getMainParentUUIDFromTabel);
 
 
-                            if (getCursorItemSelected!=null &&  getCursorItemSelected.getCount()>0 ) {
+                            if ( getCursorItemSelected.getCount()>0 ) {
 
                                 // TODO: 23.08.2023  ГЛАВНЫЙ МЕТОД ЗАПОЛЕНИЯ ЭКРАНА SIMPLECURSOR  ДАННЫМИ
                                 методзаполненияSimplrCursor(getCursorItemSelected);
                                 // TODO: 19.04.2023  показываем количемтво табеленй
-                                методКоличествоТабелей(getCursorItemSelected );
+                           //     методКоличествоТабелей(getCursorItemSelected );
 
                             } else {
                                 // TODO: 19.04.2023  Когда ДАННЫХ НЕТ
                                 методDontGetData();
                             }
 
-                            Log.d(this.getClass().getName(), " КакойКонтекст" + getDateOnlySpinnerDown +
-                                    " ПолученныйПоследнийМесяцДляСортировкиЕгоВСпиноре " + getDateOnlySpinnerDown +
-                                    " МассивДляВыбораВСпинерДатаArray " +МассивДляВыбораВСпинерДатаArray  +
-                                    " МассивДляВыбораВСпинореMainUUID " + МассивДляВыбораВСпинореMainUUID+
-                                    "  ((TextView) parent.getChildAt(0)) " +((TextView) parent.getChildAt(0)).getTag()
-                                    + " MainParentUUID " + MainParentUUIDFromTabel );
+
 
                         }else {
                             // TODO: 19.04.2023  Когда ДАННЫХ НЕТ
                             методDontGetData( );
                         }
-                        Log.d(this.getClass().getName(), " КакойКонтекст" + getDateOnlySpinnerDown +
-                                " ПолученныйПоследнийМесяцДляСортировкиЕгоВСпиноре " + getDateOnlySpinnerDown +
-                                " МассивДляВыбораВСпинерДатаArray " +МассивДляВыбораВСпинерДатаArray  +
-                                " МассивДляВыбораВСпинореMainUUID " + МассивДляВыбораВСпинореMainUUID+
-                                "  ((TextView) parent.getChildAt(0)) " +((TextView) parent.getChildAt(0)).getTag()  + " MainParentUUID " + MainParentUUIDFromTabel);
+
                     }
                 }
             }
@@ -502,7 +495,7 @@ public class MainActivity_List_Tabels extends AppCompatActivity  {
 
 
         // TODO: 09.04.2023  Главный Треитий Последние Получение Данных Для Конктерного Месяца И Года
-            getCursorListtabels=    launchItemSelectTabelWithgetMonthAndgetYear(getMonth, getYear,getDigitalNameCFO );
+            getCursorListtabels=    launchItemSelectTabelWithgetMonthAndgetYear(getMonth, getYear );
             // TODO: 17.04.2023
             Log.d(this.getClass().getName(),"\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
                     " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
@@ -554,12 +547,16 @@ public class MainActivity_List_Tabels extends AppCompatActivity  {
             // TODO: 09.04.2023  курсор самим создаваемых табеляПОСИК ДАННЫХ ЧЕРЕЗ UUID
             String Текущаятаблицы="tabel";
             ModuleQuety moduleQuety=new ModuleQuety(getApplicationContext());
-            getMainCursorListTabels=   moduleQuety.getModuleQuery(Текущаятаблицы,"   SELECT D.month_tabels, D.year_tabels , D.uuid ,COUNT(D.year_tabels ) " +
-                    " FROM  "+Текущаятаблицы+" AS D" +
-                    "  WHERE D.status_send!='Удаленная'   AND D.month_tabels IS NOT NULL  AND D.year_tabels IS NOT NULL " +
-                    " GROUP BY D.month_tabels, D.year_tabels , D.uuid " +
-                    "                 HAVING count(D.year_tabels )>0 " +
-                    " ORDER BY D.year_tabels DESC ,D.month_tabels DESC LIMIT 6  ",null);
+            getMainCursorListTabels=   moduleQuety.getModuleQuery(Текущаятаблицы,"   SELECT D.month_tabels, D.year_tabels , D.uuid ,COUNT(D.year_tabels ) \n" +
+                    "                     FROM  "+Текущаятаблицы+"  AS D\n" +
+                    "                      WHERE D.status_send!='Удаленная' \n" +
+                    "\t\t\t\t\t  AND D.month_tabels IS NOT NULL\n" +
+                    "\t\t\t\t\t  AND D.year_tabels IS NOT NULL \n" +
+                    "\t\t\t\t\t  \n" +
+                    "\t\t\t\t\t  \n" +
+                    "                    GROUP BY D.month_tabels, D.year_tabels \n" +
+                    "                                    HAVING count(D.year_tabels )>=1\n" +
+                    "                     ORDER BY D.year_tabels DESC, D.month_tabels DESC LIMIT 6  ",null);
             // TODO: 09.06.2025
             Log.d(this.getClass().getName(),"\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
                     " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
@@ -606,7 +603,7 @@ public class MainActivity_List_Tabels extends AppCompatActivity  {
 
 
 
-    private Cursor launchItemSelectTabelWithgetMonthAndgetYear(@NonNull Integer  getMonth, @NonNull Integer getYear,@NonNull  Integer getDigitalNameCFO)  {
+    private Cursor launchItemSelectTabelWithgetMonthAndgetYear(@NonNull Integer  getMonth, @NonNull Integer getYear )  {
         Cursor getItemSelectTabelWithgetMonthAndgetYear = null;
         try{
             // TODO: 09.04.2023  курсор самим создаваемых табеляПОСИК ДАННЫХ ЧЕРЕЗ UUID
@@ -615,7 +612,6 @@ public class MainActivity_List_Tabels extends AppCompatActivity  {
             getItemSelectTabelWithgetMonthAndgetYear=   moduleQuety.getModuleQuery(Текущаятаблицы,"   SELECT * FROM "+Текущаятаблицы + "  AS D " +
                     "  WHERE D.status_send!='Удаленная' " +
                     " AND D.month_tabels ='"+getMonth+"'  " +
-                    " AND D.cfo ='"+getDigitalNameCFO+"'  " +
                     "AND D.year_tabels ='"+getYear+"' ",null);
 
             // TODO: 09.06.2025
@@ -640,71 +636,23 @@ public class MainActivity_List_Tabels extends AppCompatActivity  {
         try {
             simpleCursorAdapterAllTAbels =
                     new SimpleCursorAdapter(getApplicationContext(), R.layout.list_item_all_customer_tabel3,
-                            getCursorItemSelected, new String[]{"_id","cfo"}, new int[]{android.R.id.text1,android.R.id.text2},
+                            getCursorItemSelected, new String[]{"_id"}, new int[]{android.R.id.text1 },
                           0);  ///name
             SimpleCursorAdapter.ViewBinder binding = new SimpleCursorAdapter.ViewBinder() {
 
                 @Override
                 public boolean setViewValue(View view, Cursor cursor, int columnIndex) {
                     try{
+                        // TODO: 29.07.2025
                         switch (view.getId()) {
-                            case android.R.id.text2:
-                             Long   getSimpleCursorMainParentUUIDFromTabel = cursor.getLong(cursor.getColumnIndex("uuid")); //TODO ЗАПРОС К ТАБЛИЦЕ TABEL
-                              Integer  getSimpleCursorgetDigitalNameCFO = cursor.getInt(cursor.getColumnIndex("cfo"));//TODO ЗАПРОС К ТАБЛИЦЕ TABEL
-
-
-                                FullNameCFO = getingNameCurrentZFOWithUUID();
-
-                          if( FullNameCFO.equalsIgnoreCase("Нет ЦФО !!!")  )  {
-
-                              FullNameCFO = getingNameCurrentZFOWithID();
-                          }
-
-                                // TODO: 19.06.2023 close
-
-                                Log.d(this.getClass().getName(),"\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
-                                        " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
-                                        " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n"+
-                                        " DigitalNameCFO " + getDigitalNameCFO + " FullNameCFO "+FullNameCFO);
-
-
-                                getMonth = cursor.getInt(cursor.getColumnIndex("month_tabels"));
-                                getYear = cursor.getInt(cursor.getColumnIndex("year_tabels"));
-                                // TODO: 15.12.2022  Давные Bundle
-                                Bundle bundleДЛяListTabels=new Bundle();
-                                bundleДЛяListTabels.putLong("MainParentUUID", getSimpleCursorMainParentUUIDFromTabel);
-                                bundleДЛяListTabels.putInt("Position", cursor.getPosition());
-                                bundleДЛяListTabels.putInt("ГодТабелей", getYear);
-                                bundleДЛяListTabels.putInt("МЕсяцТабелей", getMonth);
-                                bundleДЛяListTabels.putInt("DigitalNameCFO", getSimpleCursorgetDigitalNameCFO);
-                                bundleДЛяListTabels.putString("FullNameCFO", FullNameCFO.trim());
-                                bundleДЛяListTabels.putString("ИмесяцвИГодСразу", getDateOnlySpinnerDown.trim());
-
-                                // TODO: 09.04.2023  ВставлЯем Данные
-                                ((MaterialTextView) view).setTag(bundleДЛяListTabels);
-                                if (FullNameCFO!=null && FullNameCFO.length()>0) {
-                                    ((MaterialTextView) view).setText(FullNameCFO.trim());
-                                }else{
-                                    ((MaterialTextView) view).setText("Нет ЦФО !!!");
-                                }
-                                ((MaterialTextView) view).setTextSize(15l);
-                                ((MaterialTextView) view).startAnimation(animationvibr1);
-                                // TODO: 18.04.2023  Внешниц вид
-
-                                Log.d(this.getClass().getName(),"\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
-                                        " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
-                                        " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n"+
-                                        " DigitalNameCFO " + getDigitalNameCFO + " MainParentUUID "+ MainParentUUIDFromTabel);
-                                return true;
-
-
-
                             case android.R.id.text1:
-                                //Drawable icon2 = getResources().getDrawable(   R.drawable.icon_alltabels1);
-                                Drawable icon2 = getResources().getDrawable(   R.drawable.icon_newlisttabel);
-                                ((ImageView) view).setImageDrawable(icon2);
-                                ((ImageView) view).setImageResource(R.drawable.icon_newlisttabel);
-
+                                // TODO: 29.07.2025
+                             final   LinearLayout linearLayoutItemTabel=view.findViewById(android.R.id.text1);
+                                // TODO: 29.07.2025
+                                setMaterialTextViewItemTabel(linearLayoutItemTabel, cursor);
+                                setImageViewIemTabel(linearLayoutItemTabel);
+                                setMaterialTextViewtabelsCount(linearLayoutItemTabel, cursor);
+                                
                                 Log.d(this.getClass().getName(),"\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
                                         " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
                                         " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n"+ " MainParentUUID "+ MainParentUUIDFromTabel);
@@ -727,7 +675,73 @@ public class MainActivity_List_Tabels extends AppCompatActivity  {
                     return false;
                 }
 
+                private void setMaterialTextViewItemTabel(LinearLayout  linearLayoutItemTabel, Cursor cursor) {
+                    // TODO: 29.07.2025  
+                  MaterialTextView MaterialTextViewItemTabel=  linearLayoutItemTabel.findViewById(R.id.MaterialTextViewItemTabel);
+                    
+                    Long   getSimpleCursorMainParentUUIDFromTabel = cursor.getLong(cursor.getColumnIndex("uuid")); //TODO ЗАПРОС К ТАБЛИЦЕ TABEL
+                    Integer  getSimpleCursorgetDigitalNameCFO = cursor.getInt(cursor.getColumnIndex("cfo"));//TODO ЗАПРОС К ТАБЛИЦЕ TABEL
 
+                    FullNameCFO = getingNameCurrentZFOWithUUID();
+                    if( FullNameCFO.equalsIgnoreCase("Нет ЦФО !!!")  )  {
+                        FullNameCFO = getingNameCurrentZFOWithID();
+                    }
+
+                    // TODO: 19.06.2023 close
+
+                    Log.d(this.getClass().getName(),"\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
+                            " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
+                            " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n"+
+                            " DigitalNameCFO " + getDigitalNameCFO + " FullNameCFO "+FullNameCFO);
+
+
+                    getMonth = cursor.getInt(cursor.getColumnIndex("month_tabels"));
+                    getYear = cursor.getInt(cursor.getColumnIndex("year_tabels"));
+                    // TODO: 15.12.2022  Давные Bundle
+                    Bundle bundleДЛяListTabels=new Bundle();
+                    bundleДЛяListTabels.putLong("MainParentUUID", getSimpleCursorMainParentUUIDFromTabel);
+                    bundleДЛяListTabels.putInt("Position", cursor.getPosition());
+                    bundleДЛяListTabels.putInt("ГодТабелей", getYear);
+                    bundleДЛяListTabels.putInt("МЕсяцТабелей", getMonth);
+                    bundleДЛяListTabels.putInt("DigitalNameCFO", getSimpleCursorgetDigitalNameCFO);
+                    bundleДЛяListTabels.putString("FullNameCFO", FullNameCFO.trim());
+                    bundleДЛяListTabels.putString("ИмесяцвИГодСразу", getDateOnlySpinnerDown.trim());
+
+                    // TODO: 09.04.2023  ВставлЯем Данные
+                    MaterialTextViewItemTabel.setTag(bundleДЛяListTabels);
+                    if (FullNameCFO!=null && FullNameCFO.length()>0) {
+                        MaterialTextViewItemTabel.setText(FullNameCFO.trim());
+                    }else{
+                        MaterialTextViewItemTabel.setText("Нет ЦФО !!!");
+                    }
+                    MaterialTextViewItemTabel.setTextSize(15l);
+                    MaterialTextViewItemTabel.startAnimation(animationvibr1);
+                    // TODO: 18.04.2023  Внешниц вид
+
+
+                 
+                }
+
+                private   void setMaterialTextViewtabelsCount(LinearLayout linearLayout, Cursor cursor) {
+                    // TODO: 29.07.2025 количество
+                    MaterialTextView materialTextViewcount=       linearLayout.findViewById(  R.id.MaterialTextViewtabelsCount);
+                    //Drawable icon2 = getResources().getDrawable(   R.drawable.icon_alltabels1);
+                    // TODO: 09.04.2023  ВставлЯем Данные
+                    materialTextViewcount.setText(cursor.getPosition());
+                }
+
+                private   void setImageViewIemTabel(LinearLayout linearLayout) {
+                    ImageView imageView=       linearLayout.findViewById(  R.id.ImageViewIemTabel);
+                    //Drawable icon2 = getResources().getDrawable(   R.drawable.icon_alltabels1);
+                    Drawable icon2 = getResources().getDrawable(   R.drawable.icon_newlisttabel);
+                    imageView.setImageDrawable(icon2);
+                    imageView.setImageResource(R.drawable.icon_newlisttabel);
+                }
+
+
+                
+                
+                
             };
             simpleCursorAdapterAllTAbels.setViewBinder(binding);
             gridViewAllTabes.setAdapter(simpleCursorAdapterAllTAbels);
@@ -736,10 +750,10 @@ public class MainActivity_List_Tabels extends AppCompatActivity  {
             gridViewAllTabes.requestLayout();
             // TODO: 19.04.2023 слушаелти
             // TODO: 18.04.2023 Слушаиель Клика
-            clickItemGridView( );
+      /*      clickItemGridView( );
             // TODO: 18.04.2023 Слушатель Удалание
             методУдалениеТабеля( );
-
+*/
 
     } catch (Exception e) {
         e.printStackTrace();
