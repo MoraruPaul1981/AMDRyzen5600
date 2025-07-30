@@ -636,7 +636,7 @@ public class MainActivity_List_Tabels extends AppCompatActivity  {
     private void методзаполненияSimplrCursor(Cursor getCursorItemSelected) {
         try {
             simpleCursorAdapterAllTAbels =
-                    new SimpleCursorAdapter(getApplicationContext(), R.layout.list_item_all_customer_tabel3,
+                    new SimpleCursorAdapter(getApplicationContext(), R.layout.list_item_selectitemtabel,
                             getCursorItemSelected, new String[]{"_id"}, new int[]{android.R.id.text1 },
                           0);  ///name
             SimpleCursorAdapter.ViewBinder binding = new SimpleCursorAdapter.ViewBinder() {
@@ -648,13 +648,10 @@ public class MainActivity_List_Tabels extends AppCompatActivity  {
                         switch (view.getId()) {
                             case android.R.id.text1:
                                 // TODO: 29.07.2025
-                                 LinearLayout linearLayoutItemTabel=(LinearLayout) view ;
+                                CheckedTextView checkedTextView=(CheckedTextView) view ;
                                 // TODO: 29.07.2025
                                 // TODO: 29.07.2025
-                                setMaterialTextViewItemTabel(linearLayoutItemTabel, cursor);
-                                setImageViewIemTabel(linearLayoutItemTabel);
-                                setMaterialTextViewtabelsCount(linearLayoutItemTabel, cursor);
-                                
+                                setMaterialTextViewItemTabel(checkedTextView, cursor);
                                 Log.d(this.getClass().getName(),"\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
                                         " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
                                         " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n"+ " MainParentUUID "+ MainParentUUIDFromTabel);
@@ -677,10 +674,8 @@ public class MainActivity_List_Tabels extends AppCompatActivity  {
                     return false;
                 }
 
-                private void setMaterialTextViewItemTabel(LinearLayout  linearLayoutItemTabel, Cursor cursor) {
-                    // TODO: 29.07.2025  
-                  MaterialTextView getMaterialTextViewItemTabel=  linearLayoutItemTabel.findViewById(R.id.MaterialTextViewItemTabel);
-                    
+                private void setMaterialTextViewItemTabel(CheckedTextView  checkedTextView, Cursor cursor) {
+                    // TODO: 29.07.2025
                     Long   getSimpleCursorMainParentUUIDFromTabel = cursor.getLong(cursor.getColumnIndex("uuid")); //TODO ЗАПРОС К ТАБЛИЦЕ TABEL
                     Integer  getSimpleCursorgetDigitalNameCFO = cursor.getInt(cursor.getColumnIndex("cfo"));//TODO ЗАПРОС К ТАБЛИЦЕ TABEL
 
@@ -710,42 +705,17 @@ public class MainActivity_List_Tabels extends AppCompatActivity  {
                     bundleДЛяListTabels.putString("ИмесяцвИГодСразу", getDateOnlySpinnerDown.trim());
 
                     // TODO: 09.04.2023  ВставлЯем Данные
-                    getMaterialTextViewItemTabel.setTag(bundleДЛяListTabels);
+                    checkedTextView.setTag(bundleДЛяListTabels);
                     if (FullNameCFO!=null && FullNameCFO.length()>0) {
-                        getMaterialTextViewItemTabel.setText(FullNameCFO.trim());
+                        checkedTextView.setText(FullNameCFO.trim());
                     }else{
-                        getMaterialTextViewItemTabel.setText("Нет ЦФО !!!");
+                        checkedTextView.setText("Нет ЦФО !!!");
                     }
-                    getMaterialTextViewItemTabel.setTextSize(15l);
-                    getMaterialTextViewItemTabel.startAnimation(animationvibr1);
+                    checkedTextView.startAnimation(animationvibr1);
                     // TODO: 18.04.2023  Внешниц вид
 
-
-                 
                 }
 
-                private   void setMaterialTextViewtabelsCount(LinearLayout linearLayout, Cursor cursor) {
-                    // TODO: 29.07.2025 количество
-                    MaterialTextView getMaterialTextViewCount=       linearLayout.findViewById(  R.id.MaterialTextViewCount);
-                    //Drawable icon2 = getResources().getDrawable(   R.drawable.icon_alltabels1);
-                    // TODO: 09.04.2023  ВставлЯем Данные
-                  Integer getItem=  cursor.getPosition();
-                    getItem=getItem+1;
-                    getMaterialTextViewCount.setText(getItem.toString());
-                }
-
-                private   void setImageViewIemTabel(LinearLayout linearLayout) {
-                    ImageView imageView=       linearLayout.findViewById(  R.id.ImageViewIemTabel);
-                    //Drawable icon2 = getResources().getDrawable(   R.drawable.icon_alltabels1);
-                    Drawable icon2 = getResources().getDrawable(   R.drawable.icon_newlisttabel);
-                    imageView.setImageDrawable(icon2);
-                    imageView.setImageResource(R.drawable.icon_newlisttabel);
-                }
-
-
-                
-                
-                
             };
             simpleCursorAdapterAllTAbels.setViewBinder(binding);
             gridViewAllTabes.setAdapter(simpleCursorAdapterAllTAbels);
@@ -863,12 +833,12 @@ public class MainActivity_List_Tabels extends AppCompatActivity  {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                 try{
-                    LinearLayout linearLayoutClickDelete=    (LinearLayout)       parent.getAdapter().getView(position, view,parent );
-                    MaterialTextView materialTextViewClickDelete=(MaterialTextView)        linearLayoutClickDelete.findViewById(R.id.MaterialTextViewItemTabel);
-                    materialTextViewClickDelete.setBackgroundColor(Color.GRAY);
-
+                    CheckedTextView checkedTextView=    (CheckedTextView)       parent.getAdapter().getView(position, view,parent );
+                    // TODO: 30.07.2025
+                    checkedTextView.toggle();
+                    checkedTextView.setChecked(true);
                     message.getTarget().postDelayed(()->{
-                        Bundle bundleДЛяListTabels=(Bundle)           materialTextViewClickDelete.getTag();
+                        Bundle bundleДЛяListTabels=(Bundle)           checkedTextView.getTag();
                         Long    MainParentUUID=      bundleДЛяListTabels.getLong("MainParentUUID");
                         String    FullNameCFO=      bundleДЛяListTabels.getString("FullNameCFO");
                         ///todo Удаление
@@ -955,15 +925,16 @@ public class MainActivity_List_Tabels extends AppCompatActivity  {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 try{
-                    LinearLayout linearLayoutClick=    (LinearLayout)       parent.getAdapter().getView(position, view,parent );
-                    MaterialTextView materialTextViewClick=(MaterialTextView)        linearLayoutClick.findViewById(R.id.MaterialTextViewItemTabel);
+                    // TODO: 30.07.2025
+                    CheckedTextView checkedTextViewClick=    (CheckedTextView)       parent.getAdapter().getView(position, view,parent );
+                    checkedTextViewClick.toggle();
+                    checkedTextViewClick.setChecked(true);
 
 
-                    materialTextViewClick.setBackgroundColor(Color.GRAY);
                     message.getTarget().postDelayed(()->{
                         // TODO: 09.04.2023  перехеод после клика Items
-                        МетодПереходMainActivity_List_Peoples(materialTextViewClick);
-                    },100);
+                        МетодПереходMainActivity_List_Peoples(checkedTextViewClick);
+                    },200);
 
 /////TODO одинатрный клик для загрузки в этот табель всех сотрудников
                     Log.d(this.getClass().getName(),"\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
@@ -980,10 +951,10 @@ public class MainActivity_List_Tabels extends AppCompatActivity  {
         });
     }
     /////TODO метод запуска кода при однократорм нажатии просто загузка сотрудников табель
-    private void МетодПереходMainActivity_List_Peoples(@NonNull  MaterialTextView textView) {
+    private void МетодПереходMainActivity_List_Peoples(@NonNull  CheckedTextView checkedTextView) {
         try{
             Intent    ИнтентпереходВMainActivityList_Peoples=new Intent(getApplicationContext(), MainActivityListPeoples.class);
-            Bundle bundleИзMAinActivbity_List_Tabels=(Bundle) textView.getTag();
+            Bundle bundleИзMAinActivbity_List_Tabels=(Bundle) checkedTextView.getTag();
             ИнтентпереходВMainActivityList_Peoples.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             ИнтентпереходВMainActivityList_Peoples      .putExtras(bundleИзMAinActivbity_List_Tabels);
             startActivity(ИнтентпереходВMainActivityList_Peoples);
