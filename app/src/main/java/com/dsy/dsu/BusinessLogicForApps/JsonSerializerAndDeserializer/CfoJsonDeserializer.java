@@ -195,8 +195,8 @@ this.context=context;
             this.context=context;
                 // ОперацияInsert = Create_Database_СамаБАзаSQLite.insert(имяТаблицаAsync, null, ТекущийАдаптерДляВсего);
                 String  SQlOperInsert=  "REPLACE INTO "+имяТаблицаAsync+"" +
-                        " (  name,  region,boss  , kod,date_update ,user_update,closed,current_table ,organization ,uuid )  " +
-                        " VALUES(?,?,?   ,?,?,?   ,?,?,?  ,?);";
+                        " (  name,  region,boss  , kod,date_update ,user_update,closed,current_table ,organization ,uuid ,dateclosed)  " +
+                        " VALUES(?,?,?   ,?,?,?   ,?,?,?,?  ,?);";
 
             SQLiteStatement sqLiteStatementInsert = методGetSqliteStatementForInsert(Create_Database_СамаБАзаSQLite, SQlOperInsert,jsonNodeParentMAP);
 
@@ -231,7 +231,7 @@ this.context=context;
             this.context=context;
             // ОперацияInsert = Create_Database_СамаБАзаSQLite.insert(имяТаблицаAsync, null, ТекущийАдаптерДляВсего);
             String  SQlOperUpdate=  " UPDATE "+имяТаблицаAsync+" SET  name=?,  " +
-                    " region=?,boss=?  , kod=?,date_update=? ,user_update=?,closed=?,current_table=? ,organization=? ,uuid=?  WHERE  uuid=?  ;";
+                    " region=?,boss=?  , kod=?,date_update=? ,user_update=?,closed=?,current_table=? ,organization=? ,uuid=? ,dateclosed=? WHERE  uuid=?  ;";
 
             SQLiteStatement sqLiteStatementInsert = методGetSqliteStatementForUpdate(Create_Database_СамаБАзаSQLite, SQlOperUpdate,jsonNodeParentMAP);
 
@@ -289,7 +289,18 @@ this.context=context;
             sqLiteStatementInsert.bindLong(9, jsonNodeParentMAP.get("organization").intValue());//"name"
             sqLiteStatementInsert.bindLong(10, jsonNodeParentMAP.get("uuid").longValue());//"uuid"
 
-        Log.d(this.getClass().getName(), "\n" + " class " +
+
+            if (jsonNodeParentMAP.has("dateclosed")) {
+                sqLiteStatementInsert.bindString(11, jsonNodeParentMAP.get("dateclosed").asText());//"date_update"
+            }else {
+                sqLiteStatementInsert.bindNull(11);
+            }
+
+
+
+
+
+            Log.d(this.getClass().getName(), "\n" + " class " +
                 Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
                 " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
                 " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n"
@@ -323,8 +334,15 @@ this.context=context;
             sqLiteStatementInsert.bindLong(9, jsonNodeParentMAP.get("organization").intValue());//"name"
             sqLiteStatementInsert.bindLong(10, jsonNodeParentMAP.get("uuid").longValue());//"uuid"
 
+            // TODO: 02.10.2024 dateclosed
+            if (jsonNodeParentMAP.has("dateclosed")) {
+                sqLiteStatementInsert.bindString(11, jsonNodeParentMAP.get("dateclosed").asText());//"user_update"
+            }else {
+                sqLiteStatementInsert.bindNull(11);
+            }
+
             // TODO: 05.07.2023  Для Состыковки
-            sqLiteStatementInsert.bindLong(11,jsonNodeParentMAP.get("uuid").longValue());//"uuid уже для UUID"
+            sqLiteStatementInsert.bindLong(12,jsonNodeParentMAP.get("uuid").longValue());//"uuid уже для UUID"
             Log.d(this.getClass().getName(), "\n" + " class " +
                     Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
                     " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
