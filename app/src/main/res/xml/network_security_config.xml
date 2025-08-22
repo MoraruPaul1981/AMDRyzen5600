@@ -3,6 +3,7 @@
     <domain-config cleartextTrafficPermitted="true">
         <domain includeSubdomains="true">base.dsu1.ru</domain>
         <domain includeSubdomains="true">192.168.50.21</domain>
+        <domain includeSubdomains="true">192.168.50.92</domain>
     </domain-config>
     <base-config >
         <trust-anchors>

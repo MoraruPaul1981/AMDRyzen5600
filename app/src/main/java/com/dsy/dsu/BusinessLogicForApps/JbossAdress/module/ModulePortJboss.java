@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Log;
 
+import com.dsy.dsu.BusinessLogicForApps.JbossAdress.JbossLinktoDebug;
 import com.dsy.dsu.CoreApp.Apps.ErrorsCoreApp.model.bl_readnewerrors.RecordNewErros;
 
 import com.dsy.dsu.BusinessLogicForApps.JbossAdress.JbossHilt.intarfaces.HiltJbossBinessLogicIntarface;
@@ -43,22 +44,20 @@ public class ModulePortJboss {
          switch (getModeTrasport){
              case "http":
                  // TODO: 28.05.2025 release
-                 HiltJbossBinessLogicIntarface     hiltJbossBinessLogicIntarfaceRelease=new JbossLinktoRelease();
+                 //HiltJbossBinessLogicIntarface     hiltJbossBinessLogicIntarfaceRelease=new JbossLinktoRelease();
+                 HiltJbossBinessLogicIntarface     hiltJbossBinessLogicIntarfaceRelease=new JbossLinktoDebug();
                  // TODO: 06.10.2024 ответ  сам адрес с чем подкбчаться
-                 getJbossPort=   hiltJbossBinessLogicIntarfaceRelease.selectingLinkJbossAdress(preferencesJboss,context,getModeTrasport,8888); //TODO РЕЛИЗ  на Обычный СЕРВЕР JBOSS
+                 //getJbossPort=   hiltJbossBinessLogicIntarfaceRelease.selectingLinkJbossAdress(preferencesJboss,context,getModeTrasport,8888); //TODO РЕЛИЗ  на Обычный СЕРВЕР JBOSS
+                 getJbossPort=   hiltJbossBinessLogicIntarfaceRelease.selectingLinkJbossAdress(preferencesJboss,context,getModeTrasport,8080); //TODO РЕЛИЗ  на Обычный СЕРВЕР JBOSS DEBUG
                  break;
              case "https":
                  // TODO: 28.05.2025 release
-                 HiltJbossBinessLogicIntarface     hiltJbossBinessLogicIntarfaceReleaseSSL=new JbossLinktoRelease();
+               //  HiltJbossBinessLogicIntarface     hiltJbossBinessLogicIntarfaceReleaseSSL=new JbossLinktoRelease();
+                 HiltJbossBinessLogicIntarface     hiltJbossBinessLogicIntarfaceReleaseSSL=new JbossLinktoDebug(); //TODO DEBUG
                  // TODO: 06.10.2024 ответ  сам адрес с чем подкбчаться
                  getJbossPort=   hiltJbossBinessLogicIntarfaceReleaseSSL.selectingLinkJbossAdress(preferencesJboss,context,getModeTrasport,8890); //TODO РЕЛИЗ на SSL СЕРВЕР JBOSS
                  break;
          }
-
-        /*    // TODO: 28.05.2025  DEBUG
-            HiltJbossBinessLogicIntarface   hiltJbossBinessLogicIntarfaceDebug=new JbossLinktoDebug();
-            // TODO: 06.10.2024 ответ  сам адрес с чем подкбчаться
-            getJbossPort=   hiltJbossBinessLogicIntarfaceDebug.selectingLinkJbossAdress(preferencesJboss,context,getModeTrasport,8080);*/
 
             Log.d(this.getClass().getName(), "\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
                     " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +

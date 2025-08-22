@@ -66,10 +66,17 @@ this.context=context;
                                                              " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n"
                                                              + имяТаблицаAsync  + " ОперацияUpdate " +ОперацияUpdate + " ОперацияUpdate " +ОперацияUpdate  );
                                                  }else{
-                                                     // TODO: 04.07.2023  Вставка  ПОСЛЕ ОБНОВЛЕНИЯ ЕСЛИ ОНО НЕ ПРОШЛО
-                                                     Long     ОперацияInsert = ВставкаДанных(context, имяТаблицаAsync, Create_Database_СамаБАзаSQLite, jsonNode);
-                                                     if (ОперацияInsert>0) {
-                                                         РезультатОперацииBurkUPDATE.add(ОперацияInsert.intValue());
+
+
+                                                     Boolean getClosedChek=  jsonNode.get("closed").asBoolean();
+                                                     Long     ОперацияInsert = null;
+                                                     if (getClosedChek==false) {
+                                                         // TODO: 04.07.2023  Вставка  ПОСЛЕ ОБНОВЛЕНИЯ ЕСЛИ ОНО НЕ ПРОШЛО
+                                                         ОперацияInsert = ВставкаДанных(context, имяТаблицаAsync, Create_Database_СамаБАзаSQLite, jsonNode);
+
+                                                         if (ОперацияInsert>0) {
+                                                             РезультатОперацииBurkUPDATE.add(ОперацияInsert.intValue());
+                                                         }
                                                      }
                                                      Log.d(this.getClass().getName(), "\n" + " class " +
                                                              Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
@@ -82,10 +89,14 @@ this.context=context;
 
 // TODO: 04.07.2023 ТОЛЬКО ВСТАВКА   // TODO: 04.07.2023 ТОЛЬКО ВСТАВКА  // TODO: 04.07.2023 ТОЛЬКО ВСТАВКА  // TODO: 04.07.2023 ТОЛЬКО ВСТАВКА  // TODO: 04.07.2023 ТОЛЬКО ВСТАВКА
                                              }else {
-
+                                                 // TODO: 22.08.2025
+                                                 Boolean getClosedChek=  jsonNode.get("closed").asBoolean();
+                                                 Long ОперацияInsert = null;
+                                                 if (getClosedChek==false) {
                                                      // TODO: 04.07.2023  ТОЛЬКО ВСТАВКА
-                                                     Long ОперацияInsert = ВставкаДанных(context, имяТаблицаAsync, Create_Database_СамаБАзаSQLite, jsonNode);
-                                                     if (ОперацияInsert>0) {
+                                                     ОперацияInsert = ВставкаДанных(context, имяТаблицаAsync, Create_Database_СамаБАзаSQLite, jsonNode);
+                                                 }
+                                                 if (ОперацияInsert>0) {
                                                          РезультатОперацииBurkUPDATE.add(ОперацияInsert.intValue());
                                                      }
                                                      Log.d(this.getClass().getName(), "\n" + " class " +
@@ -290,8 +301,8 @@ this.context=context;
             sqLiteStatementInsert.bindLong(10, jsonNodeParentMAP.get("uuid").longValue());//"uuid"
 
 
-            if (jsonNodeParentMAP.has("dateclosed")) {
-                sqLiteStatementInsert.bindString(11, jsonNodeParentMAP.get("dateclosed").asText());//"date_update"
+            if (jsonNodeParentMAP.has("date_closed")) {
+                sqLiteStatementInsert.bindString(11, jsonNodeParentMAP.get("date_closed").asText());//"date_update"
             }else {
                 sqLiteStatementInsert.bindNull(11);
             }

@@ -26,7 +26,7 @@ public class JbossLinktoDebug implements HiltJbossBinessLogicIntarface {
    try{
        SharedPreferences.Editor editor = preferencesJboss.edit();
        // TODO: 18.03.2023 debug сервер
-      getJbossPort.putIfAbsent( getPost,"192.168.50.21");//
+      getJbossPort.putIfAbsent( getPost,"192.168.50.92");//
        editor.putString("enablesll",getModeTrasport);
        editor.commit();
 
