@@ -1,8 +1,10 @@
 
 //////КНАЧАЛО  КЛАССА ПО СОЗДАНИЮ СХЕМЫ ДАННЫХ
 package com.dsy.dsu.BusinessLogicForApps.AllDatabases.SQLTE;
+import android.content.ContentProvider;
 import android.content.Context;
 import android.database.DatabaseErrorHandler;
+import android.database.DefaultDatabaseErrorHandler;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -24,7 +26,7 @@ import java.util.function.Consumer;
 
 //этот класс создает базу данных SQLite
 public class GetSQLiteDatabase extends SQLiteOpenHelper{ ///SQLiteOpenHelper
-    static final int VERSION =              1080;//ПРИ ЛЮБОМ ИЗМЕНЕНИЕ В СТРУКТУРЕ БАЗЫ ДАННЫХ НУЖНО ДОБАВИТЬ ПЛЮС ОДНУ ЦИФРУ К ВЕРСИИ 1=1+1=2 ИТД.1
+    static final int VERSION =              1086;//ПРИ ЛЮБОМ ИЗМЕНЕНИЕ В СТРУКТУРЕ БАЗЫ ДАННЫХ НУЖНО ДОБАВИТЬ ПЛЮС ОДНУ ЦИФРУ К ВЕРСИИ 1=1+1=2 ИТД.1
     private   Context context;
 
 
@@ -37,37 +39,7 @@ public class GetSQLiteDatabase extends SQLiteOpenHelper{ ///SQLiteOpenHelper
 
     public         GetSQLiteDatabase   (@NotNull Context context) {/////КОНСТРУКТОР КЛАССА ПО СОЗДАНИЮ БАЗЫ ДАННЫХ
         /*    super(context, "Database DSU-1.db", null, VERSION ); // определяем имя базы данных  и ее версию*/
-        super(context, "Database DSU-1.db", null, VERSION, new DatabaseErrorHandler() {
-            @Override
-            public void onCorruption(SQLiteDatabase dbObj) {
-                // TODO: 16.04.2025
-                try {
-                    if (dbObj.isOpen()) {
-
-                        if (dbObj.inTransaction()) {
-                            dbObj.endTransaction();
-                        }
-
-                        dbObj.close();
-                    }
-
-                    Log.d(this.getClass().getName(),"\n" + " DatabaseErrorHandler DatabaseErrorHandler  class " +
-                            Thread.currentThread().getStackTrace()[2].getClassName()
-                            + "\n" +
-                            " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
-                            " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n"+"dbObj"+dbObj);
-
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    Log.e(this.getClass().getName(), "Ошибка " + e + " Метод :" +
-                            Thread.currentThread().getStackTrace()[2].getMethodName() +
-                            " Линия  :" + Thread.currentThread().getStackTrace()[2].getLineNumber());
-                    new RecordNewErros( context).recordnewerror(e.toString(),
-                            this.getClass().getName(), Thread.currentThread().getStackTrace()[2].getMethodName(),
-                            Thread.currentThread().getStackTrace()[2].getLineNumber());
-                }
-            }
-        });
+        super(context, "Database DSU-1.db", null, VERSION,new DefaultDatabaseErrorHandler());
         try{
             this.context = context;
             // TODO: 16.04.2025 start
@@ -94,8 +66,137 @@ public class GetSQLiteDatabase extends SQLiteOpenHelper{ ///SQLiteOpenHelper
 
 
 
+    @Override
+    public void onUpgrade(SQLiteDatabase ССылкаНаСозданнуюБазу, int oldVersion, int newVersion) {
+        try{
+            Log.d(this.getClass().getName(), " до СЛУЖБА  содание базы newVersion==  652   (например)  " +
+                    " " + new Date()+  " newVersion " +newVersion);
+            ИменаТаблицыОтАндройда=    new GetWorkerAndSystemTables().getWorkerTablesALl(context);
+            Log.d(this.getClass().getName()," ИменаТаблицыОтАндройда " +ИменаТаблицыОтАндройда); // TODO: 28.09.2022 таблицы
+            Log.d(this.getClass().getName(), " после СЛУЖБА  содание базы newVersion==  652   (например)   " + new Date() + " newVersion " + newVersion);
 
-    //  Cоздание ТАблиц
+
+            if (newVersion>oldVersion) {
+                // TODO: 08.06.2021 создание Базы Данных  ЧИСТАЯ УСТАНОВКА
+                onCreate(ССылкаНаСозданнуюБазу);
+            }
+
+            Log.d(this.getClass().getName(), "\n"
+                    + " время: " + new Date() + "\n+" +
+                    " Класс в процессе... " + this.getClass().getName() + "\n" +
+                    " метод в процессе... " + Thread.currentThread().getStackTrace()[2].getMethodName()
+                    + "  сработала ... КОНЕЦ СОЗДАНИЯ ТАБЛИЦ ВИЮ ТРИГЕР ");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            Log.e(this.getClass().getName(), "Ошибка " + e + " Метод :" + Thread.currentThread().getStackTrace()[2].getMethodName() + " Линия  :"
+                    + Thread.currentThread().getStackTrace()[2].getLineNumber());
+            new RecordNewErros(context).recordnewerror(e.toString(),
+                    this.getClass().getName(), Thread.currentThread().getStackTrace()[2].getMethodName(),
+                    Thread.currentThread().getStackTrace()[2].getLineNumber());
+        }
+    }
+
+    @Override
+    public void onDowngrade(SQLiteDatabase ССылкаНаСозданнуюБазу, int oldVersion, int newVersion) {
+        onCreate(ССылкаНаСозданнуюБазу);
+    }
+
+    @Override
+    public void onOpen(SQLiteDatabase db) {
+        super.onOpen(db);
+        try{
+            Log.d(this.getClass().getName(),"\n" + " onOpen  class " +
+                    Thread.currentThread().getStackTrace()[2].getClassName()
+                    + "\n" +
+                    " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
+                    " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n"+
+                    " SqliteDatabase " + sqliteDatabase);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            Log.e(this.getClass().getName(), "Ошибка " + e + " Метод :" +
+                    Thread.currentThread().getStackTrace()[2].getMethodName() +
+                    " Линия  :" + Thread.currentThread().getStackTrace()[2].getLineNumber());
+            new RecordNewErros( context).recordnewerror(e.toString(),
+                    this.getClass().getName(), Thread.currentThread().getStackTrace()[2].getMethodName(),
+                    Thread.currentThread().getStackTrace()[2].getLineNumber());
+        }
+    }
+
+
+
+
+    private void initDatabase(@NonNull Context context) {
+        try{
+            if (context !=null) {
+                if (sqliteDatabase.get() == null) {
+                    sqliteDatabase.getAndSet(this.getWritableDatabase()) ; //ссылка на схему базы данных;//ссылка на схему базы данных ГЛАВНАЯ ВСТАВКА НА БАЗУ ДСУ-
+
+                    // TODO: 17.04.2025
+                    new SqlLitePRAGMA(context).launchsqlLitePRAGMA(sqliteDatabase.get());
+
+
+                    Log.d(this.getClass().getName(),"\n" + " class " +
+                            Thread.currentThread().getStackTrace()[2].getClassName()
+                            + "\n" +
+                            " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
+                            " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n"+
+                            " sqliteDatabase.get() " + sqliteDatabase.get());
+                }}
+            Log.d(this.getClass().getName(),"\n" + " class " +
+                    Thread.currentThread().getStackTrace()[2].getClassName()
+                    + "\n" +
+                    " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
+                    " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n"+
+                    " sqliteDatabase.get() " + sqliteDatabase.get());
+        } catch (Exception e) {
+            e.printStackTrace();
+            Log.e(this.getClass().getName(), "Ошибка " + e + " Метод :" + Thread.currentThread().getStackTrace()[2].getMethodName() +
+                    " Линия  :" + Thread.currentThread().getStackTrace()[2].getLineNumber());
+            new RecordNewErros(this.context).recordnewerror(e.toString(),
+                    this.getClass().getName(), Thread.currentThread().getStackTrace()[2].getMethodName(),
+                    Thread.currentThread().getStackTrace()[2].getLineNumber());
+
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //TODO   Cоздание ТАблиц   Cоздание ТАблиц  Cоздание ТАблиц  Cоздание ТАблиц  Cоздание ТАблиц  Cоздание ТАблиц  Cоздание ТАблиц  Cоздание ТАблиц
     @Override
     public void onCreate(SQLiteDatabase ССылкаНаСозданнуюБазу) {
         try {
@@ -218,7 +319,8 @@ public class GetSQLiteDatabase extends SQLiteOpenHelper{ ///SQLiteOpenHelper
                 " closed INTEGER  ," +
                 "  current_table NUMERIC UNIQUE ," +
                 " organization INTEGER DEFAULT 1 ," +
-                " uuid NUMERIC UNIQUE  )");
+                " uuid NUMERIC UNIQUE," +
+                " dateclosed NUMERIC  )");
         Log.d(this.getClass().getName(), " сработала ...  создание таблицы   cfo");
     }
 
@@ -1250,98 +1352,6 @@ public class GetSQLiteDatabase extends SQLiteOpenHelper{ ///SQLiteOpenHelper
 
 
 
-    @Override
-    public void onUpgrade(SQLiteDatabase ССылкаНаСозданнуюБазу, int oldVersion, int newVersion) {
-        try{
-            Log.d(this.getClass().getName(), " до СЛУЖБА  содание базы newVersion==  652   (например)  " +
-                    " " + new Date()+  " newVersion " +newVersion);
-            ИменаТаблицыОтАндройда=    new GetWorkerAndSystemTables().getWorkerTablesALl(context);
-            Log.d(this.getClass().getName()," ИменаТаблицыОтАндройда " +ИменаТаблицыОтАндройда); // TODO: 28.09.2022 таблицы
-            Log.d(this.getClass().getName(), " после СЛУЖБА  содание базы newVersion==  652   (например)   " + new Date() + " newVersion " + newVersion);
-
-
-            if (newVersion>oldVersion) {
-                // TODO: 08.06.2021 создание Базы Данных  ЧИСТАЯ УСТАНОВКА
-                onCreate(ССылкаНаСозданнуюБазу);
-            }
-
-            Log.d(this.getClass().getName(), "\n"
-                    + " время: " + new Date() + "\n+" +
-                    " Класс в процессе... " + this.getClass().getName() + "\n" +
-                    " метод в процессе... " + Thread.currentThread().getStackTrace()[2].getMethodName()
-                    + "  сработала ... КОНЕЦ СОЗДАНИЯ ТАБЛИЦ ВИЮ ТРИГЕР ");
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            Log.e(this.getClass().getName(), "Ошибка " + e + " Метод :" + Thread.currentThread().getStackTrace()[2].getMethodName() + " Линия  :"
-                    + Thread.currentThread().getStackTrace()[2].getLineNumber());
-            new RecordNewErros(context).recordnewerror(e.toString(),
-                    this.getClass().getName(), Thread.currentThread().getStackTrace()[2].getMethodName(),
-                    Thread.currentThread().getStackTrace()[2].getLineNumber());
-        }
-    }
-
-    @Override
-    public void onDowngrade(SQLiteDatabase ССылкаНаСозданнуюБазу, int oldVersion, int newVersion) {
-        onCreate(ССылкаНаСозданнуюБазу);
-    }
-
-    @Override
-    public void onOpen(SQLiteDatabase db) {
-        super.onOpen(db);
-        try{
-            Log.d(this.getClass().getName(),"\n" + " onOpen  class " +
-                    Thread.currentThread().getStackTrace()[2].getClassName()
-                    + "\n" +
-                    " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
-                    " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n"+
-                    " SqliteDatabase " + sqliteDatabase);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            Log.e(this.getClass().getName(), "Ошибка " + e + " Метод :" +
-                    Thread.currentThread().getStackTrace()[2].getMethodName() +
-                    " Линия  :" + Thread.currentThread().getStackTrace()[2].getLineNumber());
-            new RecordNewErros( context).recordnewerror(e.toString(),
-                    this.getClass().getName(), Thread.currentThread().getStackTrace()[2].getMethodName(),
-                    Thread.currentThread().getStackTrace()[2].getLineNumber());
-        }
-    }
-
-
-    private void initDatabase(@NonNull Context context) {
-        try{
-            if (context !=null) {
-                if (sqliteDatabase.get() == null) {
-                    sqliteDatabase.getAndSet(this.getWritableDatabase()) ; //ссылка на схему базы данных;//ссылка на схему базы данных ГЛАВНАЯ ВСТАВКА НА БАЗУ ДСУ-
-
-                    // TODO: 17.04.2025
-                    new SqlLitePRAGMA(context).launchsqlLitePRAGMA(sqliteDatabase.get());
-                    
-                    
-                    Log.d(this.getClass().getName(),"\n" + " class " +
-                            Thread.currentThread().getStackTrace()[2].getClassName()
-                            + "\n" +
-                            " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
-                            " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n"+
-                            " sqliteDatabase.get() " + sqliteDatabase.get());
-                }}
-            Log.d(this.getClass().getName(),"\n" + " class " +
-                    Thread.currentThread().getStackTrace()[2].getClassName()
-                    + "\n" +
-                    " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
-                    " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n"+
-                    " sqliteDatabase.get() " + sqliteDatabase.get());
-        } catch (Exception e) {
-            e.printStackTrace();
-            Log.e(this.getClass().getName(), "Ошибка " + e + " Метод :" + Thread.currentThread().getStackTrace()[2].getMethodName() +
-                    " Линия  :" + Thread.currentThread().getStackTrace()[2].getLineNumber());
-            new RecordNewErros(this.context).recordnewerror(e.toString(),
-                    this.getClass().getName(), Thread.currentThread().getStackTrace()[2].getMethodName(),
-                    Thread.currentThread().getStackTrace()[2].getLineNumber());
-
-        }
-    }
 
 
 }//TODO END CLASS

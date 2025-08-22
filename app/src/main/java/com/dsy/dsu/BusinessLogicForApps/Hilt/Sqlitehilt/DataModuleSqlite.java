@@ -77,8 +77,14 @@ public SQLiteDatabase metodHiltSqlite (@ApplicationContext Context context){
         AtomicReference<SQLiteDatabase>  getSQLites=new AtomicReference<>();
         try{
         //getSQLites =  SQLiteDatabase.openDatabase("/data/user/0/com.dsy.dsu/databases/Database DSU-1.db",null, SQLiteDatabase.CREATE_IF_NECESSARY);
-        getSQLites.getAndSet( SQLiteDatabase.openDatabase(fileDatabeseOpenParametrs.getAbsolutePath(),null, SQLiteDatabase.OPEN_READWRITE));
-        // TODO: 17.04.2023
+
+            //TODO Проверка на ВЕРСИЮ вЫШЕ
+            launchgetSQLiteDatabaseChekUpVersion(context);
+
+
+            //TODO OPEN
+            launchSQLiteDatabaseOpenDatabase(fileDatabeseOpenParametrs, getSQLites);
+            // TODO: 17.04.2023
         Log.d(this.getClass().getName(),"\n" + " class FaceAPp "
                 + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
                 " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
@@ -94,6 +100,15 @@ public SQLiteDatabase metodHiltSqlite (@ApplicationContext Context context){
                 Thread.currentThread().getStackTrace()[2].getLineNumber());
     }
         return  getSQLites.get();
+    }
+
+    private   void launchSQLiteDatabaseOpenDatabase(File fileDatabeseOpenParametrs, AtomicReference<SQLiteDatabase> getSQLites) throws  Exception {
+        getSQLites.getAndSet( SQLiteDatabase.openDatabase(fileDatabeseOpenParametrs.getAbsolutePath(),null, SQLiteDatabase.OPEN_READWRITE));
+    }
+
+    private   void launchgetSQLiteDatabaseChekUpVersion(@NonNull Context context) throws  Exception {
+        GetSQLiteDatabase getSQLiteDatabaseChekUpVersion=new GetSQLiteDatabase(context);
+        getSQLiteDatabaseChekUpVersion.close();
     }
 
 
