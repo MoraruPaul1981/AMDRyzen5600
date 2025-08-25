@@ -97,7 +97,7 @@ public class ProccesorparallelSynch   {
              РежимЗапускаСинхронизации = preferences.getString("РежимЗапускаСинхронизации" ,null);
             // TODO: 20.01.2025 сама синхрониаиця
             switch (РежимЗапускаСинхронизации){
-/*// TODO: 20.01.2025 сама синхрониаиця
+ // TODO: 20.01.2025 сама синхрониаиця
             case  "СамыйПервыйЗапускСинхронизации":
                     Flowable.fromIterable(getBufferFromJbossServerAllTables)
                             .parallel().runOn(Schedulers.from(Executors.newFixedThreadPool(2)))
@@ -157,11 +157,10 @@ public class ProccesorparallelSynch   {
                             " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n"
                             + " getBufferFromJbossServerAllTables.size() " + getBufferFromJbossServerAllTables.size()
                             +"\n");
-                    break;*/
+                    break;
 
                 // TODO: 20.01.2025 сама синхрониаиця
-              case "ПовторныйЗапускСинхронизации":
-                case  "СамыйПервыйЗапускСинхронизации":
+                case "ПовторныйЗапускСинхронизации":
 // TODO: 20.01.2025 сама синхрониаиця
                     Flowable.fromIterable(getBufferFromJbossServerAllTables)
                             .onBackpressureBuffer(1)
