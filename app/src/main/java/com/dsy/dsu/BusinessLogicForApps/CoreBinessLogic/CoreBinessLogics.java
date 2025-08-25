@@ -581,6 +581,17 @@ import okio.BufferedSink;
         return РазмерПришедшегоПотока.get();
     }
 
+
+
+
+
+
+
+
+
+
+
+
 ///todo #POST///#POST///#POST///#POST///#POST///#POST///#POST///#POST///#POST///#POST///#POST///#POST///#POST///#POST///#POST///#POST///#POST///#POST///#POST///#POST///#POST///#POST///#POST///#POST///#POST///#POST///#POST///#POST///#POST///#POST///#POST///#POST///#POST///#POST
 
 
@@ -605,12 +616,14 @@ import okio.BufferedSink;
                     СтрокаСвязиСсервером = СтрокаСвязиСсервером + Params;
                     СтрокаСвязиСсервером = СтрокаСвязиСсервером.replace(" ", "%20");
                     URL Adress = new URL(СтрокаСвязиСсервером);
-                    Log.d(this.getClass().getName(), " Adress  " + Adress);
-
-
+                    Log.d(this.getClass().getName(), "\n"
+                            + " время: " + new Date() + "\n+" +
+                            " Класс в процессе... " + this.getClass().getName() + "\n" +
+                            " метод в процессе... " + Thread.currentThread().getStackTrace()[2].getMethodName()
+                            +  "Adress  " + Adress);
                     OkHttpClient.Builder builderokhtttp=   new GetAsyncOkHttpClientBuilder(context,getsslSocketFactory2).GetAsyncOkHttpClientBuilder(enableSSl);
-
-                    OkHttpClient okHttpClientОтправкиДанныхНаСервер =builderokhtttp.addInterceptor(new Interceptor() {//" SELECT success_users,success_login  FROM successlogin  ORDER BY date_update DESC ;"
+                    OkHttpClient okHttpClientОтправкиДанныхНаСервер =builderokhtttp.addInterceptor(new Interceptor() {
+                        //" SELECT success_users,success_login  FROM successlogin  ORDER BY date_update DESC ;"
                                 @Override
                                 public Response intercept(Chain chain) throws IOException {
                                     // TODO: 14.05.2025
@@ -631,7 +644,8 @@ import okio.BufferedSink;
                                     Log.d(this.getClass().getName(), "\n"
                                             + " время: " + new Date() + "\n+" +
                                             " Класс в процессе... " + this.getClass().getName() + "\n" +
-                                            " метод в процессе... " + Thread.currentThread().getStackTrace()[2].getMethodName() + " ПубличноеЛогин " +ПубличноеЛогин + " ПубличноеПароль " +ПубличноеПароль);
+                                            " метод в процессе... " + Thread.currentThread().getStackTrace()[2].getMethodName()
+                                            + " ПубличноеЛогин " +ПубличноеЛогин + " ПубличноеПароль " +ПубличноеПароль);
                                     // TODO: 18.02.2025 get name Device
                                     String ANDROID_ID =new ModulegetDeviceName().getDeviceName(context);
                                     Log.d(this.getClass().getName(), "  JbossContext.ПубличноеИмяПользовательДлСервлета  " + ПубличноеЛогин +
@@ -653,7 +667,7 @@ import okio.BufferedSink;
                             .readTimeout(2, TimeUnit.MINUTES)
                             .build();
                       MediaType mediaJSON = MediaType.parse("application/octet-stream; charset=utf-8");
-                    RequestBody requestBody = new RequestBody() {
+                    RequestBody requestBodyWriteTo = new RequestBody() {
                         @Override
                         public MediaType contentType() {
                             try{
@@ -686,82 +700,48 @@ import okio.BufferedSink;
                         }
                         }
                     };
-                   // Request requestPost = new Request.Builder().post(requestBody).url(Adress).build();
 
-
-                    RequestBody body = RequestBody.create(ГенерацияJSONОтAndroid, mediaJSON); // new
-                    // RequestBody body = RequestBody.create(JSON, json); // old
-                    Request request = new Request.Builder()
+                    Request requestPostJbossServer = new Request.Builder()
                             .url(Adress)
-                            .post(body)
+                            .post(requestBodyWriteTo)
                             .build();
-                    Response response = okHttpClientОтправкиДанныхНаСервер.newCall(request).execute();
-                  byte[] getByte=  response.body().bytes();
+                    Response response = okHttpClientОтправкиДанныхНаСервер.newCall(requestPostJbossServer).execute();
+
+                    if (response.isSuccessful()) {
+                        String  ПришедшегоПотока =    response.header("stream_size");
+                        ПришедшегоПотока =     Optional.ofNullable(ПришедшегоПотока).map(String::valueOf).orElse("0");
+                        Long РазмерПришедшегоПотока = Long.parseLong(ПришедшегоПотока  );
+                        Integer КакаяКодировка = Integer.parseInt(   Optional.ofNullable(response.header("getcharsets")).map(String::new).orElse("0"));
+                        Boolean ФлагgZIPOutputStream =Boolean.parseBoolean (  Optional.ofNullable(response.header("GZIPOutputStream")).map(String::new).orElse("false"));
+                        if (РазмерПришедшегоПотока>0l) {
+                            // TODO: 07.10.2023
+                            // TODO: 07.04.2025  получаем STEAM  от сервера и обрабоатываем его для READER
+                            DownloadReader downloadReader=new DownloadReader();
+                            // TODO: 07.04.2025 обрабоатываем пршедщий файл
+                            БуферCallsBackОтСеврера.getAndSet(downloadReader.downloadReader(context, new GetBinessLogicDownloadReader(), response.body().bytes()) );
+                            // TODO: 14.05.2025
+                            Log.d(this.getClass().getName(), "\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
+                                    " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
+                                    " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + " БуферCallsBackОтСеврера.get()  " +БуферCallsBackОтСеврера.get()
+                                    +  " РазмерПришедшегоПотока" + РазмерПришедшегоПотока);
+
+                            Log.d(this.getClass().getName(), "БуферCallsBackОтСеврера.get() " + БуферCallsBackОтСеврера.get() +
+                                    " РазмерПришедшегоПотока " +РазмерПришедшегоПотока);
+                        }
+                        Log.d(this.getClass().getName(), "\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
+                                " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
+                                " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + " БуферCallsBackОтСеврера.get()  " +БуферCallsBackОтСеврера.get()
+                                +  " РазмерПришедшегоПотока" + РазмерПришедшегоПотока);
+                        // TODO: 28.12.2024 closeting
+                        response.close();
+                    }
+
 
                     // TODO: 14.05.2025
                     Log.d(this.getClass().getName(), "\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
                             " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
-                            " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + " БуферCallsBackОтСеврера.get()  " +БуферCallsBackОтСеврера.get()
-                            +  " response" + response);
-    /*
-                    Log.d(this.getClass().getName(), "  requestPost  " + requestPost);
-                    // TODO  Call callGET = client.newCall(requestGET);
-                    Dispatcher  dispatcherCallsBackСервера = okHttpClientОтправкиДанныхНаСервер.dispatcher();
-                    okHttpClientОтправкиДанныхНаСервер.newCall(requestPost).enqueue(new Callback() {
-                        @Override
-                        public void onFailure(@NonNull Call call, @NonNull IOException e) {
-                            Log.e(this.getClass().getName(), "  ERROR call  " + call + "  e" + e.toString());
-                            Log.e(CoreBinessLogics.class.getName(), "Ошибка " + e + " Метод :" + Thread.currentThread().getStackTrace()[2].getMethodName() +
-                                    " Линия  :" + Thread.currentThread().getStackTrace()[2].getLineNumber() + " ОшибкаТекущегоМетода " + e.getMessage());
-                            new RecordNewErros(context).recordnewerror(e.toString(), CoreBinessLogics.class.getName(),
-                                    Thread.currentThread().getStackTrace()[2].getMethodName(), Thread.currentThread().getStackTrace()[2].getLineNumber());
-                            // TODO: 31.05.2022
-                            dispatcherCallsBackСервера.executorService().shutdown();
-                            //TODO закрываем п отоки
-                        }
-                        @Override
-                        public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
-                            try{
-                            if (response.isSuccessful()) {
-                                String  ПришедшегоПотока =    response.header("stream_size");
-                                ПришедшегоПотока =     Optional.ofNullable(ПришедшегоПотока).map(String::valueOf).orElse("0");
-                                Long РазмерПришедшегоПотока = Long.parseLong(ПришедшегоПотока  );
-                                Integer КакаяКодировка = Integer.parseInt(   Optional.ofNullable(response.header("getcharsets")).map(String::new).orElse("0"));
-                                Boolean ФлагgZIPOutputStream =Boolean.parseBoolean (  Optional.ofNullable(response.header("GZIPOutputStream")).map(String::new).orElse("false"));
-                                if (РазмерПришедшегоПотока>0l) {
-                                    // TODO: 07.10.2023
-                                    // TODO: 07.04.2025  получаем STEAM  от сервера и обрабоатываем его для READER
-                                    DownloadReader downloadReader=new DownloadReader();
-                                    // TODO: 07.04.2025 обрабоатываем пршедщий файл
-                                    БуферCallsBackОтСеврера.getAndSet(downloadReader.downloadReader(context, new GetBinessLogicDownloadReader(), response.body().bytes()) );
-                                    // TODO: 14.05.2025
-                                    Log.d(this.getClass().getName(), "\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
-                                            " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
-                                            " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + " БуферCallsBackОтСеврера.get()  " +БуферCallsBackОтСеврера.get()
-                                            +  " РазмерПришедшегоПотока" + РазмерПришедшегоПотока);
+                            " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + " БуферCallsBackОтСеврера.get()  " +БуферCallsBackОтСеврера.get());
 
-                                        Log.d(this.getClass().getName(), "БуферCallsBackОтСеврера.get() " + БуферCallsBackОтСеврера.get() +
-                                                " РазмерПришедшегоПотока " +РазмерПришедшегоПотока);
-                                }
-
-                                Log.d(this.getClass().getName(), " БуферCallsBackОтСеврера.get()" +  БуферCallsBackОтСеврера.get() +  " РазмерПришедшегоПотока " +РазмерПришедшегоПотока);
-
-                                // TODO: 28.12.2024 closeting
-                                response.close();
-                                // TODO: 31.05.2022
-                                dispatcherCallsBackСервера.executorService().shutdown();
-                            }
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                            Log.e(this.getClass().getName(), "Ошибка " + e + " Метод :" + Thread.currentThread().getStackTrace()[2].getMethodName() + " Линия  :"
-                                    + Thread.currentThread().getStackTrace()[2].getLineNumber());
-                            new RecordNewErros(context).recordnewerror(e.toString(),
-                                    this.getClass().getName(), Thread.currentThread().getStackTrace()[2].getMethodName(),
-                                    Thread.currentThread().getStackTrace()[2].getLineNumber());
-                        }
-                        }
-                    });
-                    dispatcherCallsBackСервера.executorService().awaitTermination(1, TimeUnit.DAYS);*/
                     // TODO: 12.03.2023  тест код конец
                 } catch (IOException ex) {
                     ex.printStackTrace();
