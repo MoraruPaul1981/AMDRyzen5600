@@ -652,12 +652,7 @@ import okio.BufferedSink;
                             .writeTimeout(2, TimeUnit.MINUTES)
                             .readTimeout(2, TimeUnit.MINUTES)
                             .build();
-                    ///  MediaType JSON = MediaType.parse("application/json; charset=utf-16");
-
-                    Log.i(context.getClass().getName(), "ГенерацияJSONОтAndroid.toString()" + ГенерацияJSONОтAndroid.toString());
-                    // MediaType JSON = MediaType.parse("application/json; charset=utf-16");
-                      MediaType JSON = MediaType.parse("application/octet-stream; charset=utf-8");
-                   // RequestBody body = RequestBody.create(JSON, СгенерированыйФайлJSONДляОтправкиНаСервер.toString());
+                      MediaType mediaJSON = MediaType.parse("application/octet-stream; charset=utf-8");
                     RequestBody requestBody = new RequestBody() {
                         @Override
                         public MediaType contentType() {
@@ -670,7 +665,7 @@ import okio.BufferedSink;
                             new RecordNewErros(context).recordnewerror(e.toString(), this.getClass().getName(),
                                     Thread.currentThread().getStackTrace()[2].getMethodName(), Thread.currentThread().getStackTrace()[2].getLineNumber());
                         }
-                            return JSON;
+                            return mediaJSON;
                         }
 
                         @Override
@@ -691,7 +686,24 @@ import okio.BufferedSink;
                         }
                         }
                     };
-                    Request requestPost = new Request.Builder().post(requestBody).url(Adress).build();
+                   // Request requestPost = new Request.Builder().post(requestBody).url(Adress).build();
+
+
+                    RequestBody body = RequestBody.create(ГенерацияJSONОтAndroid, mediaJSON); // new
+                    // RequestBody body = RequestBody.create(JSON, json); // old
+                    Request request = new Request.Builder()
+                            .url(Adress)
+                            .post(body)
+                            .build();
+                    Response response = okHttpClientОтправкиДанныхНаСервер.newCall(request).execute();
+                  byte[] getByte=  response.body().bytes();
+
+                    // TODO: 14.05.2025
+                    Log.d(this.getClass().getName(), "\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
+                            " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
+                            " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + " БуферCallsBackОтСеврера.get()  " +БуферCallsBackОтСеврера.get()
+                            +  " response" + response);
+    /*
                     Log.d(this.getClass().getName(), "  requestPost  " + requestPost);
                     // TODO  Call callGET = client.newCall(requestGET);
                     Dispatcher  dispatcherCallsBackСервера = okHttpClientОтправкиДанныхНаСервер.dispatcher();
@@ -749,9 +761,9 @@ import okio.BufferedSink;
                         }
                         }
                     });
-                    dispatcherCallsBackСервера.executorService().awaitTermination(1, TimeUnit.DAYS);
+                    dispatcherCallsBackСервера.executorService().awaitTermination(1, TimeUnit.DAYS);*/
                     // TODO: 12.03.2023  тест код конец
-                } catch (IOException | InterruptedException ex) {
+                } catch (IOException ex) {
                     ex.printStackTrace();
                     String ОшибкаТекущегоМетода=new String();
                     if (!ОшибкаТекущегоМетода.toString().trim().matches("(.*)java.io.EOFException(.*)") &&

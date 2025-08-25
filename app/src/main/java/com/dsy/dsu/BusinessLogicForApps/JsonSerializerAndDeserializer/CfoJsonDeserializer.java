@@ -69,7 +69,7 @@ this.context=context;
 
 
                                                      Boolean getClosedChek=  jsonNode.get("closed").asBoolean();
-                                                     Long     ОперацияInsert = null;
+                                                     Long     ОперацияInsert = 0l;
                                                      if (getClosedChek==false) {
                                                          // TODO: 04.07.2023  Вставка  ПОСЛЕ ОБНОВЛЕНИЯ ЕСЛИ ОНО НЕ ПРОШЛО
                                                          ОперацияInsert = ВставкаДанных(context, имяТаблицаAsync, Create_Database_СамаБАзаSQLite, jsonNode);
@@ -91,7 +91,7 @@ this.context=context;
                                              }else {
                                                  // TODO: 22.08.2025
                                                  Boolean getClosedChek=  jsonNode.get("closed").asBoolean();
-                                                 Long ОперацияInsert = null;
+                                                 Long ОперацияInsert = 0l;
                                                  if (getClosedChek==false) {
                                                      // TODO: 04.07.2023  ТОЛЬКО ВСТАВКА
                                                      ОперацияInsert = ВставкаДанных(context, имяТаблицаAsync, Create_Database_СамаБАзаSQLite, jsonNode);
