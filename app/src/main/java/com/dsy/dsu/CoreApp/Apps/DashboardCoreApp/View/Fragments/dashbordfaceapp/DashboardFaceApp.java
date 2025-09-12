@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 import android.widget.TableLayout;
 
 import androidx.annotation.NonNull;
@@ -71,7 +72,7 @@ public class DashboardFaceApp extends  DialogFragment  {
 
     private ServiceUpdatesPO.localBinderОбновлениеПО localBinderОбновлениеПО;//TODO новаЯ
 
-    private AppCompatImageButton imageview_to_settings ;
+    private MaterialButton imageview_to_settings ;
 
 
     @Inject
@@ -176,7 +177,7 @@ public class DashboardFaceApp extends  DialogFragment  {
         try{
           //  view= inflater.inflate(R.layout.simple_dashbord_fragment_scroll, container, false);
             view= inflater.inflate(R.layout.simple_dashbord_fragment_coreapp, container, false);
-            view= inflater.inflate(R.layout.simple_dashbord_fragment_blue_deleting_before, container, false);
+           // view= inflater.inflate(R.layout.simple_dashbord_fragment_blue_deleting_before, container, false);
                    /*     ViewDashboart= inflater.inflate(R.layout.simple_dashbord_fragment_grey, container, false);
             ViewDashboart= inflater.inflate(R.layout.simple_dashbord_fragment_grey, container, false);
             ViewDashboart= inflater.inflate(R.layout.simple_dashbord_fragment_grey, container, false);*/
@@ -214,7 +215,7 @@ public class DashboardFaceApp extends  DialogFragment  {
             КнопкаСогласЦен         = (MaterialButton) tableLayout_dashboard.findViewById(R.id.КнопкаСогласЦен); /////КНОПКА ТАБЕЛЬНОГО УЧЕТА
             КнопкаПоступлениеМатериалов         = (MaterialButton) tableLayout_dashboard.findViewById(R.id.КнопкаПоступлениеМатериалов); /////КНОПКА ТАБЕЛЬНОГО УЧЕТА
             КнопкаТабель          = (MaterialButton) tableLayout_dashboard.findViewById(R.id.КнопкаТабель); /////КНОПКА ТАБЕЛЬНОГО УЧЕТА
-            imageview_to_settings      = (AppCompatImageButton) tableLayout_dashboard.findViewById(R.id.imageview_to_settings); /////КНОПКА ТАБЕЛЬНОГО УЧЕТА
+            imageview_to_settings      = (MaterialButton) tableLayout_dashboard.findViewById(R.id.imageview_to_settings); /////КНОПКА ТАБЕЛЬНОГО УЧЕТА
             pagerdachbord = (ViewPager2) tableLayout_dashboard.findViewById(R.id.pagerdachbord);
 
 
