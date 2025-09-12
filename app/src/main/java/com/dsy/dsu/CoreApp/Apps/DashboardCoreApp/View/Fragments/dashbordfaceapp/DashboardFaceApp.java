@@ -174,7 +174,9 @@ public class DashboardFaceApp extends  DialogFragment  {
                              Bundle savedInstanceState) {
         View view=null;
         try{
-            view= inflater.inflate(R.layout.simple_dashbord_fragment_scroll, container, false);
+          //  view= inflater.inflate(R.layout.simple_dashbord_fragment_scroll, container, false);
+            view= inflater.inflate(R.layout.simple_dashbord_fragment_coreapp, container, false);
+            view= inflater.inflate(R.layout.simple_dashbord_fragment_blue_deleting_before, container, false);
                    /*     ViewDashboart= inflater.inflate(R.layout.simple_dashbord_fragment_grey, container, false);
             ViewDashboart= inflater.inflate(R.layout.simple_dashbord_fragment_grey, container, false);
             ViewDashboart= inflater.inflate(R.layout.simple_dashbord_fragment_grey, container, false);*/

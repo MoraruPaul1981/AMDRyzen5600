@@ -5,60 +5,16 @@
     android:id="@+id/relativelayout_dashboard"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#6495ED"
+    android:background="#FFFFFFF"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".DashboardCoreApp.View.MainActivity_Dashboard">
+    tools:context=".CoreApp.Apps.BootAndAsyncApp.View.MainActivityBootAndAsync">
 
 
 
 
 
-    <!--   //TODO   #1 Face APP -->
 
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/materialcardview_dashboard_faceapp"
-        android:layout_width="200dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:background="@drawable/dialog_bg"
-        android:animateLayoutChanges="true"
-        android:gravity="center"
-        app:cardBackgroundColor="#F2F8F8"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="20dp"
-        app:cardMaxElevation="10dp"
-        android:translationZ="100dp"
-        app:strokeColor="#E0DFE4"
-        app:strokeWidth="0dp">
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="visible">
 
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/materialtextview_dashborn_face"
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:layout_alignParentLeft="true"
-                android:layout_centerInParent="true"
-                android:gravity="center"
-                android:text="ООО Союз-Автодор"
-                android:textAlignment="gravity"
-                android:textAppearance="?android:attr/textAppearanceListItemSmall"
-                android:textColor="#C0C0C0"
-                android:textSize="16dp"
-                android:textStyle="bold"
-                android:translationZ="100dp"
-                android:visibility="visible"
-                app:cardElevation="10dp"
-                app:cardMaxElevation="10dp" />
-        </RelativeLayout>
-    </com.google.android.material.card.MaterialCardView>
-    <!--   //TODO   #1  конец табель -->
 
 
 
@@ -75,7 +31,7 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="5dp"
         android:layout_alignParentLeft="true"
-        android:background="@drawable/dialog_bg"
+        android:background="@drawable/dialog_bg_dashbord_bokobvay_panel_green2"
         android:animateLayoutChanges="true"
         android:gravity="center"
         app:cardBackgroundColor="#F2F8F8"
@@ -372,7 +328,7 @@
         android:layout_marginRight="5dp"
 
 
-        android:background="@drawable/dialog_bg"
+        android:background="#FFFFFF"
         android:animateLayoutChanges="true"
         android:gravity="center"
         app:cardBackgroundColor="#F2F8F8"
