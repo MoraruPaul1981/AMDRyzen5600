@@ -373,6 +373,8 @@ public class DashboardFaceApp extends  DialogFragment  {
                     @Override
                     public void onClick(View v) {
                         try {
+                            // TODO: 13.09.2025
+                            ((MaterialButton) v).setBackgroundColor(Color.GRAY);
                             v.getHandler().postDelayed(()->{
 
                                 Log.d(this.getClass().getName(), "Запускает Согласния   ");
@@ -384,7 +386,7 @@ public class DashboardFaceApp extends  DialogFragment  {
                                 startActivity(ИнтентЗаявкаНаТранспорт);
 
 
-                            },500);
+                            },200);
 
                             // TODO: 10.03.2025
 
@@ -405,6 +407,7 @@ public class DashboardFaceApp extends  DialogFragment  {
                     @Override
                     public void onClick(View v) {
                         try {
+                            ((MaterialButton) v).setBackgroundColor(Color.GRAY);
                             v.getHandler().postDelayed(()->{
                                 Log.d(this.getClass().getName(), "Запускает Согласния   ");
                                 Intent intentЗапускСогласования1C = new Intent();
@@ -413,7 +416,7 @@ public class DashboardFaceApp extends  DialogFragment  {
                                 intentЗапускСогласования1C.setClass(getContext(), MainActivity_CommitPay.class);//рабочий
                                 intentЗапускСогласования1C.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                 startActivity(intentЗапускСогласования1C);
-                            },500);
+                            },200);
 
                             // TODO: 10.03.2025
 
@@ -436,6 +439,8 @@ public class DashboardFaceApp extends  DialogFragment  {
                     @Override
                     public void onClick(View v) {
                         try {
+                            // TODO: 13.09.2025
+                            ((MaterialButton) v).setBackgroundColor(Color.GRAY);
                             v.getHandler().postDelayed(()->{
 
                                 Log.d(this.getClass().getName(), "Запускает Согласния   ");
@@ -446,7 +451,7 @@ public class DashboardFaceApp extends  DialogFragment  {
                                 ИнтентЗаявкаНаТранспорт.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                 startActivity(ИнтентЗаявкаНаТранспорт);
 
-                            },500);
+                            },200);
 
                             // TODO: 10.03.2025
 
@@ -468,6 +473,8 @@ public class DashboardFaceApp extends  DialogFragment  {
                     @Override
                     public void onClick(View v) {
                         try {
+                            // TODO: 13.09.2025
+                            ((MaterialButton) v).setBackgroundColor(Color.GRAY);
                             v.getHandler().postDelayed(()->{
                                 Intent Интент_ЗапускТабельногоУчётаПервыйШаг = new Intent();
                                 Bundle data = new Bundle();
@@ -476,7 +483,7 @@ public class DashboardFaceApp extends  DialogFragment  {
                                 Интент_ЗапускТабельногоУчётаПервыйШаг.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK  );
                                 Log.d(this.getClass().getName(), "" + "    КнопкаТабельныйУчёт.setOnClickListener(new View.OnClickListener() {");
                                 startActivity(Интент_ЗапускТабельногоУчётаПервыйШаг);
-                            },500);
+                            },200);
 
                             // TODO: 10.03.2025
                         } catch (Exception e) {
@@ -495,6 +502,8 @@ public class DashboardFaceApp extends  DialogFragment  {
                     @Override
                     public void onClick(View v) {
                         try {
+                            // TODO: 13.09.2025
+                            ((MaterialButton) v).setBackgroundColor(Color.GRAY);
                             v.getHandler().postDelayed(()->{
                                 Intent intentЗапускСогласования = new Intent();
                                 Bundle data = new Bundle();
@@ -503,7 +512,7 @@ public class DashboardFaceApp extends  DialogFragment  {
                                 intentЗапускСогласования.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                 startActivity(intentЗапускСогласования);
 
-                            },500);
+                            },200);
 
                             // TODO: 10.03.2025
 
@@ -536,7 +545,7 @@ public class DashboardFaceApp extends  DialogFragment  {
                                 intentЗапускСогласованиеЦены1С.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                 startActivity(intentЗапускСогласованиеЦены1С);
 
-                            },500);
+                            },200);
 
                             // TODO: 10.03.2025
 
@@ -574,6 +583,8 @@ public class DashboardFaceApp extends  DialogFragment  {
                     @Override
                     public void onClick(View v) {
                         try{
+                            // TODO: 13.09.2025
+                            ((MaterialButton) v).setBackgroundColor(Color.GRAY);
                             v.getHandler().postDelayed(()->{
 
                                 // TODO Запусукаем Фргамент НАстройки  dashbord
@@ -583,7 +594,7 @@ public class DashboardFaceApp extends  DialogFragment  {
                                         " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
                                         " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n");
 
-                            },500);
+                            },200);
 
 
 
