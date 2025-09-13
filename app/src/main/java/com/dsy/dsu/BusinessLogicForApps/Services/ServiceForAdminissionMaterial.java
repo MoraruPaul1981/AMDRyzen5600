@@ -525,7 +525,7 @@ public class ServiceForAdminissionMaterial extends IntentService {
                 Uri uri = Uri.parse("content://com.dsy.dsu.providerdatabase/" + Таблица.trim() + "");
                 ContentResolver resolver = context.getContentResolver();
                 // TODO Курсор
-                data.putString("selection","user_update=? AND status_send!=?  AND name_cfo IS NOT NULL ");
+                data.putString("selection","user_update=? AND status_send!=?  AND name_cfo IS NOT NULL  AND closed=0");
                 data.putStringArray("selectionArgs",new String[]{String.valueOf(ПубличныйIDДляФрагмента),"Удаленная"});
                 data.putString("groupby","name_cfo");
                 // курсор = resolver.query(uri,new String[]{"*"},"user_update=? AND status_send!=?",new String[]{String.valueOf(ПубличныйIDДляФрагмента),"Удаленная"},"name_cfo");// TODO: 13.10.2022 ,"Удаленная"
@@ -705,8 +705,8 @@ public class ServiceForAdminissionMaterial extends IntentService {
                 ContentResolver resolver = context.getContentResolver();
                 switch (Таблица.trim()){
                     case "cfo":
-                        data.putString("selection"," closed!=?");
-                        data.putStringArray("selectionArgs",new String[]{"True"});
+                        data.putString("selection"," closed=?");
+                        data.putStringArray("selectionArgs",new String[]{"0"});
                         data.putString("sortOrder","name");
                         break;
                     case "type_materials":

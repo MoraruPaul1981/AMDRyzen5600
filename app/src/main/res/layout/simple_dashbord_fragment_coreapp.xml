@@ -69,7 +69,7 @@
                         xmlns:android="http://schemas.android.com/apk/res/android"
                         android:id="@+id/pagerdachbord"
                         android:layout_width="match_parent"
-                        android:layout_height="180dp"
+                        android:layout_height="200dp"
                          android:layout_centerInParent="true"
                         app:cardBackgroundColor="@color/divider" />
                 </RelativeLayout>
@@ -84,8 +84,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:background="@drawable/disayn_line_tablerow6"
         android:layout_gravity="center">
+
+
+
 
 
         <ScrollView
@@ -100,12 +102,28 @@
             android:transcriptMode="alwaysScroll"
             android:drawingCacheQuality="auto"
             android:foregroundGravity="center_horizontal"
-            android:orientation="horizontal"
-            android:overScrollMode="always"
-            android:background="#FFFFFF"
+            android:orientation="vertical"
             android:scrollbarAlwaysDrawHorizontalTrack="true"
             android:scrollbarAlwaysDrawVerticalTrack="true"
             android:scrollbarStyle="outsideInset">
+
+
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:animateLayoutChanges="true"
+                android:gravity="center"
+                app:cardBackgroundColor="#F5F5F6"
+                app:cardCornerRadius="1dp"
+                app:cardElevation="20dp"
+                app:cardMaxElevation="10dp"
+                android:translationZ="100dp"
+                app:strokeColor="#E0DFE4"
+                app:strokeWidth="0dp">
+
+
+
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -137,7 +155,7 @@
                     app:cornerRadius="15dp"
                     app:iconGravity="textStart"
                     app:rippleColor="@color/design_default_color_on_secondary"
-                    app:strokeColor="#3EC7C7CC"
+                    app:strokeColor="#FFFFFF"
                     app:strokeWidth="1dp" />
 
 
@@ -169,7 +187,7 @@
                     app:cornerRadius="15dp"
                     app:iconGravity="textStart"
                     app:rippleColor="@color/design_default_color_on_secondary"
-                    app:strokeColor="#3EC7C7CC"
+                    app:strokeColor="#FFFFFF"
                     app:strokeWidth="1dp" />
 
 
@@ -201,7 +219,7 @@
                     app:cornerRadius="15dp"
                     app:iconGravity="textStart"
                     app:rippleColor="@color/design_default_color_on_secondary"
-                    app:strokeColor="#3EC7C7CC"
+                    app:strokeColor="#FFFFFF"
                     app:strokeWidth="1dp" />
 
 
@@ -231,7 +249,7 @@
                     app:cornerRadius="15dp"
                     app:iconGravity="textStart"
                     app:rippleColor="@color/design_default_color_on_secondary"
-                    app:strokeColor="#3EC7C7CC"
+                    app:strokeColor="#FFFFFF"
                     app:strokeWidth="1dp" />
 
 
@@ -266,7 +284,7 @@
                     app:cornerRadius="15dp"
                     app:iconGravity="textStart"
                     app:rippleColor="@color/design_default_color_on_secondary"
-                    app:strokeColor="#3EC7C7CC"
+                    app:strokeColor="#FFFFFF"
                     app:strokeWidth="1dp" />
 
 
@@ -280,6 +298,7 @@
                     android:layout_height="65dp"
                     android:layout_margin="5dp"
                     android:padding="10dp"
+                    app:iconSize="30dp"
                     android:layout_toRightOf="@+id/КнопкаСогласование"
                     android:layout_below="@+id/КнопкаСогласЦен"
                     android:backgroundTint="#FFFFFF"
@@ -295,7 +314,7 @@
 
 
                     app:backgroundTint="#30000000"
-                    app:iconTint="#B1B3B3"
+                    app:iconTint="#989A9A"
 
                     android:fontFamily="@font/alfa_slab_one"
                     android:minHeight="70dp"
@@ -309,14 +328,12 @@
                     app:cornerRadius="15dp"
                     app:iconGravity="textStart"
                     app:rippleColor="@color/design_default_color_on_secondary"
-                    app:strokeColor="#3EC7C7CC"
+                    app:strokeColor="#FFFFFF"
                     app:strokeWidth="1dp" />
 
 
-
-
-
             </RelativeLayout>
+        </com.google.android.material.card.MaterialCardView>
         </ScrollView>
 
 

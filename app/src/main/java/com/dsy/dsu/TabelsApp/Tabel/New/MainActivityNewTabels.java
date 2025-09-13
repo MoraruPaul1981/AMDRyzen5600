@@ -496,9 +496,11 @@ void  МетодПришлиПеременныеИзMainActivityListtabel(){
 														MaterialTextView materialTextViewЭлементСписка = ((MaterialTextView) view);
 														Integer ИндексНазваниеЦФО = cursor.getColumnIndex("name");///user_update  --old/// uuid
 														String НазваниеЦФО = cursor.getString(ИндексНазваниеЦФО).trim();
+														Integer columnclosed = cursor.getColumnIndex("closed");
+														Integer closed = cursor.getInt(columnclosed);
 														// TODO: 13.12.2022  производим состыковку
 
-														if (НазваниеЦФО.length()>2) {
+														if (НазваниеЦФО.length()>2 && closed==0) {
 															Integer UUIDНазваниеЦФО = cursor.getColumnIndex("uuid");///user_update  --old/// uuid
 															Long UUIDЦФО = cursor.getLong(UUIDНазваниеЦФО);
 															Bundle bundle = new Bundle();
