@@ -373,13 +373,19 @@ public class DashboardFaceApp extends  DialogFragment  {
                     @Override
                     public void onClick(View v) {
                         try {
-                            Log.d(this.getClass().getName(), "Запускает Согласния   ");
-                            Intent ИнтентЗаявкаНаТранспорт = new Intent();
-                            Bundle data = new Bundle();
-                            ИнтентЗаявкаНаТранспорт.putExtras(data);
-                            ИнтентЗаявкаНаТранспорт.setClass(getContext(), MainActivityOrdersTransports.class);//рабочий
-                            ИнтентЗаявкаНаТранспорт.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                            startActivity(ИнтентЗаявкаНаТранспорт);
+                            v.getHandler().postDelayed(()->{
+
+                                Log.d(this.getClass().getName(), "Запускает Согласния   ");
+                                Intent ИнтентЗаявкаНаТранспорт = new Intent();
+                                Bundle data = new Bundle();
+                                ИнтентЗаявкаНаТранспорт.putExtras(data);
+                                ИнтентЗаявкаНаТранспорт.setClass(getContext(), MainActivityOrdersTransports.class);//рабочий
+                                ИнтентЗаявкаНаТранспорт.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                startActivity(ИнтентЗаявкаНаТранспорт);
+
+
+                            },500);
+
                             // TODO: 10.03.2025
 
                         } catch (Exception e) {
@@ -399,13 +405,16 @@ public class DashboardFaceApp extends  DialogFragment  {
                     @Override
                     public void onClick(View v) {
                         try {
-                            Log.d(this.getClass().getName(), "Запускает Согласния   ");
-                            Intent intentЗапускСогласования1C = new Intent();
-                            Bundle data = new Bundle();
-                            intentЗапускСогласования1C.putExtras(data);
-                            intentЗапускСогласования1C.setClass(getContext(), MainActivity_CommitPay.class);//рабочий
-                            intentЗапускСогласования1C.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                            startActivity(intentЗапускСогласования1C);
+                            v.getHandler().postDelayed(()->{
+                                Log.d(this.getClass().getName(), "Запускает Согласния   ");
+                                Intent intentЗапускСогласования1C = new Intent();
+                                Bundle data = new Bundle();
+                                intentЗапускСогласования1C.putExtras(data);
+                                intentЗапускСогласования1C.setClass(getContext(), MainActivity_CommitPay.class);//рабочий
+                                intentЗапускСогласования1C.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                startActivity(intentЗапускСогласования1C);
+                            },500);
+
                             // TODO: 10.03.2025
 
                         } catch (Exception e) {
@@ -427,13 +436,18 @@ public class DashboardFaceApp extends  DialogFragment  {
                     @Override
                     public void onClick(View v) {
                         try {
-                            Log.d(this.getClass().getName(), "Запускает Согласния   ");
-                            Intent ИнтентЗаявкаНаТранспорт = new Intent();
-                            Bundle data = new Bundle();
-                            ИнтентЗаявкаНаТранспорт.putExtras(data);
-                            ИнтентЗаявкаНаТранспорт.setClass(getContext(), MainActivity_AdmissionMaterials.class);//рабочий
-                            ИнтентЗаявкаНаТранспорт.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                            startActivity(ИнтентЗаявкаНаТранспорт);
+                            v.getHandler().postDelayed(()->{
+
+                                Log.d(this.getClass().getName(), "Запускает Согласния   ");
+                                Intent ИнтентЗаявкаНаТранспорт = new Intent();
+                                Bundle data = new Bundle();
+                                ИнтентЗаявкаНаТранспорт.putExtras(data);
+                                ИнтентЗаявкаНаТранспорт.setClass(getContext(), MainActivity_AdmissionMaterials.class);//рабочий
+                                ИнтентЗаявкаНаТранспорт.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                startActivity(ИнтентЗаявкаНаТранспорт);
+
+                            },500);
+
                             // TODO: 10.03.2025
 
                         } catch (Exception e) {
@@ -454,13 +468,16 @@ public class DashboardFaceApp extends  DialogFragment  {
                     @Override
                     public void onClick(View v) {
                         try {
-                            Intent Интент_ЗапускТабельногоУчётаПервыйШаг = new Intent();
-                            Bundle data = new Bundle();
-                            Интент_ЗапускТабельногоУчётаПервыйШаг.putExtras(data);
-                            Интент_ЗапускТабельногоУчётаПервыйШаг.setClass(getContext(), MainActivity_List_Tabels.class); //  ТЕСТ КОД КОТОРЫЙ ЗАПУСКАЕТ ACTIVITY VIEWDATA  ПРОВЕРИТЬ ОБМЕН
-                            Интент_ЗапускТабельногоУчётаПервыйШаг.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK  );
-                            Log.d(this.getClass().getName(), "" + "    КнопкаТабельныйУчёт.setOnClickListener(new View.OnClickListener() {");
-                            startActivity(Интент_ЗапускТабельногоУчётаПервыйШаг);
+                            v.getHandler().postDelayed(()->{
+                                Intent Интент_ЗапускТабельногоУчётаПервыйШаг = new Intent();
+                                Bundle data = new Bundle();
+                                Интент_ЗапускТабельногоУчётаПервыйШаг.putExtras(data);
+                                Интент_ЗапускТабельногоУчётаПервыйШаг.setClass(getContext(), MainActivity_List_Tabels.class); //  ТЕСТ КОД КОТОРЫЙ ЗАПУСКАЕТ ACTIVITY VIEWDATA  ПРОВЕРИТЬ ОБМЕН
+                                Интент_ЗапускТабельногоУчётаПервыйШаг.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK  );
+                                Log.d(this.getClass().getName(), "" + "    КнопкаТабельныйУчёт.setOnClickListener(new View.OnClickListener() {");
+                                startActivity(Интент_ЗапускТабельногоУчётаПервыйШаг);
+                            },500);
+
                             // TODO: 10.03.2025
                         } catch (Exception e) {
                             e.printStackTrace();
@@ -478,12 +495,16 @@ public class DashboardFaceApp extends  DialogFragment  {
                     @Override
                     public void onClick(View v) {
                         try {
-                            Intent intentЗапускСогласования = new Intent();
-                            Bundle data = new Bundle();
-                            intentЗапускСогласования.putExtras(data);
-                            intentЗапускСогласования.setClass(getContext(), MainActivity_CommitPay.class);//рабочий
-                            intentЗапускСогласования.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                            startActivity(intentЗапускСогласования);
+                            v.getHandler().postDelayed(()->{
+                                Intent intentЗапускСогласования = new Intent();
+                                Bundle data = new Bundle();
+                                intentЗапускСогласования.putExtras(data);
+                                intentЗапускСогласования.setClass(getContext(), MainActivity_CommitPay.class);//рабочий
+                                intentЗапускСогласования.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                startActivity(intentЗапускСогласования);
+
+                            },500);
+
                             // TODO: 10.03.2025
 
                             Log.d(this.getClass().getName(), "\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
@@ -507,12 +528,16 @@ public class DashboardFaceApp extends  DialogFragment  {
                     @Override
                     public void onClick(View v) {
                         try {
-                            Intent intentЗапускСогласованиеЦены1С = new Intent();
-                            Bundle data = new Bundle();
-                            intentЗапускСогласованиеЦены1С.putExtras(data);
-                            intentЗапускСогласованиеЦены1С.setClass(getContext(), MainActivityCommitingPrices.class);//рабочий
-                            intentЗапускСогласованиеЦены1С.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                            startActivity(intentЗапускСогласованиеЦены1С);
+                            v.getHandler().postDelayed(()->{
+                                Intent intentЗапускСогласованиеЦены1С = new Intent();
+                                Bundle data = new Bundle();
+                                intentЗапускСогласованиеЦены1С.putExtras(data);
+                                intentЗапускСогласованиеЦены1С.setClass(getContext(), MainActivityCommitingPrices.class);//рабочий
+                                intentЗапускСогласованиеЦены1С.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                startActivity(intentЗапускСогласованиеЦены1С);
+
+                            },500);
+
                             // TODO: 10.03.2025
 
                             Log.d(this.getClass().getName(), "\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
@@ -549,12 +574,17 @@ public class DashboardFaceApp extends  DialogFragment  {
                     @Override
                     public void onClick(View v) {
                         try{
-                            // TODO Запусукаем Фргамент НАстройки  dashbord
-                            new LaunchActivityDiaologSettings(fragmentManager,getContext()).launchADashboardSettings(localBinderОбновлениеПО);
+                            v.getHandler().postDelayed(()->{
+
+                                // TODO Запусукаем Фргамент НАстройки  dashbord
+                                new LaunchActivityDiaologSettings(fragmentManager,getContext()).launchADashboardSettings(localBinderОбновлениеПО);
                                 // TODO: 01.08.2023
-                            Log.d(this.getClass().getName(),"\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
-                                    " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
-                                    " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n");
+                                Log.d(this.getClass().getName(),"\n" + " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +
+                                        " metod " + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n" +
+                                        " line " + Thread.currentThread().getStackTrace()[2].getLineNumber() + "\n");
+
+                            },500);
+
 
 
                             Log.i(getContext().getClass().getName(),  " class " + Thread.currentThread().getStackTrace()[2].getClassName() + "\n" +

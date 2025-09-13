@@ -135,8 +135,8 @@
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/КнопкаТабель"
                     style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
-                    android:layout_width="200dp"
-                    android:layout_height="300dp"
+                    android:layout_width="195dp"
+                    android:layout_height="310dp"
                     android:layout_alignParentLeft="true"
                     android:layout_margin="5dp"
                     android:padding="10dp"
@@ -153,6 +153,7 @@
                     app:cardElevation="2dp"
                     app:cardMaxElevation="1dp"
                     app:cornerRadius="10dp"
+                    android:shadowColor="@color/accent"
                     app:iconGravity="textStart"
                     app:rippleColor="@color/design_default_color_on_secondary"
                     app:strokeColor="#FFFFFF"
@@ -227,7 +228,7 @@
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/КнопкаСогласование"
                     style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
-                    android:layout_width="200dp"
+                    android:layout_width="195dp"
                     android:layout_height="165dp"
                     android:layout_margin="5dp"
                     android:padding="10dp"
